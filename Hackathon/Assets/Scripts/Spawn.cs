@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Spawn : MonoBehaviour
 {
+    #region Variables
     public List<GameObject> spawnobjects;
     public GameObject spawnArea;
     public GameObject randomobject;
@@ -17,19 +18,7 @@ public class Spawn : MonoBehaviour
     public GameObject scenario;
     public GameObject button;
     public GameObject spawned;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-        
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    #endregion
 
     public void SpawnObject()
     {
