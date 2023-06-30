@@ -5,16 +5,15 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+
+    #region Text Variables
     public float typingSpeed = 0.04f;
-
     public TextMeshProUGUI dialogueText;
-
     public string[] dialogueLines;
-
     private int dialogueIndex;
-
     public GameObject yesButton;
     public GameObject noButton;
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -67,5 +66,6 @@ public class DialogueManager : MonoBehaviour
         gameObject.SetActive(false);
         yesButton.SetActive(false);
         noButton.SetActive(false);
+
     }
 }
