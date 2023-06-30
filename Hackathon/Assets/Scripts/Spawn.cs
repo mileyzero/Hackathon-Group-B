@@ -16,6 +16,7 @@ public class Spawn : MonoBehaviour
 
     public GameObject scenario;
     public GameObject button;
+    public GameObject spawned;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +36,9 @@ public class Spawn : MonoBehaviour
         int randomrange = Random.Range(0, spawnobjects.Count);
         Vector3 spawnPosition = spawnArea.transform.position;
         randomobject = spawnobjects[randomrange];
-        Instantiate(randomobject, spawnPosition, Quaternion.identity);
+        spawned = Instantiate(randomobject, spawnPosition, Quaternion.identity);
+        spawned.transform.SetParent(spawnArea.transform, false);
+        spawned.transform.position = spawnArea.transform.position;
         
     }
 
@@ -75,13 +78,11 @@ public class Spawn : MonoBehaviour
             {
                 Debug.Log("YOU GOT SCAMMED");
                 Destroyobj();
-                SpawnObject();
             }
             else
             {
                 Debug.Log("INVESMENT SUCCESSFUL");
                 Destroyobj();
-                SpawnObject();
             }
         }
 
@@ -91,13 +92,11 @@ public class Spawn : MonoBehaviour
             {
                 Debug.Log("INVESTMENT SUCCESSFUL");
                 Destroyobj();
-                SpawnObject();
             }
             else
             {
                 Debug.Log("YOU GOT SCAMMED");
                 Destroyobj();
-                SpawnObject();
             }
         }
     }
