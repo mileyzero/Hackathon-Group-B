@@ -12,13 +12,27 @@ public class Spawn : MonoBehaviour
     public GameObject randomobject;
     public GameObject scamobject;
     public GameObject goodobject;
+
     public string scam = "scam";
     public string good = "good";
 
     public GameObject scenario;
-    public GameObject button;
+
+    public Button scenarioButton;
+
+    public GameObject yesButton;
+    public GameObject noButton;
+    public GameObject dialogue;
     public GameObject spawned;
     #endregion
+
+    private void Start()
+    {
+        scenario.SetActive(false);
+        yesButton.SetActive(false);
+        noButton.SetActive(false);
+        dialogue.SetActive(false);
+    }
 
     public void SpawnObject()
     {
@@ -55,15 +69,19 @@ public class Spawn : MonoBehaviour
     public void SpawnScenario()
     {
         SpawnObject();
+
         scenario.SetActive(true);
-        button.SetActive(false);
+        yesButton.SetActive(true);
+        noButton.SetActive(true);
+        dialogue.SetActive(true);
+        scenarioButton.enabled = false;
     }
 
     public void YesClick()
     {
         if(randomobject.tag == "scam")
         {
-            if(RandomNumber() <9)
+            if(RandomNumber() < 7)
             {
                 Debug.Log("YOU GOT SCAMMED");
                 Destroyobj();
@@ -77,7 +95,7 @@ public class Spawn : MonoBehaviour
 
         else if (randomobject.tag == "good")
         {
-            if (RandomNumber() < 9)
+            if (RandomNumber() < 6)
             {
                 Debug.Log("INVESTMENT SUCCESSFUL");
                 Destroyobj();

@@ -7,10 +7,16 @@ public class DialogueManager : MonoBehaviour
 {
 
     #region Text Variables
+    public Spawn spawn;
+
     public float typingSpeed = 0.04f;
+
     public TextMeshProUGUI dialogueText;
+
     public string[] dialogueLines;
+
     private int dialogueIndex;
+
     public GameObject yesButton;
     public GameObject noButton;
     #endregion
@@ -66,6 +72,7 @@ public class DialogueManager : MonoBehaviour
         gameObject.SetActive(false);
         yesButton.SetActive(false);
         noButton.SetActive(false);
-
+        spawn.scenarioButton.enabled = true;
+        spawn.scenario.SetActive(false);
     }
 }
