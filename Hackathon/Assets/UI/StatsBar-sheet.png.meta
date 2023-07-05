@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 661fe7489f5f122459c4d6affdd2be67
+guid: 78e6b9fcefb153744ad03d6a25a14892
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DonutSearch_0
+      name: StatsBar-sheet_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 10
-        width: 89
-        height: 89
+        x: 2
+        y: 50
+        width: 124
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5884505dd39d2ef41b8cb3725b4b6e33
-      internalID: -1117830164
+      spriteID: ba2eea0609189b24493dc62d06211d16
+      internalID: -949170789
       vertices: []
       indices: 
       edges: []
@@ -136,7 +136,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      DonutSearch_0: -1117830164
+      StatsBar-sheet_0: -949170789
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

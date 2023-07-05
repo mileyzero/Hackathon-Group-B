@@ -7,9 +7,11 @@ using UnityEngine.UI;
 public class Spawn : MonoBehaviour
 {
     #region Variables
+    public GameManager GM;
+
     public List<GameObject> spawnobjects;
     public GameObject spawnArea;
-    public GameObject randomobject;
+    public GameObject randomObject;
     public GameObject scamobject;
     public GameObject goodobject;
 
@@ -38,8 +40,8 @@ public class Spawn : MonoBehaviour
     {
         int randomrange = Random.Range(0, spawnobjects.Count);
         Vector3 spawnPosition = spawnArea.transform.position;
-        randomobject = spawnobjects[randomrange];
-        spawned = Instantiate(randomobject, spawnPosition, Quaternion.identity);
+        randomObject = spawnobjects[randomrange];
+        spawned = Instantiate(randomObject, spawnPosition, Quaternion.identity);
         spawned.transform.SetParent(spawnArea.transform, false);
         spawned.transform.position = spawnArea.transform.position;
         
@@ -55,13 +57,22 @@ public class Spawn : MonoBehaviour
     {
         scamobject = GameObject.FindGameObjectWithTag("scam");
         goodobject = GameObject.FindGameObjectWithTag("good");
-        if (randomobject.tag == "scam")
+
+        if (randomObject.tag == "scam")
         {
             Destroy(scamobject);
+
+            GM.happiness -= 0.5f;
+            GM.money -= 1f;
+            GM.popularity -= 0.5f;
         }
-        else if(randomobject.tag == "good")
+        else if(randomObject.tag == "good")
         {
             Destroy(goodobject);
+
+            GM.happiness += 1f;
+            GM.money -= 1f;
+            GM.popularity += 1.5f;
         }
  
     }
@@ -71,15 +82,23 @@ public class Spawn : MonoBehaviour
         SpawnObject();
 
         scenario.SetActive(true);
+        scenarioButton.enabled = false;
+
+        StartCoroutine(AnimationPlay(0.5f));
+    }
+
+    IEnumerator AnimationPlay(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+
         yesButton.SetActive(true);
         noButton.SetActive(true);
         dialogue.SetActive(true);
-        scenarioButton.enabled = false;
     }
 
     public void YesClick()
     {
-        if(randomobject.tag == "scam")
+        if(randomObject.tag == "scam")
         {
             if(RandomNumber() < 7)
             {
@@ -93,7 +112,38 @@ public class Spawn : MonoBehaviour
             }
         }
 
-        else if (randomobject.tag == "good")
+        else if (randomObject.tag == "good")
+        {
+            if (RandomNumber() < 6)
+            {
+                Debug.Log("INVESTMENT SUCCESSFUL");
+                Destroyobj();
+            }
+            else
+            {
+                Debug.Log("YOU GOT SCAMMED");
+                Destroyobj();
+            }
+        }
+    }
+
+    public void NoClick()
+    {
+        if (randomObject.tag == "scam")
+        {
+            if (RandomNumber() < 7)
+            {
+                Debug.Log("YOU GOT SCAMMED");
+                Destroyobj();
+            }
+            else
+            {
+                Debug.Log("INVESMENT SUCCESSFUL");
+                Destroyobj();
+            }
+        }
+
+        else if (randomObject.tag == "good")
         {
             if (RandomNumber() < 6)
             {
