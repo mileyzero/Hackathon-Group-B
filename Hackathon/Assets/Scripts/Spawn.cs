@@ -26,7 +26,6 @@ public class Spawn : MonoBehaviour
     public GameObject noButton;
     public GameObject dialogue;
     public GameObject spawned;
-    public GameObject nameBox;
     #endregion
 
     private void Start()
@@ -45,6 +44,7 @@ public class Spawn : MonoBehaviour
         spawned = Instantiate(randomObject, spawnPosition, Quaternion.identity);
         spawned.transform.SetParent(spawnArea.transform, false);
         spawned.transform.position = spawnArea.transform.position;
+        
     }
 
     public int RandomNumber()
@@ -74,6 +74,7 @@ public class Spawn : MonoBehaviour
             GM.money -= 1f;
             GM.popularity += 1.5f;
         }
+ 
     }
 
     public void SpawnScenario()
@@ -81,7 +82,6 @@ public class Spawn : MonoBehaviour
         SpawnObject();
 
         scenario.SetActive(true);
-        nameBox.SetActive(true);
         scenarioButton.enabled = false;
 
         StartCoroutine(AnimationPlay(0.5f));
