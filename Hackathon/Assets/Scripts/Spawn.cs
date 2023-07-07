@@ -26,6 +26,7 @@ public class Spawn : MonoBehaviour
     public GameObject noButton;
     public GameObject dialogue;
     public GameObject spawned;
+    public GameObject nameBox;
     #endregion
 
     private void Start()
@@ -34,6 +35,7 @@ public class Spawn : MonoBehaviour
         yesButton.SetActive(false);
         noButton.SetActive(false);
         dialogue.SetActive(false);
+        nameBox.SetActive(false);
     }
 
     public void SpawnObject()
@@ -82,6 +84,8 @@ public class Spawn : MonoBehaviour
         SpawnObject();
 
         scenario.SetActive(true);
+        nameBox.SetActive(true);
+
         scenarioButton.enabled = false;
 
         StartCoroutine(AnimationPlay(0.5f));
