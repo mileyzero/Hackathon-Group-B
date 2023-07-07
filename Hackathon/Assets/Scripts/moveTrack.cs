@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class moveTrack : MonoBehaviour
 {
-
+    public float speed;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +14,7 @@ public class moveTrack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(0, -5 * Time.deltaTime);
+        transform.position += new Vector3(0, speed * Time.deltaTime);
 
         if(transform.position.y < -10)
         {
