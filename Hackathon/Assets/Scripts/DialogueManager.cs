@@ -8,6 +8,7 @@ public class DialogueManager : MonoBehaviour
 
     #region Text Variables
     public Spawn spawn;
+    public NameGenerator nameGen;
 
     public float typingSpeed = 0.04f;
 
@@ -19,6 +20,7 @@ public class DialogueManager : MonoBehaviour
 
     public GameObject yesButton;
     public GameObject noButton;
+    public GameObject nameBox;
     #endregion
 
     // Start is called before the first frame update
@@ -74,5 +76,7 @@ public class DialogueManager : MonoBehaviour
         noButton.SetActive(false);
         spawn.scenarioButton.enabled = true;
         spawn.scenario.SetActive(false);
+        nameBox.SetActive(false);
+        nameGen.nameBox.GetComponent<TextMeshProUGUI>().text = null;
     }
 }
