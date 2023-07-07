@@ -21,6 +21,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject yesButton;
     public GameObject noButton;
     public GameObject nameBox;
+
     #endregion
 
     // Start is called before the first frame update
@@ -29,7 +30,6 @@ public class DialogueManager : MonoBehaviour
         yesButton.SetActive(false);
         noButton.SetActive(false);
 
-        dialogueText.text = string.Empty;
         StartDialogue();
     }
 
@@ -78,5 +78,7 @@ public class DialogueManager : MonoBehaviour
         spawn.scenario.SetActive(false);
         nameBox.SetActive(false);
         nameGen.nameBox.GetComponent<TextMeshProUGUI>().text = null;
+
+        dialogueText.text = string.Empty;
     }
 }
