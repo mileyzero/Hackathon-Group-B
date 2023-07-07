@@ -6,6 +6,7 @@ TagManager:
   tags:
   - scam
   - good
+  - cone
   layers:
   - Default
   - TransparentFX
