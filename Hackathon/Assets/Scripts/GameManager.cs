@@ -20,7 +20,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        happinessSlider.value = Random.Range(0.05f, 0.2f);
+        moneySlider.value = Random.Range(0.05f, 0.3f);
+        popularitySlider.value = Random.Range(0.05f, 0.15f);
     }
 
     // Update is called once per frame
