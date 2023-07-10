@@ -7,6 +7,8 @@ TagManager:
   - scam
   - good
   - cone
+  - car
+  - road
   layers:
   - Default
   - TransparentFX
