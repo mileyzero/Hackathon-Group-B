@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class CarController : MonoBehaviour
 {
@@ -10,12 +10,14 @@ public class CarController : MonoBehaviour
     Vector3 carPosition;
     public float maxPos;
 
+    public Slider carslider;
     public float timer;
     public float currentTime;
     bool timerrunning = false;
     void Start()
     {
         carPosition = transform.position;
+        carslider.value = 0;
         StartTimer();
     }
 
@@ -33,6 +35,7 @@ public class CarController : MonoBehaviour
 
         if (timerrunning)
         {
+            carslider.value = 1f - (timer/25f);
             timer -= Time.deltaTime;
             if (timer <= 0f)
             {
