@@ -10,10 +10,16 @@ public class CarController : MonoBehaviour
     Vector3 carPosition;
     public float maxPos;
 
+    public GameObject win;
+    public GameObject lose_scn;
+
     public Slider carslider;
     public float timer;
     public float currentTime;
-    bool timerrunning = false;
+    public bool timerrunning = false;
+    public bool lose = false;
+    public bool Win = false;
+
     void Start()
     {
         carPosition = transform.position;
@@ -39,10 +45,23 @@ public class CarController : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer <= 0f)
             {
-                timerrunning = false;
-                Debug.Log("Win");
+                if(lose == false)
+                {
+                    timerrunning = false;
+                    Win = true;
+                    win.SetActive(true);
+                    Debug.Log("Win");
+                }
+                
             }
            
         }
+
+        if(lose == true && Win ==false)
+        {
+            lose_scn.SetActive(true);
+        }
+
+        
     }
 }
