@@ -6,6 +6,7 @@ using UnityEngine;
 public class moveTrack : MonoBehaviour
 {
     public float speed;
+    public float maxspeed;
     public CarController car;
     
     // Start is called before the first frame update
@@ -26,7 +27,7 @@ public class moveTrack : MonoBehaviour
         }
    
 
-        if(speed >= -15f)
+        if(speed >= -maxspeed)
         {
             if (car.timer <= 25f)
             {
