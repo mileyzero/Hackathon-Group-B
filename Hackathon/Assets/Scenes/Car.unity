@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -10
-  maxspeed: 20
+  maxspeed: 17
   car: {fileID: 656568816}
 --- !u!212 &528764804
 SpriteRenderer:
@@ -919,7 +919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -10
-  maxspeed: 20
+  maxspeed: 17
   car: {fileID: 656568816}
 --- !u!212 &741098243
 SpriteRenderer:
