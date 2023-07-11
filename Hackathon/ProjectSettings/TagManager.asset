@@ -9,6 +9,7 @@ TagManager:
   - cone
   - car
   - road
+  - carlose
   layers:
   - Default
   - TransparentFX
