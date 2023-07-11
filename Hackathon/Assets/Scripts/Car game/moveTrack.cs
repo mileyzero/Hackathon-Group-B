@@ -7,6 +7,7 @@ public class moveTrack : MonoBehaviour
 {
     public float speed;
     public float maxspeed;
+    public float swapPosition;
     public CarController car;
     
     // Start is called before the first frame update
@@ -21,7 +22,7 @@ public class moveTrack : MonoBehaviour
     void Update()
     {
         transform.position += new Vector3(0, speed * Time.deltaTime);
-        if(transform.position.y < -10)
+        if(transform.position.y < -swapPosition)
         {
             transform.position = new Vector3(transform.position.x,10f);
         }
