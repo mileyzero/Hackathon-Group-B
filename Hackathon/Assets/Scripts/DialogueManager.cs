@@ -18,6 +18,8 @@ public class DialogueManager : MonoBehaviour
 
     private int dialogueIndex;
 
+    private bool isDialogue;
+
     public GameObject yesButton;
     public GameObject noButton;
     public GameObject nameBox;
@@ -25,7 +27,7 @@ public class DialogueManager : MonoBehaviour
     #endregion
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         yesButton.SetActive(false);
         noButton.SetActive(false);
@@ -36,11 +38,23 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(isDialogue);
+
+        if (dialogueText.text != dialogueLines[dialogueIndex])
+        {
+            isDialogue = false;
+        }
+
+        if (dialogueText.text == dialogueLines[dialogueIndex])
+        {
+            isDialogue = true;
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             if(dialogueText.text == dialogueLines[dialogueIndex])
             {
-                
+                isDialogue = true;
             }
             else
             {
@@ -50,22 +64,29 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    void StartDialogue()
+    private void StartDialogue()
     {
         dialogueIndex = 0;
-        StartCoroutine(DialogueStart());
+
+        if (isDialogue == false)
+        {
+            StartCoroutine(DialogueStart());
+        }
     }
 
-    IEnumerator DialogueStart()
+    private IEnumerator DialogueStart()
     {
-        //to type characters 1 by 1
-        foreach(char c in dialogueLines[dialogueIndex].ToCharArray())
+        while (isDialogue == false)
         {
-            dialogueText.text += c;
-            yield return new WaitForSeconds(typingSpeed);
+            //to type characters 1 by 1
+            foreach (char c in dialogueLines[dialogueIndex].ToCharArray())
+            {
+                dialogueText.text += c;
+                yield return new WaitForSeconds(typingSpeed);
 
-            yesButton.SetActive(true);
-            noButton.SetActive(true);
+                yesButton.SetActive(true);
+                noButton.SetActive(true);
+            }
         }
     }
 
@@ -79,6 +100,6 @@ public class DialogueManager : MonoBehaviour
         nameBox.SetActive(false);
         nameGen.nameBox.GetComponent<TextMeshProUGUI>().text = null;
 
-        dialogueText.text = string.Empty;
+        isDialogue = false;
     }
 }

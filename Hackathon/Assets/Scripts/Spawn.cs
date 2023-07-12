@@ -46,7 +46,6 @@ public class Spawn : MonoBehaviour
         spawned = Instantiate(randomObject, spawnPosition, Quaternion.identity);
         spawned.transform.SetParent(spawnArea.transform, false);
         spawned.transform.position = spawnArea.transform.position;
-        
     }
 
     public int RandomNumber()
@@ -64,9 +63,13 @@ public class Spawn : MonoBehaviour
         {
             Destroy(scamobject);
 
-            GM.happiness -= 0.5f;
-            GM.money -= 1f;
-            GM.popularity -= 0.5f;
+            GM.happiness -= Random.Range(1f, 3f);
+            GM.money -= Random.Range(1f, 3f);
+            GM.popularity -= Random.Range(1f, 3f);
+
+            GM.happinessSlider.value += GM.happiness;
+            GM.moneySlider.value += GM.money;
+            GM.popularitySlider.value += GM.popularity;
         }
         else if(randomObject.tag == "good")
         {
@@ -75,8 +78,11 @@ public class Spawn : MonoBehaviour
             GM.happiness += 1f;
             GM.money -= 1f;
             GM.popularity += 1.5f;
+
+            GM.happinessSlider.value += GM.happiness;
+            GM.moneySlider.value += GM.money;
+            GM.popularitySlider.value += GM.popularity;
         }
- 
     }
 
     public void SpawnScenario()
