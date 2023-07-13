@@ -24,7 +24,7 @@ public class CarController : MonoBehaviour
     {
         carPosition = transform.position;
         carslider.value = 0;
-        timer = Random.Range(15f, 25f);
+        timer = Random.Range(timer - 5f, timer);
         StartTimer();
     }
 
