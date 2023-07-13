@@ -33,7 +33,7 @@ public class Control : MonoBehaviour
         {
             CheckResults();
             result.enabled = true;
-            result.text = "Prize: " + prizeValue;
+            result.text = prizeValue;
         }
     }
 
@@ -52,22 +52,22 @@ public class Control : MonoBehaviour
     {
         if (rows[0].stoppedslot == "Happy" && rows[1].stoppedslot == "Happy" && rows[2].stoppedslot == "Happy")
         {
-            prizeValue = "Happy";
+            prizeValue = "+ Employee Happiness";
         }
 
-        else if (rows[0].stoppedslot == "Popular" && rows[1].stoppedslot == "Popular" && rows[2].stoppedslot == "Popular")
+        else if (rows[0].stoppedslot == "Popularity" && rows[1].stoppedslot == "Popularity" && rows[2].stoppedslot == "Popularity")
         {
-            prizeValue = "Popular";
+            prizeValue = "+ Popularity";
         }
 
         else if (rows[0].stoppedslot == "Money" && rows[1].stoppedslot == "Money" && rows[2].stoppedslot == "Money")
         {
-            prizeValue = "Money";
+            prizeValue = "+ Money";
         }
 
         else if (rows[0].stoppedslot == "7" && rows[1].stoppedslot == "7" && rows[2].stoppedslot == "7")
         {
-            prizeValue = "7";
+            prizeValue = "+ All Resources";
         }
 
         resultsChecked = true;

@@ -71,33 +71,6 @@ public class Row : MonoBehaviour
             yield return new WaitForSeconds(timeInterval);
 
         }
-        /*
-        if (transform.position.y == 0.25f)
-        {
-            stoppedslot = "Popularity";
-            Debug.Log(stoppedslot);
-        }
-        else if (transform.position.y == -0.75f)
-        {
-            stoppedslot = "7";
-            Debug.Log(stoppedslot);
-        }
-        else if (transform.position.y == -2.5f)
-        {
-            stoppedslot = "Money";
-            Debug.Log(stoppedslot);
-        }
-        else if (transform.position.y == -3.7f)
-        {
-            stoppedslot = "Happy";
-            Debug.Log(stoppedslot);
-        }
-        else if (transform.position.y == 4f)
-        {
-            stoppedslot = "Popularity";
-            Debug.Log(stoppedslot);
-        }
-        */
 
         if(transform.position.y <=-2f)
         {
