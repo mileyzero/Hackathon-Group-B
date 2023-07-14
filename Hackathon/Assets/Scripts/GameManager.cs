@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public Holiday holidayManager;
+
+    public GameObject notificationIcon;
+
     public Slider happinessSlider;
     public Slider moneySlider;
     public Slider popularitySlider;
@@ -27,11 +31,17 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        timer = delayTimer;
+
         isRunning = false;
 
         happinessSlider.value = Random.Range(20f, 55f);
         moneySlider.value = Random.Range(30f, 65f);
         popularitySlider.value = 20f;
+
+        notificationIcon.SetActive(false);
+
+        holidayManager.scenarioButton.enabled = false;
     }
 
     // Update is called once per frame
@@ -42,7 +52,7 @@ public class GameManager : MonoBehaviour
 
         if(isRunning == false)
         {
-            timer -= delayTimer;
+            timer -= Time.deltaTime;
             int randomInitialize = Random.Range(0, 2);
 
             if(timer <= 0)
@@ -51,20 +61,28 @@ public class GameManager : MonoBehaviour
 
                 if(randomInitialize == 0)
                 {
+                    holidayManager.scenarioButton.enabled = true;
+
+                    notificationIcon.SetActive(true);
                     InitializeHoliday();
                 }
 
                 else if(randomInitialize == 1)
                 {
+                    holidayManager.scenarioButton.enabled = true;
+
+                    notificationIcon.SetActive(true);
                     InitializeInvest();
                 }
+
+                Debug.Log(randomInitialize);
             }
         }
     }
 
     public void InitializeHoliday()
     {
-
+        //holidayManager.GetComponent<Holiday>();
     }
 
     public void InitializeInvest()

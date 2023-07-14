@@ -79,7 +79,7 @@ public class Holiday : MonoBehaviour
 
         GM.happinessSlider.value += GM.happiness;
         GM.moneySlider.value += GM.money;
-        GM.popularitySlider.value += GM.popularity;
+        GM.popularitySlider.value += GM.popularity; 
     }
 
     public void NoClick()
