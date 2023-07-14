@@ -36,6 +36,8 @@ public class Spawn : MonoBehaviour
         noButton.SetActive(false);
         dialogue.SetActive(false);
         nameBox.SetActive(false);
+
+        scenarioButton.enabled = false;
     }
 
     public void SpawnObject()
