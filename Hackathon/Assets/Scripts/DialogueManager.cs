@@ -7,7 +7,9 @@ public class DialogueManager : MonoBehaviour
 {
 
     #region Text Variables
-    public Spawn spawn;
+    public Holiday holidayManager;
+    public Investment investManager;
+
     public NameGenerator nameGen;
 
     public float typingSpeed = 0.04f;
@@ -38,7 +40,7 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(isDialogue);
+        Debug.Log("Dialogue Playing");
 
         if (dialogueText.text != dialogueLines[dialogueIndex])
         {
@@ -95,8 +97,8 @@ public class DialogueManager : MonoBehaviour
         gameObject.SetActive(false);
         yesButton.SetActive(false);
         noButton.SetActive(false);
-        spawn.scenarioButton.enabled = true;
-        spawn.scenario.SetActive(false);
+
+
         nameBox.SetActive(false);
         nameGen.nameBox.GetComponent<TextMeshProUGUI>().text = null;
 
