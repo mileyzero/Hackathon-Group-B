@@ -1,54 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-public class Spawn : MonoBehaviour
+public class Investment : MonoBehaviour
 {
-    #region Variables
     public GameManager GM;
-    
-    [SerializeField]
+
+    private GameObject scamObject;
+    private GameObject goodObject;
+
+    public List<GameObject> spawnObjects;
+    public GameObject spawnArea;
     public GameObject randomObject;
 
-    private GameObject scamobject;
-    private GameObject goodobject;
-    private GameObject spawned;
-
-    public List<GameObject> spawnobjects;
-    public GameObject spawnArea;
-
-    public string scam = "scam";
-    public string good = "good";
-
-    public GameObject scenario;
-    public GameObject yesButton;
-    public GameObject noButton;
-    public GameObject dialogue;
-    public GameObject nameBox;
+    public GameObject investmentScenario;
 
     public Button scenarioButton;
 
-    #endregion
+    public GameObject yesButton;
+    public GameObject noButton;
+    public GameObject investmentDialogue;
+    public GameObject spawned;
+    public GameObject nameBox;
 
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-        scenario.SetActive(false);
+        GM.investmentNotiIcon.SetActive(false);
+        GM.investmentButton.SetActive(false);
+
+        enabled = false;
+
+        investmentScenario.SetActive(false);
         yesButton.SetActive(false);
         noButton.SetActive(false);
-        dialogue.SetActive(false);
+        investmentDialogue.SetActive(false);
         nameBox.SetActive(false);
+    }
 
-        scenarioButton.enabled = false;
+    // Update is called once per frame
+    void Update()
+    {
+
     }
 
     public void SpawnObject()
     {
         Debug.Log("Spawned");
-        int randomrange = Random.Range(0, spawnobjects.Count);
+        int randomRange = Random.Range(0, spawnObjects.Count);
         Vector3 spawnPosition = spawnArea.transform.position;
-        randomObject = spawnobjects[randomrange];
+        randomObject = spawnObjects[randomRange];
         spawned = Instantiate(randomObject, spawnPosition, Quaternion.identity);
         spawned.transform.SetParent(spawnArea.transform, false);
         spawned.transform.position = spawnArea.transform.position;
@@ -56,47 +59,15 @@ public class Spawn : MonoBehaviour
 
     public int RandomNumber()
     {
-        int random = Random.Range(1,10);
+        int random = Random.Range(1, 10);
         return random;
-    }
-
-    public void Destroyobj()
-    {
-        scamobject = GameObject.FindGameObjectWithTag("scam");
-        goodobject = GameObject.FindGameObjectWithTag("good");
-
-        Debug.Log("Destroyed");
-        if (randomObject.tag == "scam")
-        {
-            Destroy(scamobject);
-
-            GM.happiness -= Random.Range(1f, 3f);
-            GM.money -= Random.Range(1f, 3f);
-            GM.popularity -= Random.Range(1f, 3f);
-
-            GM.happinessSlider.value += GM.happiness;
-            GM.moneySlider.value += GM.money;
-            GM.popularitySlider.value += GM.popularity;
-        }
-        else if(randomObject.tag == "good")
-        {
-            Destroy(goodobject);
-
-            GM.happiness += 1f;
-            GM.money -= 1f;
-            GM.popularity += 1.5f;
-
-            GM.happinessSlider.value += GM.happiness;
-            GM.moneySlider.value += GM.money;
-            GM.popularitySlider.value += GM.popularity;
-        }
     }
 
     public void SpawnScenario()
     {
         SpawnObject();
 
-        scenario.SetActive(true);
+        investmentScenario.SetActive(true);
         nameBox.SetActive(true);
 
         scenarioButton.enabled = false;
@@ -110,22 +81,55 @@ public class Spawn : MonoBehaviour
 
         yesButton.SetActive(true);
         noButton.SetActive(true);
-        dialogue.SetActive(true);
+        investmentDialogue.SetActive(true);
+    }
+
+    public void DestroyObject()
+    {
+        scamObject = GameObject.FindGameObjectWithTag("scam");
+        goodObject = GameObject.FindGameObjectWithTag("good");
+
+        Debug.Log("Destroyed");
+
+        if (randomObject.tag == "scam")
+        {
+            Destroy(scamObject);
+
+            GM.happiness -= Random.Range(1f, 3f);
+            GM.money -= Random.Range(1f, 3f);
+            GM.popularity -= Random.Range(1f, 3f);
+
+            GM.happinessSlider.value += GM.happiness;
+            GM.moneySlider.value += GM.money;
+            GM.popularitySlider.value += GM.popularity;
+        }
+        else if (randomObject.tag == "good")
+        {
+            Destroy(goodObject);
+
+            GM.happiness += 1f;
+            GM.money -= 1f;
+            GM.popularity += 1.5f;
+
+            GM.happinessSlider.value += GM.happiness;
+            GM.moneySlider.value += GM.money;
+            GM.popularitySlider.value += GM.popularity;
+        }
     }
 
     public void YesClick()
     {
-        if(randomObject.tag == "scam")
+        if (randomObject.tag == "scam")
         {
-            if(RandomNumber() < 7)
+            if (RandomNumber() < 7)
             {
                 Debug.Log("YOU GOT SCAMMED");
-                Destroyobj();
+                DestroyObject();
             }
             else
             {
                 Debug.Log("INVESMENT SUCCESSFUL");
-                Destroyobj();
+                DestroyObject();
             }
         }
 
@@ -134,14 +138,16 @@ public class Spawn : MonoBehaviour
             if (RandomNumber() < 6)
             {
                 Debug.Log("INVESTMENT SUCCESSFUL");
-                Destroyobj();
+                DestroyObject();
             }
             else
             {
                 Debug.Log("YOU GOT SCAMMED");
-                Destroyobj();
+                DestroyObject();
             }
         }
+
+        GM.FunctionUpdates();
     }
 
     public void NoClick()
@@ -151,12 +157,12 @@ public class Spawn : MonoBehaviour
             if (RandomNumber() < 7)
             {
                 Debug.Log("YOU GOT SCAMMED");
-                Destroyobj();
+                DestroyObject();
             }
             else
             {
                 Debug.Log("INVESMENT SUCCESSFUL");
-                Destroyobj();
+                DestroyObject();
             }
         }
 
@@ -165,13 +171,15 @@ public class Spawn : MonoBehaviour
             if (RandomNumber() < 6)
             {
                 Debug.Log("INVESTMENT SUCCESSFUL");
-                Destroyobj();
+                DestroyObject();
             }
             else
             {
                 Debug.Log("YOU GOT SCAMMED");
-                Destroyobj();
+                DestroyObject();
             }
         }
+
+        GM.FunctionUpdates();
     }
 }

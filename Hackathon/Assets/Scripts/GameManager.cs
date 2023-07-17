@@ -6,8 +6,14 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public Holiday holidayManager;
+    public Investment investManager;
+    public NameGenerator nameManager;
 
-    public GameObject notificationIcon;
+    public GameObject investmentNotiIcon;
+    public GameObject employeeNotiIcon;
+
+    public GameObject investmentButton;
+    public GameObject employeeButton;
 
     public Slider happinessSlider;
     public Slider moneySlider;
@@ -24,9 +30,11 @@ public class GameManager : MonoBehaviour
     public float originalTimer = 3f;
     public float delayTimer = 3f;
 
-    public bool isRunning;
+    public float timer;
 
-    float timer;
+    public int randomInitialize;
+
+    public bool isRunning;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +47,11 @@ public class GameManager : MonoBehaviour
         moneySlider.value = Random.Range(30f, 65f);
         popularitySlider.value = 20f;
 
-        notificationIcon.SetActive(false);
+        investmentNotiIcon.SetActive(false);
+        employeeNotiIcon.SetActive(false);
+
+        investmentButton.SetActive(false);
+        employeeButton.SetActive(false);
 
         holidayManager.scenarioButton.enabled = false;
     }
@@ -47,13 +59,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(timer);
         Debug.Log(isRunning);
 
         if(isRunning == false)
         {
+            randomInitialize = Random.Range(0, 2);
             timer -= Time.deltaTime;
-            int randomInitialize = Random.Range(0, 2);
 
             if(timer <= 0)
             {
@@ -61,18 +72,18 @@ public class GameManager : MonoBehaviour
 
                 if(randomInitialize == 0)
                 {
-                    holidayManager.scenarioButton.enabled = true;
+                    investManager.scenarioButton.enabled = true;
 
-                    notificationIcon.SetActive(true);
-                    InitializeHoliday();
+                    investmentNotiIcon.SetActive(true);
+                    investmentButton.SetActive(true);
                 }
 
                 else if(randomInitialize == 1)
                 {
                     holidayManager.scenarioButton.enabled = true;
 
-                    notificationIcon.SetActive(true);
-                    InitializeInvest();
+                    employeeButton.SetActive(true);
+                    employeeNotiIcon.SetActive(true);
                 }
 
                 Debug.Log(randomInitialize);
@@ -80,13 +91,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void FunctionUpdates()
+    {
+        timer = originalTimer;
+        isRunning = false;
+    }
+
     public void InitializeHoliday()
     {
-        //holidayManager.GetComponent<Holiday>();
+        Debug.Log("Holiday");
+        holidayManager.GetComponent<Holiday>().SpawnScenario();
+        nameManager.GetComponent<NameGenerator>().NameRandomList();
     }
 
     public void InitializeInvest()
     {
-
+        Debug.Log("Investment");
+        investManager.GetComponent<Investment>().SpawnScenario();
+        nameManager.GetComponent<NameGenerator>().NameRandomList();
     }
 }
