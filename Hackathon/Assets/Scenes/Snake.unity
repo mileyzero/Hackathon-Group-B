@@ -181,7 +181,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9602dd777e823fd4eb198fdb21c238ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -220,6 +220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea407bbd76042674b8afa0da9ed60ac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridMoveTimerMax: 0
+  snakeMovePositionList: []
 --- !u!1 &1265194402
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,6 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snakeHeadSprite: {fileID: 21300000, guid: 9602dd777e823fd4eb198fdb21c238ee, type: 3}
   foodsprite: {fileID: 21300000, guid: 2379672ad3650514c8e0f29e49bd5685, type: 3}
+  snakebody: {fileID: 21300000, guid: a75db2384315d3e4b9f7383e89877045, type: 3}
 --- !u!4 &1265194404
 Transform:
   m_ObjectHideFlags: 0
@@ -321,9 +324,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingLayerID: -1433336271
+  m_SortingLayer: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.122641504, g: 0.122641504, b: 0.122641504, a: 1}
   m_FlipX: 0
@@ -344,7 +347,7 @@ Transform:
   m_GameObject: {fileID: 1277615833}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10, y: 10, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 1}
+  m_LocalScale: {x: 19, y: 19, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
