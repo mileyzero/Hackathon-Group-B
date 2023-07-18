@@ -6,19 +6,27 @@ using TMPro;
 
 public class Investment : MonoBehaviour
 {
+    //Reference script to GM
     public GameManager GM;
 
+    //private GameObject for scam and goodObject
     private GameObject scamObject;
     private GameObject goodObject;
 
+    //a List to set how many personas to randomize
     public List<GameObject> spawnObjects;
+
+    //spawnArea for player model
     public GameObject spawnArea;
     public GameObject randomObject;
 
+    //reference GameObject for investmentScenario
     public GameObject investmentScenario;
 
+    //Button for interaction of scenario
     public Button scenarioButton;
 
+    //GameObjects for scenario
     public GameObject yesButton;
     public GameObject noButton;
     public GameObject investmentDialogue;
@@ -28,11 +36,14 @@ public class Investment : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //referencing GameManager GM's investmemnt button and notification icon to false
         GM.investmentNotiIcon.SetActive(false);
         GM.investmentButton.SetActive(false);
 
+        //set button enabled to false
         enabled = false;
 
+        //set scenario, button and dialogue to false
         investmentScenario.SetActive(false);
         yesButton.SetActive(false);
         noButton.SetActive(false);
@@ -71,6 +82,7 @@ public class Investment : MonoBehaviour
         nameBox.SetActive(true);
 
         scenarioButton.enabled = false;
+        Debug.Log(scenarioButton.enabled);
 
         StartCoroutine(AnimationPlay(0.5f));
     }

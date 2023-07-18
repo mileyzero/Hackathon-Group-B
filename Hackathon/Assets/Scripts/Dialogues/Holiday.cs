@@ -66,7 +66,7 @@ public class Holiday : MonoBehaviour
     public void SpawnScenario()
     {
         SpawnObject();
-
+        Debug.Log("Spawning Scenario");
         holidayScenario.SetActive(true);
         nameBox.SetActive(true);
 
