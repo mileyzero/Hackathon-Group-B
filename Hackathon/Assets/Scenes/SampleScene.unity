@@ -507,7 +507,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 110, y: 5}
+  m_AnchoredPosition: {x: 110, y: 122.00001}
   m_SizeDelta: {x: 156.906, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &269790878
@@ -1004,6 +1004,18 @@ MonoBehaviour:
       - m_Target: {fileID: 38225539}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: InitializeInvest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 623468826}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: CallRandomEmployee
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1554,17 +1566,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de6e7e69140163d419431fcd2b2d09de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holidayManager: {fileID: 0}
-  investManager: {fileID: 0}
+  holidayManager: {fileID: 1176322977}
+  investManager: {fileID: 1914481760}
   nameGen: {fileID: 924156493}
   typingSpeed: 0.04
   dialogueText: {fileID: 377017363}
-  dialogueLines:
-  - Hey Boss! One of your employees is having their birthday TODAY. Would you like
-    to gift a present?
+  employeeLines:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  investmentLines:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  insuranceLines:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   yesButton: {fileID: 1033112532}
   noButton: {fileID: 1268056397}
   nameBox: {fileID: 924156490}
+  dialogueBox: {fileID: 623468823}
 --- !u!222 &623468827
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1584,6 +1627,7 @@ GameObject:
   - component: {fileID: 726585598}
   - component: {fileID: 726585600}
   - component: {fileID: 726585599}
+  - component: {fileID: 726585601}
   m_Layer: 5
   m_Name: Background Level 1
   m_TagString: Untagged
@@ -1649,6 +1693,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 726585597}
   m_CullTransparentMesh: 1
+--- !u!95 &726585601
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726585597}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e5404afeb41339444afaf1712308df27, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &814629679
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,7 +1939,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 110, y: 5}
+  m_AnchoredPosition: {x: 110, y: 122.00001}
   m_SizeDelta: {x: 156.906, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &912084910
@@ -3924,6 +3988,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1751725959}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: CallRandomEmployee
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1537857566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4404,8 +4480,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27
-  m_fontSizeBase: 27
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4670,17 +4746,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de6e7e69140163d419431fcd2b2d09de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holidayManager: {fileID: 0}
-  investManager: {fileID: 0}
+  holidayManager: {fileID: 1176322977}
+  investManager: {fileID: 1914481760}
   nameGen: {fileID: 1402993964}
   typingSpeed: 0.04
   dialogueText: {fileID: 1702195907}
-  dialogueLines:
-  - Hey Boss! One of your employees is having their birthday TODAY. Would you like
-    to gift a present?
+  employeeLines:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  investmentLines:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  insuranceLines:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   yesButton: {fileID: 604813007}
   noButton: {fileID: 400277288}
   nameBox: {fileID: 1402993960}
+  dialogueBox: {fileID: 1751725957}
 --- !u!222 &1751725960
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5401,7 +5508,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -102, y: 40}
+  m_AnchoredPosition: {x: -102, y: 163}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2146882197

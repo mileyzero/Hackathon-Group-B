@@ -16,7 +16,9 @@ public class DialogueManager : MonoBehaviour
 
     public TextMeshProUGUI dialogueText;
 
-    public string[] dialogueLines;
+    public string[] employeeLines = new string[10];
+    public string[] investmentLines = new string[10];
+    public string[] insuranceLines = new string[10];
 
     private int dialogueIndex;
 
@@ -25,51 +27,72 @@ public class DialogueManager : MonoBehaviour
     public GameObject yesButton;
     public GameObject noButton;
     public GameObject nameBox;
+    public GameObject dialogueBox;
 
     #endregion
 
     // Start is called before the first frame update
     private void Start()
     {
+
+        employeeLines[0] = "Hey Boss! One of your employees is having their birthday TODAY. Would you like to gift a present?";
+        employeeLines[1] = "Good Morning Boss! One of your senior employees would like to see you about a promotion. Would you like me to send them in to discuss his possible promotion?";
+
+
+
+        dialogueBox.SetActive(true);
         yesButton.SetActive(false);
         noButton.SetActive(false);
 
-        StartDialogue();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Dialogue Playing");
 
-        if (dialogueText.text != dialogueLines[dialogueIndex])
+        if (dialogueText.text != employeeLines[dialogueIndex])
         {
             isDialogue = false;
         }
 
-        if (dialogueText.text == dialogueLines[dialogueIndex])
+        if (dialogueText.text == employeeLines[dialogueIndex])
         {
             isDialogue = true;
         }
 
         if (Input.GetMouseButtonDown(0))
         {
-            if(dialogueText.text == dialogueLines[dialogueIndex])
+            if(dialogueText.text == employeeLines[dialogueIndex])
             {
                 isDialogue = true;
             }
             else
             {
                 StopAllCoroutines();
-                dialogueText.text = dialogueLines[dialogueIndex];
+                dialogueText.text = employeeLines[dialogueIndex];
             }
         }
+
+    }
+
+    public void CallRandomEmployee()
+    {
+        GetRandomEmployee();
+    }
+
+    public string GetRandomEmployee()
+    {
+        StartDialogue();
+
+        //chooses random dialogue in employeeLines
+        //then returns which employeeLines was chosen from randomDialogue randomizer
+        int randomDialogue = Random.Range(0, employeeLines.Length);
+        return employeeLines[randomDialogue];
     }
 
     private void StartDialogue()
     {
-        dialogueIndex = 0;
-
+        //if isDialogue bool equals to false, StartsCoroutine of DialogueStart
         if (isDialogue == false)
         {
             StartCoroutine(DialogueStart());
@@ -78,17 +101,13 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator DialogueStart()
     {
-        while (isDialogue == false)
+        while(isDialogue == false)
         {
-            //to type characters 1 by 1
-            foreach (char c in dialogueLines[dialogueIndex].ToCharArray())
-            {
-                dialogueText.text += c;
-                yield return new WaitForSeconds(typingSpeed);
+            yield return new WaitForSeconds(typingSpeed);
 
-                yesButton.SetActive(true);
-                noButton.SetActive(true);
-            }
+            dialogueBox.SetActive(true);
+            yesButton.SetActive(true);
+            noButton.SetActive(true);
         }
     }
 
@@ -98,6 +117,7 @@ public class DialogueManager : MonoBehaviour
         yesButton.SetActive(false);
         noButton.SetActive(false);
 
+        holidayManager.scenarioButton.enabled = false;
 
         nameBox.SetActive(false);
         nameGen.nameBox.GetComponent<TextMeshProUGUI>().text = null;
