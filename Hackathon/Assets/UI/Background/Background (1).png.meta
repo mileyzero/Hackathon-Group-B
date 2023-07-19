@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 855f4f51296693e40be3fc7c45de2fac
+guid: 06e5306dae2760f48aae6010ade2b709
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Background_0
+      name: Background (1)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89aa9b97bcc70c0429514b075d91df93
-      internalID: 1588623956
+      spriteID: 5afc07d6ef0ce754483b75599d1e7589
+      internalID: 888286962
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Background_1
+      name: Background (1)_1
       rect:
         serializedVersion: 2
         x: 5120
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e645b6dbc70c2944d9d4f10b48e7be5e
-      internalID: -1174400137
+      spriteID: 38175b114ca41434182519b2bc2c924e
+      internalID: 1982813445
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Background_2
+      name: Background (1)_2
       rect:
         serializedVersion: 2
         x: 0
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fbb982ed6690a2448f04be6da3b580c
-      internalID: -1245367842
+      spriteID: 359fc29aacd06e147959f8e3bf7d9f14
+      internalID: -1754893555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Background_3
+      name: Background (1)_3
       rect:
         serializedVersion: 2
         x: 5120
@@ -182,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1b08d09d5ada674fb4d94fe21db4fa0
-      internalID: 186439646
+      spriteID: 719da9cdcc2dec148944eee6d1464b7c
+      internalID: -77192358
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Background_4
+      name: Background (1)_4
       rect:
         serializedVersion: 2
         x: 0
@@ -203,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bdb38f5563de2cd4cabfd875d0bbf29e
-      internalID: -559954968
+      spriteID: efec118020f5f554fa41aeb2158f6bcf
+      internalID: -704998354
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Background_5
+      name: Background (1)_5
       rect:
         serializedVersion: 2
         x: 5120
@@ -224,14 +224,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc85131b4524b1b409c33707f1e3aafc
-      internalID: 1941917290
+      spriteID: 3bc5116a1d191464488ce0ca1e79fcfb
+      internalID: 774480995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Background_6
+      name: Background (1)_6
       rect:
         serializedVersion: 2
         x: 0
@@ -245,14 +245,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4476b5c87bee66940bd3d1bc4af5783c
-      internalID: -298456625
+      spriteID: 460c31663a5e3cd4081529acadfbf5f2
+      internalID: 1026128789
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Background_7
+      name: Background (1)_7
       rect:
         serializedVersion: 2
         x: 5120
@@ -266,8 +266,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8ed04eefa9a6334cbbcb2e30531a6b9
-      internalID: 1222044159
+      spriteID: a8479f601ecb8984cb3bc0d9b86662df
+      internalID: -1645511564
       vertices: []
       indices: 
       edges: []
@@ -283,14 +283,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Background_1: -1174400137
-      Background_3: 186439646
-      Background_0: 1588623956
-      Background_4: -559954968
-      Background_2: -1245367842
-      Background_5: 1941917290
-      Background_6: -298456625
-      Background_7: 1222044159
+      Background (1)_6: 1026128789
+      Background (1)_7: -1645511564
+      Background (1)_4: -704998354
+      Background (1)_3: -77192358
+      Background (1)_1: 1982813445
+      Background (1)_5: 774480995
+      Background (1)_0: 888286962
+      Background (1)_2: -1754893555
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

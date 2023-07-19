@@ -1015,7 +1015,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 623468826}
         m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
-        m_MethodName: CallRandomEmployee
+        m_MethodName: CallInvestDialogue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1521,7 +1521,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.4, y: 0.4}
   m_AnchorMax: {x: 0.4, y: 0.4}
-  m_AnchoredPosition: {x: 584.0937, y: 41.405777}
+  m_AnchoredPosition: {x: 584.0937, y: 48}
   m_SizeDelta: {x: 932.9899, y: 247.007}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &623468825
@@ -1569,41 +1569,33 @@ MonoBehaviour:
   holidayManager: {fileID: 1176322977}
   investManager: {fileID: 1914481760}
   nameGen: {fileID: 924156493}
-  typingSpeed: 0.04
   dialogueText: {fileID: 377017363}
   employeeLines:
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - 1
+  - 2
+  - 3
   investmentLines:
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - 1
+  - 2
+  - 3
   insuranceLines:
   - 
   - 
   - 
   - 
   - 
+  healthEmployeeLines:
   - 
   - 
   - 
   - 
   - 
+  isDialogue: 0
+  dialoguePlayed: 0
   yesButton: {fileID: 1033112532}
   noButton: {fileID: 1268056397}
   nameBox: {fileID: 924156490}
@@ -1644,7 +1636,7 @@ RectTransform:
   m_GameObject: {fileID: 726585597}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8.922932, y: 8.922932, z: 8.922932}
+  m_LocalScale: {x: 8.607417, y: 8.607417, z: 8.607417}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2014829170}
@@ -1652,7 +1644,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 30, y: 0}
   m_SizeDelta: {x: 256, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &726585599
@@ -1675,7 +1667,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c29ec2200eacc224887b3e8633b71bdb, type: 3}
+  m_Sprite: {fileID: 888286962, guid: 06e5306dae2760f48aae6010ade2b709, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3124,16 +3116,15 @@ MonoBehaviour:
   spawnObjects:
   - {fileID: 1733141527322304906, guid: 96e562137bc1bcc41b45ec8f86ae022f, type: 3}
   - {fileID: 2697030592239476989, guid: 80524ba81d1207d45bd7258bec1c8126, type: 3}
-  - {fileID: 8435740652968792424, guid: 1fa00880775209649ad7395b4c0bdad3, type: 3}
   spawnArea: {fileID: 2146882194}
-  randomObject: {fileID: 0}
   holidayScenario: {fileID: 269790876}
   scenarioButton: {fileID: 400405370}
   yesButton: {fileID: 604813007}
   noButton: {fileID: 400277288}
   holidayDialogue: {fileID: 1751725957}
-  spawned: {fileID: 0}
   nameBox: {fileID: 1402993960}
+  isYes: 0
+  isNo: 0
 --- !u!1 &1232754985
 GameObject:
   m_ObjectHideFlags: 0
@@ -3990,7 +3981,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1751725959}
         m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
-        m_MethodName: CallRandomEmployee
+        m_MethodName: CallEmployeeDialogue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4749,41 +4740,33 @@ MonoBehaviour:
   holidayManager: {fileID: 1176322977}
   investManager: {fileID: 1914481760}
   nameGen: {fileID: 1402993964}
-  typingSpeed: 0.04
   dialogueText: {fileID: 1702195907}
   employeeLines:
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - 1
+  - 2
+  - 3
   investmentLines:
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - 1
+  - 2
+  - 3
   insuranceLines:
   - 
   - 
   - 
   - 
   - 
+  healthEmployeeLines:
   - 
   - 
   - 
   - 
   - 
+  isDialogue: 0
+  dialoguePlayed: 0
   yesButton: {fileID: 604813007}
   noButton: {fileID: 400277288}
   nameBox: {fileID: 1402993960}
@@ -4977,8 +4960,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GM: {fileID: 38225539}
   spawnObjects:
-  - {fileID: 2697030592239476989, guid: 80524ba81d1207d45bd7258bec1c8126, type: 3}
-  - {fileID: 1733141527322304906, guid: 96e562137bc1bcc41b45ec8f86ae022f, type: 3}
+  - {fileID: 1733141527322304906, guid: 99a7403efe17e3c4b8449a44da921bcc, type: 3}
+  - {fileID: 2697030592239476989, guid: 52934781102662e4baf469aaf616d374, type: 3}
   - {fileID: 8435740652968792424, guid: 1fa00880775209649ad7395b4c0bdad3, type: 3}
   spawnArea: {fileID: 2146882194}
   randomObject: {fileID: 0}

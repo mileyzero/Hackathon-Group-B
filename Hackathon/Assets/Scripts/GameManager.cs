@@ -38,8 +38,8 @@ public class GameManager : MonoBehaviour
     public float popularity;
 
     //Float for original and delay timers
-    public float originalTimer = 3f;
-    public float delayTimer = 3f;
+    public float originalTimer;
+    public float delayTimer;
 
     //Float for timer
     public float timer;
@@ -53,6 +53,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Randomize timer
+        delayTimer = Random.Range(1f, 3f);
+        Debug.Log(delayTimer);
+
         //set timer to delayTimer
         timer = delayTimer;
 
@@ -115,7 +119,7 @@ public class GameManager : MonoBehaviour
     //This function returns the value of its original value when its being called.
     public void FunctionUpdates()
     {
-        timer = originalTimer;
+        timer = delayTimer;
         isRunning = false;
     }
 
