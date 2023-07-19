@@ -8,12 +8,13 @@ public class Holiday : MonoBehaviour
 {
     public GameManager GM;
 
-    private GameObject scamObject;
-    private GameObject goodObject;
+    private GameObject holidayObject;
 
     public List<GameObject> spawnObjects;
     public GameObject spawnArea;
-    public GameObject randomObject;
+
+    private GameObject randomObject;
+    private GameObject spawned;
 
     public GameObject holidayScenario;
 
@@ -22,12 +23,17 @@ public class Holiday : MonoBehaviour
     public GameObject yesButton;
     public GameObject noButton;
     public GameObject holidayDialogue;
-    public GameObject spawned;
     public GameObject nameBox;
+
+    public bool isYes;
+    public bool isNo;
 
     // Start is called before the first frame update
     void Start()
     {
+        isYes = false;
+        isNo = false;
+
         GM.employeeNotiIcon.SetActive(false);
         GM.employeeButton.SetActive(false);
 
@@ -66,11 +72,15 @@ public class Holiday : MonoBehaviour
     public void SpawnScenario()
     {
         SpawnObject();
-        Debug.Log("Spawning Scenario");
+
         holidayScenario.SetActive(true);
         nameBox.SetActive(true);
 
+        isYes = true;
+        isNo = true;
+
         scenarioButton.enabled = false;
+        Debug.Log(scenarioButton.enabled);
 
         StartCoroutine(AnimationPlay(0.5f));
     }
@@ -86,14 +96,39 @@ public class Holiday : MonoBehaviour
 
     public void DestroyObject()
     {
-        scamObject = GameObject.FindGameObjectWithTag("scam");
-        goodObject = GameObject.FindGameObjectWithTag("good");
+        holidayObject = GameObject.FindGameObjectWithTag("holiday");
 
-        Debug.Log("Destroyed");
-
-        if (randomObject.tag == "scam")
+        if(randomObject.tag == "holiday")
         {
-            Destroy(scamObject);
+            Destroy(holidayObject);
+        }
+    }
+
+    public void YesClick()
+    {
+        if (isYes == true)
+        {
+            holidayScenario.SetActive(false);
+
+            GM.happiness += Random.Range(1f, 3f);
+            GM.money -= Random.Range(1f, 3f);
+            GM.popularity += Random.Range(1f, 3f);
+
+            GM.happinessSlider.value += GM.happiness;
+            GM.moneySlider.value += GM.money;
+            GM.popularitySlider.value += GM.popularity;
+
+            DestroyObject();
+        }
+
+        GM.FunctionUpdates();
+    }
+
+    public void NoClick()
+    {
+        if (isNo == true)
+        {
+            holidayScenario.SetActive(false);
 
             GM.happiness -= Random.Range(1f, 3f);
             GM.money -= Random.Range(1f, 3f);
@@ -102,82 +137,8 @@ public class Holiday : MonoBehaviour
             GM.happinessSlider.value += GM.happiness;
             GM.moneySlider.value += GM.money;
             GM.popularitySlider.value += GM.popularity;
-        }
-        else if (randomObject.tag == "good")
-        {
-            Destroy(goodObject);
 
-            GM.happiness += 1f;
-            GM.money -= 1f;
-            GM.popularity += 1.5f;
-
-            GM.happinessSlider.value += GM.happiness;
-            GM.moneySlider.value += GM.money;
-            GM.popularitySlider.value += GM.popularity;
-        }
-    }
-
-    public void YesClick()
-    {
-        if (randomObject.tag == "scam")
-        {
-            if (RandomNumber() < 7)
-            {
-                Debug.Log("YOU GOT SCAMMED");
-                DestroyObject();
-            }
-            else
-            {
-                Debug.Log("INVESMENT SUCCESSFUL");
-                DestroyObject();
-            }
-        }
-
-        else if (randomObject.tag == "good")
-        {
-            if (RandomNumber() < 6)
-            {
-                Debug.Log("INVESTMENT SUCCESSFUL");
-                DestroyObject();
-            }
-            else
-            {
-                Debug.Log("YOU GOT SCAMMED");
-                DestroyObject();
-            }
-        }
-
-        GM.FunctionUpdates();
-    }
-
-    public void NoClick()
-    {
-        if (randomObject.tag == "scam")
-        {
-            if (RandomNumber() < 7)
-            {
-                Debug.Log("YOU GOT SCAMMED");
-                DestroyObject();
-            }
-            else
-            {
-                Debug.Log("INVESMENT SUCCESSFUL");
-                DestroyObject();
-            }
-        }
-
-        else if (randomObject.tag == "good")
-        {
-            if (RandomNumber() < 6)
-            {
-                Debug.Log("INVESTMENT SUCCESSFUL");
-                DestroyObject();
-            }
-            else
-            {
-                Debug.Log("YOU GOT SCAMMED");
-                DestroyObject();
-            }
+            DestroyObject();
         }
 
         GM.FunctionUpdates();

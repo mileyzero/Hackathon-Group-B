@@ -11,7 +11,7 @@ public class Investment : MonoBehaviour
 
     //private GameObject for scam and goodObject
     private GameObject scamObject;
-    private GameObject goodObject;
+    private GameObject investmentObject;
 
     //a List to set how many personas to randomize
     public List<GameObject> spawnObjects;
@@ -98,34 +98,16 @@ public class Investment : MonoBehaviour
 
     public void DestroyObject()
     {
+        investmentObject = GameObject.FindGameObjectWithTag("investment");
         scamObject = GameObject.FindGameObjectWithTag("scam");
-        goodObject = GameObject.FindGameObjectWithTag("good");
 
-        Debug.Log("Destroyed");
-
-        if (randomObject.tag == "scam")
+        if (randomObject.tag == "investment")
+        {
+            Destroy(investmentObject);
+        }
+        else if(randomObject.tag == "scam")
         {
             Destroy(scamObject);
-
-            GM.happiness -= Random.Range(1f, 3f);
-            GM.money -= Random.Range(1f, 3f);
-            GM.popularity -= Random.Range(1f, 3f);
-
-            GM.happinessSlider.value += GM.happiness;
-            GM.moneySlider.value += GM.money;
-            GM.popularitySlider.value += GM.popularity;
-        }
-        else if (randomObject.tag == "good")
-        {
-            Destroy(goodObject);
-
-            GM.happiness += 1f;
-            GM.money -= 1f;
-            GM.popularity += 1.5f;
-
-            GM.happinessSlider.value += GM.happiness;
-            GM.moneySlider.value += GM.money;
-            GM.popularitySlider.value += GM.popularity;
         }
     }
 
@@ -133,7 +115,9 @@ public class Investment : MonoBehaviour
     {
         if (randomObject.tag == "scam")
         {
-            if (RandomNumber() < 7)
+            investmentScenario.SetActive(false);
+
+            if (RandomNumber() < 3)
             {
                 Debug.Log("YOU GOT SCAMMED");
                 DestroyObject();
@@ -145,9 +129,11 @@ public class Investment : MonoBehaviour
             }
         }
 
-        else if (randomObject.tag == "good")
+        else if (randomObject.tag == "investment")
         {
-            if (RandomNumber() < 6)
+            investmentScenario.SetActive(false);
+
+            if (RandomNumber() < 8)
             {
                 Debug.Log("INVESTMENT SUCCESSFUL");
                 DestroyObject();
@@ -166,6 +152,8 @@ public class Investment : MonoBehaviour
     {
         if (randomObject.tag == "scam")
         {
+            investmentScenario.SetActive(false);
+
             if (RandomNumber() < 7)
             {
                 Debug.Log("YOU GOT SCAMMED");
@@ -180,9 +168,11 @@ public class Investment : MonoBehaviour
 
         else if (randomObject.tag == "good")
         {
-            if (RandomNumber() < 6)
+            investmentScenario.SetActive(false);
+
+            if (RandomNumber() < 5)
             {
-                Debug.Log("INVESTMENT SUCCESSFUL");
+                Debug.Log("INVESTMENT SUCCESS");
                 DestroyObject();
             }
             else
