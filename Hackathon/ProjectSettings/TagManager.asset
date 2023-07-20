@@ -12,6 +12,7 @@ TagManager:
   - carlose
   - holiday
   - investment
+  - snake
   layers:
   - Default
   - TransparentFX
@@ -46,6 +47,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1253632013
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
