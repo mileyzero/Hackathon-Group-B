@@ -11,16 +11,21 @@ public class GameManager : MonoBehaviour
     //Reference script to investManager
     public Investment investManager;
 
+    //Reference script to insuranceManager;
+    public Insurance insuranceManager;
+
     //Variable for NameGenerator
     public NameGenerator nameManager;
 
     //GameObject for investment and employee notification
     public GameObject investmentNotiIcon;
     public GameObject employeeNotiIcon;
+    public GameObject insuranceNotiIcon;
 
     //GameObject for investment and employee envelope icon
     public GameObject investmentButton;
     public GameObject employeeButton;
+    public GameObject insuranceButton;
 
     //Sliders for happiness, money and popularity
     public Slider happinessSlider;
@@ -71,10 +76,12 @@ public class GameManager : MonoBehaviour
         //set investment, employee notification icons to false
         investmentNotiIcon.SetActive(false);
         employeeNotiIcon.SetActive(false);
+        insuranceNotiIcon.SetActive(false);
 
         //set investment, employee email button to false
         investmentButton.SetActive(false);
         employeeButton.SetActive(false);
+        insuranceButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -109,6 +116,14 @@ public class GameManager : MonoBehaviour
 
                     employeeButton.SetActive(true);
                     employeeNotiIcon.SetActive(true);
+                }
+
+                else if(randomInitialize == 2)
+                {
+                    insuranceManager.scenarioButton.enabled = true;
+
+                    insuranceButton.SetActive(true);
+                    insuranceNotiIcon.SetActive(true);
                 }
 
                 Debug.Log(randomInitialize);
@@ -146,6 +161,17 @@ public class GameManager : MonoBehaviour
         investmentButton.SetActive(false);
 
         investManager.GetComponent<Investment>().SpawnScenario();
+        nameManager.GetComponent<NameGenerator>().NameRandomList();
+    }
+
+    public void InitializeInsurance()
+    {
+        Debug.Log("Insurance");
+
+        insuranceNotiIcon.SetActive(false);
+        insuranceButton.SetActive(false);
+
+        insuranceManager.GetComponent<Investment>().SpawnScenario();
         nameManager.GetComponent<NameGenerator>().NameRandomList();
     }
 }
