@@ -11,16 +11,21 @@ public class GameManager : MonoBehaviour
     //Reference script to investManager
     public Investment investManager;
 
+    //Reference script to insuranceManager;
+    public Insurance insuranceManager;
+
     //Variable for NameGenerator
     public NameGenerator nameManager;
 
     //GameObject for investment and employee notification
     public GameObject investmentNotiIcon;
     public GameObject employeeNotiIcon;
+    public GameObject insuranceNotiIcon;
 
     //GameObject for investment and employee envelope icon
     public GameObject investmentButton;
     public GameObject employeeButton;
+    public GameObject insuranceButton;
 
     //Sliders for happiness, money and popularity
     public Slider happinessSlider;
@@ -71,10 +76,12 @@ public class GameManager : MonoBehaviour
         //set investment, employee notification icons to false
         investmentNotiIcon.SetActive(false);
         employeeNotiIcon.SetActive(false);
+        insuranceNotiIcon.SetActive(false);
 
         //set investment, employee email button to false
         investmentButton.SetActive(false);
         employeeButton.SetActive(false);
+        insuranceButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -86,16 +93,16 @@ public class GameManager : MonoBehaviour
         //if the timer hits less or equals to 0, isRunning will set to true to prevent the timer from continuing
         //the randomInitalize number will then choose between 0 to 2, if its on 0, it will enable the email button for investment.
         //and if it lands on 1, it will enable the email button for employees.
-        if(isRunning == false)
+        if (isRunning == false)
         {
-            randomInitialize = Random.Range(0, 2);
+            randomInitialize = Random.Range(0, 3);
             timer -= Time.deltaTime;
 
-            if(timer <= 0)
+            if (timer <= 0)
             {
                 isRunning = true;
 
-                if(randomInitialize == 0)
+                if (randomInitialize == 0)
                 {
                     investManager.scenarioButton.enabled = true;
 
@@ -103,12 +110,20 @@ public class GameManager : MonoBehaviour
                     investmentButton.SetActive(true);
                 }
 
-                else if(randomInitialize == 1)
+                else if (randomInitialize == 1)
                 {
                     holidayManager.scenarioButton.enabled = true;
 
                     employeeButton.SetActive(true);
                     employeeNotiIcon.SetActive(true);
+                }
+
+                else if (randomInitialize == 2)
+                {
+                    insuranceManager.scenarioButton.enabled = true;
+
+                    insuranceButton.SetActive(true);
+                    insuranceNotiIcon.SetActive(true);
                 }
 
                 Debug.Log(randomInitialize);
@@ -146,6 +161,17 @@ public class GameManager : MonoBehaviour
         investmentButton.SetActive(false);
 
         investManager.GetComponent<Investment>().SpawnScenario();
+        nameManager.GetComponent<NameGenerator>().NameRandomList();
+    }
+
+    public void InitializeInsurance()
+    {
+        Debug.Log("Insurance");
+
+        insuranceNotiIcon.SetActive(false);
+        insuranceButton.SetActive(false);
+
+        insuranceManager.GetComponent<Investment>().SpawnScenario();
         nameManager.GetComponent<NameGenerator>().NameRandomList();
     }
 }

@@ -9,6 +9,9 @@ public class Investment : MonoBehaviour
     //Reference script to GM
     public GameManager GM;
 
+    //Reference script to DM
+    public DialogueManager DM;
+
     //private GameObject for scam and goodObject
     private GameObject scamObject;
     private GameObject investmentObject;
@@ -51,15 +54,15 @@ public class Investment : MonoBehaviour
         nameBox.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    //in SpawnObject, there will be an randomRange that detects how many objects are in the array spawnObjects
+    //then, a new vector3 spawnPosition equals to spawnArea's position
+    //a randomObject will take the current index of spawnObjects' array
+    //which then spawned will instantiate the randomObject chosen on the current spawnPosition
+    //spawned will then be set under a parent object's position
     public void SpawnObject()
     {
         Debug.Log("Spawned");
+
         int randomRange = Random.Range(0, spawnObjects.Count);
         Vector3 spawnPosition = spawnArea.transform.position;
         randomObject = spawnObjects[randomRange];
@@ -68,12 +71,9 @@ public class Investment : MonoBehaviour
         spawned.transform.position = spawnArea.transform.position;
     }
 
-    public int RandomNumber()
-    {
-        int random = Random.Range(1, 10);
-        return random;
-    }
-
+    //In SpawnScenario, it will call SpawnObject method, then set invesmentScenario and nameBox set active to true
+    //the scenarioButton will then set to false to prevent spamming of dialogues appearing and only one to appear
+    //lastly, StartCoroutine of AnimationPlay which is another method in 0.5 seconds
     public void SpawnScenario()
     {
         SpawnObject();
@@ -87,6 +87,7 @@ public class Investment : MonoBehaviour
         StartCoroutine(AnimationPlay(0.5f));
     }
 
+    //In AnimationPlay, it will return a float of seconds and set yes, no and investmentDialogue set active to true
     IEnumerator AnimationPlay(float seconds)
     {
         yield return new WaitForSeconds(seconds);
@@ -98,14 +99,20 @@ public class Investment : MonoBehaviour
 
     public void DestroyObject()
     {
+        //investmentObject to find tag "investment"
         investmentObject = GameObject.FindGameObjectWithTag("investment");
+
+        //scamObject to find tag "scam"
         scamObject = GameObject.FindGameObjectWithTag("scam");
 
+        //if the randomObject tag is "investment", destroy gameObject
         if (randomObject.tag == "investment")
         {
             Destroy(investmentObject);
         }
-        else if(randomObject.tag == "scam")
+
+        //if the randomObject tag is "scam", destroy gameObject
+        else if (randomObject.tag == "scam")
         {
             Destroy(scamObject);
         }
@@ -113,36 +120,174 @@ public class Investment : MonoBehaviour
 
     public void YesClick()
     {
+        //if randomObject tag equals to "scam"
         if (randomObject.tag == "scam")
         {
+            //investmentScenario will set active to false
             investmentScenario.SetActive(false);
 
-            if (RandomNumber() < 3)
+            //in a foreach, there's a variable option set for a reference script of DM (Dialogue Manager) taking reference from investmentLines
+            //in each of the case, each dialogue will give a different value for different stats
+            foreach (var option in DM.investmentLines)
             {
-                Debug.Log("YOU GOT SCAMMED");
-                DestroyObject();
+                switch (option)
+                {
+                    case "Hi Boss! Our accountants have noticed that we have a surplus in capital. They suggested that you expand the business and offices. Would you like to follow through?":
+                        {
+                            GM.happiness -= Random.Range(1.5f, 3f);
+                            GM.money -= Random.Range(1f, 5f);
+                            GM.popularity -= Random.Range(1f, 3f);
+                            break;
+                        }
+                    case "Hey Pal! Heard your business has been thriving. I'm writing to ask you whether you would like to invest in one business project. You will receive a good margin of the profits!":
+                        {
+                            GM.happiness -= Random.Range(1f, 4f);
+                            GM.money -= Random.Range(2f, 5f);
+                            GM.popularity -= Random.Range(1f, 3f);
+                            break;
+                        }
+                    case "Hi. Would you like to provide some funds for my start-up business? We will pay you handsomely once things start to pick up.":
+                        {
+                            GM.happiness -= Random.Range(1f, 4f);
+                            GM.money -= Random.Range(3f, 8f);
+                            GM.popularity -= Random.Range(2f, 4f);
+                            break;
+                        }
+                    case "Hi, I am a representative of an Energy Company called Operate Clean Energy. We believe our proposal for a mutually beneficial partnership will revolutionize the way we harness and distribute energy. Would you like to invest in our company?":
+                        {
+                            GM.happiness -= Random.Range(1f, 4f);
+                            GM.money -= Random.Range(2f, 5f);
+                            GM.popularity -= Random.Range(1f, 3f);
+                            break;
+                        }
+                    case "Hey there! I'm the developer of Among Us, and I could really use some financial support to help me develop this game! Would you help me?":
+                        {
+                            GM.happiness -= Random.Range(1f, 3f);
+                            GM.money -= Random.Range(1f, 3f);
+                            GM.popularity -= Random.Range(1.5f, 3f);
+                            break;
+                        }
+                    case "Hi! I would like to provide an upgrade of ads to your company! Do you want some traction for your ads?":
+                        {
+                            GM.money -= Random.Range(3f, 5f);
+                            GM.popularity -= Random.Range(2f, 4f);
+                            GM.happiness -= Random.Range(2f, 4f);
+                            break;
+                        }
+                    case "Hey there! Want to be the face of our awesome brand? We're hiring models to help us advertise - interested?":
+                        {
+                            GM.money -= Random.Range(2.5f, 4f);
+                            GM.popularity -= Random.Range(2f, 4f);
+                            break;
+                        }
+                    case "Hi! I am a representative of a clothing brand called Doo Nut, we would be thrilled to offer you a deal with our clothing brand - are you interested?":
+                        {
+                            GM.money -= Random.Range(2.5f, 4f);
+                            GM.popularity -= Random.Range(2f, 4f);
+                            break;
+                        }
+                    case "Hi, I would like to catch everyone's attention and spread your company's name by advertising it on a billboard! Are you interested?":
+                        {
+                            GM.money -= Random.Range(3f, 5f);
+                            GM.popularity -= Random.Range(4f, 8f);
+                            break;
+                        }
+                    case "Hi, I would like to provide services to upgrade your company's office area, are you interested?":
+                        {
+                            GM.happiness -= Random.Range(3f, 6f);
+                            GM.money -= Random.Range(3f, 5f);
+                            GM.popularity -= Random.Range(4f, 8f);
+                            break;
+                        }
+                }
             }
-            else
-            {
-                Debug.Log("INVESMENT SUCCESSFUL");
-                DestroyObject();
-            }
+
+            DestroyObject();
         }
 
+        //if randomObject tag equals to "investment"
         else if (randomObject.tag == "investment")
         {
+            //investmentScenario will set active to false
             investmentScenario.SetActive(false);
 
-            if (RandomNumber() < 8)
+            //in a foreach, there's a variable option set for a reference script of DM (Dialogue Manager) taking reference from investmentLines
+            //in each of the case, each dialogue will give a different value for different stats
+            foreach (var option in DM.investmentLines)
             {
-                Debug.Log("INVESTMENT SUCCESSFUL");
-                DestroyObject();
+                switch (option)
+                {
+                    case "Hi Boss! Our accountants have noticed that we have a surplus in capital. They suggested that you expand the business and offices. Would you like to follow through?":
+                        {
+                            GM.happiness += Random.Range(1.5f, 3f);
+                            GM.money += Random.Range(1f, 5f);
+                            GM.popularity += Random.Range(1f, 3f);
+                            break;
+                        }
+                    case "Hey Pal! Heard your business has been thriving. I'm writing to ask you whether you would like to invest in one business project. You will receive a good margin of the profits!":
+                        {
+                            GM.happiness += Random.Range(1f, 4f);
+                            GM.money += Random.Range(2f, 5f);
+                            GM.popularity += Random.Range(1f, 3f);
+                            break;
+                        }
+                    case "Hi. Would you like to provide some funds for my start-up business? We will pay you handsomely once things start to pick up.":
+                        {
+                            GM.happiness += Random.Range(1f, 4f);
+                            GM.money += Random.Range(3f, 8f);
+                            GM.popularity += Random.Range(2f, 4f);
+                            break;
+                        }
+                    case "Hi, I am a representative of an Energy Company called Operate Clean Energy. We believe our proposal for a mutually beneficial partnership will revolutionize the way we harness and distribute energy. Would you like to invest in our company?":
+                        {
+                            GM.happiness += Random.Range(1f, 4f);
+                            GM.money += Random.Range(2f, 5f);
+                            GM.popularity += Random.Range(1f, 3f);
+                            break;
+                        }
+                    case "Hey there! I'm the developer of Among Us, and I could really use some financial support to help me develop this game! Would you help me?":
+                        {
+                            GM.happiness += Random.Range(1f, 3f);
+                            GM.money -= Random.Range(1f, 3f);
+                            GM.popularity += Random.Range(1.5f, 3f);
+                            break;
+                        }
+                    case "Hi! I would like to provide an upgrade of ads to your company! Do you want some traction for your ads?":
+                        {
+                            GM.money -= Random.Range(3f, 5f);
+                            GM.popularity += Random.Range(2f, 4f);
+                            GM.happiness += Random.Range(2f, 4f);
+                            break;
+                        }
+                    case "Hey there! Want to be the face of our awesome brand? We're hiring models to help us advertise - interested?":
+                        {
+                            GM.money -= Random.Range(2.5f, 4f);
+                            GM.popularity += Random.Range(3f, 5f);
+                            break;
+                        }
+                    case "Hi! I am a representative of a clothing brand called Doo Nut, we would be thrilled to offer you a deal with our clothing brand - are you interested?":
+                        {
+                            GM.money -= Random.Range(2.5f, 4f);
+                            GM.popularity += Random.Range(2f, 4f);
+                            break;
+                        }
+                    case "Hi, I would like to catch everyone's attention and spread your company's name by advertising it on a billboard! Are you interested?":
+                        {
+                            GM.money -= Random.Range(3f, 5f);
+                            GM.popularity += Random.Range(4f, 8f);
+                            break;
+                        }
+                    case "Hi, I would like to provide services to upgrade your company's office area, are you interested?":
+                        {
+                            GM.happiness += Random.Range(3f, 6f);
+                            GM.money -= Random.Range(3f, 5f);
+                            GM.popularity += Random.Range(4f, 8f);
+                            break;
+                        }
+                }
             }
-            else
-            {
-                Debug.Log("YOU GOT SCAMMED");
-                DestroyObject();
-            }
+
+            DestroyObject();
         }
 
         GM.FunctionUpdates();
@@ -150,36 +295,24 @@ public class Investment : MonoBehaviour
 
     public void NoClick()
     {
+        //if randomObject tag equals to "scam"
         if (randomObject.tag == "scam")
         {
+            //investmentScenario will set active to false
             investmentScenario.SetActive(false);
 
-            if (RandomNumber() < 7)
-            {
-                Debug.Log("YOU GOT SCAMMED");
-                DestroyObject();
-            }
-            else
-            {
-                Debug.Log("INVESMENT SUCCESSFUL");
-                DestroyObject();
-            }
+
+            DestroyObject();
         }
 
-        else if (randomObject.tag == "good")
+
+        else if (randomObject.tag == "investment")
         {
+            //investmentScenario will set active to false
             investmentScenario.SetActive(false);
 
-            if (RandomNumber() < 5)
-            {
-                Debug.Log("INVESTMENT SUCCESS");
-                DestroyObject();
-            }
-            else
-            {
-                Debug.Log("YOU GOT SCAMMED");
-                DestroyObject();
-            }
+
+            DestroyObject();
         }
 
         GM.FunctionUpdates();

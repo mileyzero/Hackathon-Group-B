@@ -13,6 +13,7 @@ TagManager:
   - holiday
   - investment
   - snake
+  - insurance
   layers:
   - Default
   - TransparentFX
