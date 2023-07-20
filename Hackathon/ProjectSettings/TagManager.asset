@@ -10,6 +10,7 @@ TagManager:
   - car
   - road
   - carlose
+  - snake
   layers:
   - Default
   - TransparentFX

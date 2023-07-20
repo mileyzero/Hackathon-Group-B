@@ -45,14 +45,13 @@ public class Level_Grid
             Object.Destroy(foodGameObject);
             if(snake.gridMoveTimerMax >= 0.15f)
             {
-                snake.gridMoveTimerMax -= 0.05f;
+                snake.gridMoveTimerMax -= 0.02f;
             }
             else
             {
                 snake.gridMoveTimerMax = 0.1f;
             }
             SpawnFood();
-            Debug.Log("Snake Ate Food");
             return true;
         }
         else
