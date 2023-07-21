@@ -14,13 +14,14 @@ public class Insurance : MonoBehaviour
 
     //private GameObject for investmentObject
     private GameObject insuranceObject;
+    private GameObject randomObject;
+    private GameObject spawned;
 
     //a List to set how many personas to randomize
     public List<GameObject> spawnObjects;
 
     //spawnArea for player model
     public GameObject spawnArea;
-    public GameObject randomObject;
 
     //reference GameObject for insuranceScenario
     public GameObject insuranceScenario;
@@ -31,8 +32,7 @@ public class Insurance : MonoBehaviour
     //GameObjects for scenario
     public GameObject yesButton;
     public GameObject noButton;
-    public GameObject investmentDialogue;
-    public GameObject spawned;
+    public GameObject insuranceDialogue;
     public GameObject nameBox;
 
     // Start is called before the first frame update
@@ -49,7 +49,7 @@ public class Insurance : MonoBehaviour
         insuranceScenario.SetActive(false);
         yesButton.SetActive(false);
         noButton.SetActive(false);
-        investmentDialogue.SetActive(false);
+        insuranceDialogue.SetActive(false);
         nameBox.SetActive(false);
     }
 
@@ -98,7 +98,7 @@ public class Insurance : MonoBehaviour
 
         yesButton.SetActive(true);
         noButton.SetActive(true);
-        investmentDialogue.SetActive(true);
+        insuranceDialogue.SetActive(true);
     }
 
     //In DestroyObject, insuranceObject GameObject will find tag of any GameObject tagged "insurance"
