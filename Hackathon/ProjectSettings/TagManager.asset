@@ -16,6 +16,9 @@ TagManager:
   - insurance
   - doodle
   - platform
+  - doodlemanager
+  - Undefined
+  - doodlewin
   layers:
   - Default
   - TransparentFX
