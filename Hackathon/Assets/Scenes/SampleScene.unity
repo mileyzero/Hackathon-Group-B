@@ -449,9 +449,9 @@ MonoBehaviour:
   happinessSlider: {fileID: 7192855}
   moneySlider: {fileID: 1335645973}
   popularitySlider: {fileID: 1636039691}
-  maxHappiness: 10
-  maxMoney: 10
-  maxPopularity: 10
+  maxHappiness: 90
+  maxMoney: 90
+  maxPopularity: 90
   happiness: 0
   money: 0
   popularity: 0
@@ -2167,7 +2167,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.4, y: 0.4}
   m_AnchorMax: {x: 0.4, y: 0.4}
-  m_AnchoredPosition: {x: 584.0937, y: 48}
+  m_AnchoredPosition: {x: 584.0937, y: 53.5}
   m_SizeDelta: {x: 932.9899, y: 247.007}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &623468825
@@ -2616,7 +2616,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.4, y: 0.4}
   m_AnchorMax: {x: 0.4, y: 0.4}
-  m_AnchoredPosition: {x: 584.0937, y: 48}
+  m_AnchoredPosition: {x: 584.0937, y: 53.5}
   m_SizeDelta: {x: 932.9899, y: 247.007}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &881790924
@@ -4051,8 +4051,6 @@ MonoBehaviour:
   noButton: {fileID: 400277288}
   holidayDialogue: {fileID: 1751725957}
   nameBox: {fileID: 1402993960}
-  isYes: 0
-  isNo: 0
 --- !u!1 &1201412523
 GameObject:
   m_ObjectHideFlags: 0
@@ -5961,7 +5959,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.4, y: 0.4}
   m_AnchorMax: {x: 0.4, y: 0.4}
-  m_AnchoredPosition: {x: 584.0937, y: 48}
+  m_AnchoredPosition: {x: 584.0937, y: 53.5}
   m_SizeDelta: {x: 932.9899, y: 247.007}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1810140528

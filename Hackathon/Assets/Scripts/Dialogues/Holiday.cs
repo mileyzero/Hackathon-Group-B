@@ -35,16 +35,10 @@ public class Holiday : MonoBehaviour
     public GameObject holidayDialogue;
     public GameObject nameBox;
 
-    //bool for checking "Yes" and "No" button
-    public bool isYes;
-    public bool isNo;
 
     // Start is called before the first frame update
     void Start()
     {
-        //isYes and isNo bool for checking if "Yes" or "No" is pressed
-        isYes = false;
-        isNo = false;
 
         //referencing GameManager GM's employee's button and notification icon to false
         GM.employeeNotiIcon.SetActive(false);
@@ -87,9 +81,6 @@ public class Holiday : MonoBehaviour
         holidayScenario.SetActive(true);
         nameBox.SetActive(true);
 
-        isYes = true;
-        isNo = true;
-
         scenarioButton.enabled = false;
         Debug.Log(scenarioButton.enabled);
 
@@ -120,10 +111,10 @@ public class Holiday : MonoBehaviour
 
     public void YesClick()
     {
-        if (isYes == true)
-        {
-            holidayScenario.SetActive(false);
+        holidayScenario.SetActive(false);
 
+        if(randomObject.tag == "holiday")
+        {
             foreach (var option in DM.employeeLines)
             {
                 switch (option)
@@ -132,18 +123,27 @@ public class Holiday : MonoBehaviour
                         {
                             GM.happiness += Random.Range(1.5f, 3f);
                             GM.money -= Random.Range(1f, 2.5f);
+
+                            GM.happinessSlider.value += GM.happiness;
+                            GM.moneySlider.value += GM.money;
                             break;
                         }
                     case "Good Morning Boss! One of your senior employees would like to see you about a promotion. Would you like me to send them in to discuss his possible promotion?":
                         {
                             GM.happiness += Random.Range(1f, 4f);
                             GM.money -= Random.Range(2f, 5f);
+
+                            GM.happinessSlider.value += GM.happiness;
+                            GM.moneySlider.value += GM.money;
                             break;
                         }
                     case "Hi Boss, One of our employees has reported sick, would you like to help out by paying for his/her medical fees?":
                         {
                             GM.happiness += Random.Range(2f, 5f);
                             GM.money -= Random.Range(1f, 3f);
+
+                            GM.happinessSlider.value += GM.happiness;
+                            GM.moneySlider.value += GM.money;
                             break;
                         }
                     case "Hi Boss! Good news, one of our employees has been working hard lately, as a token of appreciation, would you like to provide them with holiday money this year?":
@@ -151,6 +151,10 @@ public class Holiday : MonoBehaviour
                             GM.happiness += Random.Range(3f, 6f);
                             GM.money -= Random.Range(1f, 4f);
                             GM.popularity += Random.Range(1f, 3f);
+
+                            GM.happinessSlider.value += GM.happiness;
+                            GM.moneySlider.value += GM.money;
+                            GM.popularitySlider.value += GM.popularity;
                             break;
                         }
                     case "Hi Boss, Bad news, one of our employees has gotten into an accident, would you like to provide them with financial assistance to cover their medical bills?":
@@ -158,18 +162,28 @@ public class Holiday : MonoBehaviour
                             GM.happiness += Random.Range(4f, 8f);
                             GM.money -= Random.Range(1f, 4f);
                             GM.popularity += Random.Range(2f, 4f);
+
+                            GM.happinessSlider.value += GM.happiness;
+                            GM.moneySlider.value += GM.money;
+                            GM.popularitySlider.value += GM.popularity;
                             break;
                         }
                     case "Good Morning Boss! In regards for our employees' workspace, would you like to provide them financial assistance to upgrade?":
                         {
                             GM.happiness += Random.Range(2f, 4f);
                             GM.money -= Random.Range(0.5f, 3f);
+
+                            GM.happinessSlider.value += GM.happiness;
+                            GM.moneySlider.value += GM.money;
                             break;
                         }
                     case "Happy New Year Boss! would you like to host a New Year Party for your employees?":
                         {
                             GM.happiness += Random.Range(3f, 6f);
                             GM.money -= Random.Range(1f, 3f);
+
+                            GM.happinessSlider.value += GM.happiness;
+                            GM.moneySlider.value += GM.money;
                             break;
                         }
                 }
@@ -183,49 +197,65 @@ public class Holiday : MonoBehaviour
 
     public void NoClick()
     {
-        if (isNo == true)
-        {
-            holidayScenario.SetActive(false);
+        holidayScenario.SetActive(false);
 
+        if(randomObject.tag == "holiday")
+        {
             foreach (var option in DM.employeeLines)
             {
                 switch (option)
                 {
                     case "Hey Boss! One of your employees is having their birthday TODAY. Would you like to gift a present?":
                         {
-                            GM.happiness -= Random.Range(1.5f, 3f);
+                            GM.happiness -= Random.Range(0.5f, 2f);
+
+                            GM.happinessSlider.value += GM.happiness;
                             break;
                         }
                     case "Good Morning Boss! One of your senior employees would like to see you about a promotion. Would you like me to send them in to discuss his possible promotion?":
                         {
-                            GM.happiness -= Random.Range(1f, 4f);
+                            GM.happiness -= Random.Range(0.2f, 2f);
+
+                            GM.happinessSlider.value += GM.happiness;
                             break;
                         }
                     case "Hi Boss, One of our employees has reported sick, would you like to help out by paying for his/her medical fees?":
                         {
-                            GM.happiness -= Random.Range(3f, 6f);
+                            GM.happiness -= Random.Range(0.5f, 2f);
+
+                            GM.happinessSlider.value += GM.happiness;
                             break;
                         }
                     case "Hi Boss! Good news, one of our employees has been working hard lately, as a token of appreciation, would you like to provide them with holiday money this year?":
                         {
-                            GM.happiness -= Random.Range(4f, 8f);
-                            GM.popularity -= Random.Range(1f, 3f);
+                            GM.happiness -= Random.Range(0.5f, 2f);
+                            GM.popularity -= Random.Range(0.5f, 2f);
+
+                            GM.happinessSlider.value += GM.happiness;
+                            GM.popularitySlider.value += GM.popularity;
                             break;
                         }
                     case "Hi Boss, Bad news, one of our employees has gotten into an accident, would you like to provide them with financial assistance to cover their medical bills?":
                         {
-                            GM.happiness -= Random.Range(4f, 8f);
-                            GM.popularity -= Random.Range(2f, 4f);
+                            GM.happiness -= Random.Range(0.5f, 2f);
+                            GM.popularity -= Random.Range(0.5f, 2f);
+
+                            GM.happinessSlider.value += GM.happiness;
+                            GM.popularitySlider.value += GM.popularity;
                             break;
                         }
                     case "Good Morning Boss! In regards for our employees' workspace, would you like to provide them financial assistance to upgrade?":
                         {
-                            GM.happiness -= Random.Range(2f, 4f);
+                            GM.happiness -= Random.Range(0.5f, 2f);
+
+                            GM.happinessSlider.value += GM.happiness;
                             break;
                         }
                     case "Happy New Year Boss! would you like to host a New Year Party for your employees?":
                         {
-                            GM.happiness -= Random.Range(2f, 6f);
+                            GM.happiness -= Random.Range(0.5f, 2f);
+
+                            GM.happinessSlider.value += GM.happiness;
                             break;
                         }
                 }

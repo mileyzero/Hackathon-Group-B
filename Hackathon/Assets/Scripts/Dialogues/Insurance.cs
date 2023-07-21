@@ -127,21 +127,33 @@ public class Insurance : MonoBehaviour
                 {
                     case "BOSS! I received a call regarding one of your warehouse! An accident occurred, which caused a fire, and it is spreading rapidly. They are currently doing what they can to keep as many things as safe as possible.":
                         {
-                            GM.happiness += Random.Range(1.5f, 3f);
-                            GM.money -= Random.Range(1f, 5f);
-                            GM.popularity += Random.Range(1f, 3f);
+                            GM.happiness += Random.Range(0.5f, 2f);
+                            GM.money -= Random.Range(0.5f, 2f);
+                            GM.popularity += Random.Range(0.5f, 2f);
+
+                            GM.happinessSlider.value += GM.happiness;
+                            GM.moneySlider.value += GM.money;
+                            GM.popularitySlider.value += GM.popularity;
                             break;
                         }
                     case "Hi Boss! I received a message from employee claiming to be under our company, said that his/her car has broken down and is in need of money, do you want to provide him/her any financial assistance?":
                         {
-                            GM.happiness += Random.Range(1.5f, 3f);
-                            GM.money -= Random.Range(1f, 5f);
-                            GM.popularity += Random.Range(1f, 3f);
+                            GM.happiness += Random.Range(0.5f, 2f);
+                            GM.money -= Random.Range(0.5f, 2f);
+                            GM.popularity += Random.Range(0.5f, 2f);
+
+                            GM.happinessSlider.value += GM.happiness;
+                            GM.moneySlider.value += GM.money;
+                            GM.popularitySlider.value += GM.popularity;
                             break;
                         }
                 }
             }
+
+
+            DestroyObject();
         }
+
 
         GM.FunctionUpdates();
     }
@@ -153,8 +165,10 @@ public class Insurance : MonoBehaviour
         {
             insuranceScenario.SetActive(false);
 
-
+            
+            DestroyObject();
         }
+
 
         GM.FunctionUpdates();
     }
