@@ -15,13 +15,13 @@ public class Investment : MonoBehaviour
     //private GameObject for scam and goodObject
     private GameObject scamObject;
     private GameObject investmentObject;
+    private GameObject randomObject;
 
     //a List to set how many personas to randomize
     public List<GameObject> spawnObjects;
 
     //spawnArea for player model
     public GameObject spawnArea;
-    public GameObject randomObject;
 
     //reference GameObject for investmentScenario
     public GameObject investmentScenario;

@@ -171,7 +171,7 @@ public class GameManager : MonoBehaviour
         insuranceNotiIcon.SetActive(false);
         insuranceButton.SetActive(false);
 
-        insuranceManager.GetComponent<Investment>().SpawnScenario();
+        insuranceManager.GetComponent<Insurance>().SpawnScenario();
         nameManager.GetComponent<NameGenerator>().NameRandomList();
     }
 }

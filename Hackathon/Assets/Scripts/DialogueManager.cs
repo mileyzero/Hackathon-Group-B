@@ -21,9 +21,9 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
 
     //string arrays for employee, investment and insurance dialogue lines
-    public string[] employeeLines = new string[5];
-    public string[] investmentLines = new string[5];
-    public string[] insuranceLines = new string[5];
+    public string[] employeeLines = new string[7];
+    public string[] investmentLines = new string[10];
+    public string[] insuranceLines = new string[2];
 
     //isDialogue bool to check if dialogue is active
     public bool isDialogue;
@@ -114,7 +114,7 @@ public class DialogueManager : MonoBehaviour
         {
             int randomInvestDialogue = Random.Range(0, investmentLines.Length);
             Debug.Log(randomInvestDialogue);
-            return employeeLines[randomInvestDialogue];
+            return investmentLines[randomInvestDialogue];
         }
         return null;
     }
@@ -140,7 +140,7 @@ public class DialogueManager : MonoBehaviour
         {
             int randomInsuranceDialogue = Random.Range(0, insuranceLines.Length);
             Debug.Log(randomInsuranceDialogue);
-            return employeeLines[randomInsuranceDialogue];
+            return insuranceLines[randomInsuranceDialogue];
         }
         return null;
     }

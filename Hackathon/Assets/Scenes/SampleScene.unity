@@ -442,10 +442,10 @@ MonoBehaviour:
   nameManager: {fileID: 1402993964}
   investmentNotiIcon: {fileID: 1262342650}
   employeeNotiIcon: {fileID: 973103465}
-  insuranceNotiIcon: {fileID: 0}
+  insuranceNotiIcon: {fileID: 1962098005}
   investmentButton: {fileID: 400405367}
   employeeButton: {fileID: 1537857563}
-  insuranceButton: {fileID: 0}
+  insuranceButton: {fileID: 949985892}
   happinessSlider: {fileID: 7192855}
   moneySlider: {fileID: 1335645973}
   popularitySlider: {fileID: 1636039691}
@@ -2217,19 +2217,28 @@ MonoBehaviour:
   insuranceManager: {fileID: 1201412525}
   nameGen: {fileID: 924156493}
   dialogueText: {fileID: 377017363}
-  employeeLines: []
+  employeeLines:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   investmentLines:
   - 
   - 
-  - 1
-  - 2
-  - 3
-  - 3
-  - 3
-  - 3
-  - 3
-  - 3
-  insuranceLines: []
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  insuranceLines:
+  - 
+  - 
   isDialogue: 0
   dialoguePlayed: 0
   yesButton: {fileID: 1033112532}
@@ -2607,7 +2616,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.4, y: 0.4}
   m_AnchorMax: {x: 0.4, y: 0.4}
-  m_AnchoredPosition: {x: 584.0937, y: 41.405777}
+  m_AnchoredPosition: {x: 584.0937, y: 48}
   m_SizeDelta: {x: 932.9899, y: 247.007}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &881790924
@@ -2665,8 +2674,25 @@ MonoBehaviour:
   insuranceManager: {fileID: 1201412525}
   nameGen: {fileID: 444190053}
   dialogueText: {fileID: 152964790}
-  employeeLines: []
-  investmentLines: []
+  employeeLines:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  investmentLines:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   insuranceLines:
   - 
   - 
@@ -4077,13 +4103,11 @@ MonoBehaviour:
   - {fileID: 1733141527322304906, guid: 3b955ea8c7d24844a87dbdb40230a7cb, type: 3}
   - {fileID: 2697030592239476989, guid: 0bdc6857410aa104b990e83a6d5fd354, type: 3}
   spawnArea: {fileID: 2146882194}
-  randomObject: {fileID: 0}
   insuranceScenario: {fileID: 15887511}
   scenarioButton: {fileID: 949985894}
   yesButton: {fileID: 601335109}
   noButton: {fileID: 1660074498}
-  investmentDialogue: {fileID: 881790922}
-  spawned: {fileID: 0}
+  insuranceDialogue: {fileID: 881790922}
   nameBox: {fileID: 444190051}
 --- !u!1 &1232754985
 GameObject:
@@ -5891,8 +5915,20 @@ MonoBehaviour:
   - 
   - 
   - 
-  investmentLines: []
-  insuranceLines: []
+  investmentLines:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  insuranceLines:
+  - 
+  - 
   isDialogue: 0
   dialoguePlayed: 0
   yesButton: {fileID: 604813007}
@@ -5925,7 +5961,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.4, y: 0.4}
   m_AnchorMax: {x: 0.4, y: 0.4}
-  m_AnchoredPosition: {x: 584.0937, y: 41.405777}
+  m_AnchoredPosition: {x: 584.0937, y: 48}
   m_SizeDelta: {x: 932.9899, y: 247.007}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1810140528
@@ -6094,7 +6130,6 @@ MonoBehaviour:
   - {fileID: 2697030592239476989, guid: 52934781102662e4baf469aaf616d374, type: 3}
   - {fileID: 8435740652968792424, guid: 1fa00880775209649ad7395b4c0bdad3, type: 3}
   spawnArea: {fileID: 2146882194}
-  randomObject: {fileID: 0}
   investmentScenario: {fileID: 858773661}
   scenarioButton: {fileID: 400405370}
   yesButton: {fileID: 1033112532}
