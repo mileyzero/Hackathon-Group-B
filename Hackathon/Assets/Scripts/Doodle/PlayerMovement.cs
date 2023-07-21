@@ -17,6 +17,16 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         moveX = Input.GetAxis("Horizontal") * moveSpeed;
+        if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.flipX = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.flipX = false;
+        }
     }
 
     private void FixedUpdate()

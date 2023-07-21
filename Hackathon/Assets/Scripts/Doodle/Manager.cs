@@ -14,7 +14,7 @@ public class Manager : MonoBehaviour
 
         for (int i = 0; i < platformCount; i++)
         {
-            spawnposition.y += Random.Range(0.5f, 2f);
+            spawnposition.y += Random.Range(2f, 3f);
             spawnposition.x = Random.Range(-5f, 5f);
             Instantiate(platform, spawnposition, Quaternion.identity);
         }

@@ -14,6 +14,8 @@ TagManager:
   - investment
   - snake
   - insurance
+  - doodle
+  - platform
   layers:
   - Default
   - TransparentFX
