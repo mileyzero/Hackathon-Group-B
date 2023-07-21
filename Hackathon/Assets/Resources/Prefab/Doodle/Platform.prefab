@@ -140,4 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38a7b41235299ed408666e59d66390f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpPower: 20
+  jumpPower: 10
+  animator: {fileID: 0}
+  rb: {fileID: 0}
