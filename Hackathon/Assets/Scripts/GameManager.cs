@@ -73,6 +73,10 @@ public class GameManager : MonoBehaviour
         moneySlider.value = Random.Range(30f, 65f);
         popularitySlider.value = 20f;
 
+        happiness = happinessSlider.value;
+        money = moneySlider.value;
+        popularity = popularitySlider.value;
+
         //set investment, employee notification icons to false
         investmentNotiIcon.SetActive(false);
         employeeNotiIcon.SetActive(false);

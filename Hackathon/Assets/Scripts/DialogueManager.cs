@@ -53,13 +53,13 @@ public class DialogueManager : MonoBehaviour
         employeeLines[5] = "Good Morning Boss! In regards for our employees' workspace, would you like to provide them financial assistance to upgrade?";
         employeeLines[6] = "Happy New Year Boss! would you like to host a New Year Party for your employees?";
 
-        insuranceLines[0] = "BOSS! I received a call regarding one of your warehouse! An accident occurred, which caused a fire, and it is spreading rapidly. They are currently doing what they can to keep as many things as safe as possible.";
+        insuranceLines[0] = "BOSS! I received a call regarding one of your warehouse! An accident occurred, which caused a fire. They said not many of the items are damaged, do you want to repair the warehouse?";
         insuranceLines[1] = "Hi Boss! I received a message from employee claiming to be under our company, said that his/her car has broken down and is in need of money, do you want to provide him/her any financial assistance?";
 
         investmentLines[0] = "Hi Boss! Our accountants have noticed that we have a surplus in capital. They suggested that you expand the business and offices. Would you like to follow through?";
         investmentLines[1] = "Hey Pal! Heard your business has been thriving. I'm writing to ask you whether you would like to invest in one business project. You will receive a good margin of the profits!";
         investmentLines[2] = "Hi. Would you like to provide some funds for my start-up business? We will pay you handsomely once things start to pick up.";
-        investmentLines[3] = "Hi, I am a representative of an Energy Company called Operate Clean Energy. We believe our proposal for a mutually beneficial partnership will revolutionize the way we harness and distribute energy. Would you like to invest in our company?";
+        investmentLines[3] = "Hi, I am a representative of an Energy Company called Operate Clean Energy. Our partnership will revolutionize the way we harness and distribute energy. Would you like to invest in our company?";
         investmentLines[4] = "Hey there! I'm the developer of Among Us, and I could really use some financial support to help me develop this game! Would you help me?";
         investmentLines[5] = "Hi! I would like to provide an upgrade of ads to your company! Do you want some traction for your ads?";
         investmentLines[6] = "Hey there! Want to be the face of our awesome brand? We're hiring models to help us advertise - interested?";
