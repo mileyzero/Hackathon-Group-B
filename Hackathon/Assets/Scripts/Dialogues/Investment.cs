@@ -94,6 +94,8 @@ public class Investment : MonoBehaviour
 
         yesButton.SetActive(true);
         noButton.SetActive(true);
+        bool isActive = investmentDialogue.activeSelf;
+        Debug.Log("Invesment AnimDialogue is " + isActive);
         investmentDialogue.SetActive(true);
     }
 
@@ -168,7 +170,7 @@ public class Investment : MonoBehaviour
                         GM.popularitySlider.value += GM.popularity;
                         break;
                     }
-                case "Hi, I am a representative of an Energy Company called Operate Clean Energy. We believe our proposal for a mutually beneficial partnership will revolutionize the way we harness and distribute energy. Would you like to invest in our company?":
+                case "Hi, I am a representative of an Energy Company called Operate Energy. Our partnership will help us harness and distribute energy. Would you like to invest?":
                     {
                         Debug.Log("4");
                         GM.happiness += Random.Range(0.5f, 2f);

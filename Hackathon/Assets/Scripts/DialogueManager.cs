@@ -59,7 +59,7 @@ public class DialogueManager : MonoBehaviour
         investmentLines[0] = "Hi Boss! Our accountants have noticed that we have a surplus in capital. They suggested that you expand the business and offices. Would you like to follow through?";
         investmentLines[1] = "Hey Pal! Heard your business has been thriving. I'm writing to ask you whether you would like to invest in one business project. You will receive a good margin of the profits!";
         investmentLines[2] = "Hi. Would you like to provide some funds for my start-up business? We will pay you handsomely once things start to pick up.";
-        investmentLines[3] = "Hi, I am a representative of an Energy Company called Operate Clean Energy. Our partnership will revolutionize the way we harness and distribute energy. Would you like to invest in our company?";
+        investmentLines[3] = "Hi, I am a representative of an Energy Company called Operate Energy. Our partnership will help us harness and distribute energy. Would you like to invest?";
         investmentLines[4] = "Hey there! I'm the developer of Among Us, and I could really use some financial support to help me develop this game! Would you help me?";
         investmentLines[5] = "Hi! I would like to provide an upgrade of ads to your company! Do you want some traction for your ads?";
         investmentLines[6] = "Hey there! Want to be the face of our awesome brand? We're hiring models to help us advertise - interested?";
@@ -121,6 +121,9 @@ public class DialogueManager : MonoBehaviour
 
     string GetRandomEmployeeDialogue()
     {
+        Debug.Log(isDialogue);
+        Debug.Log(dialoguePlayed);
+
         //chooses random dialogue in employeeLines
         //then returns which employeeLines was chosen from randomDialogue randomizer
         if (isDialogue == false && dialoguePlayed == false)
@@ -150,8 +153,6 @@ public class DialogueManager : MonoBehaviour
         gameObject.SetActive(false);
         yesButton.SetActive(false);
         noButton.SetActive(false);
-
-        holidayManager.scenarioButton.enabled = false;
 
         nameBox.SetActive(false);
         nameGen.nameBox.GetComponent<TextMeshProUGUI>().text = null;

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
 public class Holiday : MonoBehaviour
 {
     //Reference script to GM
@@ -35,7 +36,6 @@ public class Holiday : MonoBehaviour
     public GameObject holidayDialogue;
     public GameObject nameBox;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +50,7 @@ public class Holiday : MonoBehaviour
         holidayScenario.SetActive(false);
         yesButton.SetActive(false);
         noButton.SetActive(false);
-        holidayDialogue.SetActive(false);
+        holidayDialogue.SetActive(true);
         nameBox.SetActive(false);
     }
 
@@ -61,7 +61,7 @@ public class Holiday : MonoBehaviour
     //spawned will then be set under a parent object's position
     public void SpawnObject()
     {
-        Debug.Log("Spawned");
+        Debug.Log("Spawned Holiday");
         int randomRange = Random.Range(0, spawnObjects.Count);
         Vector3 spawnPosition = spawnArea.transform.position;
         randomObject = spawnObjects[randomRange];
@@ -76,7 +76,7 @@ public class Holiday : MonoBehaviour
     public void SpawnScenario()
     {
         SpawnObject();
-
+        Debug.Log("Spawned Scenario Holiday");
         holidayScenario.SetActive(true);
         nameBox.SetActive(true);
 
@@ -89,11 +89,14 @@ public class Holiday : MonoBehaviour
     //In AnimationPlay, it will return a float of seconds and set yes, no and investmentDialogue set active to true
     IEnumerator AnimationPlay(float seconds)
     {
+        Debug.Log("animation start");
         yield return new WaitForSeconds(seconds);
 
         yesButton.SetActive(true);
         noButton.SetActive(true);
         holidayDialogue.SetActive(true);
+        bool isActive = holidayDialogue.activeSelf;
+        Debug.Log("Holiday AnimDialogue is " + isActive);
     }
 
     //In DestroyObject, holidayObject GameObject will find tag of any GameObject tagged "holiday"
@@ -110,7 +113,8 @@ public class Holiday : MonoBehaviour
 
     public void YesClick()
     {
-        if(randomObject.tag == "holiday")
+        //if randomObject tag equals to "holiday"
+        if (randomObject.tag == "holiday")
         {
             int index = 0;
 
@@ -208,12 +212,14 @@ public class Holiday : MonoBehaviour
             DestroyObject();
         }
 
+
         GM.FunctionUpdates();
     }
 
     public void NoClick()
     {
-        if(randomObject.tag == "holiday")
+        //if randomObject tag equals to "holiday"
+        if (randomObject.tag == "holiday")
         {
             int index = 0;
 
@@ -296,6 +302,7 @@ public class Holiday : MonoBehaviour
 
             DestroyObject();
         }
+
 
         GM.FunctionUpdates();
     }
