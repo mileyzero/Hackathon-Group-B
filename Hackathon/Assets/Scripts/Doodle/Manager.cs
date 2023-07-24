@@ -6,12 +6,15 @@ public class Manager : MonoBehaviour
 {
     public GameObject platform;
 
-    public int platformCount = 300;
+    public int platformCount;
     public GameObject finalplatform;
+    public GameObject win;
     // Start is called before the first frame update
     void Start()
     {
         Vector3 spawnposition = new Vector3();
+
+        platformCount = Random.Range(10, 20);
 
         for (int i = 0; i <= platformCount; i++)
         {
@@ -27,11 +30,5 @@ public class Manager : MonoBehaviour
             }
 
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
