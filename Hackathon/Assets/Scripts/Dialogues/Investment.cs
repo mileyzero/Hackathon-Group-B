@@ -16,6 +16,7 @@ public class Investment : MonoBehaviour
     private GameObject scamObject;
     private GameObject investmentObject;
     private GameObject randomObject;
+    private GameObject spawned;
 
     //a List to set how many personas to randomize
     public List<GameObject> spawnObjects;
@@ -33,7 +34,6 @@ public class Investment : MonoBehaviour
     public GameObject yesButton;
     public GameObject noButton;
     public GameObject investmentDialogue;
-    public GameObject spawned;
     public GameObject nameBox;
 
     // Start is called before the first frame update
@@ -120,6 +120,8 @@ public class Investment : MonoBehaviour
 
     public void YesClick()
     {
+        int index = 0;
+
         //if randomObject tag equals to "scam"
         if (randomObject.tag == "scam")
         {
@@ -128,120 +130,137 @@ public class Investment : MonoBehaviour
 
             //in a foreach, there's a variable option set for a reference script of DM (Dialogue Manager) taking reference from investmentLines
             //in each of the case, each dialogue will give a different value for different stats
-            foreach (var option in DM.investmentLines)
+            switch (DM.investmentLines[index])
             {
-                switch (option)
-                {
-                    case "Hi Boss! Our accountants have noticed that we have a surplus in capital. They suggested that you expand the business and offices. Would you like to follow through?":
-                        {
-                            GM.happiness += Random.Range(0.5f, 2f);
-                            GM.money -= Random.Range(0.5f, 2f);
-                            GM.popularity += Random.Range(0.5f, 2f);
+                case "Hi Boss! Our accountants have noticed that we have a surplus in capital. They suggested that you expand the business and offices. Would you like to follow through?":
+                    {
+                        Debug.Log("1");
+                        GM.happiness += Random.Range(0.5f, 2f);
+                        GM.money -= Random.Range(0.5f, 2f);
+                        GM.popularity += Random.Range(0.5f, 2f);
 
-                            GM.happinessSlider.value += GM.happiness;
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
-                            break;
-                        }
-                    case "Hey Pal! Heard your business has been thriving. I'm writing to ask you whether you would like to invest in one business project. You will receive a good margin of the profits!":
-                        {
-                            GM.happiness += Random.Range(0.5f, 2f);
-                            GM.money -= Random.Range(0.5f, 2f);
-                            GM.popularity += Random.Range(0.5f, 2f);
+                        GM.happinessSlider.value += GM.happiness;
+                        GM.moneySlider.value += GM.money;
+                        GM.popularitySlider.value += GM.popularity;
+                        break;
+                    }
+                case "Hey Pal! Heard your business has been thriving. I'm writing to ask you whether you would like to invest in one business project. You will receive a good margin of the profits!":
+                    {
+                        Debug.Log("2");
+                        GM.happiness += Random.Range(0.5f, 2f);
+                        GM.money -= Random.Range(0.5f, 2f);
+                        GM.popularity += Random.Range(0.5f, 2f);
 
-                            GM.happinessSlider.value += GM.happiness;
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
-                            break;
-                        }
-                    case "Hi. Would you like to provide some funds for my start-up business? We will pay you handsomely once things start to pick up.":
-                        {
-                            GM.happiness += Random.Range(0.5f, 2f);
-                            GM.money -= Random.Range(0.5f, 2f);
-                            GM.popularity += Random.Range(0.5f, 2f);
+                        GM.happinessSlider.value += GM.happiness;
+                        GM.moneySlider.value += GM.money;
+                        GM.popularitySlider.value += GM.popularity;
+                        break;
+                    }
+                case "Hi. Would you like to provide some funds for my start-up business? We will pay you handsomely once things start to pick up.":
+                    {
+                        Debug.Log("3");
+                        GM.happiness += Random.Range(0.5f, 2f);
+                        GM.money -= Random.Range(0.5f, 2f);
+                        GM.popularity += Random.Range(0.5f, 2f);
 
-                            GM.happinessSlider.value += GM.happiness;
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
-                            break;
-                        }
-                    case "Hi, I am a representative of an Energy Company called Operate Clean Energy. We believe our proposal for a mutually beneficial partnership will revolutionize the way we harness and distribute energy. Would you like to invest in our company?":
-                        {
-                            GM.happiness += Random.Range(0.5f, 2f);
-                            GM.money -= Random.Range(0.5f, 2f);
-                            GM.popularity += Random.Range(0.5f, 2f);
+                        GM.happinessSlider.value += GM.happiness;
+                        GM.moneySlider.value += GM.money;
+                        GM.popularitySlider.value += GM.popularity;
+                        break;
+                    }
+                case "Hi, I am a representative of an Energy Company called Operate Clean Energy. We believe our proposal for a mutually beneficial partnership will revolutionize the way we harness and distribute energy. Would you like to invest in our company?":
+                    {
+                        Debug.Log("4");
+                        GM.happiness += Random.Range(0.5f, 2f);
+                        GM.money -= Random.Range(0.5f, 2f);
+                        GM.popularity += Random.Range(0.5f, 2f);
 
-                            GM.happinessSlider.value += GM.happiness;
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
-                            break;
-                        }
-                    case "Hey there! I'm the developer of Among Us, and I could really use some financial support to help me develop this game! Would you help me?":
-                        {
-                            GM.happiness += Random.Range(0.5f, 2f);
-                            GM.money -= Random.Range(0.5f, 2f);
-                            GM.popularity += Random.Range(0.5f, 2f);
+                        GM.happinessSlider.value += GM.happiness;
+                        GM.moneySlider.value += GM.money;
+                        GM.popularitySlider.value += GM.popularity;
+                        break;
+                    }
+                case "Hey there! I'm the developer of Among Us, and I could really use some financial support to help me develop this game! Would you help me?":
+                    {
+                        Debug.Log("5");
+                        GM.happiness += Random.Range(0.5f, 2f);
+                        GM.money -= Random.Range(0.5f, 2f);
+                        GM.popularity += Random.Range(0.5f, 2f);
 
-                            GM.happinessSlider.value += GM.happiness;
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
-                            break;
-                        }
-                    case "Hi! I would like to provide an upgrade of ads to your company! Do you want some traction for your ads?":
-                        {
-                            GM.happiness += Random.Range(0.5f, 2f);
-                            GM.money -= Random.Range(0.5f, 2f);
-                            GM.popularity += Random.Range(0.5f, 2f);
+                        GM.happinessSlider.value += GM.happiness;
+                        GM.moneySlider.value += GM.money;
+                        GM.popularitySlider.value += GM.popularity;
+                        break;
+                    }
+                case "Hi! I would like to provide an upgrade of ads to your company! Do you want some traction for your ads?":
+                    {
+                        Debug.Log("6");
+                        GM.happiness += Random.Range(0.5f, 2f);
+                        GM.money -= Random.Range(0.5f, 2f);
+                        GM.popularity += Random.Range(0.5f, 2f);
 
-                            GM.happinessSlider.value += GM.happiness;
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
-                            break;
-                        }
-                    case "Hey there! Want to be the face of our awesome brand? We're hiring models to help us advertise - interested?":
-                        {
-                            GM.money -= Random.Range(0.5f, 2f);
-                            GM.popularity += Random.Range(0.5f, 2f);
+                        GM.happinessSlider.value += GM.happiness;
+                        GM.moneySlider.value += GM.money;
+                        GM.popularitySlider.value += GM.popularity;
+                        break;
+                    }
+                case "Hey there! Want to be the face of our awesome brand? We're hiring models to help us advertise - interested?":
+                    {
+                        Debug.Log("7");
+                        GM.money -= Random.Range(0.5f, 2f);
+                        GM.popularity += Random.Range(0.5f, 2f);
 
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
-                            break;
-                        }
-                    case "Hi! I am a representative of a clothing brand called Doo Nut, we would be thrilled to offer you a deal with our clothing brand - are you interested?":
-                        {
-                            GM.money -= Random.Range(0.5f, 2f);
-                            GM.popularity += Random.Range(0.5f, 2f);
+                        GM.moneySlider.value += GM.money;
+                        GM.popularitySlider.value += GM.popularity;
+                        break;
+                    }
+                case "Hi! I am a representative of a clothing brand called Doo Nut, we would be thrilled to offer you a deal with our clothing brand - are you interested?":
+                    {
+                        Debug.Log("8");
+                        GM.money -= Random.Range(0.5f, 2f);
+                        GM.popularity += Random.Range(0.5f, 2f);
 
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
-                            break;
-                        }
-                    case "Hi, I would like to catch everyone's attention and spread your company's name by advertising it on a billboard! Are you interested?":
-                        {
-                            GM.money -= Random.Range(0.5f, 2f);
-                            GM.popularity += Random.Range(0.5f, 2f);
+                        GM.moneySlider.value += GM.money;
+                        GM.popularitySlider.value += GM.popularity;
+                        break;
+                    }
+                case "Hi, I would like to catch everyone's attention and spread your company's name by advertising it on a billboard! Are you interested?":
+                    {
+                        Debug.Log("9");
+                        GM.money -= Random.Range(0.5f, 2f);
+                        GM.popularity += Random.Range(0.5f, 2f);
 
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
-                            break;
-                        }
-                    case "Hi, I would like to provide services to upgrade your company's office area, are you interested?":
-                        {
-                            GM.happiness += Random.Range(0.5f, 2f);
-                            GM.money -= Random.Range(0.5f, 2f);
-                            GM.popularity += Random.Range(0.5f, 2f);
+                        GM.moneySlider.value += GM.money;
+                        GM.popularitySlider.value += GM.popularity;
+                        break;
+                    }
+                case "Hi, I would like to provide services to upgrade your company's office area, are you interested?":
+                    {
+                        Debug.Log("10");
+                        GM.happiness += Random.Range(0.5f, 2f);
+                        GM.money -= Random.Range(0.5f, 2f);
+                        GM.popularity += Random.Range(0.5f, 2f);
 
-                            GM.happinessSlider.value += GM.happiness;
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
-                            break;
-                        }
-                }
+                        GM.happinessSlider.value += GM.happiness;
+                        GM.moneySlider.value += GM.money;
+                        GM.popularitySlider.value += GM.popularity;
+                        break;
+                    }
+                default:
+                    {
+                        Debug.Log("Default case or unrecognized dialogue.");
+                        break;
+                    }
             }
+
+            GM.happinessSlider.value = GM.happiness;
+            GM.moneySlider.value = GM.money;
+            GM.popularitySlider.value = GM.popularity;
+
+            index++;
 
             DestroyObject();
         }
-
         //if randomObject tag equals to "investment"
         else if (randomObject.tag == "investment")
         {
@@ -250,116 +269,134 @@ public class Investment : MonoBehaviour
 
             //in a foreach, there's a variable option set for a reference script of DM (Dialogue Manager) taking reference from investmentLines
             //in each of the case, each dialogue will give a different value for different stats
-            foreach (var option in DM.investmentLines)
+            switch (DM.investmentLines[index])
             {
-                switch (option)
-                {
-                    case "Hi Boss! Our accountants have noticed that we have a surplus in capital. They suggested that you expand the business and offices. Would you like to follow through?":
-                        {
-                            GM.happiness += Random.Range(0.5f, 2f);
-                            GM.money += Random.Range(0.5f, 2f);
-                            GM.popularity += Random.Range(0.5f, 2f);
+                case "Hi Boss! Our accountants have noticed that we have a surplus in capital. They suggested that you expand the business and offices. Would you like to follow through?":
+                    {
+                        Debug.Log("1 Wrong");
+                        GM.happiness += Random.Range(0.5f, 2f);
+                        GM.money += Random.Range(0.5f, 2f);
+                        GM.popularity += Random.Range(0.5f, 2f);
 
-                            GM.happinessSlider.value += GM.happiness;
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
-                            break;
-                        }
-                    case "Hey Pal! Heard your business has been thriving. I'm writing to ask you whether you would like to invest in one business project. You will receive a good margin of the profits!":
-                        {
-                            GM.happiness += Random.Range(0.5f, 2f);
-                            GM.money += Random.Range(0.5f, 2f);
-                            GM.popularity += Random.Range(0.5f, 2f);
+                        GM.happinessSlider.value += GM.happiness;
+                        GM.moneySlider.value += GM.money;
+                        GM.popularitySlider.value += GM.popularity;
+                        break;
+                    }
+                case "Hey Pal! Heard your business has been thriving. I'm writing to ask you whether you would like to invest in one business project. You will receive a good margin of the profits!":
+                    {
+                        Debug.Log("2 Wrong");
+                        GM.happiness += Random.Range(0.5f, 2f);
+                        GM.money += Random.Range(0.5f, 2f);
+                        GM.popularity += Random.Range(0.5f, 2f);
 
-                            GM.happinessSlider.value += GM.happiness;
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
-                            break;
-                        }
-                    case "Hi. Would you like to provide some funds for my start-up business? We will pay you handsomely once things start to pick up.":
-                        {
-                            GM.happiness += Random.Range(0.5f, 2f);
-                            GM.money += Random.Range(0.5f, 2f);
-                            GM.popularity += Random.Range(0.5f, 2f);
+                        GM.happinessSlider.value += GM.happiness;
+                        GM.moneySlider.value += GM.money;
+                        GM.popularitySlider.value += GM.popularity;
+                        break;
+                    }
+                case "Hi. Would you like to provide some funds for my start-up business? We will pay you handsomely once things start to pick up.":
+                    {
+                        Debug.Log("3 Wrong");
+                        GM.happiness += Random.Range(0.5f, 2f);
+                        GM.money += Random.Range(0.5f, 2f);
+                        GM.popularity += Random.Range(0.5f, 2f);
 
-                            GM.happinessSlider.value += GM.happiness;
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
-                            break;
-                        }
-                    case "Hi, I am a representative of an Energy Company called Operate Clean Energy. We believe our proposal for a mutually beneficial partnership will revolutionize the way we harness and distribute energy. Would you like to invest in our company?":
-                        {
-                            GM.happiness += Random.Range(0.5f, 2f);
-                            GM.money += Random.Range(0.5f, 2f);
-                            GM.popularity += Random.Range(0.5f, 2f);
+                        GM.happinessSlider.value += GM.happiness;
+                        GM.moneySlider.value += GM.money;
+                        GM.popularitySlider.value += GM.popularity;
+                        break;
+                    }
+                case "Hi, I am a representative of an Energy Company called Operate Clean Energy. We believe our proposal for a mutually beneficial partnership will revolutionize the way we harness and distribute energy. Would you like to invest in our company?":
+                    {
+                        Debug.Log("4 Wrong");
+                        GM.happiness += Random.Range(0.5f, 2f);
+                        GM.money += Random.Range(0.5f, 2f);
+                        GM.popularity += Random.Range(0.5f, 2f);
 
-                            GM.happinessSlider.value += GM.happiness;
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
-                            break;
-                        }
-                    case "Hey there! I'm the developer of Among Us, and I could really use some financial support to help me develop this game! Would you help me?":
-                        {
-                            GM.happiness += Random.Range(0.5f, 2f);
-                            GM.money -= Random.Range(0.5f, 2f);
-                            GM.popularity += Random.Range(0.5f, 2f);
+                        GM.happinessSlider.value += GM.happiness;
+                        GM.moneySlider.value += GM.money;
+                        GM.popularitySlider.value += GM.popularity;
+                        break;
+                    }
+                case "Hey there! I'm the developer of Among Us, and I could really use some financial support to help me develop this game! Would you help me?":
+                    {
+                        Debug.Log("5 Wrong");
+                        GM.happiness += Random.Range(0.5f, 2f);
+                        GM.money -= Random.Range(0.5f, 2f);
+                        GM.popularity += Random.Range(0.5f, 2f);
 
-                            GM.happinessSlider.value += GM.happiness;
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
-                            break;
-                        }
-                    case "Hi! I would like to provide an upgrade of ads to your company! Do you want some traction for your ads?":
-                        {
-                            GM.money -= Random.Range(0.5f, 2f);
-                            GM.popularity += Random.Range(0.5f, 2f);
-                            GM.happiness += Random.Range(0.5f, 2f);
+                        GM.happinessSlider.value += GM.happiness;
+                        GM.moneySlider.value += GM.money;
+                        GM.popularitySlider.value += GM.popularity;
+                        break;
+                    }
+                case "Hi! I would like to provide an upgrade of ads to your company! Do you want some traction for your ads?":
+                    {
+                        Debug.Log("6 Wrong");
+                        GM.money -= Random.Range(0.5f, 2f);
+                        GM.popularity += Random.Range(0.5f, 2f);
+                        GM.happiness += Random.Range(0.5f, 2f);
 
-                            GM.happinessSlider.value += GM.happiness;
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
-                            break;
-                        }
-                    case "Hey there! Want to be the face of our awesome brand? We're hiring models to help us advertise - interested?":
-                        {
-                            GM.money -= Random.Range(0.5f, 2f);
-                            GM.popularity += Random.Range(0.5f, 2f);
+                        GM.happinessSlider.value += GM.happiness;
+                        GM.moneySlider.value += GM.money;
+                        GM.popularitySlider.value += GM.popularity;
+                        break;
+                    }
+                case "Hey there! Want to be the face of our awesome brand? We're hiring models to help us advertise - interested?":
+                    {
+                        Debug.Log("7 Wrong");
+                        GM.money -= Random.Range(0.5f, 2f);
+                        GM.popularity += Random.Range(0.5f, 2f);
 
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
-                            break;
-                        }
-                    case "Hi! I am a representative of a clothing brand called Doo Nut, we would be thrilled to offer you a deal with our clothing brand - are you interested?":
-                        {
-                            GM.money -= Random.Range(0.5f, 2f);
-                            GM.popularity += Random.Range(0.5f, 2f);
+                        GM.moneySlider.value += GM.money;
+                        GM.popularitySlider.value += GM.popularity;
+                        break;
+                    }
+                case "Hi! I am a representative of a clothing brand called Doo Nut, we would be thrilled to offer you a deal with our clothing brand - are you interested?":
+                    {
+                        Debug.Log("8 Wrong");
+                        GM.money -= Random.Range(0.5f, 2f);
+                        GM.popularity += Random.Range(0.5f, 2f);
 
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
-                            break;
-                        }
-                    case "Hi, I would like to catch everyone's attention and spread your company's name by advertising it on a billboard! Are you interested?":
-                        {
-                            GM.money -= Random.Range(0.5f, 2f);
-                            GM.popularity += Random.Range(0.5f, 2f);
+                        GM.moneySlider.value += GM.money;
+                        GM.popularitySlider.value += GM.popularity;
+                        break;
+                    }
+                case "Hi, I would like to catch everyone's attention and spread your company's name by advertising it on a billboard! Are you interested?":
+                    {
+                        Debug.Log("9 Wrong");
+                        GM.money -= Random.Range(0.5f, 2f);
+                        GM.popularity += Random.Range(0.5f, 2f);
 
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
-                            break;
-                        }
-                    case "Hi, I would like to provide services to upgrade your company's office area, are you interested?":
-                        {
-                            GM.happiness += Random.Range(0.5f, 2f);
-                            GM.money -= Random.Range(0.5f, 2f);
-                            GM.popularity += Random.Range(0.5f, 2f);
+                        GM.moneySlider.value += GM.money;
+                        GM.popularitySlider.value += GM.popularity;
+                        break;
+                    }
+                case "Hi, I would like to provide services to upgrade your company's office area, are you interested?":
+                    {
+                        Debug.Log("10 Wrong");
+                        GM.happiness += Random.Range(0.5f, 2f);
+                        GM.money -= Random.Range(0.5f, 2f);
+                        GM.popularity += Random.Range(0.5f, 2f);
 
-                            GM.happinessSlider.value += GM.happiness;
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
-                            break;
-                        }
-                }
+                        GM.happinessSlider.value += GM.happiness;
+                        GM.moneySlider.value += GM.money;
+                        GM.popularitySlider.value += GM.popularity;
+                        break;
+                    }
+                default:
+                    {
+                        Debug.Log("Default case or unrecognized dialogue.");
+                        break;
+                    }
             }
+
+            GM.happinessSlider.value = GM.happiness;
+            GM.moneySlider.value = GM.money;
+            GM.popularitySlider.value = GM.popularity;
+
+            index++;
 
             DestroyObject();
         }
