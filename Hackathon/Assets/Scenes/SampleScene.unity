@@ -439,7 +439,7 @@ MonoBehaviour:
   holidayManager: {fileID: 1176322977}
   investManager: {fileID: 1914481760}
   insuranceManager: {fileID: 1201412525}
-  nameManager: {fileID: 1402993964}
+  nameManager: {fileID: 924156493}
   investmentNotiIcon: {fileID: 1262342650}
   employeeNotiIcon: {fileID: 973103465}
   insuranceNotiIcon: {fileID: 1962098005}
@@ -3136,7 +3136,7 @@ GameObject:
   - component: {fileID: 973103468}
   - component: {fileID: 973103467}
   m_Layer: 5
-  m_Name: Notification
+  m_Name: Employee Notification
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4046,7 +4046,7 @@ MonoBehaviour:
   - {fileID: 2697030592239476989, guid: 80524ba81d1207d45bd7258bec1c8126, type: 3}
   spawnArea: {fileID: 2146882194}
   holidayScenario: {fileID: 269790876}
-  scenarioButton: {fileID: 400405370}
+  scenarioButton: {fileID: 1537857565}
   yesButton: {fileID: 604813007}
   noButton: {fileID: 400277288}
   holidayDialogue: {fileID: 1751725957}
@@ -4289,7 +4289,7 @@ GameObject:
   - component: {fileID: 1262342653}
   - component: {fileID: 1262342652}
   m_Layer: 5
-  m_Name: Notification
+  m_Name: Investment Notification
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6133,7 +6133,6 @@ MonoBehaviour:
   yesButton: {fileID: 1033112532}
   noButton: {fileID: 1268056397}
   investmentDialogue: {fileID: 623468823}
-  spawned: {fileID: 0}
   nameBox: {fileID: 924156490}
 --- !u!1 &1927905431
 GameObject:
@@ -6298,7 +6297,7 @@ GameObject:
   - component: {fileID: 1962098008}
   - component: {fileID: 1962098007}
   m_Layer: 5
-  m_Name: Notification
+  m_Name: Insurance Notification
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

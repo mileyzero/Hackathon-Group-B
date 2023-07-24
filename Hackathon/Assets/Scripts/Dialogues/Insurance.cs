@@ -69,12 +69,6 @@ public class Insurance : MonoBehaviour
         spawned.transform.position = spawnArea.transform.position;
     }
 
-    public int RandomNumber()
-    {
-        int random = Random.Range(1, 10);
-        return random;
-    }
-
     //In SpawnScenario, it will call SpawnObject method, then set invesmentScenario and nameBox set active to true
     //the scenarioButton will then set to false to prevent spamming of dialogues appearing and only one to appear
     //lastly, StartCoroutine of AnimationPlay which is another method in 0.5 seconds
@@ -105,7 +99,6 @@ public class Insurance : MonoBehaviour
     //if object is then tagged "insurance", destroy insuranceObject if it's active
     public void DestroyObject()
     {
-
         insuranceObject = GameObject.FindGameObjectWithTag("insurance");
 
         if (randomObject.tag == "insurance")
@@ -119,37 +112,48 @@ public class Insurance : MonoBehaviour
         //if randomObject tag equals to "insurance"
         if (randomObject.tag == "insurance")
         {
+            int index = 0;
+
             insuranceScenario.SetActive(false);
 
-            foreach (var option in DM.insuranceLines)
+            switch (DM.insuranceLines[index])
             {
-                switch (option)
-                {
-                    case "BOSS! I received a call regarding one of your warehouse! An accident occurred, which caused a fire, and it is spreading rapidly. They are currently doing what they can to keep as many things as safe as possible.":
-                        {
-                            GM.happiness += Random.Range(0.5f, 2f);
-                            GM.money -= Random.Range(0.5f, 2f);
-                            GM.popularity += Random.Range(0.5f, 2f);
+                case "BOSS! I received a call regarding one of your warehouse! An accident occurred, which caused a fire. They said not many of the items are damaged, do you want to repair the warehouse?":
+                    {
+                        Debug.Log("1");
+                        GM.happiness += Random.Range(0.5f, 2f);
+                        GM.money -= Random.Range(0.5f, 2f);
+                        GM.popularity += Random.Range(0.5f, 2f);
 
-                            GM.happinessSlider.value += GM.happiness;
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
-                            break;
-                        }
-                    case "Hi Boss! I received a message from employee claiming to be under our company, said that his/her car has broken down and is in need of money, do you want to provide him/her any financial assistance?":
-                        {
-                            GM.happiness += Random.Range(0.5f, 2f);
-                            GM.money -= Random.Range(0.5f, 2f);
-                            GM.popularity += Random.Range(0.5f, 2f);
+                        GM.happinessSlider.value += GM.happiness;
+                        GM.moneySlider.value += GM.money;
+                        GM.popularitySlider.value += GM.popularity;
+                        break;
+                    }
+                case "Hi Boss! I received a message from employee claiming to be under our company, said that his/her car has broken down and is in need of money, do you want to provide him/her any financial assistance?":
+                    {
+                        Debug.Log("2");
+                        GM.happiness += Random.Range(0.5f, 2f);
+                        GM.money -= Random.Range(0.5f, 2f);
+                        GM.popularity += Random.Range(0.5f, 2f);
 
-                            GM.happinessSlider.value += GM.happiness;
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
-                            break;
-                        }
-                }
+                        GM.happinessSlider.value += GM.happiness;
+                        GM.moneySlider.value += GM.money;
+                        GM.popularitySlider.value += GM.popularity;
+                        break;
+                    }
+                default:
+                    {
+                        Debug.Log("Default case or unrecognized dialogue.");
+                        break;
+                    }
             }
 
+            GM.happinessSlider.value = GM.happiness;
+            GM.moneySlider.value = GM.money;
+            GM.popularitySlider.value = GM.popularity;
+
+            index++;
 
             DestroyObject();
         }
