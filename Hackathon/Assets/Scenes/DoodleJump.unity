@@ -1214,6 +1214,7 @@ MonoBehaviour:
   platform: {fileID: 511883014553080111, guid: 2c52c62ad87117c4791f41ae56ac79c8, type: 3}
   platformCount: 10
   finalplatform: {fileID: 0}
+  win: {fileID: 2081578673}
 --- !u!1 &2081578673
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,6 @@ using UnityEngine;
 public class Platform : MonoBehaviour
 {
     public float jumpPower = 10f;
-    public GameObject win;
     public Animator animator;
     public Rigidbody2D rb;
     public GameObject manager;
@@ -14,7 +13,6 @@ public class Platform : MonoBehaviour
     public void Awake()
     {
         manager = GameObject.FindGameObjectWithTag("doodlemanager");
-        win = GameObject.FindGameObjectWithTag("doodlewin");
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -30,7 +28,7 @@ public class Platform : MonoBehaviour
                 rb.velocity = velocity;
                 if(this.gameObject == manager.GetComponent<Manager>().finalplatform)
                 {
-                    win.SetActive(true);
+                   manager.GetComponent<Manager>().win.SetActive(true);
                 }
             }
         }
