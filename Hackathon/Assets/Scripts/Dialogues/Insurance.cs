@@ -92,6 +92,8 @@ public class Insurance : MonoBehaviour
 
         yesButton.SetActive(true);
         noButton.SetActive(true);
+        bool isActive = insuranceDialogue.activeSelf;
+        Debug.Log("Insurance AnimDialogue is " + isActive);
         insuranceDialogue.SetActive(true);
     }
 

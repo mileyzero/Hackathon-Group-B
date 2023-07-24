@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 15887513}
   m_Layer: 5
   m_Name: Insurance Scenario
-  m_TagString: holiday
+  m_TagString: insurance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -439,7 +439,7 @@ MonoBehaviour:
   holidayManager: {fileID: 1176322977}
   investManager: {fileID: 1914481760}
   insuranceManager: {fileID: 1201412525}
-  nameManager: {fileID: 924156493}
+  nameManager: {fileID: 1402993964}
   investmentNotiIcon: {fileID: 1262342650}
   employeeNotiIcon: {fileID: 973103465}
   insuranceNotiIcon: {fileID: 1962098005}
@@ -636,8 +636,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -848,8 +848,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27
-  m_fontSizeBase: 27
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3050,7 +3050,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 924156493}
+      - m_Target: {fileID: 444190053}
         m_TargetAssemblyTypeName: NameGenerator, Assembly-CSharp
         m_MethodName: NameRandomList
         m_Mode: 1
@@ -5634,8 +5634,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5906,13 +5906,19 @@ MonoBehaviour:
   nameGen: {fileID: 1402993964}
   dialogueText: {fileID: 1702195907}
   employeeLines:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Hey Boss! One of your employees is having their birthday TODAY. Would you like
+    to gift a present?
+  - Good Morning Boss! One of your senior employees would like to see you about a
+    promotion. Would you like me to send them in to discuss his possible promotion?
+  - Hi Boss, One of our employees has reported sick, would you like to help out by
+    paying for his/her medical fees?
+  - Hi Boss! Good news, one of our employees has been working hard lately, as a token
+    of appreciation, would you like to provide them with holiday money this year?
+  - Hi Boss, Bad news, one of our employees has gotten into an accident, would you
+    like to provide them with financial assistance to cover their medical bills?
+  - Good Morning Boss! In regards for our employees' workspace, would you like to
+    provide them financial assistance to upgrade?
+  - Happy New Year Boss! would you like to host a New Year Party for your employees?
   investmentLines:
   - 
   - 
