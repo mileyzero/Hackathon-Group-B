@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -31,6 +32,9 @@ public class Snake : MonoBehaviour
     private Level_Grid level_Grid;
     private int snakeBodySize;
 
+    public TextMeshProUGUI score;
+    private int scoreint;
+
     private List<SnakeMovePosition> snakeMovePositionList;
     private List<SnakeBodyPart> snakeBodyList;
 
@@ -53,6 +57,7 @@ public class Snake : MonoBehaviour
 
     private void Update()
     {
+        score.text = scoreint.ToString();
         switch (state)
         {
             case State.Alive:
@@ -138,6 +143,7 @@ public class Snake : MonoBehaviour
             {
                 //Snake body size increase by 1
                 snakeBodySize++;
+                scoreint += 1;
                 CreateSnakeBody();
             }
 

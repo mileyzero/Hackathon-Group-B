@@ -19,6 +19,8 @@ public class Control : MonoBehaviour
 
     private bool resultsChecked = false;
 
+    public GameObject arrow;
+
     // Update is called once per frame
     void Update()
     {
@@ -42,6 +44,7 @@ public class Control : MonoBehaviour
     {
         if (rows[0].rowStopped && rows[1].rowStopped && rows[2].rowStopped)
         {
+            arrow.SetActive(false);
             animator.SetTrigger("Pressed");
             ButtonPressed();
         }
@@ -71,5 +74,6 @@ public class Control : MonoBehaviour
         }
 
         resultsChecked = true;
+        arrow.SetActive(true);
     }
 }
