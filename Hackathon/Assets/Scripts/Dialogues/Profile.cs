@@ -5,32 +5,51 @@ using UnityEngine.UI;
 
 public class Profile : MonoBehaviour
 {
-    //public GameObject profileWindow;
-    public GameObject thisObject;
+    //Profile Window GameObject
+    public GameObject profileWindow;
 
-    public Sprite profile;
+    //Profile Picture
+    public GameObject profileObject;
+
+    //Spawn Area of Profile Picture
+    public GameObject spawnArea;
+
+    private GameObject profileSpawn;
+    private GameObject profileSpawned;
+    private GameObject spawned;
 
     // Start is called before the first frame update
     void Start()
     {
-        //profileWindow.SetActive(false);
-        thisObject = this.gameObject;
-
-
+        profileWindow.SetActive(false);
+        profileObject = this.gameObject;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void OnMouseDown()
     {
-        //profileWindow.SetActive(true);
+        profileWindow.SetActive(true);
+
+        spawnArea = GameObject.FindGameObjectWithTag("profileSpawn");
+
         Debug.Log("CLICK");
 
+        SpawnObject();
+    }
 
-        Sprite spriteImage = profile;
+    public void SpawnObject()
+    {
+        Debug.Log("Spawned");
+
+        Vector3 spawnPosition = spawnArea.transform.position;
+        spawned = Instantiate(profileObject, spawnPosition, Quaternion.identity);
+        spawned.transform.SetParent(spawnArea.transform, false);
+        spawned.transform.position = spawnArea.transform.position;
+    }
+
+
+    public void CloseWindow()
+    {
+        profileWindow.SetActive(false);
     }
 }
