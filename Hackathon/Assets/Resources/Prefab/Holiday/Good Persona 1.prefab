@@ -90,7 +90,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c92733153c1f3842984868217e3456f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profile: {fileID: 0}
+  profileWindow: {fileID: 6663982298474573432, guid: 73e75662735d5ca47a346cbdc49a7575, type: 3}
+  thisObject: {fileID: 0}
+  spawnArea: {fileID: 0}
 --- !u!114 &-5284792999912694482
 MonoBehaviour:
   m_ObjectHideFlags: 0

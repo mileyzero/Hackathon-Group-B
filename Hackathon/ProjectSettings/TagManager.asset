@@ -19,6 +19,8 @@ TagManager:
   - doodlemanager
   - Undefined
   - doodlewin
+  - profileSpawn
+  - profile
   layers:
   - Default
   - TransparentFX
