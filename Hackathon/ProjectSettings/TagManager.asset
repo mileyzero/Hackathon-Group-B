@@ -21,6 +21,7 @@ TagManager:
   - doodlewin
   - profileSpawn
   - profile
+  - breakplatform
   layers:
   - Default
   - TransparentFX
