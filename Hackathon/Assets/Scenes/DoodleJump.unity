@@ -1213,9 +1213,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 511883014553080111, guid: 2c52c62ad87117c4791f41ae56ac79c8, type: 3}
   bounceplatform: {fileID: 511883014553080111, guid: dfb06d92d13aa324bb7961a376b29a2a, type: 3}
-  platformCount: 10
+  breakplatform: {fileID: 511883014553080111, guid: 0efc1b0d09e59de4ea9a778fa94a1a17, type: 3}
+  platformCount: 20
+  numberofstats: 5
   finalplatform: {fileID: 0}
   win: {fileID: 2081578673}
+  popularity: {fileID: 554381694105242829, guid: 0f12993f9c6e33c4f81201bb3a343bc0, type: 3}
+  money: {fileID: 554381694105242829, guid: 452f5c934447cfb4aa6eb60f2a334b4a, type: 3}
+  happiness: {fileID: 554381694105242829, guid: 6e802285fc9d4624a8ba4a9f28983246, type: 3}
 --- !u!1 &2081578673
 GameObject:
   m_ObjectHideFlags: 0

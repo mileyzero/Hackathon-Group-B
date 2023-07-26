@@ -30,6 +30,10 @@ public class Platform : MonoBehaviour
                 {
                    manager.GetComponent<Manager>().win.SetActive(true);
                 }
+                else if(this.gameObject.tag == "breakplatform")
+                {
+                    Destroy(this.gameObject);
+                }
             }
         }
     }
