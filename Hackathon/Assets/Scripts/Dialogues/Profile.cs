@@ -8,21 +8,13 @@ public class Profile : MonoBehaviour
     //Profile Window GameObject
     public GameObject profileWindow;
 
-    //Profile Picture
-    public GameObject profileObject;
-
-    //Spawn Area of Profile Picture
-    public GameObject spawnArea;
-
-    private GameObject profileSpawn;
-    private GameObject profileSpawned;
-    private GameObject spawned;
+    public Slider trustSlider;
+    public Slider successSlider;
 
     // Start is called before the first frame update
     void Start()
     {
         profileWindow.SetActive(false);
-        
     }
 
 
@@ -30,23 +22,8 @@ public class Profile : MonoBehaviour
     {
         profileWindow.SetActive(true);
 
-        spawnArea = GameObject.FindGameObjectWithTag("profileSpawn");
-
-        Debug.Log("CLICK");
-
-        SpawnObject();
+        Debug.Log("PROFILE CLICK");
     }
-
-    public void SpawnObject()
-    {
-        Debug.Log("Spawned");
-
-        Vector3 spawnPosition = spawnArea.transform.position;
-        spawned = Instantiate(profileObject, spawnPosition, Quaternion.identity);
-        spawned.transform.SetParent(spawnArea.transform, false);
-        spawned.transform.position = spawnArea.transform.position;
-    }
-
 
     public void CloseWindow()
     {

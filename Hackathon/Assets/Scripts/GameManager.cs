@@ -27,6 +27,10 @@ public class GameManager : MonoBehaviour
     public GameObject employeeButton;
     public GameObject insuranceButton;
 
+    public GameObject background1;
+    public GameObject background2;
+    public GameObject background3;
+
     //Sliders for happiness, money and popularity
     public Slider happinessSlider;
     public Slider moneySlider;
@@ -58,6 +62,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        background2.SetActive(false);
+        background3.SetActive(false);
+
         //Randomize timer
         delayTimer = Random.Range(1f, 3f);
         Debug.Log(delayTimer);
@@ -133,6 +140,8 @@ public class GameManager : MonoBehaviour
                 Debug.Log(randomInitialize);
             }
         }
+
+        LevelChange();
     }
 
     //This function returns the value of its original value when its being called.
@@ -177,5 +186,23 @@ public class GameManager : MonoBehaviour
 
         insuranceManager.GetComponent<Insurance>().SpawnScenario();
         nameManager.GetComponent<NameGenerator>().NameRandomList();
+    }
+
+    public void LevelChange()
+    {
+        if(popularity < 30)
+        {
+            background1.SetActive(true);
+        }
+        else if(popularity >= 30)
+        {
+            background1.SetActive(false);
+            background2.SetActive(true);
+        }
+        else if(popularity >= 60)
+        {
+            background2.SetActive(false);
+            background3.SetActive(true);
+        }
     }
 }
