@@ -22,7 +22,7 @@ public class Profile : MonoBehaviour
     void Start()
     {
         profileWindow.SetActive(false);
-        profileObject = this.gameObject;
+        
     }
 
 
