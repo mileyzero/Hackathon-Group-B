@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class Manager : MonoBehaviour
 {
     public GameObject platform;
+    public GameObject bounceplatform;
 
     public int platformCount;
     public GameObject finalplatform;
@@ -26,7 +28,25 @@ public class Manager : MonoBehaviour
             }
             else
             {
-                Instantiate(platform, spawnposition, Quaternion.identity);
+                int randomnumber = Random.Range(0, 7);
+
+                if (randomnumber <= 5)
+                {
+                    Instantiate(platform, spawnposition, Quaternion.identity);
+                }
+                else
+                {
+                    if(i != platformCount - 2 || i != platformCount - 1)
+                    {
+                        Instantiate(bounceplatform, spawnposition, Quaternion.identity);
+                    }
+                    else
+                    {
+                        Instantiate(platform, spawnposition, Quaternion.identity);
+                    }
+                    
+                }
+                
             }
 
         }
