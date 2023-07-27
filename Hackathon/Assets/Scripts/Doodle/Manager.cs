@@ -9,6 +9,9 @@ public class Manager : MonoBehaviour
     public GameObject bounceplatform;
     public GameObject breakplatform;
 
+    public BoxCollider2D capsule;
+    public CircleCollider2D circle;
+
     public int platformCount;
     public int numberofstats;
     public GameObject finalplatform;

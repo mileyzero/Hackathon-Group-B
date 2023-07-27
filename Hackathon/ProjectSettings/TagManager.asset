@@ -22,6 +22,7 @@ TagManager:
   - profileSpawn
   - profile
   - breakplatform
+  - bounceplatform
   layers:
   - Default
   - TransparentFX
