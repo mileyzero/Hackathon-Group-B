@@ -124,9 +124,9 @@ public class Holiday : MonoBehaviour
             {
                 case "Hey Boss! One of your employees is having their birthday TODAY. Would you like to gift a present?":
                     {
-                        Debug.Log("1");
-                        GM.happiness += Random.Range(1.5f, 3f);
-                        GM.money -= Random.Range(1f, 2.5f);
+                        Debug.Log("1 Yes Holiday");
+                        GM.happiness += Random.Range(3.5f, 9f);
+                        GM.money -= Random.Range(5f, 10f);
 
                         GM.happinessSlider.value += GM.happiness;
                         GM.moneySlider.value += GM.money;
@@ -134,9 +134,9 @@ public class Holiday : MonoBehaviour
                     }
                 case "Good Morning Boss! One of your senior employees would like to see you about a promotion. Would you like me to send them in to discuss his possible promotion?":
                     {
-                        Debug.Log("2");
-                        GM.happiness += Random.Range(1f, 4f);
-                        GM.money -= Random.Range(2f, 5f);
+                        Debug.Log("2 Yes Holiday");
+                        GM.happiness += Random.Range(5f, 7f);
+                        GM.money -= Random.Range(2f, 8f);
 
                         GM.happinessSlider.value += GM.happiness;
                         GM.moneySlider.value += GM.money;
@@ -144,9 +144,9 @@ public class Holiday : MonoBehaviour
                     }
                 case "Hi Boss, One of our employees has reported sick, would you like to help out by paying for his/her medical fees?":
                     {
-                        Debug.Log("3");
-                        GM.happiness += Random.Range(2f, 5f);
-                        GM.money -= Random.Range(1f, 3f);
+                        Debug.Log("3 Yes Holiday");
+                        GM.happiness += Random.Range(5f, 15f);
+                        GM.money -= Random.Range(2f, 7f);
 
                         GM.happinessSlider.value += GM.happiness;
                         GM.moneySlider.value += GM.money;
@@ -154,10 +154,10 @@ public class Holiday : MonoBehaviour
                     }
                 case "Hi Boss! Good news, one of our employees has been working hard lately, as a token of appreciation, would you like to provide them with holiday money this year?":
                     {
-                        Debug.Log("4");
-                        GM.happiness += Random.Range(3f, 6f);
-                        GM.money -= Random.Range(1f, 4f);
-                        GM.popularity += Random.Range(1f, 3f);
+                        Debug.Log("4 Yes Holiday");
+                        GM.happiness += Random.Range(4f, 9.5f);
+                        GM.money -= Random.Range(2f, 6f);
+                        GM.popularity += Random.Range(2.5f, 6f);
 
                         GM.happinessSlider.value += GM.happiness;
                         GM.moneySlider.value += GM.money;
@@ -166,10 +166,10 @@ public class Holiday : MonoBehaviour
                     }
                 case "Hi Boss, Bad news, one of our employees has gotten into an accident, would you like to provide them with financial assistance to cover their medical bills?":
                     {
-                        Debug.Log("5");
+                        Debug.Log("5 Yes Holiday");
                         GM.happiness += Random.Range(4f, 8f);
-                        GM.money -= Random.Range(1f, 4f);
-                        GM.popularity += Random.Range(2f, 4f);
+                        GM.money -= Random.Range(2f, 5f);
+                        GM.popularity += Random.Range(5f, 9f);
 
                         GM.happinessSlider.value += GM.happiness;
                         GM.moneySlider.value += GM.money;
@@ -178,9 +178,9 @@ public class Holiday : MonoBehaviour
                     }
                 case "Good Morning Boss! In regards for our employees' workspace, would you like to provide them financial assistance to upgrade?":
                     {
-                        Debug.Log("6");
-                        GM.happiness += Random.Range(2f, 4f);
-                        GM.money -= Random.Range(0.5f, 3f);
+                        Debug.Log("6 Yes Holiday");
+                        GM.happiness += Random.Range(5f, 15f);
+                        GM.money -= Random.Range(3f, 6f);
 
                         GM.happinessSlider.value += GM.happiness;
                         GM.moneySlider.value += GM.money;
@@ -188,9 +188,9 @@ public class Holiday : MonoBehaviour
                     }
                 case "Happy New Year Boss! would you like to host a New Year Party for your employees?":
                     {
-                        Debug.Log("7");
-                        GM.happiness += Random.Range(3f, 6f);
-                        GM.money -= Random.Range(1f, 3f);
+                        Debug.Log("7 Yes Holiday");
+                        GM.happiness += Random.Range(5f, 10f);
+                        GM.money -= Random.Range(4f, 8f);
 
                         GM.happinessSlider.value += GM.happiness;
                         GM.moneySlider.value += GM.money;
@@ -229,33 +229,33 @@ public class Holiday : MonoBehaviour
             {
                 case "Hey Boss! One of your employees is having their birthday TODAY. Would you like to gift a present?":
                     {
-                        Debug.Log("1 Holiday");
-                        GM.happiness -= Random.Range(0.5f, 2f);
+                        Debug.Log("1 No Holiday");
+                        GM.happiness -= Random.Range(3.5f, 9f);
 
                         GM.happinessSlider.value += GM.happiness;
                         break;
                     }
                 case "Good Morning Boss! One of your senior employees would like to see you about a promotion. Would you like me to send them in to discuss his possible promotion?":
                     {
-                        Debug.Log("2 Holiday");
-                        GM.happiness -= Random.Range(0.2f, 2f);
+                        Debug.Log("2 No Holiday");
+                        GM.happiness -= Random.Range(5f, 7f);
 
                         GM.happinessSlider.value += GM.happiness;
                         break;
                     }
                 case "Hi Boss, One of our employees has reported sick, would you like to help out by paying for his/her medical fees?":
                     {
-                        Debug.Log("3 Holiday");
-                        GM.happiness -= Random.Range(0.5f, 2f);
+                        Debug.Log("3 No Holiday");
+                        GM.happiness -= Random.Range(5f, 15f);
 
                         GM.happinessSlider.value += GM.happiness;
                         break;
                     }
                 case "Hi Boss! Good news, one of our employees has been working hard lately, as a token of appreciation, would you like to provide them with holiday money this year?":
                     {
-                        Debug.Log("4 Holiday");
-                        GM.happiness -= Random.Range(0.5f, 2f);
-                        GM.popularity -= Random.Range(0.5f, 2f);
+                        Debug.Log("4 No Holiday");
+                        GM.happiness -= Random.Range(4f, 9.5f);
+                        GM.popularity -= Random.Range(2.5f, 6f);
 
                         GM.happinessSlider.value += GM.happiness;
                         GM.popularitySlider.value += GM.popularity;
@@ -263,9 +263,9 @@ public class Holiday : MonoBehaviour
                     }
                 case "Hi Boss, Bad news, one of our employees has gotten into an accident, would you like to provide them with financial assistance to cover their medical bills?":
                     {
-                        Debug.Log("5 Holiday");
-                        GM.happiness -= Random.Range(0.5f, 2f);
-                        GM.popularity -= Random.Range(0.5f, 2f);
+                        Debug.Log("5 No Holiday");
+                        GM.happiness -= Random.Range(4f, 8f);
+                        GM.popularity -= Random.Range(5f, 9f);
 
                         GM.happinessSlider.value += GM.happiness;
                         GM.popularitySlider.value += GM.popularity;
@@ -273,16 +273,16 @@ public class Holiday : MonoBehaviour
                     }
                 case "Good Morning Boss! In regards for our employees' workspace, would you like to provide them financial assistance to upgrade?":
                     {
-                        Debug.Log("6 Holiday");
-                        GM.happiness -= Random.Range(0.5f, 2f);
+                        Debug.Log("6 No Holiday");
+                        GM.happiness -= Random.Range(5f, 15f);
 
                         GM.happinessSlider.value += GM.happiness;
                         break;
                     }
                 case "Happy New Year Boss! would you like to host a New Year Party for your employees?":
                     {
-                        Debug.Log("7 Holiday");
-                        GM.happiness -= Random.Range(0.5f, 2f);
+                        Debug.Log("7 No Holiday");
+                        GM.happiness -= Random.Range(5f, 10f);
 
                         GM.happinessSlider.value += GM.happiness;
                         break;

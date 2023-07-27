@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4245438884218788619}
   m_Layer: 5
   m_Name: Good Persona 1
-  m_TagString: investment
+  m_TagString: good
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
