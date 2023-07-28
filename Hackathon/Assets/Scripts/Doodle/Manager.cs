@@ -12,6 +12,10 @@ public class Manager : MonoBehaviour
     public BoxCollider2D capsule;
     public CircleCollider2D circle;
 
+    public int popularityCount;
+    public int moneyCount;
+    public int happinessCount;
+
     public int platformCount;
     public int numberofstats;
     public GameObject finalplatform;
@@ -34,7 +38,7 @@ public class Manager : MonoBehaviour
             spawnposition.x = Random.Range(-7f, 7f);
             if(i == platformCount)
             {
-                finalplatform = Instantiate(platform, spawnposition, Quaternion.identity);
+                Instantiate(finalplatform, new Vector3(0, spawnposition.y + 1.2f), Quaternion.identity);
             }
             else
             {

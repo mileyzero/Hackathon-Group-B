@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.flipX = false;
         }
+
+        
     }
 
     private void FixedUpdate()
@@ -34,5 +36,14 @@ public class PlayerMovement : MonoBehaviour
         Vector2 velocity = rb.velocity;
         velocity.x = moveX;
         rb.velocity = velocity;
+        SwapX();
+    }
+
+    private void SwapX() //swap the x value of player if the x position of the player goes over a certain range
+    {
+        if(this.gameObject.transform.position.x >=11f || this.gameObject.transform.position.x <= -11f)
+        {
+            this.gameObject.transform.position = new Vector2(this.gameObject.transform.position.x * -1f, this.gameObject.transform.position.y);
+        }
     }
 }

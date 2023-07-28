@@ -23,6 +23,9 @@ TagManager:
   - profile
   - breakplatform
   - bounceplatform
+  - doodleHappy
+  - doodlePopular
+  - doodleMoney
   layers:
   - Default
   - TransparentFX

@@ -33,7 +33,7 @@ public class Platform : MonoBehaviour
                 velocity.y = jumpPower;
                 rb.velocity = velocity;
                 StartCoroutine(bounce());
-                if (this.gameObject == manager.GetComponent<Manager>().finalplatform)
+                if (this.gameObject.tag == "doodlewin")
                 {
                    manager.GetComponent<Manager>().win.SetActive(true);
                 }
