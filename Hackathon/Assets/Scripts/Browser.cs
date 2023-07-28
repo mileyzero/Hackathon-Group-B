@@ -33,6 +33,7 @@ public class Browser : MonoBehaviour
     public void OnMouseDown()
     {
         doNutBrowser.SetActive(true);
+        crossButton.SetActive(true);
 
         Debug.Log("BROWSER OPEN");
     }
@@ -40,6 +41,7 @@ public class Browser : MonoBehaviour
     public void CloseWindow()
     {
         doNutBrowser.SetActive(false);
+        crossButton.SetActive(false);
 
         Debug.Log("BROWSER CLOSE");
     }
@@ -50,7 +52,7 @@ public class Browser : MonoBehaviour
 
         GM.money -= 5f;
 
-        GM.moneySlider.value += GM.money;
+        GM.moneySlider.value -= GM.money;
 
         accidentInsurance = true;
 
@@ -70,7 +72,7 @@ public class Browser : MonoBehaviour
 
         GM.money -= 5f;
 
-        GM.moneySlider.value += GM.money;
+        GM.moneySlider.value -= GM.money;
 
         healthInsurance = true;
 
@@ -90,7 +92,7 @@ public class Browser : MonoBehaviour
 
         GM.money -= 5f;
 
-        GM.moneySlider.value += GM.money;
+        GM.moneySlider.value -= GM.money;
 
         investmentInsurance = true;
 
