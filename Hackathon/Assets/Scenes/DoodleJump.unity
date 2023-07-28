@@ -236,7 +236,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 6200000, guid: 905c8649d7b4b5a409c1ed4c351b10ec, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -302,7 +302,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 431517611}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.05, y: 1.26, z: 0}
+  m_LocalPosition: {x: 0, y: 1.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -357,7 +357,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0013594478, y: -0.34123462}
+  m_Offset: {x: -0.0013594478, y: -0.35690054}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -368,7 +368,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.37173548, y: 0.08764899}
+  m_Size: {x: 0.37173548, y: 0.05631715}
   m_EdgeRadius: 0
 --- !u!58 &431517619
 CircleCollider2D:
@@ -544,7 +544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2346515974621879583, guid: 2c52c62ad87117c4791f41ae56ac79c8, type: 3}
       propertyPath: jumpPower
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c52c62ad87117c4791f41ae56ac79c8, type: 3}
@@ -770,7 +770,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.0583973, y: -6.119358}
+  m_Offset: {x: 0.21164322, y: -6.119358}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -781,7 +781,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 49.17091, y: 0.7612839}
+  m_Size: {x: 99.2069, y: 0.7612839}
   m_EdgeRadius: 0
 --- !u!114 &754615305
 MonoBehaviour:
@@ -1233,9 +1233,12 @@ MonoBehaviour:
   breakplatform: {fileID: 511883014553080111, guid: 0efc1b0d09e59de4ea9a778fa94a1a17, type: 3}
   capsule: {fileID: 431517618}
   circle: {fileID: 431517619}
+  popularityCount: 0
+  moneyCount: 0
+  happinessCount: 0
   platformCount: 20
   numberofstats: 5
-  finalplatform: {fileID: 0}
+  finalplatform: {fileID: 6085349917227892271, guid: 9e327ccf622938444baa4b855d591a91, type: 3}
   win: {fileID: 2081578673}
   popularity: {fileID: 554381694105242829, guid: 0f12993f9c6e33c4f81201bb3a343bc0, type: 3}
   money: {fileID: 554381694105242829, guid: 452f5c934447cfb4aa6eb60f2a334b4a, type: 3}

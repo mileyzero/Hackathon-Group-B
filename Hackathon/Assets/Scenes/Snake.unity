@@ -700,7 +700,7 @@ RectTransform:
   m_GameObject: {fileID: 641655214}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25655577, y: 0.25655577, z: 0.25655577}
+  m_LocalScale: {x: 0.49694854, y: 0.49694854, z: 0.49694854}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 378641369}
@@ -731,7 +731,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 2379672ad3650514c8e0f29e49bd5685, type: 3}
+  m_Texture: {fileID: 2800000, guid: 661fe7489f5f122459c4d6affdd2be67, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1357,7 +1357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snakeHeadSprite: {fileID: 21300000, guid: 9602dd777e823fd4eb198fdb21c238ee, type: 3}
-  foodsprite: {fileID: 21300000, guid: 2379672ad3650514c8e0f29e49bd5685, type: 3}
+  foodsprite: {fileID: -1117830164, guid: 638a24f92bbe3cf4b9ded1e72eab87aa, type: 3}
   snakebody: {fileID: 21300000, guid: a75db2384315d3e4b9f7383e89877045, type: 3}
 --- !u!4 &1265194404
 Transform:

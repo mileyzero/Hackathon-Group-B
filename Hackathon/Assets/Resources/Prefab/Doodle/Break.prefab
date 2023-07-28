@@ -143,10 +143,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38a7b41235299ed408666e59d66390f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpPower: 10
+  jumpPower: 15
   animator: {fileID: 0}
+  platformanimation: {fileID: 0}
   rb: {fileID: 0}
   manager: {fileID: 0}
+  edgeCollider: {fileID: 0}
+  beforelocation: {x: 0, y: 0}
 --- !u!50 &-2236813333873449001
 Rigidbody2D:
   serializedVersion: 4
