@@ -123,25 +123,18 @@ public class Insurance : MonoBehaviour
                 case "BOSS! I received a call regarding one of your warehouse! An accident occurred, which caused a fire. They said not many of the items are damaged, do you want to repair the warehouse?":
                     {
                         Debug.Log("1");
-                        GM.happiness += Random.Range(5f, 10f);
-                        GM.money -= Random.Range(3f, 9f);
-                        GM.popularity += Random.Range(5f, 9f);
+                        GM.money -= Random.Range(10f, 20f);
 
-                        GM.happinessSlider.value += GM.happiness;
                         GM.moneySlider.value += GM.money;
-                        GM.popularitySlider.value += GM.popularity;
                         break;
                     }
                 case "Hi Boss! I received a message from employee claiming to be under our company, said that his/her car has broken down and is in need of money, do you want to provide him/her any financial assistance?":
                     {
                         Debug.Log("2");
-                        GM.happiness += Random.Range(3f, 8f);
-                        GM.money -= Random.Range(5f, 10f);
+                        GM.money -= Random.Range(10f, 20f);
                         GM.popularity += Random.Range(3f, 10f);
 
-                        GM.happinessSlider.value += GM.happiness;
                         GM.moneySlider.value += GM.money;
-                        GM.popularitySlider.value += GM.popularity;
                         break;
                     }
                 default:
