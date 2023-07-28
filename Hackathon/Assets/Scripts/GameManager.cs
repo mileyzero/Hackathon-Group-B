@@ -192,17 +192,24 @@ public class GameManager : MonoBehaviour
     {
         if(popularity < 30)
         {
+            Debug.Log("Level 1");
             background1.SetActive(true);
         }
+
         else if(popularity >= 30)
         {
-            background1.SetActive(false);
-            background2.SetActive(true);
-        }
-        else if(popularity >= 60)
-        {
-            background2.SetActive(false);
-            background3.SetActive(true);
+            if (popularity >= 60)
+            {
+                Debug.Log("Level 3");
+                background2.SetActive(false);
+                background3.SetActive(true);
+            }
+            else
+            {
+                Debug.Log("Level 2");
+                background1.SetActive(false);
+                background2.SetActive(true);
+            }
         }
     }
 }
