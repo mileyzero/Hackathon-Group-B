@@ -150,8 +150,6 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(3f, 8f);
                             GM.popularity -= Random.Range(5f, 7f);
 
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
                         }
                         break;
                     }
@@ -163,8 +161,6 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(5f, 9f);
                             GM.popularity -= Random.Range(4f, 10f);
 
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
                         }
                         break;
                     }
@@ -176,8 +172,6 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(5f, 10f);
                             GM.popularity -= Random.Range(3f, 7f);
 
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
                         }
                         break;
                     }
@@ -189,8 +183,6 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(7f, 15f);
                             GM.popularity -= Random.Range(4f, 8f);
 
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
                         }                        
                         break;
                     }
@@ -202,8 +194,6 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(5f, 9f);
                             GM.popularity -= Random.Range(3f, 6f);
 
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
                         }
                         break;
                     }
@@ -215,8 +205,6 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(5f, 15f);
                             GM.popularity -= Random.Range(4f, 9f);
 
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
                         }
                         break;
                     }
@@ -228,8 +216,6 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(5f, 15f);
                             GM.popularity -= Random.Range(4f, 9f);
 
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
                         }
                         break;
                     }
@@ -241,8 +227,6 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(5f, 10f);
                             GM.popularity -= Random.Range(3f, 9f);
 
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
                         }
                         break;
                     }
@@ -254,8 +238,6 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(5f, 20f);
                             GM.popularity -= Random.Range(5f, 10f);
 
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
                         }
                         break;
                     }
@@ -267,8 +249,6 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(5f, 20f);
                             GM.popularity -= Random.Range(4f, 10f);
 
-                            GM.moneySlider.value += GM.money;
-                            GM.popularitySlider.value += GM.popularity;
                         }
                         break;
                     }
@@ -313,8 +293,6 @@ public class Investment : MonoBehaviour
                         GM.money += Random.Range(3f, 8f);
                         GM.popularity += Random.Range(5f, 7f);
 
-                        GM.moneySlider.value += GM.money;
-                        GM.popularitySlider.value += GM.popularity;
                         break;
                     }
                 case "Hey Pal! Heard your business has been thriving. I'm writing to ask you whether you would like to invest in one business project. You will receive a good margin of the profits!":
@@ -323,8 +301,6 @@ public class Investment : MonoBehaviour
                         GM.money += Random.Range(5f, 9f);
                         GM.popularity += Random.Range(4f, 10f);
 
-                        GM.moneySlider.value += GM.money;
-                        GM.popularitySlider.value += GM.popularity;
                         break;
                     }
                 case "Hi. Would you like to provide some funds for my start-up business? We will pay you handsomely once things start to pick up.":
@@ -333,8 +309,6 @@ public class Investment : MonoBehaviour
                         GM.money += Random.Range(5f, 10f);
                         GM.popularity += Random.Range(3f, 7f);
 
-                        GM.moneySlider.value += GM.money;
-                        GM.popularitySlider.value += GM.popularity;
                         break;
                     }
                 case "Hi, I am a representative of an Energy Company called Operate Clean Energy. We believe our proposal for a mutually beneficial partnership will revolutionize the way we harness and distribute energy. Would you like to invest in our company?":
@@ -343,8 +317,6 @@ public class Investment : MonoBehaviour
                         GM.money += Random.Range(7f, 15f);
                         GM.popularity += Random.Range(4f, 8f);
 
-                        GM.moneySlider.value += GM.money;
-                        GM.popularitySlider.value += GM.popularity;
                         break;
                     }
                 case "Hey there! I'm the developer of Among Us, and I could really use some financial support to help me develop this game! Would you help me?":
@@ -353,8 +325,6 @@ public class Investment : MonoBehaviour
                         GM.money -= Random.Range(5f, 9f);
                         GM.popularity += Random.Range(3f, 6f);
 
-                        GM.moneySlider.value += GM.money;
-                        GM.popularitySlider.value += GM.popularity;
                         break;
                     }
                 case "Hi! I would like to provide an upgrade of ads to your company! Do you want some traction for your ads?":
@@ -363,8 +333,6 @@ public class Investment : MonoBehaviour
                         GM.money -= Random.Range(4f, 10f);
                         GM.popularity += Random.Range(5f, 15f);
 
-                        GM.moneySlider.value += GM.money;
-                        GM.popularitySlider.value += GM.popularity;
                         break;
                     }
                 case "Hey there! Want to be the face of our awesome brand? We're hiring models to help us advertise - interested?":
@@ -373,8 +341,6 @@ public class Investment : MonoBehaviour
                         GM.money -= Random.Range(5f, 10f);
                         GM.popularity += Random.Range(4f, 9f);
 
-                        GM.moneySlider.value += GM.money;
-                        GM.popularitySlider.value += GM.popularity;
                         break;
                     }
                 case "Hi! I am a representative of a clothing brand called Doo Nut, we would be thrilled to offer you a deal with our clothing brand - are you interested?":
@@ -383,8 +349,6 @@ public class Investment : MonoBehaviour
                         GM.money -= Random.Range(5f, 10f);
                         GM.popularity += Random.Range(3f, 9f);
 
-                        GM.moneySlider.value += GM.money;
-                        GM.popularitySlider.value += GM.popularity;
                         break;
                     }
                 case "Hi, I would like to catch everyone's attention and spread your company's name by advertising it on a billboard! Are you interested?":
@@ -393,8 +357,6 @@ public class Investment : MonoBehaviour
                         GM.money -= Random.Range(5f, 20f);
                         GM.popularity += Random.Range(5f, 10f);
 
-                        GM.moneySlider.value += GM.money;
-                        GM.popularitySlider.value += GM.popularity;
                         break;
                     }
                 case "Hi, I would like to provide services to upgrade your company's office area, are you interested?":
@@ -403,8 +365,6 @@ public class Investment : MonoBehaviour
                         GM.money -= Random.Range(5f, 20f);
                         GM.popularity += Random.Range(4f, 10f);
 
-                        GM.moneySlider.value += GM.money;
-                        GM.popularitySlider.value += GM.popularity;
                         break;
                     }
                 default:

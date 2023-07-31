@@ -125,7 +125,6 @@ public class Insurance : MonoBehaviour
                         Debug.Log("1");
                         GM.money -= Random.Range(10f, 20f);
 
-                        GM.moneySlider.value += GM.money;
                         break;
                     }
                 case "Hi Boss! I received a message from employee claiming to be under our company, said that his/her car has broken down and is in need of money, do you want to provide him/her any financial assistance?":
@@ -134,7 +133,6 @@ public class Insurance : MonoBehaviour
                         GM.money -= Random.Range(10f, 20f);
                         GM.popularity += Random.Range(3f, 10f);
 
-                        GM.moneySlider.value += GM.money;
                         break;
                     }
                 default:
