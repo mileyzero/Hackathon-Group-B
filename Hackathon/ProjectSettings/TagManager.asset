@@ -26,6 +26,7 @@ TagManager:
   - doodleHappy
   - doodlePopular
   - doodleMoney
+  - main_game
   layers:
   - Default
   - TransparentFX
