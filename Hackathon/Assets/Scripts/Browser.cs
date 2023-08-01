@@ -56,7 +56,53 @@ public class Browser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(accidentInsurance == false)
+        {
+            accidentGreyed.SetActive(true);
+            accidentActive.SetActive(false);
+
+            accidentBtn.enabled = true;
+
+            accidentBtnDisabled.SetActive(false);
+        }
+
+        if(accidentInsurance == true)
+        {
+            accidentGreyed.SetActive(false);
+            accidentActive.SetActive(true);
+        }
+
+        if (healthInsurance == false)
+        {
+            healthGreyed.SetActive(true);
+            healthActive.SetActive(false);
+
+            healthBtn.enabled = true;
+
+            healthBtnDisabled.SetActive(false);
+        }
         
+        if(healthInsurance == true)
+        {
+            healthGreyed.SetActive(false);
+            healthActive.SetActive(true);
+        }
+
+        if(investmentInsurance == false)
+        {
+            insuranceGreyed.SetActive(true);
+            insuranceActive.SetActive(false);
+
+            investmentBtn.enabled = true;
+
+            investmentBtnDisabled.SetActive(false);
+        }
+
+        if(investmentInsurance == true)
+        {
+            insuranceGreyed.SetActive(false);
+            insuranceActive.SetActive(true);
+        }
     }
 
     public void OnMouseDown()
@@ -97,7 +143,7 @@ public class Browser : MonoBehaviour
         {
             accidentBtn.enabled = true;
 
-            accidentBtnDisabled.SetActive(true);
+            accidentBtnDisabled.SetActive(false);
 
             accidentGreyed.SetActive(true);
             accidentActive.SetActive(false);
