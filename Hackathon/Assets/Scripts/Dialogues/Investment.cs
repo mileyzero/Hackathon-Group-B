@@ -144,12 +144,14 @@ public class Investment : MonoBehaviour
             {
                 case "Hi Boss! Our accountants have noticed that we have a surplus in capital. They suggested that you expand the business and offices. Would you like to follow through?":
                     {
-                        if(browserManager.investmentInsurance != true)
+                        if (browserManager.investmentInsurance != true)
                         {
                             Debug.Log("1 Scam");
                             GM.money -= Random.Range(3f, 8f);
                             GM.popularity -= Random.Range(5f, 7f);
 
+                            browserManager.insuranceActive.SetActive(false);
+                            browserManager.insuranceGreyed.SetActive(true);
                         }
                         break;
                     }
@@ -160,6 +162,9 @@ public class Investment : MonoBehaviour
                             Debug.Log("2 Scam");
                             GM.money -= Random.Range(5f, 9f);
                             GM.popularity -= Random.Range(4f, 10f);
+
+                            browserManager.insuranceActive.SetActive(false);
+                            browserManager.insuranceGreyed.SetActive(true);
 
                         }
                         break;
@@ -172,6 +177,8 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(5f, 10f);
                             GM.popularity -= Random.Range(3f, 7f);
 
+                            browserManager.insuranceActive.SetActive(false);
+                            browserManager.insuranceGreyed.SetActive(true);
                         }
                         break;
                     }
@@ -183,7 +190,9 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(7f, 15f);
                             GM.popularity -= Random.Range(4f, 8f);
 
-                        }                        
+                            browserManager.insuranceActive.SetActive(false);
+                            browserManager.insuranceGreyed.SetActive(true);
+                        }
                         break;
                     }
                 case "Hey there! I'm the developer of Among Us, and I could really use some financial support to help me develop this game! Would you help me?":
@@ -194,6 +203,8 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(5f, 9f);
                             GM.popularity -= Random.Range(3f, 6f);
 
+                            browserManager.insuranceActive.SetActive(false);
+                            browserManager.insuranceGreyed.SetActive(true);
                         }
                         break;
                     }
@@ -205,6 +216,8 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(5f, 15f);
                             GM.popularity -= Random.Range(4f, 9f);
 
+                            browserManager.insuranceActive.SetActive(false);
+                            browserManager.insuranceGreyed.SetActive(true);
                         }
                         break;
                     }
@@ -216,6 +229,8 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(5f, 15f);
                             GM.popularity -= Random.Range(4f, 9f);
 
+                            browserManager.insuranceActive.SetActive(false);
+                            browserManager.insuranceGreyed.SetActive(true);
                         }
                         break;
                     }
@@ -227,6 +242,8 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(5f, 10f);
                             GM.popularity -= Random.Range(3f, 9f);
 
+                            browserManager.insuranceActive.SetActive(false);
+                            browserManager.insuranceGreyed.SetActive(true);
                         }
                         break;
                     }
@@ -238,6 +255,8 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(5f, 20f);
                             GM.popularity -= Random.Range(5f, 10f);
 
+                            browserManager.insuranceActive.SetActive(false);
+                            browserManager.insuranceGreyed.SetActive(true);
                         }
                         break;
                     }
@@ -249,6 +268,8 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(5f, 20f);
                             GM.popularity -= Random.Range(4f, 10f);
 
+                            browserManager.insuranceActive.SetActive(false);
+                            browserManager.insuranceGreyed.SetActive(true);
                         }
                         break;
                     }
@@ -271,8 +292,8 @@ public class Investment : MonoBehaviour
 
             if(browserManager.investmentInsurance == true)
             {
-                Debug.Log(browserManager.investmentInsurance);
                 browserManager.investmentInsurance = false;
+                Debug.Log(browserManager.investmentInsurance);
             }
 
             DestroyObject();

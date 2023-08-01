@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
     //Reference script to holidayManager
     public Holiday holidayManager;
 
@@ -33,7 +32,6 @@ public class GameManager : MonoBehaviour
     public GameObject background2;
     public GameObject background3;
 
-    public GameObject _mainGame;
     //Sliders for happiness, money and popularity
     public Slider happinessSlider;
     public Slider moneySlider;
@@ -61,16 +59,6 @@ public class GameManager : MonoBehaviour
 
     //Bool for isRunning
     public bool isRunning;
-
-    private void Awake()
-    {
-        _mainGame = GameObject.FindGameObjectWithTag("main_game");
-
-        if (_mainGame != null)
-        {
-            DontDestroyOnLoad(_mainGame);
-        }
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -229,7 +217,6 @@ public class GameManager : MonoBehaviour
 
     public void SnakeGame()
     {
-        _mainGame.SetActive(false);
         SceneManager.LoadScene("Snake");
     }
 }

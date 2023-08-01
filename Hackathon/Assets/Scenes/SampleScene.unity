@@ -449,7 +449,6 @@ MonoBehaviour:
   background1: {fileID: 726585597}
   background2: {fileID: 1404393172}
   background3: {fileID: 1943291794}
-  _mainGame: {fileID: 0}
   happinessSlider: {fileID: 7192855}
   moneySlider: {fileID: 1335645973}
   popularitySlider: {fileID: 1636039691}
@@ -477,7 +476,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1649164782}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &57934754
 GameObject:
@@ -6476,6 +6475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GM: {fileID: 38225539}
+  browserManager: {fileID: 1962933006}
   DM: {fileID: 1751725959}
   spawnObjects:
   - {fileID: 1733141527322304906, guid: 96e562137bc1bcc41b45ec8f86ae022f, type: 3}
@@ -8758,6 +8758,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1649164782}
+  - component: {fileID: 1649164783}
   m_Layer: 0
   m_Name: Main Game
   m_TagString: main_game
@@ -8780,11 +8781,23 @@ Transform:
   - {fileID: 519420032}
   - {fileID: 2014829170}
   - {fileID: 1099061564}
-  - {fileID: 38225540}
   - {fileID: 2031639211}
+  - {fileID: 38225540}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1649164783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649164781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc3dbd4e5cbfa7418b8900b26b806d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1660074498
 GameObject:
   m_ObjectHideFlags: 0
@@ -10663,7 +10676,7 @@ Transform:
   - {fileID: 1914481759}
   - {fileID: 1201412524}
   m_Father: {fileID: 1649164782}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2064898862
 GameObject:

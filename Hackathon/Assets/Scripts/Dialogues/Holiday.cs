@@ -10,6 +10,9 @@ public class Holiday : MonoBehaviour
     //Reference script to GM
     public GameManager GM;
 
+    //Reference script to browserManager
+    public Browser browserManager;
+
     //Reference script to DM
     public DialogueManager DM;
 
@@ -140,9 +143,15 @@ public class Holiday : MonoBehaviour
                     }
                 case "Hi Boss, One of our employees has reported sick, would you like to help out by paying for his/her medical fees?":
                     {
-                        Debug.Log("3 Yes Holiday");
-                        GM.happiness += Random.Range(5f, 15f);
-                        GM.money -= Random.Range(2f, 7f);
+                        if (browserManager.healthInsurance != true)
+                        {
+                            Debug.Log("3 Yes Holiday");
+                            GM.money -= Random.Range(2f, 7f);
+                        }
+                        else
+                        {
+                            GM.happiness += Random.Range(5f, 15f);
+                        }
 
                         break;
                     }
@@ -157,10 +166,16 @@ public class Holiday : MonoBehaviour
                     }
                 case "Hi Boss, Bad news, one of our employees has gotten into an accident, would you like to provide them with financial assistance to cover their medical bills?":
                     {
-                        Debug.Log("5 Yes Holiday");
-                        GM.happiness += Random.Range(4f, 8f);
-                        GM.money -= Random.Range(2f, 5f);
-                        GM.popularity += Random.Range(5f, 9f);
+                        if (browserManager.accidentInsurance != true)
+                        {
+                            Debug.Log("5 Yes Holiday");
+                            GM.happiness += Random.Range(4f, 8f);
+                            GM.popularity += Random.Range(5f, 9f);
+                        }
+                        else
+                        {
+                            GM.money -= Random.Range(2f, 5f);
+                        }
 
                         break;
                     }
@@ -193,9 +208,28 @@ public class Holiday : MonoBehaviour
 
             index++;
 
+            if (browserManager.healthInsurance == true)
+            {
+                Debug.Log(browserManager.healthInsurance);
+
+                browserManager.healthActive.SetActive(false);
+                browserManager.healthGreyed.SetActive(true);
+
+                browserManager.healthInsurance = false;
+            }
+
+            if (browserManager.accidentInsurance == true)
+            {
+                Debug.Log(browserManager.accidentInsurance);
+
+                browserManager.accidentActive.SetActive(false);
+                browserManager.accidentGreyed.SetActive(true);
+
+                browserManager.accidentInsurance = false;
+            }
+
             DestroyObject();
         }
-
 
         GM.FunctionUpdates();
     }
