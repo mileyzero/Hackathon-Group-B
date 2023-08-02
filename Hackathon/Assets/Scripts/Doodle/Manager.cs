@@ -86,9 +86,9 @@ public class Manager : MonoBehaviour
     private void SpawnStats()
     {
 
-        int randompopularity = Random.Range(-16, 2);
-        int randommoney = Random.Range(-13, 2);
-        int randomhappiness = Random.Range(-8, 2);
+        int randompopularity = Random.Range(-15, 2);
+        int randommoney = Random.Range(-13, 4);
+        int randomhappiness = Random.Range(-15, 5);
         if (randompopularity > 0)
         {
             Instantiate(popularity, new Vector3(Random.Range(-7f, 7f), spawnposition.y + 0.97f), Quaternion.identity);
