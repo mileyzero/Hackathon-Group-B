@@ -114,6 +114,8 @@ public class Insurance : MonoBehaviour
         //if randomObject tag equals to "insurance"
         if (randomObject.tag == "insurance")
         {
+            GM.snekGameBtn.enabled = true;
+
             int index = 0;
 
             insuranceScenario.SetActive(false);
@@ -157,6 +159,8 @@ public class Insurance : MonoBehaviour
 
     public void NoClick()
     {
+        GM.snekGameBtn.enabled = true;
+
         //if randomObject tag equals to "insurance"
         if (randomObject.tag == "insurance")
         {

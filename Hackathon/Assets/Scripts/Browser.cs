@@ -65,8 +65,7 @@ public class Browser : MonoBehaviour
 
             accidentBtnDisabled.SetActive(false);
         }
-
-        if(accidentInsurance == true)
+        else
         {
             accidentGreyed.SetActive(false);
             accidentActive.SetActive(true);
@@ -81,13 +80,12 @@ public class Browser : MonoBehaviour
 
             healthBtnDisabled.SetActive(false);
         }
-        
-        if(healthInsurance == true)
+        else
         {
             healthGreyed.SetActive(false);
             healthActive.SetActive(true);
         }
-
+        
         if(investmentInsurance == false)
         {
             insuranceGreyed.SetActive(true);
@@ -97,8 +95,7 @@ public class Browser : MonoBehaviour
 
             investmentBtnDisabled.SetActive(false);
         }
-
-        if(investmentInsurance == true)
+        else
         {
             insuranceGreyed.SetActive(false);
             insuranceActive.SetActive(true);

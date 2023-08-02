@@ -15,6 +15,12 @@ public class GameManager : MonoBehaviour
     //Reference script to insuranceManager;
     public Insurance insuranceManager;
 
+    //Reference script to accidentManager
+    public Accident accidentManager;
+
+    //Reference script to healthManager
+    public Health healthManager;
+
     //Variable for NameGenerator
     public NameGenerator nameManager;
 
@@ -22,11 +28,15 @@ public class GameManager : MonoBehaviour
     public GameObject investmentNotiIcon;
     public GameObject employeeNotiIcon;
     public GameObject insuranceNotiIcon;
+    public GameObject accidentNotiIcon;
+    public GameObject healthNotiIcon;
 
     //GameObject for investment and employee envelope icon
     public GameObject investmentButton;
     public GameObject employeeButton;
     public GameObject insuranceButton;
+    public GameObject accidentButton;
+    public GameObject healthButton;
 
     public GameObject background1;
     public GameObject background2;
@@ -36,6 +46,8 @@ public class GameManager : MonoBehaviour
     public Slider happinessSlider;
     public Slider moneySlider;
     public Slider popularitySlider;
+
+    public Button snekGameBtn;
 
     //Float for maxHappiness, money and popularity
     public float maxHappiness = 90f;
@@ -63,6 +75,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        snekGameBtn.enabled = true;
+
         background2.SetActive(false);
         background3.SetActive(false);
 
@@ -89,12 +103,13 @@ public class GameManager : MonoBehaviour
         investmentNotiIcon.SetActive(false);
         employeeNotiIcon.SetActive(false);
         insuranceNotiIcon.SetActive(false);
+        accidentNotiIcon.SetActive(false);
 
         //set investment, employee email button to false
         investmentButton.SetActive(false);
         employeeButton.SetActive(false);
         insuranceButton.SetActive(false);
-
+        accidentButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -108,7 +123,7 @@ public class GameManager : MonoBehaviour
         //and if it lands on 1, it will enable the email button for employees.
         if (isRunning == false)
         {
-            randomInitialize = Random.Range(0, 3);
+            randomInitialize = Random.Range(0, 5);
             timer -= Time.deltaTime;
 
             if (timer <= 0)
@@ -139,6 +154,22 @@ public class GameManager : MonoBehaviour
                     insuranceNotiIcon.SetActive(true);
                 }
 
+                else if(randomInitialize == 3)
+                {
+                    accidentManager.scenarioButton.enabled = true;
+
+                    accidentButton.SetActive(true);
+                    accidentNotiIcon.SetActive(true);
+                }
+
+                else if(randomInitialize == 4)
+                {
+                    healthManager.scenarioButton.enabled = true;
+
+                    healthButton.SetActive(true);
+                    healthNotiIcon.SetActive(true);
+                }
+
                 Debug.Log(randomInitialize);
             }
         }
@@ -164,10 +195,12 @@ public class GameManager : MonoBehaviour
 
         holidayManager.GetComponent<Holiday>().SpawnScenario();
         nameManager.GetComponent<NameGenerator>().NameRandomList();
+
+        snekGameBtn.enabled = false;
     }
 
     //when InitializeInvest is called, it will set the email button and notification icon to false to prevent players from spamming it.
-    //which then it will grab from the holidayManager and nameManager methods
+    //which then it will grab from the investManager and nameManager methods
     public void InitializeInvest()
     {
         Debug.Log("Investment");
@@ -177,8 +210,12 @@ public class GameManager : MonoBehaviour
 
         investManager.GetComponent<Investment>().SpawnScenario();
         nameManager.GetComponent<NameGenerator>().NameRandomList();
+
+        snekGameBtn.enabled = false;
     }
 
+    //when InitializeInsurance is called, it will set the email button and notification icon to false to prevent players from spamming it.
+    //which then it will grab from the insuranceManager and nameManager methods
     public void InitializeInsurance()
     {
         Debug.Log("Insurance");
@@ -188,6 +225,35 @@ public class GameManager : MonoBehaviour
 
         insuranceManager.GetComponent<Insurance>().SpawnScenario();
         nameManager.GetComponent<NameGenerator>().NameRandomList();
+
+        snekGameBtn.enabled = false;
+    }
+
+    public void InitializeAccident()
+    {
+        Debug.Log("Accident");
+
+        accidentNotiIcon.SetActive(false);
+        accidentButton.SetActive(false);
+
+        accidentManager.GetComponent<Accident>().SpawnScenario();
+        nameManager.GetComponent<NameGenerator>().NameRandomList();
+
+        snekGameBtn.enabled = false;
+    }
+
+    public void InitializeHealth()
+    {
+        Debug.Log("Health");
+
+        healthNotiIcon.SetActive(false);
+        healthButton.SetActive(false);
+
+        healthManager.GetComponent<Health>().SpawnScenario();
+        nameManager.GetComponent<NameGenerator>().NameRandomList();
+
+        snekGameBtn.enabled = false;
+
     }
 
     public void LevelChange()
@@ -218,5 +284,6 @@ public class GameManager : MonoBehaviour
     public void SnakeGame()
     {
         SceneManager.LoadScene("Snake");
+        GameObject.FindGameObjectWithTag("main_game").SetActive(false);
     }
 }

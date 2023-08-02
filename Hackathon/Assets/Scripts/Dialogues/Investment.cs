@@ -129,6 +129,8 @@ public class Investment : MonoBehaviour
 
     public void YesClick()
     {
+        GM.snekGameBtn.enabled = true;
+
         int index = 0;
 
         //if randomObject tag equals to "scam"
@@ -301,6 +303,8 @@ public class Investment : MonoBehaviour
         //if randomObject tag equals to "investment"
         else if (randomObject.tag == "good")
         {
+            GM.snekGameBtn.enabled = true;
+
             //investmentScenario will set active to false
             investmentScenario.SetActive(false);
 
@@ -415,6 +419,8 @@ public class Investment : MonoBehaviour
         //if randomObject tag equals to "scam"
         if (randomObject.tag == "scam")
         {
+            GM.snekGameBtn.enabled = true;
+
             //investmentScenario will set active to false
             investmentScenario.SetActive(false);
 
@@ -427,6 +433,8 @@ public class Investment : MonoBehaviour
 
         else if (randomObject.tag == "good")
         {
+            GM.snekGameBtn.enabled = true;
+
             int index = 0;
 
             //investmentScenario will set active to false

@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 111265133}
   - component: {fileID: 111265135}
   - component: {fileID: 111265134}
+  - component: {fileID: 111265136}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -199,6 +200,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111265132}
   m_CullTransparentMesh: 1
+--- !u!95 &111265136
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111265132}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 59980561a38fb924589c74aa8119897f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &265112259
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,6 +447,7 @@ GameObject:
   - component: {fileID: 402825455}
   - component: {fileID: 402825454}
   - component: {fileID: 402825453}
+  - component: {fileID: 402825456}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -473,7 +495,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -530,7 +552,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c197760ed00f84e4ebd639b3f88e9637, type: 3}
+  m_Sprite: {fileID: -1325442936, guid: 7f0b6cc2afa1158448eaec4cb0051bf3, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -548,6 +570,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 402825451}
   m_CullTransparentMesh: 1
+--- !u!95 &402825456
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402825451}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 74b6369e5a3a71440944a3137e474ce3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &484456560
 GameObject:
   m_ObjectHideFlags: 0
@@ -1287,6 +1329,7 @@ GameObject:
   - component: {fileID: 843299051}
   - component: {fileID: 843299050}
   - component: {fileID: 843299049}
+  - component: {fileID: 843299052}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -1334,7 +1377,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1391,7 +1434,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3f78910f37309a94d9f6750a38d8743c, type: 3}
+  m_Sprite: {fileID: 531767788, guid: dd297910fdfe6114088257ed121ea34a, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1409,6 +1452,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 843299047}
   m_CullTransparentMesh: 1
+--- !u!95 &843299052
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843299047}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 978f19ebbcd9bc04bba9dc7965de59dc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &937638094
 GameObject:
   m_ObjectHideFlags: 0
@@ -2345,6 +2408,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _snakegame: {fileID: 1411120112}
+  snakePlayAnim: {fileID: 843299052}
+  snakeQuitAnim: {fileID: 402825456}
 --- !u!1 &1602293684
 GameObject:
   m_ObjectHideFlags: 0
