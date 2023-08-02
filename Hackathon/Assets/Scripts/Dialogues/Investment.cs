@@ -407,6 +407,7 @@ public class Investment : MonoBehaviour
             DestroyObject();
         }
 
+        GM.snekGameButton.enabled = true;
         GM.FunctionUpdates();
     }
 
@@ -553,6 +554,7 @@ public class Investment : MonoBehaviour
             DestroyObject();
         }
 
+        GM.snekGameButton.enabled = true;
         GM.FunctionUpdates();
     }
 }

@@ -151,7 +151,7 @@ public class Insurance : MonoBehaviour
             DestroyObject();
         }
 
-
+        GM.snekGameButton.enabled = true;
         GM.FunctionUpdates();
     }
 
@@ -166,7 +166,7 @@ public class Insurance : MonoBehaviour
             DestroyObject();
         }
 
-
+        GM.snekGameButton.enabled = true;
         GM.FunctionUpdates();
     }
 }
