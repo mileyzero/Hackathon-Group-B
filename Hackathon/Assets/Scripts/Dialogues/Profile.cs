@@ -91,5 +91,6 @@ public class Profile : MonoBehaviour
     public void CloseWindow()
     {
         profileWindow.SetActive(false);
+        Destroy(profileSpawned);
     }
 }
