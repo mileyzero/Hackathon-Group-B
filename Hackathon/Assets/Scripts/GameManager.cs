@@ -15,6 +15,12 @@ public class GameManager : MonoBehaviour
     //Reference script to insuranceManager;
     public Insurance insuranceManager;
 
+    //Reference script to healthManager
+    public Health healthManager;
+
+    //Reference script to accidentManager
+    public Accident accidentManager;
+
     //Variable for NameGenerator
     public NameGenerator nameManager;
 
@@ -22,15 +28,22 @@ public class GameManager : MonoBehaviour
     public GameObject investmentNotiIcon;
     public GameObject employeeNotiIcon;
     public GameObject insuranceNotiIcon;
+    public GameObject healthNotiIcon;
+    public GameObject accidentNotiIcon;
 
     //GameObject for investment and employee envelope icon
     public GameObject investmentButton;
     public GameObject employeeButton;
     public GameObject insuranceButton;
+    public GameObject accidentButton;
+    public GameObject healthButton;
 
     public GameObject background1;
     public GameObject background2;
     public GameObject background3;
+
+    //Button for snekGame
+    public Button snekGameButton;
 
     //Sliders for happiness, money and popularity
     public Slider happinessSlider;
@@ -63,6 +76,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        snekGameButton.enabled = true;
+
         background2.SetActive(false);
         background3.SetActive(false);
 
@@ -108,7 +123,7 @@ public class GameManager : MonoBehaviour
         //and if it lands on 1, it will enable the email button for employees.
         if (isRunning == false)
         {
-            randomInitialize = Random.Range(0, 3);
+            randomInitialize = Random.Range(0, 5);
             timer -= Time.deltaTime;
 
             if (timer <= 0)
@@ -138,6 +153,20 @@ public class GameManager : MonoBehaviour
                     insuranceButton.SetActive(true);
                     insuranceNotiIcon.SetActive(true);
                 }
+                else if(randomInitialize == 3)
+                {
+                    healthManager.scenarioButton.enabled = true;
+
+                    healthButton.SetActive(true);
+                    healthNotiIcon.SetActive(true);
+                }
+                else if(randomInitialize == 4)
+                {
+                    accidentManager.scenarioButton.enabled = true;
+
+                    accidentButton.SetActive(true);
+                    accidentNotiIcon.SetActive(true);
+                }
 
                 Debug.Log(randomInitialize);
             }
@@ -164,6 +193,8 @@ public class GameManager : MonoBehaviour
 
         holidayManager.GetComponent<Holiday>().SpawnScenario();
         nameManager.GetComponent<NameGenerator>().NameRandomList();
+
+        snekGameButton.enabled = false;
     }
 
     //when InitializeInvest is called, it will set the email button and notification icon to false to prevent players from spamming it.
@@ -177,8 +208,12 @@ public class GameManager : MonoBehaviour
 
         investManager.GetComponent<Investment>().SpawnScenario();
         nameManager.GetComponent<NameGenerator>().NameRandomList();
+
+        snekGameButton.enabled = false;
     }
 
+    //when InitializeInsurance is called, it will set the email button and notification icon to false to prevent players from spamming it.
+    //which then it will grab from the holidayManager and nameManager methods
     public void InitializeInsurance()
     {
         Debug.Log("Insurance");
@@ -188,6 +223,38 @@ public class GameManager : MonoBehaviour
 
         insuranceManager.GetComponent<Insurance>().SpawnScenario();
         nameManager.GetComponent<NameGenerator>().NameRandomList();
+
+        snekGameButton.enabled = false;
+    }
+
+    //when InitalizeAccident is called, it will set the email button and notification icon to false to prevent players from spamming it.
+    //which then it will grab from the holidayManager and nameManager methods
+    public void InitalizeAccident()
+    {
+        Debug.Log("Accident");
+
+        accidentNotiIcon.SetActive(false);
+        accidentButton.SetActive(false);
+
+        accidentManager.GetComponent<Accident>().SpawnScenario();
+        nameManager.GetComponent<NameGenerator>().NameRandomList();
+
+        snekGameButton.enabled = false;
+    }
+
+    //when InitalizeHealth is called, it will set the email button and notification icon to false to prevent players from spamming it.
+    //which then it will grab from the holidayManager and nameManager methods
+    public void InitalizeHealth()
+    {
+        Debug.Log("Health");
+
+        healthNotiIcon.SetActive(false);
+        healthButton.SetActive(false);
+
+        healthManager.GetComponent<Health>().SpawnScenario();
+        nameManager.GetComponent<NameGenerator>().NameRandomList();
+
+        snekGameButton.enabled = false;
     }
 
     public void LevelChange()
