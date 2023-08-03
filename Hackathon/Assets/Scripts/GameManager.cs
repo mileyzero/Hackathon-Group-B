@@ -285,5 +285,6 @@ public class GameManager : MonoBehaviour
     public void SnakeGame()
     {
         SceneManager.LoadScene("Snake");
+        GameObject.FindGameObjectWithTag("main_game").SetActive(false);
     }
 }
