@@ -1,21 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Golf_Ball : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private TilemapCollider2D sand;
+    [SerializeField] private CircleCollider2D hole_colli;
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private float maxPower = 10f;
     [SerializeField] private float power = 2f;
     [SerializeField] private float drag = 0.9f;
     [SerializeField] private float maxGoalSpeed = 4f;
+    [SerializeField] private TextMeshProUGUI movesMade_txt;
+    [SerializeField] private int movesMade = 0;
     private GameObject hole;
 
     private bool isDragging;
     private bool score;
+    public Vector2 ball_velocity;
     void Start()
     {
         hole = GameObject.FindGameObjectWithTag("goal");
@@ -25,8 +32,8 @@ public class Golf_Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (rb.velocity.magnitude <= 0.2f)
+        movesMade_txt.text = "Moves Made: "+movesMade.ToString();
+        if (rb.velocity.magnitude <= 0.2f && score ==false )
         {
             rb.drag = drag;
             Player_Input();
@@ -66,21 +73,33 @@ public class Golf_Ball : MonoBehaviour
         Vector2 dir = (Vector2)transform.position - pos;
         lineRenderer.SetPosition(0, transform.position);
         lineRenderer.SetPosition(1, (Vector2)transform.position + Vector2.ClampMagnitude((dir * power) / 2, maxPower / 2));
+        float distance = Vector2.Distance((Vector2)transform.position, pos);
+        if(distance > 4.5f)
+        {
+            lineRenderer.startColor = Color.red;
+        }
+        else
+        {
+            lineRenderer.startColor = Color.white;
+        }
     }
     
     private void DragRelease(Vector2 pos) //calculates distance between mouse and ball then adds velocity to the ball in the opposite direction of the drag
     {
+        movesMade += 1;
         float distance = Vector2.Distance((Vector2)transform.position, pos);
         isDragging = false;
         lineRenderer.positionCount = 0;
-        if(distance <1f) //cancels if the drag is too short
+        if(distance <0.5f) //cancels if the drag is too short
         {
             return;
         }
-
+        else if(distance > 4.5f)
+        {
+            StartCoroutine(ballfly());
+        }
         Vector2 dir = (Vector2)transform.position - pos;
-        
-        rb.velocity = Vector2.ClampMagnitude(dir * power,maxPower); //calculates velocity to add to ball and limits the velcoity to maxPower
+        rb.velocity = Vector2.ClampMagnitude(dir * power, maxPower);//calculates velocity to add to ball and limits the velcoity to maxPower
     }
 
     private void CheckWinState() //check if the player scored the ball
@@ -119,10 +138,10 @@ public class Golf_Ball : MonoBehaviour
         rb.velocity = Vector2.zero;
         gameObject.transform.position = hole.transform.position;
         //loops 10 times
-        for(int i = 0; i < 10; i++) //reduces scale by 0.1f every loop and wait for 0.1 seconds
+        for(int i = 0; i < 15; i++) //reduces scale by 0.1f every loop and wait for 0.1 seconds
         {
-            gameObject.transform.localScale = new Vector2(gameObject.transform.localScale.x - 0.03f, gameObject.transform.localScale.y - 0.03f);
-            yield return new WaitForSeconds(0.1f);
+            gameObject.transform.localScale = new Vector2(gameObject.transform.localScale.x - 0.01f, gameObject.transform.localScale.y - 0.01f);
+            yield return new WaitForSeconds(0.05f);
         }    
         gameObject.SetActive(false);
     }
@@ -134,5 +153,33 @@ public class Golf_Ball : MonoBehaviour
         rb.drag += 2.5f;
         yield return new WaitForSeconds(0.2f);
         gameObject.transform.localScale = new Vector2 (0.3f, 0.3f);
+    }
+
+    IEnumerator ballfly()
+    {
+        sand.enabled = false;
+        hole_colli.enabled = false;
+        for (int i = 0; i<10; i++)
+        {
+            gameObject.transform.localScale = new Vector2(gameObject.transform.localScale.x + 0.05f, gameObject.transform.localScale.y + 0.05f);
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+            gameObject.transform.localScale = new Vector2(gameObject.transform.localScale.x - 0.05f, gameObject.transform.localScale.y - 0.05f);
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        sand.enabled = true;
+        hole_colli.enabled = true;
+        for (float i = 0.15f; i >= 0.1;i-=0.05f)
+        {
+            Debug.Log(i);
+            gameObject.transform.localScale = new Vector2(gameObject.transform.localScale.x + i, gameObject.transform.localScale.y + i);
+            yield return new WaitForSeconds(0.1f);
+            gameObject.transform.localScale = new Vector2(gameObject.transform.localScale.x - i, gameObject.transform.localScale.y - i);
+        }
+        
     }
 }
