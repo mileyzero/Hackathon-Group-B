@@ -8,6 +8,8 @@ using UnityEngine.UIElements;
 
 public class Snake : MonoBehaviour
 {
+    public GameObject snakeGame;
+
     //direction that the Snake can move in
     private enum Direction
     {
@@ -68,13 +70,21 @@ public class Snake : MonoBehaviour
             case State.Dead:
                 break;
         }
-
-
     }
 
     public void Die()
     {
         state = State.Dead;
+
+        StartCoroutine(DelayToMainGame(1));
+    }
+
+    IEnumerator DelayToMainGame(float timer)
+    {
+        yield return new WaitForSeconds(timer);
+
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
+        snakeGame.SetActive(false);
     }
 
     private void HandleInput()
