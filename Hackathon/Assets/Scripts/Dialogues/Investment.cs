@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Investment : MonoBehaviour
@@ -42,6 +43,9 @@ public class Investment : MonoBehaviour
     public GameObject noButton;
     public GameObject investmentDialogue;
     public GameObject nameBox;
+
+    public int minValue = 0;
+    public int maxValue = 20;
 
     // Start is called before the first frame update
     void Start()
@@ -106,6 +110,45 @@ public class Investment : MonoBehaviour
         investmentDialogue.SetActive(true);
     }
 
+    public void ScenarioTransition()
+    {
+        int randomVal1 = Random.Range(minValue, maxValue);
+        int randomVal2 = Random.Range(minValue, maxValue);
+
+        if ((randomVal1 > 1 && randomVal1 < 5) || (randomVal2 > 1 && randomVal2 < 5))
+        {
+            Debug.Log("Random Values: " + randomVal1 + ", " + randomVal2);
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(false);
+            Debug.Log("Scene: Car");
+            SceneManager.LoadScene("Car");
+        }
+        if ((randomVal1 > 5 && randomVal1 < 10) || (randomVal2 > 5 && randomVal2 < 10))
+        {
+            Debug.Log("Random Values: " + randomVal1 + ", " + randomVal2);
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(false);
+            Debug.Log("Scene: DoodleJump");
+            SceneManager.LoadScene("DoodleJump");
+        }
+        if ((randomVal1 > 10 && randomVal1 < 15) || (randomVal2 > 10 && randomVal2 < 15))
+        {
+            Debug.Log("Random Values: " + randomVal1 + ", " + randomVal2);
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(false);
+            Debug.Log("Scene: Snake");
+            SceneManager.LoadScene("SlotMachine");
+        }
+        if((randomVal1 > 15 && randomVal1 < 20) || (randomVal2 > 15 && randomVal2 < 20))
+        {
+            Debug.Log("Random Values: " + randomVal1 + ", " + randomVal2);
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(false);
+            Debug.Log("Scene: Golf");
+            SceneManager.LoadScene("Golf");
+        }
+        else
+        {
+            Debug.Log("Sceme transition condition not met. Random Values: " + randomVal1 + ", " + randomVal2);
+        }
+    }
+
     public void DestroyObject()
     {
         //investmentObject to find tag "investment"
@@ -130,6 +173,8 @@ public class Investment : MonoBehaviour
     public void YesClick()
     {
         int index = 0;
+
+        ScenarioTransition();
 
         //if randomObject tag equals to "scam"
         if (randomObject.tag == "scam")
