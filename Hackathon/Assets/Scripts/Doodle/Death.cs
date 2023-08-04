@@ -12,11 +12,20 @@ public class Death : MonoBehaviour
         {
             losescreen.SetActive(true);
             Debug.Log("Die");
+
+            StartCoroutine(TransitionToMainGame(1.5f));
         }
 
         if(collision.tag == "platform")
         {
             Destroy(collision.gameObject);
         }
+    }
+
+    IEnumerator TransitionToMainGame(float timer)
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
     }
 }
