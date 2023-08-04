@@ -345,9 +345,9 @@ RectTransform:
   m_Father: {fileID: 570047522}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 7.4, y: -34}
+  m_AnchorMin: {x: 0.5, y: 0.98300004}
+  m_AnchorMax: {x: 0.5, y: 0.98300004}
+  m_AnchoredPosition: {x: 7.4, y: -16}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &437865595
@@ -1036,7 +1036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8219e18da714824abe1cdb360c6c0b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carSpeed: 25
+  carSpeed: 30
   maxPos: 1.15
   win: {fileID: 452283734}
   lose_scn: {fileID: 1632793530}
