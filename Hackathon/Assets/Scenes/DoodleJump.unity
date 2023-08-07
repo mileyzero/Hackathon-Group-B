@@ -795,6 +795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6cf71a6a29f2664388679d4d6993cd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mgTimer: {fileID: 1791408070}
   losescreen: {fileID: 473155978}
 --- !u!1 &1060443534
 GameObject:
@@ -1243,6 +1244,51 @@ MonoBehaviour:
   popularity: {fileID: 554381694105242829, guid: 0f12993f9c6e33c4f81201bb3a343bc0, type: 3}
   money: {fileID: 554381694105242829, guid: 452f5c934447cfb4aa6eb60f2a334b4a, type: 3}
   happiness: {fileID: 554381694105242829, guid: 6e802285fc9d4624a8ba4a9f28983246, type: 3}
+--- !u!1 &1791408069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1791408071}
+  - component: {fileID: 1791408070}
+  m_Layer: 0
+  m_Name: Mini-Game Timer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1791408070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791408069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ff3b8b5ebbdad642b060300a6efaf92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MGTimer: 0
+--- !u!4 &1791408071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791408069}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 154.62173, y: 5.3544054, z: -7.30191}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2081578673
 GameObject:
   m_ObjectHideFlags: 0

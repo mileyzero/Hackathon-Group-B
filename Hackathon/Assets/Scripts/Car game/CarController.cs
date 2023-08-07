@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CarController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public MiniGameTimer gmTime;
+
     public float carSpeed;
     Vector3 carPosition;
     public float maxPos;
@@ -70,16 +72,17 @@ public class CarController : MonoBehaviour
                     win.SetActive(true);
                     Debug.Log("Win");
                 }
-                
             }
-           
         }
 
         if(lose == true && Win ==false) //setting the lose screen
         {
             lose_scn.SetActive(true);
-        }
 
-        
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
+            SceneManager.LoadScene(0);
+
+            gmTime.Timer();
+        }
     }
 }

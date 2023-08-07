@@ -27,8 +27,6 @@ public class PlayerMovement : MonoBehaviour
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.flipX = false;
         }
-
-        
     }
 
     private void FixedUpdate()

@@ -30,6 +30,7 @@ TagManager:
   - goal
   - golf_sand
   - store_game
+  - GameManager
   layers:
   - Default
   - TransparentFX
