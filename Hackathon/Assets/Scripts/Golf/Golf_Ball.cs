@@ -23,18 +23,33 @@ public class Golf_Ball : MonoBehaviour
     [SerializeField] private float drag = 0.9f;
     [SerializeField] private float maxGoalSpeed = 4f;
     [SerializeField] private TextMeshProUGUI movesMade_txt;
-    [SerializeField] private int movesMade = 0;
+    [SerializeField] private int movesMade;
+
+    public GameObject win_screen;
+    public GameObject lose_screen;
 
     void Start()
     {
         hole = GameObject.FindGameObjectWithTag("goal");
         animator = gameObject.GetComponent<Animator>();
+        movesMade = 10;
+        win_screen.SetActive(false);
+        lose_screen.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        movesMade_txt.text = "Moves Made: "+movesMade.ToString();
+        
+        if(movesMade == 0)
+        {
+            movesMade_txt.text = "Moves Left: 0";
+        }
+        else
+        {
+            movesMade_txt.text = "Moves Left: " + movesMade.ToString();
+        }
+
         if (rb.velocity.magnitude <= 0.2f && score ==false )
         {
             rb.drag = drag;
@@ -93,7 +108,7 @@ public class Golf_Ball : MonoBehaviour
     {
         transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle + 90f));
         animator.SetTrigger("isHit");
-        movesMade += 1;
+        movesMade -= 1;
         float distance = Vector2.Distance((Vector2)transform.position, pos);
         isDragging = false;
         lineRenderer.positionCount = 0;
@@ -107,6 +122,7 @@ public class Golf_Ball : MonoBehaviour
         }
         Vector2 dir = (Vector2)transform.position - pos;
         rb.velocity = Vector2.ClampMagnitude(dir * power, maxPower);//calculates velocity to add to ball and limits the velcoity to maxPower
+        Lose();
     }
 
     private void CheckWinState() //check if the player scored the ball
@@ -140,6 +156,15 @@ public class Golf_Ball : MonoBehaviour
         if (collision.tag == "goal") CheckWinState();
     }
 
+    private void Lose()
+    {
+        if (movesMade <= 0 && score == false)
+        {
+            lose_screen.SetActive(true);
+            Debug.Log("Lose");
+        }
+    }
+
     IEnumerator goalAnimation() //Coroutine for when ball goes in hole
      {
         rb.velocity = Vector2.zero;
@@ -151,6 +176,7 @@ public class Golf_Ball : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }    
         gameObject.SetActive(false);
+        win_screen.SetActive(true);
     }
 
     IEnumerator ballTooFast() //Coroutine for when ball goes in hole
@@ -166,15 +192,15 @@ public class Golf_Ball : MonoBehaviour
     {
         sand.enabled = false;
         hole.GetComponent<CircleCollider2D>().enabled = false;
-        for (int i = 0; i<10; i++)
+        for (int i = 0; i < 15; i++)
         {
-            gameObject.transform.localScale = new Vector2(gameObject.transform.localScale.x + 0.05f, gameObject.transform.localScale.y + 0.05f);
+            gameObject.transform.localScale = new Vector2(gameObject.transform.localScale.x + 0.1f, gameObject.transform.localScale.y + 0.1f);
             yield return new WaitForSeconds(0.05f);
         }
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 15; i++)
         {
-            gameObject.transform.localScale = new Vector2(gameObject.transform.localScale.x - 0.05f, gameObject.transform.localScale.y - 0.05f);
+            gameObject.transform.localScale = new Vector2(gameObject.transform.localScale.x - 0.1f, gameObject.transform.localScale.y - 0.1f);
             yield return new WaitForSeconds(0.05f);
         }
 
@@ -182,7 +208,6 @@ public class Golf_Ball : MonoBehaviour
         hole.GetComponent<CircleCollider2D>().enabled = true;
         for (float i = 0.15f; i >= 0.1;i-=0.05f)
         {
-            Debug.Log(i);
             gameObject.transform.localScale = new Vector2(gameObject.transform.localScale.x + i, gameObject.transform.localScale.y + i);
             yield return new WaitForSeconds(0.1f);
             gameObject.transform.localScale = new Vector2(gameObject.transform.localScale.x - i, gameObject.transform.localScale.y - i);
