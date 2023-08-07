@@ -10,6 +10,7 @@ public class CarLose : MonoBehaviour
     {
         car = GameObject.FindGameObjectWithTag("car");
     }
+    //if the obstacles collides with car then they lose
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "car")

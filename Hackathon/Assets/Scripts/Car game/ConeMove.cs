@@ -13,6 +13,8 @@ public class ConeMove : MonoBehaviour
     }
 
     // Update is called once per frame
+
+    //the cone will keep moving down over time
     void Update()
     {
         transform.Translate (new Vector3(0,-1,0)*(-road.GetComponent<moveTrack>().speed)*Time.deltaTime);
