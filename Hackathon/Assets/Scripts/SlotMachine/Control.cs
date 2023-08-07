@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Control : MonoBehaviour
@@ -42,11 +43,19 @@ public class Control : MonoBehaviour
     
     private void OnMouseDown()
     {
-        if (rows[0].rowStopped && rows[1].rowStopped && rows[2].rowStopped)
+        if(GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().money >= 10f)
         {
-            arrow.SetActive(false);
-            animator.SetTrigger("Pressed");
-            ButtonPressed();
+            if (rows[0].rowStopped && rows[1].rowStopped && rows[2].rowStopped)
+            {
+                GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().money -= 10f;
+                arrow.SetActive(false);
+                animator.SetTrigger("Pressed");
+                ButtonPressed();
+            }
+        }
+        else
+        {
+            Debug.Log("Not Enough Money!");
         }
     }
     
@@ -56,24 +65,44 @@ public class Control : MonoBehaviour
         if (rows[0].stoppedslot == "Happy" && rows[1].stoppedslot == "Happy" && rows[2].stoppedslot == "Happy")
         {
             prizeValue = "+ Employee Happiness";
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().happiness += 30f;
+            Debug.Log(GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().happiness);
         }
 
         else if (rows[0].stoppedslot == "Popularity" && rows[1].stoppedslot == "Popularity" && rows[2].stoppedslot == "Popularity")
         {
             prizeValue = "+ Popularity";
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().popularity += 30f;
+            Debug.Log(GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().popularity);
         }
 
         else if (rows[0].stoppedslot == "Money" && rows[1].stoppedslot == "Money" && rows[2].stoppedslot == "Money")
         {
             prizeValue = "+ Money";
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().money += 30f;
+            Debug.Log(GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().money);
         }
 
         else if (rows[0].stoppedslot == "7" && rows[1].stoppedslot == "7" && rows[2].stoppedslot == "7")
         {
             prizeValue = "+ All Resources";
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().money += 10f;
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().popularity += 10f;
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().happiness += 10f;
+
+            Debug.Log(GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().money);
+            Debug.Log(GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().popularity);
+            Debug.Log(GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().happiness);
         }
 
         resultsChecked = true;
         arrow.SetActive(true);
+    }
+
+    public void QuitGame()
+    {
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
+
+        SceneManager.LoadScene(0);
     }
 }

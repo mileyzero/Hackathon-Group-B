@@ -7,6 +7,9 @@ using TMPro;
 
 public class Investment : MonoBehaviour
 {
+    //Reference script to gmTime
+    public MiniGameTimer gmTime;
+
     //Reference script to GM
     public GameManager GM;
 
@@ -120,30 +123,23 @@ public class Investment : MonoBehaviour
         int randomVal1 = Random.Range(minValue, maxValue);
         int randomVal2 = Random.Range(minValue, maxValue);
 
-        if(GM.miniGameTimer <= 0)
+        if(gmTime.MGTimer <= 0)
         {
-            if ((randomVal1 > 1 && randomVal1 < 5) || (randomVal2 > 1 && randomVal2 < 5))
+            if ((randomVal1 > 1 && randomVal1 < 6) || (randomVal2 > 1 && randomVal2 < 6))
             {
                 Debug.Log("Random Values: " + randomVal1 + ", " + randomVal2);
                 GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(false);
                 Debug.Log("Scene: Car");
                 SceneManager.LoadScene("Car");
             }
-            if ((randomVal1 > 5 && randomVal1 < 10) || (randomVal2 > 5 && randomVal2 < 10))
+            if ((randomVal1 > 6 && randomVal1 < 12) || (randomVal2 > 6 && randomVal2 < 12))
             {
                 Debug.Log("Random Values: " + randomVal1 + ", " + randomVal2);
                 GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(false);
                 Debug.Log("Scene: DoodleJump");
                 SceneManager.LoadScene("DoodleJump");
             }
-            if ((randomVal1 > 10 && randomVal1 < 15) || (randomVal2 > 10 && randomVal2 < 15))
-            {
-                Debug.Log("Random Values: " + randomVal1 + ", " + randomVal2);
-                GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(false);
-                Debug.Log("Scene: SlotMachine");
-                SceneManager.LoadScene("SlotMachine");
-            }
-            if ((randomVal1 > 15 && randomVal1 < 20) || (randomVal2 > 15 && randomVal2 < 20))
+            if ((randomVal1 > 12 && randomVal1 < 18) || (randomVal2 > 12 && randomVal2 < 18))
             {
                 Debug.Log("Random Values: " + randomVal1 + ", " + randomVal2);
                 GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(false);
@@ -152,8 +148,12 @@ public class Investment : MonoBehaviour
             }
             else
             {
-                Debug.Log("Sceme transition condition not met. Random Values: " + randomVal1 + ", " + randomVal2);
+                Debug.Log("Scene transition condition not met. Random Values: " + randomVal1 + ", " + randomVal2);
             }
+        }
+        else
+        {
+            Debug.Log("No Scene Played due to timer");
         }
     }
 

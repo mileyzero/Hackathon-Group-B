@@ -42,6 +42,14 @@ public class GameManager : MonoBehaviour
     public GameObject background2;
     public GameObject background3;
 
+    public GameObject loseMoney;
+    public GameObject losePopularity;
+    public GameObject loseHappiness;
+
+    public GameObject loseMoneyTipPanel;
+    public GameObject losePopularityTipPanel;
+    public GameObject loseHappinessTipPanel;
+
     //Button for snekGame
     public Button snekGameButton;
 
@@ -54,6 +62,8 @@ public class GameManager : MonoBehaviour
     public float maxHappiness = 90f;
     public float maxMoney = 90f;
     public float maxPopularity = 90f;
+
+    public float loseTimer;
 
     //Float for happiness, money and popularity
     public float happiness;
@@ -73,8 +83,6 @@ public class GameManager : MonoBehaviour
     //Bool for isRunning
     public bool isRunning;
 
-    //Timer for mini games to occur
-    public float miniGameTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -86,8 +94,13 @@ public class GameManager : MonoBehaviour
         background2.SetActive(false);
         background3.SetActive(false);
 
-        //miniGameTimer set to 40 seconds
-        miniGameTimer = 40f;
+        loseHappiness.SetActive(false);
+        loseMoney.SetActive(false);
+        losePopularity.SetActive(false);
+
+        loseHappinessTipPanel.SetActive(false);
+        loseMoneyTipPanel.SetActive(false);
+        losePopularityTipPanel.SetActive(false);
 
         //Randomize timer
         delayTimer = Random.Range(1f, 3f);
@@ -298,5 +311,61 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Snake");
         GameObject.FindGameObjectWithTag("main_game").SetActive(false);
+    }
+
+    public void SlotMachine()
+    {
+        SceneManager.LoadScene("SlotMachine");
+        GameObject.FindGameObjectWithTag("main_game").SetActive(false);
+    }
+
+    public void LoseMoneyCondition()
+    {
+        if(money <= 0)
+        {
+            loseMoney.SetActive(true);
+
+            loseTimer -= Time.deltaTime;
+
+            if(loseTimer <= 0)
+            {
+                loseMoneyTipPanel.SetActive(true);
+            }
+        }
+    }
+
+    public void LosePopularityCondition()
+    {
+        if(popularity <= 0)
+        {
+            losePopularity.SetActive(true);
+
+            loseTimer -= Time.deltaTime;
+
+            if (loseTimer <= 0)
+            {
+                losePopularityTipPanel.SetActive(true);
+            }
+        }
+    }
+
+    public void LoseHappinessCondition()
+    {
+        if(happiness <= 0)
+        {
+            loseHappiness.SetActive(true);
+
+            loseTimer -= Time.deltaTime;
+
+            if (loseTimer <= 0)
+            {
+                loseHappinessTipPanel.SetActive(true);
+            }
+        }
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(0);
     }
 }
