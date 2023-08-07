@@ -73,13 +73,21 @@ public class GameManager : MonoBehaviour
     //Bool for isRunning
     public bool isRunning;
 
+    //Timer for mini games to occur
+    public float miniGameTimer;
+
     // Start is called before the first frame update
     void Start()
     {
+        //Enable Snek button for players to play
         snekGameButton.enabled = true;
 
+        //Set background 2 and 3 to false as it has not reached it's current threshold
         background2.SetActive(false);
         background3.SetActive(false);
+
+        //miniGameTimer set to 40 seconds
+        miniGameTimer = 40f;
 
         //Randomize timer
         delayTimer = Random.Range(1f, 3f);
@@ -94,7 +102,7 @@ public class GameManager : MonoBehaviour
         //set a random value on start for happiness, money and a fixed value for popularity
         happinessSlider.value = Random.Range(20f, 55f);
         moneySlider.value = Random.Range(30f, 65f);
-        popularitySlider.value = 20f;
+        popularitySlider.value = Random.Range(10f, 20f);
 
         happiness = happinessSlider.value;
         money = moneySlider.value;
@@ -257,6 +265,9 @@ public class GameManager : MonoBehaviour
         snekGameButton.enabled = false;
     }
 
+    //LevelChange checks based on the popularity that the player has gathered.
+    //if popularity is less than 30 then it stays at level 1 background.
+    //else if the popularity is more or equals to 30, it goes to level two and if it's more or equals to 60 then it goes to level 3
     public void LevelChange()
     {
         if(popularity < 30)
@@ -282,6 +293,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //SnakeGame loads the snake game and finds the main game by tag and hides it
     public void SnakeGame()
     {
         SceneManager.LoadScene("Snake");

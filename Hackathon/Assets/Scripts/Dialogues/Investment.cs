@@ -110,42 +110,50 @@ public class Investment : MonoBehaviour
         investmentDialogue.SetActive(true);
     }
 
+    //ScenarioTransition only occurs during Investment scenarios, there will be two int that will randomize between two values of minValue and maxValue.
+    //If randomVal1 is more than 1 and less than 5, randomVal2 is more than 1 and less than 5, it hides the main game and load the 'Car' mini game
+    //If randomVal1 is more than 5 and less than 10, randomVal2 is more than 5 and less than 10, it hides the main game and load the 'DoodleJump' mini game
+    //If randomVal1 is more than 10 and less than 15, randomVal2 is more than 10 and less than 15, it hides the main game and load the 'SlotMachine' mini game
+    //If randomVal1 is more than 15 and less than 20, randomVal2 is more than 15 and less than 20, it hides the main game and load the 'Golf' mini game
     public void ScenarioTransition()
     {
         int randomVal1 = Random.Range(minValue, maxValue);
         int randomVal2 = Random.Range(minValue, maxValue);
 
-        if ((randomVal1 > 1 && randomVal1 < 5) || (randomVal2 > 1 && randomVal2 < 5))
+        if(GM.miniGameTimer <= 0)
         {
-            Debug.Log("Random Values: " + randomVal1 + ", " + randomVal2);
-            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(false);
-            Debug.Log("Scene: Car");
-            SceneManager.LoadScene("Car");
-        }
-        if ((randomVal1 > 5 && randomVal1 < 10) || (randomVal2 > 5 && randomVal2 < 10))
-        {
-            Debug.Log("Random Values: " + randomVal1 + ", " + randomVal2);
-            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(false);
-            Debug.Log("Scene: DoodleJump");
-            SceneManager.LoadScene("DoodleJump");
-        }
-        if ((randomVal1 > 10 && randomVal1 < 15) || (randomVal2 > 10 && randomVal2 < 15))
-        {
-            Debug.Log("Random Values: " + randomVal1 + ", " + randomVal2);
-            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(false);
-            Debug.Log("Scene: Snake");
-            SceneManager.LoadScene("SlotMachine");
-        }
-        if((randomVal1 > 15 && randomVal1 < 20) || (randomVal2 > 15 && randomVal2 < 20))
-        {
-            Debug.Log("Random Values: " + randomVal1 + ", " + randomVal2);
-            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(false);
-            Debug.Log("Scene: Golf");
-            SceneManager.LoadScene("Golf");
-        }
-        else
-        {
-            Debug.Log("Sceme transition condition not met. Random Values: " + randomVal1 + ", " + randomVal2);
+            if ((randomVal1 > 1 && randomVal1 < 5) || (randomVal2 > 1 && randomVal2 < 5))
+            {
+                Debug.Log("Random Values: " + randomVal1 + ", " + randomVal2);
+                GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(false);
+                Debug.Log("Scene: Car");
+                SceneManager.LoadScene("Car");
+            }
+            if ((randomVal1 > 5 && randomVal1 < 10) || (randomVal2 > 5 && randomVal2 < 10))
+            {
+                Debug.Log("Random Values: " + randomVal1 + ", " + randomVal2);
+                GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(false);
+                Debug.Log("Scene: DoodleJump");
+                SceneManager.LoadScene("DoodleJump");
+            }
+            if ((randomVal1 > 10 && randomVal1 < 15) || (randomVal2 > 10 && randomVal2 < 15))
+            {
+                Debug.Log("Random Values: " + randomVal1 + ", " + randomVal2);
+                GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(false);
+                Debug.Log("Scene: SlotMachine");
+                SceneManager.LoadScene("SlotMachine");
+            }
+            if ((randomVal1 > 15 && randomVal1 < 20) || (randomVal2 > 15 && randomVal2 < 20))
+            {
+                Debug.Log("Random Values: " + randomVal1 + ", " + randomVal2);
+                GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(false);
+                Debug.Log("Scene: Golf");
+                SceneManager.LoadScene("Golf");
+            }
+            else
+            {
+                Debug.Log("Sceme transition condition not met. Random Values: " + randomVal1 + ", " + randomVal2);
+            }
         }
     }
 
