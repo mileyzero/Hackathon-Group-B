@@ -25,6 +25,8 @@ public class Golf_Ball : MonoBehaviour
     [SerializeField] private TextMeshProUGUI movesMade_txt;
     [SerializeField] private int movesMade;
 
+    private bool ball_released;
+    private bool cancel;
     public GameObject win_screen;
     public GameObject lose_screen;
 
@@ -33,6 +35,9 @@ public class Golf_Ball : MonoBehaviour
         hole = GameObject.FindGameObjectWithTag("goal");
         animator = gameObject.GetComponent<Animator>();
         movesMade = 10;
+        movesMade_txt.text = "Moves Left: " + movesMade.ToString();
+        ball_released = false;
+        cancel = false;
         win_screen.SetActive(false);
         lose_screen.SetActive(false);
     }
@@ -40,23 +45,34 @@ public class Golf_Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if(movesMade == 0)
+        if(ball_released && rb.velocity.magnitude <= 0.2f && cancel ==false) //the moves made will reduce by 1 after the player released the ball and the ball has come to a stop
         {
-            movesMade_txt.text = "Moves Left: 0";
+            if(score == false)
+            {
+                movesMade--;
+            }
+            
+            if (movesMade == 0)
+            {
+                movesMade_txt.text = "Moves Left: 0";
+            }
+            else
+            {
+                movesMade_txt.text = "Moves Left: " + movesMade.ToString();
+            }
+            Lose(); //check if the player lose
         }
-        else
-        {
-            movesMade_txt.text = "Moves Left: " + movesMade.ToString();
-        }
+
 
         if (rb.velocity.magnitude <= 0.2f && score ==false )
         {
+            ball_released = false;
             rb.drag = drag;
             Player_Input();
         }
         
     }
+
     float angle;
     private void Player_Input() //Handles the player's input to move the ball
     {
@@ -85,6 +101,7 @@ public class Golf_Ball : MonoBehaviour
     {
         isDragging = true;
         lineRenderer.positionCount = 2;
+        
     }
 
     private void DragChange(Vector2 pos) //draws the line between ball and mouse in the opposite direction to act like a guide
@@ -106,23 +123,25 @@ public class Golf_Ball : MonoBehaviour
     
     private void DragRelease(Vector2 pos) //calculates distance between mouse and ball then adds velocity to the ball in the opposite direction of the drag
     {
+        ball_released = true;
         transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle + 90f));
         animator.SetTrigger("isHit");
-        movesMade -= 1;
         float distance = Vector2.Distance((Vector2)transform.position, pos);
         isDragging = false;
         lineRenderer.positionCount = 0;
         if(distance <0.5f) //cancels if the drag is too short
         {
+            cancel = true;
             return;
         }
         else if(distance > 4.5f)
         {
             StartCoroutine(ballfly());
         }
+        cancel = false;
         Vector2 dir = (Vector2)transform.position - pos;
         rb.velocity = Vector2.ClampMagnitude(dir * power, maxPower);//calculates velocity to add to ball and limits the velcoity to maxPower
-        Lose();
+        
     }
 
     private void CheckWinState() //check if the player scored the ball
@@ -158,7 +177,7 @@ public class Golf_Ball : MonoBehaviour
 
     private void Lose()
     {
-        if (movesMade <= 0 && score == false)
+        if (movesMade == 0 && score == false)
         {
             lose_screen.SetActive(true);
             Debug.Log("Lose");
@@ -179,7 +198,7 @@ public class Golf_Ball : MonoBehaviour
         win_screen.SetActive(true);
     }
 
-    IEnumerator ballTooFast() //Coroutine for when ball goes in hole
+    IEnumerator ballTooFast() //Coroutine for when ball goes in hole, the ball will shrink and the ball will slow down then it will return back to normal size
     {
 
         gameObject.transform.localScale = new Vector2(gameObject.transform.localScale.x - 0.04f, gameObject.transform.localScale.y - 0.04f);
@@ -188,25 +207,27 @@ public class Golf_Ball : MonoBehaviour
         gameObject.transform.localScale = new Vector2 (0.3f, 0.3f);
     }
 
-    IEnumerator ballfly()
+    IEnumerator ballfly() //Coroutine to make the illusion that the ball is flying
     {
+        //disable the sand the hole's colliders to prevent the ball from interacting with them
         sand.enabled = false;
         hole.GetComponent<CircleCollider2D>().enabled = false;
-        for (int i = 0; i < 15; i++)
+        for (int i = 0; i < 15; i++) //for loop to gradually increase size of ball
         {
             gameObject.transform.localScale = new Vector2(gameObject.transform.localScale.x + 0.1f, gameObject.transform.localScale.y + 0.1f);
             yield return new WaitForSeconds(0.05f);
         }
 
-        for (int i = 0; i < 15; i++)
+        for (int i = 0; i < 15; i++) //for loop to gradually decrease size of ball to original size
         {
             gameObject.transform.localScale = new Vector2(gameObject.transform.localScale.x - 0.1f, gameObject.transform.localScale.y - 0.1f);
             yield return new WaitForSeconds(0.05f);
         }
-
-        sand.enabled = true;
+        
+        //the sand and the hole's colliders are enabled again so the ball can interact with them
+        sand.enabled = true; 
         hole.GetComponent<CircleCollider2D>().enabled = true;
-        for (float i = 0.15f; i >= 0.1;i-=0.05f)
+        for (float i = 0.15f; i >= 0.1;i-=0.05f) //last for loop to increase and decrease the ball's size to create the illusion of ball bouncing
         {
             gameObject.transform.localScale = new Vector2(gameObject.transform.localScale.x + i, gameObject.transform.localScale.y + i);
             yield return new WaitForSeconds(0.1f);
