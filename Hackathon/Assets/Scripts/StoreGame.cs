@@ -5,4 +5,5 @@ using UnityEngine;
 public class StoreGame : MonoBehaviour
 {
     public GameObject _maingame;
+    public GameManager gameManager;
 }

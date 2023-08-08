@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 public class Golf_Ball : MonoBehaviour
 {
@@ -156,7 +157,6 @@ public class Golf_Ball : MonoBehaviour
         else
         {
             StartCoroutine(ballTooFast());
-            
         }
     }
 
@@ -180,8 +180,19 @@ public class Golf_Ball : MonoBehaviour
         if (movesMade == 0 && score == false)
         {
             lose_screen.SetActive(true);
+
+            StartCoroutine(TransitionToMainGame(1.5f));
+
             Debug.Log("Lose");
         }
+    }
+
+    IEnumerator TransitionToMainGame(float timer)
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
+        SceneManager.LoadScene(0);
     }
 
     IEnumerator goalAnimation() //Coroutine for when ball goes in hole

@@ -79,10 +79,17 @@ public class CarController : MonoBehaviour
         {
             lose_scn.SetActive(true);
 
-            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
-            SceneManager.LoadScene(0);
+            StartCoroutine(TransitionToMain(1.5f));
 
             gmTime.Timer();
         }
+    }
+
+    IEnumerator TransitionToMain(float timer)
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
+        SceneManager.LoadScene(0);
     }
 }

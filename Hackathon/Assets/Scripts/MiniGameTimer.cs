@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class MiniGameTimer : MonoBehaviour
 {
-    public float MGTimer = 40f;
+    public float MGTimer;
 
     // Start is called before the first frame update
     void Start()
     {
         MGTimer = 40f;
-}
+    }
 
     // Update is called once per frame
     void Update()

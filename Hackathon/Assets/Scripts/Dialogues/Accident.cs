@@ -164,6 +164,66 @@ public class Accident : MonoBehaviour
                         }
                         break;
                     }
+                case "Hi Boss, this is one of your employees from one of the departements, my family have been struggling with some financial stuff, can you help us?":
+                    {
+                        if (browserManager.accidentInsurance != true)
+                        {
+                            Debug.Log("3 Yes Accident");
+                            GM.money -= Random.Range(5f, 15f);
+
+                            GM.happiness += Random.Range(2.5f, 7.5f);
+                            GM.popularity += Random.Range(2.5f, 8.5f);
+
+                            browserManager.accidentActive.SetActive(false);
+                            browserManager.accidentGreyed.SetActive(true);
+                        }
+                        else
+                        {
+                            GM.happiness += Random.Range(5f, 15f);
+                            GM.popularity += Random.Range(5f, 17f);
+                        }
+                        break;
+                    }
+                case "Hi Sir, I have submitted an accident bill for reimbursement, can I have an approval to proceed with the payment?":
+                    {
+                        if (browserManager.accidentInsurance != true)
+                        {
+                            Debug.Log("4 Yes Accident");
+                            GM.money -= Random.Range(5f, 15f);
+
+                            GM.happiness += Random.Range(2.5f, 7.5f);
+                            GM.popularity += Random.Range(2.5f, 8.5f);
+
+                            browserManager.accidentActive.SetActive(false);
+                            browserManager.accidentGreyed.SetActive(true);
+                        }
+                        else
+                        {
+                            GM.happiness += Random.Range(5f, 15f);
+                            GM.popularity += Random.Range(5f, 17f);
+                        }
+                        break;
+                    }
+                case "Boss, I appreciate your understanding in the matter, but I was wondering if the company could possibly cover the accident fees?":
+                    {
+                        if (browserManager.accidentInsurance != true)
+                        {
+                            Debug.Log("4 Yes Accident");
+                            GM.money -= Random.Range(5f, 15f);
+
+                            GM.happiness += Random.Range(2.5f, 7.5f);
+                            GM.popularity += Random.Range(2.5f, 8.5f);
+
+                            browserManager.accidentActive.SetActive(false);
+                            browserManager.accidentGreyed.SetActive(true);
+                        }
+                        else
+                        {
+                            GM.happiness += Random.Range(5f, 15f);
+                            GM.popularity += Random.Range(5f, 17f);
+                        }
+                        break;
+                    }
                 default:
                     {
                         Debug.Log("Default case or unrecognized dialogue.");
@@ -218,6 +278,21 @@ public class Accident : MonoBehaviour
                         GM.happiness -= Random.Range(5f, 15f);
                         GM.popularity -= Random.Range(2.5f, 5f);
 
+                        break;
+                    }
+                case "Hi Boss, this is one of your employees from one of the departements, my family have been struggling with some financial stuff, can you help us?":
+                    {
+                        Debug.Log("3 No Accident");
+
+                        GM.happiness -= Random.Range(5f, 15f);
+                        GM.popularity -= Random.Range(2.5f, 5f);
+
+                        break;
+                    }
+                case "Hi Sir, I have submitted an accident bill for reimbursement, can I have an approval to proceed with the payment?":
+                    {
+                        GM.happiness -= Random.Range(5f, 15f);
+                        GM.popularity -= Random.Range(5f, 17f);
                         break;
                     }
                 default:

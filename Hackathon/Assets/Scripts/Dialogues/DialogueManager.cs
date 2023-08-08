@@ -21,6 +21,9 @@ public class DialogueManager : MonoBehaviour
     //Reference script to healthManager
     public Health healthManager;
 
+    //Reference script to MGManager
+    public MG_Dialogue MGManager;
+
     //Reference script to nameGen
     public NameGenerator nameGen;
 
@@ -29,9 +32,17 @@ public class DialogueManager : MonoBehaviour
     //string arrays for employee, investment and insurance dialogue lines
     public string[] employeeLines = new string[5];
     public string[] investmentLines = new string[10];
-    public string[] insuranceLines = new string[2];
-    public string[] healthLines = new string[2];
-    public string[] accidentLines = new string[2];
+
+    public string[] insuranceHealthLines = new string[1];
+    public string[] insuranceInvestmentLines = new string[1];
+    public string[] insuranceAccidentLines = new string[1];
+
+    public string[] healthLines = new string[5];
+    public string[] accidentLines = new string[5];
+
+    public string[] miniGameLines = new string[1];
+    public string[] miniGameCarLines = new string[1];
+    public string[] miniGameGolfLines = new string[1];
 
     //isDialogue bool to check if dialogue is active
     public bool isDialogue;
@@ -59,8 +70,9 @@ public class DialogueManager : MonoBehaviour
         employeeLines[3] = "Good Morning Boss! In regards for our employees' workspace, would you like to provide them financial assistance to upgrade?";
         employeeLines[4] = "Happy New Year Boss! would you like to host a New Year Party for your employees?";
 
-        insuranceLines[0] = "BOSS! I received a call regarding one of your warehouse! An accident occurred, which caused a fire. They said not many of the items are damaged, do you want to repair the warehouse?";
-        insuranceLines[1] = "Hi Boss! I received a message from employee claiming to be under our company, said that his/her car has broken down and is in need of money, do you want to provide him/her any financial assistance?";
+        insuranceHealthLines[0] = "Good Morning Boss! Would you like to buy health insurance at a lower rate to keep your family and loved ones from unexpected medical expenses?";
+        insuranceAccidentLines[0] = "Good Morning Boss! Would you like to buy accident insurance at a lower rate to keep your family and loved ones from unexpected accident expenses?";
+        insuranceInvestmentLines[0] = "Good Morning Boss! Would you like to buy an investment insurance at a lower rate to keep yourself safe from scams?";
 
         investmentLines[0] = "Hi Boss! Our accountants have noticed that we have a surplus in capital. They suggested that you expand the business and offices. Would you like to follow through?";
         investmentLines[1] = "Hey Pal! Heard your business has been thriving. I'm writing to ask you whether you would like to invest in one business project. You will receive a good margin of the profits!";
@@ -75,9 +87,21 @@ public class DialogueManager : MonoBehaviour
 
         healthLines[0] = "Hi Boss, One of our employees has reported sick, would you like to help out with his/her medical fees?";
         healthLines[1] = "Good Morning Boss, One of our departments has recently got in contact with COVID, would you like to help out by paying for the medical fees?";
+        healthLines[2] = "Hi Sir, I have submitted a medical bill for reimbursement, can I have an approval to proceed with the payment?";
+        healthLines[3] = "Hi Boss, this is urgent! I need your help with some financial help as I can't pay for my medical bills. Please help me!";
+        healthLines[4] = "Hello Sir,  I believe it would be in the best interest of the company, as well as my own well-being, for you to consider covering the medical fees as it is directly related to my work.";
 
         accidentLines[0] = "Hi Boss, Bad news, one of our employees has gotten into an accident, would you like to provide them with financial assistance to cover their medical bills?";
         accidentLines[1] = "Good Morning Boss, One of our department head has recently got into an accident, would you please help out with the medical fees?";
+        accidentLines[2] = "Hi Boss, this is one of your employees from one of the departements, my family have been struggling with some financial stuff, can you help us?";
+        accidentLines[3] = "Hi Sir, I have submitted an accident bill for reimbursement, can I have an approval to proceed with the payment?";
+        accidentLines[4] = "Boss, I appreciate your understanding in the matter, but I was wondering if the company could possibly cover the accident fees?";
+
+        miniGameLines[0] = "Hello Boss, I highly recommend taking a break to try out the new mini game - it's a great opportunity to relax and boost team morale.";
+
+        miniGameCarLines[0] = "Hello Boss, there's a celebration at 7:30pm at a nearby hotel, it would be an honor for you to join us!";
+
+        miniGameGolfLines[0] = "Hello Boss, I have a proposition for you but let's see if your swings in golf is as impressive as you think!";
 
         dialogueBox.SetActive(false);
         yesButton.SetActive(false);
@@ -88,6 +112,33 @@ public class DialogueManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void CallMiniGameGolf()
+    {
+        yesButton.SetActive(true);
+        noButton.SetActive(true);
+
+        dialogueText.text = GetRandomMiniGolf();
+        dialogueBox.SetActive(true);
+    }
+
+    public void CallMiniGameCar()
+    {
+        yesButton.SetActive(true);
+        noButton.SetActive(true);
+
+        dialogueText.text = GetRandomMiniCar();
+        dialogueBox.SetActive(true);
+    }
+
+    public void CallMiniGameDialogue()
+    {
+        yesButton.SetActive(true);
+        noButton.SetActive(true);
+
+        dialogueText.text = GetRandomMiniGameDialogue();
+        dialogueBox.SetActive(true);
     }
 
     public void CallInsuranceDialogue()
@@ -122,7 +173,7 @@ public class DialogueManager : MonoBehaviour
         yesButton.SetActive(true);
         noButton.SetActive(true);
 
-        dialogueText.text = GetRandomHealthDialgoue();
+        dialogueText.text = GetRandomHealthDialogue();
         dialogueBox.SetActive(true);
     }
 
@@ -133,6 +184,63 @@ public class DialogueManager : MonoBehaviour
 
         dialogueText.text = GetRandomAccidentDialogue();
         dialogueBox.SetActive(true);
+    }
+
+    public void CallHealthInsuranceDialogue()
+    {
+        yesButton.SetActive(true);
+        noButton.SetActive(true);
+
+        dialogueText.text = GetRandomHealthInsurance();
+        dialogueBox.SetActive(true);
+    }
+
+    public void CallAccidentInsuranceDialogue()
+    {
+        yesButton.SetActive(true);
+        noButton.SetActive(true);
+
+        dialogueText.text = GetRandomAccidentInsurance();
+        dialogueBox.SetActive(true);
+    }
+
+    string GetRandomMiniGolf()
+    {
+        //chooses random dialogue in miniGameGolfLines
+        //then returns which miniGameGolfLines was chosen from randomDialogue randomizer
+        if (isDialogue == false && dialoguePlayed == false)
+        {
+            int randomMiniGolfDialogue = Random.Range(0, miniGameGolfLines.Length);
+            Debug.Log(randomMiniGolfDialogue);
+            return miniGameGolfLines[randomMiniGolfDialogue];
+        }
+        return null;
+    }
+
+    string GetRandomMiniCar()
+    {
+        //chooses random dialogue in miniGameCarLines
+        //then returns which miniGameCarLines was chosen from randomDialogue randomizer
+        if (isDialogue == false && dialoguePlayed == false)
+        {
+            int randomMiniCarDialogue = Random.Range(0, miniGameCarLines.Length);
+            Debug.Log(randomMiniCarDialogue);
+            return miniGameCarLines[randomMiniCarDialogue];
+        }
+        return null;
+    }
+
+    string GetRandomMiniGameDialogue()
+    {
+        //chooses random dialogue in miniGameLines
+        //then returns which miniGameLines was chosen from randomDialogue randomizer
+        if (isDialogue == false && dialoguePlayed == false)
+        {
+            int randomMiniGameDialogue = Random.Range(0, miniGameLines.Length);
+            Debug.Log(randomMiniGameDialogue);
+            return miniGameLines[randomMiniGameDialogue];
+        }
+        return null;
     }
 
     string GetRandomAccidentDialogue()
@@ -148,7 +256,7 @@ public class DialogueManager : MonoBehaviour
         return null;
     }
 
-    string GetRandomHealthDialgoue()
+    string GetRandomHealthDialogue()
     {
         //chooses random dialogue in healthLines
         //then returns which healthLines was chosen from randomDialogue randomizer
@@ -163,8 +271,8 @@ public class DialogueManager : MonoBehaviour
 
     string GetRandomInvestDialogue()
     {
-        //chooses random dialogue in employeeLines
-        //then returns which employeeLines was chosen from randomDialogue randomizer
+        //chooses random dialogue in investmentLines
+        //then returns which investmentLines was chosen from randomDialogue randomizer
         if (isDialogue == false && dialoguePlayed == false)
         {
             int randomInvestDialogue = Random.Range(0, investmentLines.Length);
@@ -190,15 +298,41 @@ public class DialogueManager : MonoBehaviour
         return null;
     }
 
-    string GetRandomInsuranceDialogue()
+    string GetRandomAccidentInsurance()
     {
-        //chooses random dialogue in employeeLines
-        //then returns which employeeLines was chosen from randomDialogue randomizer
+        //chooses random dialogue in insuranceAccidentLines
+        //then returns which insuranceAccidentLines was chosen from randomDialogue randomizer
         if (isDialogue == false && dialoguePlayed == false)
         {
-            int randomInsuranceDialogue = Random.Range(0, insuranceLines.Length);
+            int randomInsuranceDialogue = Random.Range(0, insuranceAccidentLines.Length);
             Debug.Log(randomInsuranceDialogue);
-            return insuranceLines[randomInsuranceDialogue];
+            return insuranceAccidentLines[randomInsuranceDialogue];
+        }
+        return null;
+    }
+
+    string GetRandomHealthInsurance()
+    {
+        //chooses random dialogue in insuranceHealthLines
+        //then returns which insuranceHealthLines was chosen from randomDialogue randomizer
+        if (isDialogue == false && dialoguePlayed == false)
+        {
+            int randomInsuranceDialogue = Random.Range(0, insuranceHealthLines.Length);
+            Debug.Log(randomInsuranceDialogue);
+            return insuranceHealthLines[randomInsuranceDialogue];
+        }
+        return null;
+    }
+
+    string GetRandomInsuranceDialogue()
+    {
+        //chooses random dialogue in insuranceInvestmentLines
+        //then returns which insuranceInvestmentLines was chosen from randomDialogue randomizer
+        if (isDialogue == false && dialoguePlayed == false)
+        {
+            int randomInsuranceDialogue = Random.Range(0, insuranceInvestmentLines.Length);
+            Debug.Log(randomInsuranceDialogue);
+            return insuranceInvestmentLines[randomInsuranceDialogue];
         }
         return null;
     }

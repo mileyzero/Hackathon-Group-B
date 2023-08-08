@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Death : MonoBehaviour
 {
@@ -29,7 +30,6 @@ public class Death : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
-
-        mgTimer.Timer();
+        SceneManager.LoadScene(0);
     }
 }

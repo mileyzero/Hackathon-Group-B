@@ -24,8 +24,10 @@ public class NameGenerator : MonoBehaviour
 
     public void NameRandomList()
     {
-        string[] first = { "Kullervo", "Feliciano", "Daichi", "Clement", "Orfeas", "Lorna", "Shad", "Ava", "Ina", "Alphonse", "Anthony", "Maxine", "Willie" };
-        string[] last = { "Vladan", "Sigismund", "Deror", "Ragna", "Alene", "Good", "Mills", "Payne", "Webster", "Young", "Meza", "Diaz", "Odom" };
+        string[] first = { "Kullervo", "Feliciano", "Daichi", "Clement", "Orfeas", "Lorna", "Shad", "Ava", "Ina", "Alphonse", 
+            "Anthony", "Maxine", "Willie", "Yujiro", "Jack", "Kaoru", "Doppo", "Biscuit", "Baki", "Katsumi", "Retsu", "Mitsunari" };
+        string[] last = { "Vladan", "Sigismund", "Deror", "Ragna", "Alene", "Good", "Mills", "Payne", "Webster", "Young", 
+            "Meza", "Diaz", "Odom", "Hanma", "Kaioh", "Hanayama", "Orochi", "Oliva", "Tokugama", "Shinogi" };
 
         string completeFirst = first[Random.Range(0, first.Length)];
         string completeLast = last[Random.Range(0, last.Length)];
