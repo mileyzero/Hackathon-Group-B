@@ -21,6 +21,21 @@ public class GameManager : MonoBehaviour
     //Reference script to accidentManager
     public Accident accidentManager;
 
+    //Reference script to MGManager
+    public MG_Dialogue MGManager;
+
+    //Reference script to MGCar
+    public MG_Car_Dialogue MGCar;
+
+    //Reference script to MGGolf
+    public MG_Golf_Dialogue MGGolf;
+
+    //Reference script to AccidentManager
+    public InsuranceAccidentManager AccidentManager;
+
+    //Reference script to InvestmentManager
+    public InsuranceInvestmentManager InvestmentManager;
+
     //Variable for NameGenerator
     public NameGenerator nameManager;
 
@@ -31,13 +46,27 @@ public class GameManager : MonoBehaviour
     public GameObject healthNotiIcon;
     public GameObject accidentNotiIcon;
 
+    public GameObject miniGameNotiIcon;
+    public GameObject miniGameCarNotiIcon;
+    public GameObject miniGameGolfNotiIcon;
+
+    public GameObject insuranceInvestmentNotiIcon;
+    public GameObject insuranceAccidentNotiIcon;
+
     //GameObject for investment and employee envelope icon
     public GameObject investmentButton;
     public GameObject employeeButton;
-    public GameObject insuranceButton;
+    public GameObject insuranceHealthButton;
     public GameObject accidentButton;
     public GameObject healthButton;
 
+    public GameObject miniGameButton;
+    public GameObject miniGameCarButton;
+    public GameObject miniGameGolfButton;
+
+    public GameObject insuranceInvestmentButton;
+    public GameObject insuranceAccidentButton;
+    
     public GameObject background1;
     public GameObject background2;
     public GameObject background3;
@@ -52,6 +81,7 @@ public class GameManager : MonoBehaviour
 
     //Button for snekGame
     public Button snekGameButton;
+    public Button slotGameButton;
 
     //Sliders for happiness, money and popularity
     public Slider happinessSlider;
@@ -89,6 +119,7 @@ public class GameManager : MonoBehaviour
     {
         //Enable Snek button for players to play
         snekGameButton.enabled = true;
+        slotGameButton.enabled = true;
 
         //Set background 2 and 3 to false as it has not reached it's current threshold
         background2.SetActive(false);
@@ -126,11 +157,24 @@ public class GameManager : MonoBehaviour
         employeeNotiIcon.SetActive(false);
         insuranceNotiIcon.SetActive(false);
 
+        miniGameNotiIcon.SetActive(false);
+        miniGameCarNotiIcon.SetActive(false);
+        miniGameGolfNotiIcon.SetActive(false);
+
+        insuranceAccidentNotiIcon.SetActive(false);
+        insuranceInvestmentNotiIcon.SetActive(false);
+
         //set investment, employee email button to false
         investmentButton.SetActive(false);
         employeeButton.SetActive(false);
-        insuranceButton.SetActive(false);
+        insuranceHealthButton.SetActive(false);
 
+        insuranceInvestmentButton.SetActive(false);
+        insuranceAccidentButton.SetActive(false);
+
+        miniGameButton.SetActive(false);
+        miniGameCarButton.SetActive(false);
+        miniGameGolfButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -144,7 +188,7 @@ public class GameManager : MonoBehaviour
         //and if it lands on 1, it will enable the email button for employees.
         if (isRunning == false)
         {
-            randomInitialize = Random.Range(0, 5);
+            randomInitialize = Random.Range(0, 10);
             timer -= Time.deltaTime;
 
             if (timer <= 0)
@@ -171,7 +215,7 @@ public class GameManager : MonoBehaviour
                 {
                     insuranceManager.scenarioButton.enabled = true;
 
-                    insuranceButton.SetActive(true);
+                    insuranceHealthButton.SetActive(true);
                     insuranceNotiIcon.SetActive(true);
                 }
                 else if(randomInitialize == 3)
@@ -188,6 +232,41 @@ public class GameManager : MonoBehaviour
                     accidentButton.SetActive(true);
                     accidentNotiIcon.SetActive(true);
                 }
+                else if(randomInitialize == 5)
+                {
+                    MGManager.scenarioButton.enabled = true;
+
+                    miniGameButton.SetActive(true);
+                    miniGameNotiIcon.SetActive(true);
+                }
+                else if(randomInitialize == 6)
+                {
+                    MGCar.scenarioButton.enabled = true;
+
+                    miniGameCarButton.SetActive(true);
+                    miniGameCarNotiIcon.SetActive(true);
+                }
+                else if(randomInitialize == 7)
+                {
+                    MGGolf.scenarioButton.enabled = true;
+
+                    miniGameGolfButton.SetActive(true);
+                    miniGameGolfNotiIcon.SetActive(true);
+                }
+                else if(randomInitialize == 8)
+                {
+                    AccidentManager.scenarioButton.enabled = true;
+
+                    insuranceAccidentButton.SetActive(true);
+                    insuranceAccidentNotiIcon.SetActive(true);
+                }
+                else if(randomInitialize == 9)
+                {
+                    InvestmentManager.scenarioButton.enabled = true;
+
+                    insuranceInvestmentButton.SetActive(true);
+                    insuranceInvestmentNotiIcon.SetActive(true);
+                }
 
                 Debug.Log(randomInitialize);
             }
@@ -203,6 +282,82 @@ public class GameManager : MonoBehaviour
         isRunning = false;
     }
 
+    public void InitializeInvestmentInsurance()
+    {
+        Debug.Log("Investment Insurance Game");
+
+        insuranceInvestmentButton.SetActive(false);
+        insuranceInvestmentNotiIcon.SetActive(false);
+
+        InvestmentManager.GetComponent<InsuranceInvestmentManager>().SpawnScenario();
+        nameManager.GetComponent<NameGenerator>().NameRandomList();
+
+        snekGameButton.enabled = false;
+        slotGameButton.enabled = false;
+    }
+
+    public void InitializeAccidentInsurance()
+    {
+        Debug.Log("Accident Insurance Game");
+
+        insuranceAccidentButton.SetActive(false);
+        insuranceAccidentNotiIcon.SetActive(false);
+
+        AccidentManager.GetComponent<InsuranceAccidentManager>().SpawnScenario();
+        nameManager.GetComponent<NameGenerator>().NameRandomList();
+
+        snekGameButton.enabled = false;
+        slotGameButton.enabled = false;
+    }
+
+    //when InitializeGolfGame is called, it will set the email button and notification icon to false to prevent players from spamming it.
+    //which then it will grab from the MG_Golf_Dialogue and nameManager methods
+    public void InitializeGolfGame()
+    {
+        Debug.Log("Golf Game");
+
+        miniGameGolfButton.SetActive(false);
+        miniGameGolfNotiIcon.SetActive(false);
+
+        MGGolf.GetComponent<MG_Golf_Dialogue>().SpawnScenario();
+        nameManager.GetComponent<NameGenerator>().NameRandomList();
+
+        snekGameButton.enabled = false;
+        slotGameButton.enabled = false;
+    }
+
+    //when InitializeCarGame is called, it will set the email button and notification icon to false to prevent players from spamming it.
+    //which then it will grab from the MG_Car_Dialogue and nameManager methods
+    public void InitializeCarGame()
+    {
+        Debug.Log("Car Game");
+
+        miniGameCarButton.SetActive(false);
+        miniGameCarNotiIcon.SetActive(false);
+
+        MGCar.GetComponent<MG_Car_Dialogue>().SpawnScenario();
+        nameManager.GetComponent<NameGenerator>().NameRandomList();
+
+        snekGameButton.enabled = false;
+        slotGameButton.enabled = false;
+    }
+
+    //when InitializeMiniGame is called, it will set the email button and notification icon to false to prevent players from spamming it.
+    //which then it will grab from the MGManager and nameManager methods
+    public void InitializeMiniGame()
+    {
+        Debug.Log("Doodle Mini-Game");
+
+        miniGameButton.SetActive(false);
+        miniGameNotiIcon.SetActive(false);
+
+        MGManager.GetComponent<MG_Dialogue>().SpawnScenario();
+        nameManager.GetComponent<NameGenerator>().NameRandomList();
+
+        snekGameButton.enabled = false;
+        slotGameButton.enabled = false;
+    }
+
     //when InitializeHoliday is called, it will set the email button and notification icon to false to prevent players from spamming it.
     //which then it will grab from the holidayManager and nameManager methods
     public void InitializeHoliday()
@@ -216,6 +371,7 @@ public class GameManager : MonoBehaviour
         nameManager.GetComponent<NameGenerator>().NameRandomList();
 
         snekGameButton.enabled = false;
+        slotGameButton.enabled = false;
     }
 
     //when InitializeInvest is called, it will set the email button and notification icon to false to prevent players from spamming it.
@@ -231,6 +387,7 @@ public class GameManager : MonoBehaviour
         nameManager.GetComponent<NameGenerator>().NameRandomList();
 
         snekGameButton.enabled = false;
+        slotGameButton.enabled = false;
     }
 
     //when InitializeInsurance is called, it will set the email button and notification icon to false to prevent players from spamming it.
@@ -240,12 +397,13 @@ public class GameManager : MonoBehaviour
         Debug.Log("Insurance");
 
         insuranceNotiIcon.SetActive(false);
-        insuranceButton.SetActive(false);
+        insuranceHealthButton.SetActive(false);
 
         insuranceManager.GetComponent<Insurance>().SpawnScenario();
         nameManager.GetComponent<NameGenerator>().NameRandomList();
 
         snekGameButton.enabled = false;
+        slotGameButton.enabled = false;
     }
 
     //when InitalizeAccident is called, it will set the email button and notification icon to false to prevent players from spamming it.
@@ -261,6 +419,7 @@ public class GameManager : MonoBehaviour
         nameManager.GetComponent<NameGenerator>().NameRandomList();
 
         snekGameButton.enabled = false;
+        slotGameButton.enabled = false;
     }
 
     //when InitalizeHealth is called, it will set the email button and notification icon to false to prevent players from spamming it.
@@ -276,6 +435,7 @@ public class GameManager : MonoBehaviour
         nameManager.GetComponent<NameGenerator>().NameRandomList();
 
         snekGameButton.enabled = false;
+        slotGameButton.enabled = false;
     }
 
     //LevelChange checks based on the popularity that the player has gathered.

@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement; 
 
-public class Insurance : MonoBehaviour
+public class MG_Dialogue : MonoBehaviour
 {
     //Reference script to GM
     public GameManager GM;
@@ -13,22 +13,19 @@ public class Insurance : MonoBehaviour
     //Reference script to DM
     public DialogueManager DM;
 
-    //Reference script to browserManager
-    public Browser browserManager;
-
-    //private GameObject for investmentObject
-    private GameObject insuranceObject;
-    private GameObject randomObject;
-    private GameObject spawned;
+    //private GameObject for miniGameObject
+    private GameObject miniGameObject;
 
     //a List to set how many personas to randomize
     public List<GameObject> spawnObjects;
-
-    //spawnArea for player model
     public GameObject spawnArea;
 
-    //reference GameObject for insuranceScenario
-    public GameObject insuranceScenario;
+    //spawnArea for player model
+    private GameObject randomObject;
+    private GameObject spawned;
+
+    //reference GameObject for miniGameScenario
+    public GameObject miniGameScenario;
 
     //Button for interaction of scenario
     public Button scenarioButton;
@@ -36,24 +33,29 @@ public class Insurance : MonoBehaviour
     //GameObjects for scenario
     public GameObject yesButton;
     public GameObject noButton;
-    public GameObject insuranceDialogue;
+    public GameObject miniGameDialogue;
     public GameObject nameBox;
+
+    public bool isDoodleGame;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        //referencing GameManager GM's insurance button and notification icon to false
-        GM.investmentNotiIcon.SetActive(false);
-        GM.investmentButton.SetActive(false);
+        isDoodleGame = false;
+
+        //referencing GameManager GM's employee's button and notification icon to false
+        GM.miniGameNotiIcon.SetActive(false);
+        GM.miniGameButton.SetActive(false);
 
         //set button enabled to false
         enabled = false;
 
         //set scenario, button and dialogue to false
-        insuranceScenario.SetActive(false);
+        miniGameScenario.SetActive(false);
         yesButton.SetActive(false);
         noButton.SetActive(false);
-        insuranceDialogue.SetActive(false);
+        miniGameDialogue.SetActive(false);
         nameBox.SetActive(false);
     }
 
@@ -61,10 +63,10 @@ public class Insurance : MonoBehaviour
     //then, a new vector3 spawnPosition equals to spawnArea's position
     //a randomObject will take the current index of spawnObjects' array
     //which then spawned will instantiate the randomObject chosen on the current spawnPosition
-    //spawned will then be set under a parent object's position=
+    //spawned will then be set under a parent object's position
     public void SpawnObject()
     {
-        Debug.Log("Spawned");
+        Debug.Log("Spawned Mini Game");
         int randomRange = Random.Range(0, spawnObjects.Count);
         Vector3 spawnPosition = spawnArea.transform.position;
         randomObject = spawnObjects[randomRange];
@@ -79,9 +81,11 @@ public class Insurance : MonoBehaviour
     public void SpawnScenario()
     {
         SpawnObject();
-
-        insuranceScenario.SetActive(true);
+        Debug.Log("Spawned Scenario Mini Game");
+        miniGameScenario.SetActive(true);
         nameBox.SetActive(true);
+
+        isDoodleGame = true;
 
         scenarioButton.enabled = false;
         Debug.Log(scenarioButton.enabled);
@@ -92,52 +96,53 @@ public class Insurance : MonoBehaviour
     //In AnimationPlay, it will return a float of seconds and set yes, no and investmentDialogue set active to true
     IEnumerator AnimationPlay(float seconds)
     {
+        Debug.Log("animation start");
         yield return new WaitForSeconds(seconds);
 
         yesButton.SetActive(true);
         noButton.SetActive(true);
-        bool isActive = insuranceDialogue.activeSelf;
-        Debug.Log("Insurance AnimDialogue is " + isActive);
-        insuranceDialogue.SetActive(true);
+        miniGameDialogue.SetActive(true);
+        bool isActive = miniGameDialogue.activeSelf;
+        Debug.Log("Mini Game AnimDialogue is " + isActive);
     }
 
-    //In DestroyObject, insuranceObject GameObject will find tag of any GameObject tagged "insurance"
-    //if object is then tagged "insurance", destroy insuranceObject if it's active
+    public void DoodleJumpScenario()
+    {
+        GameObject.FindGameObjectWithTag("main_game").SetActive(false);
+        SceneManager.LoadScene("DoodleJump");
+    }
+
+    //In DestroyObject, holidayObject GameObject will find tag of any GameObject tagged "holiday"
+    //if object is then tagged "holiday", destroy holidayObject if it's active
     public void DestroyObject()
     {
-        insuranceObject = GameObject.FindGameObjectWithTag("insurance");
+        miniGameObject = GameObject.FindGameObjectWithTag("good");
 
-        if (randomObject.tag == "insurance")
+        if (randomObject.tag == "good")
         {
-            Destroy(insuranceObject);
+            Destroy(miniGameObject);
         }
     }
 
     public void YesClick()
     {
-        //if randomObject tag equals to "insurance"
-        if (randomObject.tag == "insurance")
+        //if randomObject tag equals to "good"
+        if (randomObject.tag == "good")
         {
             int index = 0;
 
-            insuranceScenario.SetActive(false);
+            miniGameScenario.SetActive(false);
 
-            switch (DM.insuranceHealthLines[index])
+            DestroyObject();
+
+            switch (DM.miniGameLines[index])
             {
-                case "Good Morning Boss! Would you like to buy health insurance at a lower rate to keep your family and loved ones from unexpected medical expenses?":
+                case "Hello Boss, I highly recommend taking a break to try out the new mini game - it's a great opportunity to relax and boost team morale.":
                     {
-                        if(browserManager.healthInsurance != true)
+                        if (isDoodleGame == true)
                         {
-                            Debug.Log("Bought Health Insurance");
-                            GM.money -= 2.5f;
-                            browserManager.healthInsurance = true;
-
-                            browserManager.healthGreyed.SetActive(false);
-                            browserManager.healthActive.SetActive(true);
-                        }
-                        else
-                        {
-                            Debug.Log("You are already covered with health insurance");
+                            Debug.Log(isDoodleGame);
+                            DoodleJumpScenario();
                         }
 
                         break;
@@ -149,31 +154,47 @@ public class Insurance : MonoBehaviour
                     }
             }
 
-            GM.happinessSlider.value = GM.happiness;
-            GM.moneySlider.value = GM.money;
-            GM.popularitySlider.value = GM.popularity;
-
             index++;
-
-            DestroyObject();
         }
 
         GM.snekGameButton.enabled = true;
         GM.FunctionUpdates();
+
+        isDoodleGame = false;
     }
 
     public void NoClick()
     {
-        //if randomObject tag equals to "insurance"
-        if (randomObject.tag == "insurance")
+        //if randomObject tag equals to "good"
+        if (randomObject.tag == "good")
         {
-            insuranceScenario.SetActive(false);
+            int index = 0;
 
-            
+            miniGameScenario.SetActive(false);
+
             DestroyObject();
+
+            switch (DM.miniGameLines[index])
+            {
+                case "Hello Boss, I highly recommend taking a break to try out the new mini game - it's a great opportunity to relax and boost team morale.":
+                    {
+                        Debug.Log("No Doodle Game");
+
+                        break;
+                    }
+                default:
+                    {
+                        Debug.Log("Default case or unrecognized dialogue.");
+                        break;
+                    }
+            }
+
+            index++;
         }
 
         GM.snekGameButton.enabled = true;
         GM.FunctionUpdates();
+
+        isDoodleGame = false;
     }
 }

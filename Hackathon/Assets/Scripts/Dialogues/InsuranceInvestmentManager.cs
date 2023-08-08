@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using UnityEngine.SceneManagement; 
 
-public class Insurance : MonoBehaviour
+public class InsuranceInvestmentManager : MonoBehaviour
 {
     //Reference script to GM
     public GameManager GM;
@@ -28,7 +26,7 @@ public class Insurance : MonoBehaviour
     public GameObject spawnArea;
 
     //reference GameObject for insuranceScenario
-    public GameObject insuranceScenario;
+    public GameObject insuranceInvestmentScenario;
 
     //Button for interaction of scenario
     public Button scenarioButton;
@@ -36,7 +34,7 @@ public class Insurance : MonoBehaviour
     //GameObjects for scenario
     public GameObject yesButton;
     public GameObject noButton;
-    public GameObject insuranceDialogue;
+    public GameObject insuranceInvestmentDialogue;
     public GameObject nameBox;
 
     // Start is called before the first frame update
@@ -50,10 +48,10 @@ public class Insurance : MonoBehaviour
         enabled = false;
 
         //set scenario, button and dialogue to false
-        insuranceScenario.SetActive(false);
+        insuranceInvestmentScenario.SetActive(false);
         yesButton.SetActive(false);
         noButton.SetActive(false);
-        insuranceDialogue.SetActive(false);
+        insuranceInvestmentDialogue.SetActive(false);
         nameBox.SetActive(false);
     }
 
@@ -64,7 +62,7 @@ public class Insurance : MonoBehaviour
     //spawned will then be set under a parent object's position=
     public void SpawnObject()
     {
-        Debug.Log("Spawned");
+        Debug.Log("Accident Insurance Spawned");
         int randomRange = Random.Range(0, spawnObjects.Count);
         Vector3 spawnPosition = spawnArea.transform.position;
         randomObject = spawnObjects[randomRange];
@@ -80,7 +78,7 @@ public class Insurance : MonoBehaviour
     {
         SpawnObject();
 
-        insuranceScenario.SetActive(true);
+        insuranceInvestmentScenario.SetActive(true);
         nameBox.SetActive(true);
 
         scenarioButton.enabled = false;
@@ -96,9 +94,9 @@ public class Insurance : MonoBehaviour
 
         yesButton.SetActive(true);
         noButton.SetActive(true);
-        bool isActive = insuranceDialogue.activeSelf;
-        Debug.Log("Insurance AnimDialogue is " + isActive);
-        insuranceDialogue.SetActive(true);
+        bool isActive = insuranceInvestmentDialogue.activeSelf;
+        Debug.Log("Insurance Accident AnimDialogue is " + isActive);
+        insuranceInvestmentDialogue.SetActive(true);
     }
 
     //In DestroyObject, insuranceObject GameObject will find tag of any GameObject tagged "insurance"
@@ -120,24 +118,24 @@ public class Insurance : MonoBehaviour
         {
             int index = 0;
 
-            insuranceScenario.SetActive(false);
+            insuranceInvestmentScenario.SetActive(false);
 
-            switch (DM.insuranceHealthLines[index])
+            switch (DM.insuranceInvestmentLines[index])
             {
-                case "Good Morning Boss! Would you like to buy health insurance at a lower rate to keep your family and loved ones from unexpected medical expenses?":
+                case "Good Morning Boss! Would you like to buy an investment insurance at a lower rate to keep yourself safe from scams?":
                     {
-                        if(browserManager.healthInsurance != true)
+                        if (browserManager.investmentInsurance != true)
                         {
-                            Debug.Log("Bought Health Insurance");
+                            Debug.Log("Bought Investment Insurance");
                             GM.money -= 2.5f;
-                            browserManager.healthInsurance = true;
+                            browserManager.investmentInsurance = true;
 
-                            browserManager.healthGreyed.SetActive(false);
-                            browserManager.healthActive.SetActive(true);
+                            browserManager.insuranceGreyed.SetActive(false);
+                            browserManager.insuranceActive.SetActive(true);
                         }
                         else
                         {
-                            Debug.Log("You are already covered with health insurance");
+                            Debug.Log("You are already covered with Investment insurance");
                         }
 
                         break;
@@ -167,9 +165,9 @@ public class Insurance : MonoBehaviour
         //if randomObject tag equals to "insurance"
         if (randomObject.tag == "insurance")
         {
-            insuranceScenario.SetActive(false);
+            insuranceInvestmentScenario.SetActive(false);
 
-            
+
             DestroyObject();
         }
 

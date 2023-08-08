@@ -51,7 +51,7 @@ public class Health : MonoBehaviour
         healthScenario.SetActive(false);
         yesButton.SetActive(false);
         noButton.SetActive(false);
-        healthDialogue.SetActive(true);
+        healthDialogue.SetActive(false);
         nameBox.SetActive(false);
     }
 
@@ -127,7 +127,7 @@ public class Health : MonoBehaviour
                     {
                         if (browserManager.healthInsurance != true)
                         {
-                            Debug.Log("1 Yes Holiday");
+                            Debug.Log("1 Yes Health");
                             GM.money -= Random.Range(5f, 10f);
 
                             GM.happiness += Random.Range(2.5f, 7.5f);
@@ -148,7 +148,70 @@ public class Health : MonoBehaviour
                     {
                         if (browserManager.healthInsurance != true)
                         {
-                            Debug.Log("2 Yes Holiday");
+                            Debug.Log("2 Yes Health");
+                            GM.money -= Random.Range(5f, 10f);
+
+                            GM.popularity += Random.Range(2.5f, 5f);
+                            GM.happiness += Random.Range(2.5f, 5f);
+
+                            browserManager.healthActive.SetActive(false);
+                            browserManager.healthGreyed.SetActive(true);
+                        }
+                        else
+                        {
+                            GM.popularity += Random.Range(5f, 10f);
+                            GM.happiness += Random.Range(5f, 15f);
+                        }
+                        break;
+                    }
+
+                case "Hi Sir, I have submitted a medical bill for reimbursement, can I have an approval to proceed with the payment?":
+                    {
+                        if (browserManager.healthInsurance != true)
+                        {
+                            Debug.Log("3 Yes Health");
+                            GM.money -= Random.Range(5f, 10f);
+
+                            GM.popularity += Random.Range(2.5f, 5f);
+                            GM.happiness += Random.Range(2.5f, 5f);
+
+                            browserManager.healthActive.SetActive(false);
+                            browserManager.healthGreyed.SetActive(true);
+                        }
+                        else
+                        {
+                            GM.popularity += Random.Range(5f, 10f);
+                            GM.happiness += Random.Range(5f, 15f);
+                        }
+                        break;
+                    }
+
+                case "Hi Boss, this is urgent! I need your help with some financial help as I can't pay for my medical bills. Please help me!":
+                    {
+                        if (browserManager.healthInsurance != true)
+                        {
+                            Debug.Log("3 Yes Health");
+                            GM.money -= Random.Range(5f, 10f);
+
+                            GM.popularity += Random.Range(2.5f, 5f);
+                            GM.happiness += Random.Range(2.5f, 5f);
+
+                            browserManager.healthActive.SetActive(false);
+                            browserManager.healthGreyed.SetActive(true);
+                        }
+                        else
+                        {
+                            GM.popularity += Random.Range(5f, 10f);
+                            GM.happiness += Random.Range(5f, 15f);
+                        }
+                        break;
+                    }
+
+                case "Hello Sir,  I believe it would be in the best interest of the company, as well as my own well-being, for you to consider covering the medical fees as it is directly related to my work.":
+                    {
+                        if (browserManager.healthInsurance != true)
+                        {
+                            Debug.Log("3 Yes Health");
                             GM.money -= Random.Range(5f, 10f);
 
                             GM.popularity += Random.Range(2.5f, 5f);
@@ -203,7 +266,7 @@ public class Health : MonoBehaviour
             {
                 case "Hi Boss, One of our employees has reported sick, would you like to help out with his/her medical fees?":
                     {
-                        Debug.Log(" No Holiday");
+                        Debug.Log(" No Health");
 
                         GM.popularity -= Random.Range(5f, 10f);
                         GM.happiness -= Random.Range(5f, 15f);
@@ -212,7 +275,32 @@ public class Health : MonoBehaviour
                     }
                 case "Good Morning Boss, One of our departments has recently got in contact with COVID, would you like to help out by paying for the medical fees?":
                     {
-                        Debug.Log("2 No Holiday");
+                        Debug.Log("2 No Health");
+
+                        GM.popularity -= Random.Range(5f, 10f);
+                        GM.happiness -= Random.Range(5f, 15f);
+                        break;
+                    }
+                case "Hi Sir, I have submitted a medical bill for reimbursement, can I have an approval to proceed with the payment?":
+                    {
+                        Debug.Log("3 No Health");
+
+                        GM.popularity -= Random.Range(5f, 10f);
+                        GM.happiness -= Random.Range(5f, 15f);
+                        break;
+                    }
+                case "Hi Boss, this is urgent! I need your help with some financial help as I can't pay for my medical bills. Please help me!":
+                    {
+                        Debug.Log("4 No Health");
+
+                        GM.popularity -= Random.Range(5f, 10f);
+                        GM.happiness -= Random.Range(5f, 15f);
+                        break;
+                    }
+                case "Hello Sir,  I believe it would be in the best interest of the company, as well as my own well-being, for you " +
+            "to consider covering the medical fees as it is directly related to my work.":
+                    {
+                        Debug.Log("5 No Health");
 
                         GM.popularity -= Random.Range(5f, 10f);
                         GM.happiness -= Random.Range(5f, 15f);
