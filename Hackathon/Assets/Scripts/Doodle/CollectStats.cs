@@ -10,6 +10,7 @@ public class CollectStats : MonoBehaviour
     {
         manager = GameObject.FindGameObjectWithTag("doodlemanager");
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(this.gameObject.tag == "doodleMoney")
@@ -21,11 +22,11 @@ public class CollectStats : MonoBehaviour
         {
             manager.GetComponent<Manager>().happinessCount += 1;
         }
+
         else if (this.gameObject.tag == "doodlePopular")
         {
             manager.GetComponent<Manager>().popularityCount += 1;
         }
-
 
         Destroy(this.gameObject);
     }

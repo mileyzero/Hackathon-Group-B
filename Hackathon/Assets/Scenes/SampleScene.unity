@@ -484,13 +484,13 @@ MonoBehaviour:
   maxHappiness: 90
   maxMoney: 90
   maxPopularity: 90
-  loseTimer: 0
   happiness: 0
   money: 0
   popularity: 0
   originalTimer: 3
   delayTimer: 3
   timer: 0
+  loseTimeTipDuration: 0
   randomInitialize: 0
   isRunning: 0
 --- !u!4 &38225540
@@ -2116,7 +2116,7 @@ GameObject:
   - component: {fileID: 254365669}
   m_Layer: 0
   m_Name: Game
-  m_TagString: Untagged
+  m_TagString: Persistent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8340,9 +8340,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 38225539}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: RestartGame
+      - m_Target: {fileID: 254365669}
+        m_TargetAssemblyTypeName: DontDestroyGame, Assembly-CSharp
+        m_MethodName: RestartCurrentScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12375,9 +12375,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 38225539}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: RestartGame
+      - m_Target: {fileID: 254365669}
+        m_TargetAssemblyTypeName: DontDestroyGame, Assembly-CSharp
+        m_MethodName: RestartCurrentScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14195,9 +14195,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 38225539}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: RestartGame
+      - m_Target: {fileID: 254365669}
+        m_TargetAssemblyTypeName: DontDestroyGame, Assembly-CSharp
+        m_MethodName: RestartCurrentScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
