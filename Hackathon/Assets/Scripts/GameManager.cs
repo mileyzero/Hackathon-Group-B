@@ -112,6 +112,8 @@ public class GameManager : MonoBehaviour
     //Bool for isRunning
     public bool isRunning;
 
+    public AudioSource btnClick;
+
     //Bool for activating lose tips
     private bool hasActivatedLoseHappinessTip = false;
     private bool hasActivatedLosePopularityTip = false;
@@ -120,6 +122,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        btnClick = GetComponent<AudioSource>();
+
         //Enable Snek button for players to play
         snekGameButton.enabled = true;
         slotGameButton.enabled = true;
@@ -284,6 +288,11 @@ public class GameManager : MonoBehaviour
         LoseMoneyCondition();
         LoseHappinessCondition();
         LosePopularityCondition();
+    }
+
+    public void PlayBtnSound()
+    {
+        btnClick.Play();
     }
 
     public void MaxPopularityEarned()
