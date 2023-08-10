@@ -704,6 +704,7 @@ MonoBehaviour:
   - {fileID: 996518946}
   - {fileID: 487686324}
   - {fileID: 689594284}
+  quitBtn: {fileID: 253418722}
   arrow: {fileID: 1769912732}
 --- !u!1 &625964585
 GameObject:

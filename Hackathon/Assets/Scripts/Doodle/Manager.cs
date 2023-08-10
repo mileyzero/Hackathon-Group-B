@@ -79,20 +79,16 @@ public class Manager : MonoBehaviour
                         {
                             Instantiate(platform, spawnposition, Quaternion.identity);
                         }
-                        
                     }
-                    
-                    
                 }
-                
             }
+
             SpawnStats();
         }
     }
 
     private void SpawnStats()
     {
-
         int randompopularity = Random.Range(-15, 2);
         int randommoney = Random.Range(-13, 4);
         int randomhappiness = Random.Range(-15, 5);
@@ -118,15 +114,20 @@ public class Manager : MonoBehaviour
 
     IEnumerator showstats()
     {
-        _money.text = "+ "+moneyCount.ToString();
-        _popularity.text = "+ "+popularityCount.ToString();
+        _money.text = "+ " + moneyCount.ToString();
+        _popularity.text = "+ " + popularityCount.ToString();
         _happiness.text = "+ " + happinessCount.ToString();
+
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money += moneyCount;
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity += popularityCount;
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.happiness += happinessCount;
+
         yield return new WaitForSeconds(2f);
+
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
+
         this.gameObject.SetActive(false);
+
         SceneManager.LoadScene(0);
     }
 }

@@ -20,6 +20,8 @@ public class Control : MonoBehaviour
 
     private bool resultsChecked = false;
 
+    public Button quitBtn;
+
     public GameObject arrow;
 
     // Update is called once per frame
@@ -48,6 +50,8 @@ public class Control : MonoBehaviour
             if (rows[0].rowStopped && rows[1].rowStopped && rows[2].rowStopped)
             {
                 GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money -= 10f;
+
+                quitBtn.enabled = false;
                 arrow.SetActive(false);
                 animator.SetTrigger("Pressed");
                 ButtonPressed();
@@ -57,8 +61,10 @@ public class Control : MonoBehaviour
         {
             Debug.Log("Not Enough Money!");
         }
+
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.moneySlider.value = GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money;
     }
-    
+
 
     private void CheckResults()
     {
@@ -97,6 +103,7 @@ public class Control : MonoBehaviour
 
         resultsChecked = true;
         arrow.SetActive(true);
+        quitBtn.enabled = true;
     }
 
     public void QuitGame()

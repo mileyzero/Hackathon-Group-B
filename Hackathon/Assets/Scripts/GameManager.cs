@@ -93,8 +93,6 @@ public class GameManager : MonoBehaviour
     public float maxMoney = 90f;
     public float maxPopularity = 90f;
 
-    public float loseTimer;
-
     //Float for happiness, money and popularity
     public float happiness;
     public float money;
@@ -104,8 +102,9 @@ public class GameManager : MonoBehaviour
     public float originalTimer;
     public float delayTimer;
 
-    //Float for timer
+    //Float for timer, loseTimeTipDuration
     public float timer;
+    public float loseTimeTipDuration;
 
     //Int for randomInitialize
     public int randomInitialize;
@@ -113,6 +112,10 @@ public class GameManager : MonoBehaviour
     //Bool for isRunning
     public bool isRunning;
 
+    //Bool for activating lose tips
+    private bool hasActivatedLoseHappinessTip = false;
+    private bool hasActivatedLosePopularityTip = false;
+    private bool hasActivatedLoseMoneyTip = false;
 
     // Start is called before the first frame update
     void Start()
@@ -139,6 +142,7 @@ public class GameManager : MonoBehaviour
 
         //set timer to delayTimer
         timer = delayTimer;
+        loseTimeTipDuration = 2f;
 
         //set isRunning to false on start
         isRunning = false;
@@ -273,6 +277,37 @@ public class GameManager : MonoBehaviour
         }
 
         LevelChange();
+        MaxMoneyEarned();
+        MaxHappinessEarned();
+        MaxPopularityEarned();
+
+        LoseMoneyCondition();
+        LoseHappinessCondition();
+        LosePopularityCondition();
+    }
+
+    public void MaxPopularityEarned()
+    {
+        if(popularity > maxPopularity)
+        {
+            popularity = maxPopularity;
+        }
+    }
+
+    public void MaxMoneyEarned()
+    {
+        if(money > maxMoney)
+        {
+            money = maxMoney;
+        }
+    }
+
+    public void MaxHappinessEarned()
+    {
+        if(happiness > maxHappiness)
+        {
+            happiness = maxHappiness;
+        }
     }
 
     //This function returns the value of its original value when its being called.
@@ -485,13 +520,19 @@ public class GameManager : MonoBehaviour
         {
             loseMoney.SetActive(true);
 
-            loseTimer -= Time.deltaTime;
-
-            if(loseTimer <= 0)
+            if (!hasActivatedLoseMoneyTip)
             {
-                loseMoneyTipPanel.SetActive(true);
+                StartCoroutine(ActivateLoseMoneyTipWithDelay());
+                hasActivatedLoseMoneyTip = true;
             }
         }
+    }
+
+    private IEnumerator ActivateLoseMoneyTipWithDelay()
+    {
+        yield return new WaitForSeconds(loseTimeTipDuration);
+
+        loseMoneyTipPanel.SetActive(true);
     }
 
     public void LosePopularityCondition()
@@ -500,13 +541,19 @@ public class GameManager : MonoBehaviour
         {
             losePopularity.SetActive(true);
 
-            loseTimer -= Time.deltaTime;
-
-            if (loseTimer <= 0)
+            if (!hasActivatedLosePopularityTip)
             {
-                losePopularityTipPanel.SetActive(true);
+                StartCoroutine(ActivateLosePopularityTipWithDelay());
+                hasActivatedLosePopularityTip = true;
             }
         }
+    }
+
+    private IEnumerator ActivateLosePopularityTipWithDelay()
+    {
+        yield return new WaitForSeconds(loseTimeTipDuration);
+
+        losePopularityTipPanel.SetActive(true);
     }
 
     public void LoseHappinessCondition()
@@ -515,17 +562,18 @@ public class GameManager : MonoBehaviour
         {
             loseHappiness.SetActive(true);
 
-            loseTimer -= Time.deltaTime;
-
-            if (loseTimer <= 0)
+            if (!hasActivatedLoseHappinessTip)
             {
-                loseHappinessTipPanel.SetActive(true);
+                StartCoroutine(ActivateLoseHappinessTipWithDelay());
+                hasActivatedLoseHappinessTip = true;
             }
         }
     }
 
-    public void RestartGame()
+    private IEnumerator ActivateLoseHappinessTipWithDelay()
     {
-        SceneManager.LoadScene(0);
+        yield return new WaitForSeconds(loseTimeTipDuration);
+
+        loseHappinessTipPanel.SetActive(true);
     }
 }

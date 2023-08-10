@@ -71,6 +71,8 @@ public class CarController : MonoBehaviour
                     Win = true;
                     win.SetActive(true);
                     Debug.Log("Win");
+
+                    gmTime.StartCooldown();
                 }
             }
         }
@@ -81,7 +83,7 @@ public class CarController : MonoBehaviour
 
             StartCoroutine(TransitionToMain(1.5f));
 
-            gmTime.Timer();
+            gmTime.StartCooldown();
         }
     }
 

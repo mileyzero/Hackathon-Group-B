@@ -4,28 +4,40 @@ using UnityEngine;
 
 public class MiniGameTimer : MonoBehaviour
 {
-    public float MGTimer;
+    //cooldown time in seconds
+    public float cooldownDuration = 30f;
 
-    // Start is called before the first frame update
-    void Start()
+    private bool isCooldownActive = false;
+
+    private float cooldownTimer = 0f;
+
+    public bool IsCooldownActive
     {
-        MGTimer = 40f;
+        get
+        {
+            return isCooldownActive;
+        }
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        MGTimer -= Time.deltaTime;
+        if (isCooldownActive)
+        {
+            cooldownTimer -= Time.deltaTime;
+            Debug.Log("Cooldown is Active");
+
+            if(cooldownTimer <= 0f)
+            {
+                Debug.Log("Cooldown is Disabled");
+                isCooldownActive = false;
+            }
+        }
     }
 
-    public void Timer()
+    public void StartCooldown()
     {
-        MGTimer = 40f;
-
-        if(MGTimer > 0)
-        {
-            Debug.Log(MGTimer);
-            MGTimer -= Time.deltaTime;
-        }
+        isCooldownActive = true;
+        cooldownTimer = cooldownDuration;
     }
 }
