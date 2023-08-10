@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour
 {
@@ -15,6 +17,11 @@ public class Manager : MonoBehaviour
     public int popularityCount;
     public int moneyCount;
     public int happinessCount;
+
+
+    public TextMeshProUGUI _money;
+    public TextMeshProUGUI _popularity;
+    public TextMeshProUGUI _happiness;
 
     public int platformCount;
     public int numberofstats;
@@ -102,5 +109,24 @@ public class Manager : MonoBehaviour
         {
             Instantiate(happiness, new Vector3(Random.Range(-7f, 7f), spawnposition.y + 0.97f), Quaternion.identity);
         }
+    }
+
+    public void DisplayStats()
+    {
+        StartCoroutine(showstats());
+    }
+
+    IEnumerator showstats()
+    {
+        _money.text = "+ "+moneyCount.ToString();
+        _popularity.text = "+ "+popularityCount.ToString();
+        _happiness.text = "+ " + happinessCount.ToString();
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money += moneyCount;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity += popularityCount;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.happiness += happinessCount;
+        yield return new WaitForSeconds(2f);
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
+        this.gameObject.SetActive(false);
+        SceneManager.LoadScene(0);
     }
 }

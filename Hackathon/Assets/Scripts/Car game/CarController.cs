@@ -87,7 +87,17 @@ public class CarController : MonoBehaviour
 
     IEnumerator TransitionToMain(float timer)
     {
+        
         yield return new WaitForSeconds(1.5f);
+
+        if (GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().accidentinsurance.accidentInsurance != true)
+        {
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money -= 15f;
+        }
+        else
+        {
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().accidentinsurance.accidentInsurance = false;
+        }
 
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
         SceneManager.LoadScene(0);

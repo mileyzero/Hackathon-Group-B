@@ -17,6 +17,7 @@ public class CarLose : MonoBehaviour
         {
             car.GetComponent<CarController>().lose = true;
             Debug.Log("Lose");
+            
         }
     }
 }
