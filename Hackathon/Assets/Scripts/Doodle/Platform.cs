@@ -36,6 +36,7 @@ public class Platform : MonoBehaviour
                 if (this.gameObject.tag == "doodlewin")
                 {
                    manager.GetComponent<Manager>().win.SetActive(true);
+                    manager.GetComponent <Manager>().DisplayStats();
                 }
                 else if(this.gameObject.tag == "breakplatform")
                 {

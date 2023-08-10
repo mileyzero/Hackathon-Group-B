@@ -7947,6 +7947,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maingame: {fileID: 1649164781}
   gameManager: {fileID: 38225539}
+  accidentinsurance: {fileID: 1962933006}
+  money: 0
 --- !u!4 &652560842
 Transform:
   m_ObjectHideFlags: 0

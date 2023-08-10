@@ -43,11 +43,11 @@ public class Control : MonoBehaviour
     
     private void OnMouseDown()
     {
-        if(GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().money >= 10f)
+        if(GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money >= 10f)
         {
             if (rows[0].rowStopped && rows[1].rowStopped && rows[2].rowStopped)
             {
-                GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().money -= 10f;
+                GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money -= 10f;
                 arrow.SetActive(false);
                 animator.SetTrigger("Pressed");
                 ButtonPressed();
@@ -65,34 +65,34 @@ public class Control : MonoBehaviour
         if (rows[0].stoppedslot == "Happy" && rows[1].stoppedslot == "Happy" && rows[2].stoppedslot == "Happy")
         {
             prizeValue = "+ Employee Happiness";
-            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().happiness += 30f;
-            Debug.Log(GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().happiness);
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.happiness += 30f;
+            Debug.Log(GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.happiness);
         }
 
         else if (rows[0].stoppedslot == "Popularity" && rows[1].stoppedslot == "Popularity" && rows[2].stoppedslot == "Popularity")
         {
             prizeValue = "+ Popularity";
-            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().popularity += 30f;
-            Debug.Log(GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().popularity);
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity += 30f;
+            Debug.Log(GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity);
         }
 
         else if (rows[0].stoppedslot == "Money" && rows[1].stoppedslot == "Money" && rows[2].stoppedslot == "Money")
         {
             prizeValue = "+ Money";
-            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().money += 30f;
-            Debug.Log(GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().money);
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money += 30f;
+            Debug.Log(GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money);
         }
 
         else if (rows[0].stoppedslot == "7" && rows[1].stoppedslot == "7" && rows[2].stoppedslot == "7")
         {
             prizeValue = "+ All Resources";
-            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().money += 10f;
-            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().popularity += 10f;
-            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().happiness += 10f;
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money += 10f;
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity += 10f;
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.happiness += 10f;
 
-            Debug.Log(GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().money);
-            Debug.Log(GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().popularity);
-            Debug.Log(GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().happiness);
+            Debug.Log(GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money);
+            Debug.Log(GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity);
+            Debug.Log(GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.happiness);
         }
 
         resultsChecked = true;
