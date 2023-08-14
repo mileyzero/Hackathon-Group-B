@@ -127,7 +127,7 @@ public class InsuranceInvestmentManager : MonoBehaviour
                         if (browserManager.investmentInsurance != true)
                         {
                             Debug.Log("Bought Investment Insurance");
-                            GM.money -= 2.5f;
+                            GM.money -= 2;
                             browserManager.investmentInsurance = true;
 
                             browserManager.insuranceGreyed.SetActive(false);
@@ -156,6 +156,7 @@ public class InsuranceInvestmentManager : MonoBehaviour
             DestroyObject();
         }
 
+        GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
         GM.FunctionUpdates();
     }
@@ -171,6 +172,7 @@ public class InsuranceInvestmentManager : MonoBehaviour
             DestroyObject();
         }
 
+        GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
         GM.FunctionUpdates();
     }

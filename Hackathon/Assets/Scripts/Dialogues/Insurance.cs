@@ -129,7 +129,7 @@ public class Insurance : MonoBehaviour
                         if(browserManager.healthInsurance != true)
                         {
                             Debug.Log("Bought Health Insurance");
-                            GM.money -= 2.5f;
+                            GM.money -= 2;
                             browserManager.healthInsurance = true;
 
                             browserManager.healthGreyed.SetActive(false);
@@ -159,6 +159,7 @@ public class Insurance : MonoBehaviour
         }
 
         GM.snekGameButton.enabled = true;
+        GM.slotGameButton.enabled = true;
         GM.FunctionUpdates();
     }
 
@@ -174,6 +175,7 @@ public class Insurance : MonoBehaviour
         }
 
         GM.snekGameButton.enabled = true;
+        GM.slotGameButton.enabled = true;
         GM.FunctionUpdates();
     }
 }

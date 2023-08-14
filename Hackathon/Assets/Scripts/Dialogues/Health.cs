@@ -128,18 +128,18 @@ public class Health : MonoBehaviour
                         if (browserManager.healthInsurance != true)
                         {
                             Debug.Log("1 Yes Health");
-                            GM.money -= Random.Range(5f, 10f);
+                            GM.money -= Random.Range(5, 10);
 
-                            GM.happiness += Random.Range(2.5f, 7.5f);
-                            GM.popularity += Random.Range(3.75f, 7.5f);
+                            GM.happiness += Random.Range(2, 7);
+                            GM.popularity += Random.Range(3, 7);
 
                             browserManager.healthActive.SetActive(false);
                             browserManager.healthGreyed.SetActive(true);
                         }
                         else
                         {
-                            GM.popularity += Random.Range(7.5f, 15f);
-                            GM.happiness += Random.Range(5f, 15f);
+                            GM.popularity += Random.Range(7, 15);
+                            GM.happiness += Random.Range(5, 15);
                         }
                         break;
                     }
@@ -149,18 +149,18 @@ public class Health : MonoBehaviour
                         if (browserManager.healthInsurance != true)
                         {
                             Debug.Log("2 Yes Health");
-                            GM.money -= Random.Range(5f, 10f);
+                            GM.money -= Random.Range(5, 10);
 
-                            GM.popularity += Random.Range(2.5f, 5f);
-                            GM.happiness += Random.Range(2.5f, 5f);
+                            GM.popularity += Random.Range(2, 5);
+                            GM.happiness += Random.Range(2, 5);
 
                             browserManager.healthActive.SetActive(false);
                             browserManager.healthGreyed.SetActive(true);
                         }
                         else
                         {
-                            GM.popularity += Random.Range(5f, 10f);
-                            GM.happiness += Random.Range(5f, 15f);
+                            GM.popularity += Random.Range(5, 10);
+                            GM.happiness += Random.Range(5, 15);
                         }
                         break;
                     }
@@ -170,18 +170,18 @@ public class Health : MonoBehaviour
                         if (browserManager.healthInsurance != true)
                         {
                             Debug.Log("3 Yes Health");
-                            GM.money -= Random.Range(5f, 10f);
+                            GM.money -= Random.Range(5, 10);
 
-                            GM.popularity += Random.Range(2.5f, 5f);
-                            GM.happiness += Random.Range(2.5f, 5f);
+                            GM.popularity += Random.Range(2, 5);
+                            GM.happiness += Random.Range(2, 5);
 
                             browserManager.healthActive.SetActive(false);
                             browserManager.healthGreyed.SetActive(true);
                         }
                         else
                         {
-                            GM.popularity += Random.Range(5f, 10f);
-                            GM.happiness += Random.Range(5f, 15f);
+                            GM.popularity += Random.Range(5, 10);
+                            GM.happiness += Random.Range(5, 15);
                         }
                         break;
                     }
@@ -191,18 +191,18 @@ public class Health : MonoBehaviour
                         if (browserManager.healthInsurance != true)
                         {
                             Debug.Log("3 Yes Health");
-                            GM.money -= Random.Range(5f, 10f);
+                            GM.money -= Random.Range(5, 10);
 
-                            GM.popularity += Random.Range(2.5f, 5f);
-                            GM.happiness += Random.Range(2.5f, 5f);
+                            GM.popularity += Random.Range(2, 5);
+                            GM.happiness += Random.Range(2, 5);
 
                             browserManager.healthActive.SetActive(false);
                             browserManager.healthGreyed.SetActive(true);
                         }
                         else
                         {
-                            GM.popularity += Random.Range(5f, 10f);
-                            GM.happiness += Random.Range(5f, 15f);
+                            GM.popularity += Random.Range(5, 10);
+                            GM.happiness += Random.Range(5, 15);
                         }
                         break;
                     }
@@ -212,18 +212,18 @@ public class Health : MonoBehaviour
                         if (browserManager.healthInsurance != true)
                         {
                             Debug.Log("3 Yes Health");
-                            GM.money -= Random.Range(5f, 10f);
+                            GM.money -= Random.Range(5, 10);
 
-                            GM.popularity += Random.Range(2.5f, 5f);
-                            GM.happiness += Random.Range(2.5f, 5f);
+                            GM.popularity += Random.Range(2, 5);
+                            GM.happiness += Random.Range(2, 5);
 
                             browserManager.healthActive.SetActive(false);
                             browserManager.healthGreyed.SetActive(true);
                         }
                         else
                         {
-                            GM.popularity += Random.Range(5f, 10f);
-                            GM.happiness += Random.Range(5f, 15f);
+                            GM.popularity += Random.Range(5, 10);
+                            GM.happiness += Random.Range(5, 15);
                         }
                         break;
                     }
@@ -249,6 +249,7 @@ public class Health : MonoBehaviour
             DestroyObject();
         }
 
+        GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
         GM.FunctionUpdates();
     }
@@ -268,8 +269,8 @@ public class Health : MonoBehaviour
                     {
                         Debug.Log(" No Health");
 
-                        GM.popularity -= Random.Range(5f, 10f);
-                        GM.happiness -= Random.Range(5f, 15f);
+                        GM.popularity -= Random.Range(5, 10);
+                        GM.happiness -= Random.Range(5, 15);
 
                         break;
                     }
@@ -277,24 +278,24 @@ public class Health : MonoBehaviour
                     {
                         Debug.Log("2 No Health");
 
-                        GM.popularity -= Random.Range(5f, 10f);
-                        GM.happiness -= Random.Range(5f, 15f);
+                        GM.popularity -= Random.Range(5, 10);
+                        GM.happiness -= Random.Range(5, 15);
                         break;
                     }
                 case "Hi Sir, I have submitted a medical bill for reimbursement, can I have an approval to proceed with the payment?":
                     {
                         Debug.Log("3 No Health");
 
-                        GM.popularity -= Random.Range(5f, 10f);
-                        GM.happiness -= Random.Range(5f, 15f);
+                        GM.popularity -= Random.Range(5, 10);
+                        GM.happiness -= Random.Range(5, 15);
                         break;
                     }
                 case "Hi Boss, this is urgent! I need your help with some financial help as I can't pay for my medical bills. Please help me!":
                     {
                         Debug.Log("4 No Health");
 
-                        GM.popularity -= Random.Range(5f, 10f);
-                        GM.happiness -= Random.Range(5f, 15f);
+                        GM.popularity -= Random.Range(5, 10);
+                        GM.happiness -= Random.Range(5, 15);
                         break;
                     }
                 case "Hello Sir,  I believe it would be in the best interest of the company, as well as my own well-being, for you " +
@@ -302,8 +303,8 @@ public class Health : MonoBehaviour
                     {
                         Debug.Log("5 No Health");
 
-                        GM.popularity -= Random.Range(5f, 10f);
-                        GM.happiness -= Random.Range(5f, 15f);
+                        GM.popularity -= Random.Range(5, 10);
+                        GM.happiness -= Random.Range(5, 15);
                         break;
                     }
                 default:
@@ -322,6 +323,7 @@ public class Health : MonoBehaviour
             DestroyObject();
         }
 
+        GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
         GM.FunctionUpdates();
     }

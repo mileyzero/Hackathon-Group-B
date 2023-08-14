@@ -161,6 +161,7 @@ public class MG_Golf_Dialogue : MonoBehaviour
             index++;
         }
 
+        GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
         GM.FunctionUpdates();
 
@@ -199,6 +200,7 @@ public class MG_Golf_Dialogue : MonoBehaviour
             index++;
         }
 
+        GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
         GM.FunctionUpdates();
 
