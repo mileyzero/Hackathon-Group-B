@@ -12,12 +12,14 @@ public class Golf_Ball : MonoBehaviour
     private GameObject hole;
 
     private bool isDragging;
-    private bool score;
+    
     public Vector2 ball_velocity;
     private Animator animator;
-
+    [SerializeField] private Golf_Manager golf_manager;
+    [SerializeField] private bool score;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private TilemapCollider2D sand;
+    [SerializeField] private TilemapCollider2D ice;
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private float maxPower = 10f;
     [SerializeField] private float power = 2f;
@@ -46,6 +48,7 @@ public class Golf_Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if(ball_released && rb.velocity.magnitude <= 0.2f && cancel ==false) //the moves made will reduce by 1 after the player released the ball and the ball has come to a stop
         {
             if(score == false)
@@ -167,12 +170,24 @@ public class Golf_Ball : MonoBehaviour
         {
             rb.drag += 2f;
         }
+        else if (collision.tag == "ice")
+        {
+            rb.drag -= 2f;
+        }
     }
 
 
     private void OnTriggerStay2D(Collider2D collision) //checks when the ball is staying in the hole
     {
         if (collision.tag == "goal") CheckWinState();
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.tag == "ice" || collision.tag == "golf_sand")
+        {
+            rb.drag = 0.9f;
+        }
     }
 
     private void Lose()
@@ -204,10 +219,12 @@ public class Golf_Ball : MonoBehaviour
         {
             gameObject.transform.localScale = new Vector2(gameObject.transform.localScale.x - 0.01f, gameObject.transform.localScale.y - 0.01f);
             yield return new WaitForSeconds(0.05f);
-        }    
+        }
+        golf_manager.Win();
         gameObject.SetActive(false);
         win_screen.SetActive(true);
     }
+
 
     IEnumerator ballTooFast() //Coroutine for when ball goes in hole, the ball will shrink and the ball will slow down then it will return back to normal size
     {
@@ -222,6 +239,7 @@ public class Golf_Ball : MonoBehaviour
     {
         //disable the sand the hole's colliders to prevent the ball from interacting with them
         sand.enabled = false;
+        ice.enabled = false;
         hole.GetComponent<CircleCollider2D>().enabled = false;
         for (int i = 0; i < 15; i++) //for loop to gradually increase size of ball
         {
@@ -237,6 +255,7 @@ public class Golf_Ball : MonoBehaviour
         
         //the sand and the hole's colliders are enabled again so the ball can interact with them
         sand.enabled = true; 
+        ice.enabled = true;
         hole.GetComponent<CircleCollider2D>().enabled = true;
         for (float i = 0.15f; i >= 0.1;i-=0.05f) //last for loop to increase and decrease the ball's size to create the illusion of ball bouncing
         {
