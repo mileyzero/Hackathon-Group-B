@@ -128,10 +128,10 @@ public class Accident : MonoBehaviour
                         if(browserManager.accidentInsurance != true)
                         {
                             Debug.Log("1 Yes Accident");
-                            GM.money -= Random.Range(10f, 20f);
+                            GM.money -= Random.Range(10, 20);
 
-                            GM.happiness += Random.Range(2.5f, 5f);
-                            GM.popularity += Random.Range(2.5f, 7.5f);
+                            GM.happiness += Random.Range(2, 5);
+                            GM.popularity += Random.Range(2, 7);
 
 
                             browserManager.accidentActive.SetActive(false);
@@ -139,8 +139,8 @@ public class Accident : MonoBehaviour
                         }
                         else
                         {
-                            GM.happiness += Random.Range(5f, 10f);
-                            GM.popularity += Random.Range(5f, 15f);
+                            GM.happiness += Random.Range(5, 10);
+                            GM.popularity += Random.Range(5, 15);
                         }
                         break;
                     }
@@ -149,18 +149,18 @@ public class Accident : MonoBehaviour
                         if (browserManager.accidentInsurance != true)
                         {
                             Debug.Log("2 Yes Accident");
-                            GM.money -= Random.Range(5f, 15f);
+                            GM.money -= Random.Range(5, 15);
 
-                            GM.happiness += Random.Range(2.5f, 7.5f);
-                            GM.popularity += Random.Range(2.5f, 8.5f);
+                            GM.happiness += Random.Range(2, 7);
+                            GM.popularity += Random.Range(2, 8);
 
                             browserManager.accidentActive.SetActive(false);
                             browserManager.accidentGreyed.SetActive(true);
                         }
                         else
                         {
-                            GM.happiness += Random.Range(5f, 15f);
-                            GM.popularity += Random.Range(5f, 17f);
+                            GM.happiness += Random.Range(5, 15);
+                            GM.popularity += Random.Range(5, 17);
                         }
                         break;
                     }
@@ -169,18 +169,18 @@ public class Accident : MonoBehaviour
                         if (browserManager.accidentInsurance != true)
                         {
                             Debug.Log("3 Yes Accident");
-                            GM.money -= Random.Range(5f, 15f);
+                            GM.money -= Random.Range(5, 15);
 
-                            GM.happiness += Random.Range(2.5f, 7.5f);
-                            GM.popularity += Random.Range(2.5f, 8.5f);
+                            GM.happiness += Random.Range(2, 7);
+                            GM.popularity += Random.Range(2, 8);
 
                             browserManager.accidentActive.SetActive(false);
                             browserManager.accidentGreyed.SetActive(true);
                         }
                         else
                         {
-                            GM.happiness += Random.Range(5f, 15f);
-                            GM.popularity += Random.Range(5f, 17f);
+                            GM.happiness += Random.Range(5, 15);
+                            GM.popularity += Random.Range(5, 17);
                         }
                         break;
                     }
@@ -189,18 +189,18 @@ public class Accident : MonoBehaviour
                         if (browserManager.accidentInsurance != true)
                         {
                             Debug.Log("4 Yes Accident");
-                            GM.money -= Random.Range(5f, 15f);
+                            GM.money -= Random.Range(5, 15);
 
-                            GM.happiness += Random.Range(2.5f, 7.5f);
-                            GM.popularity += Random.Range(2.5f, 8.5f);
+                            GM.happiness += Random.Range(2, 7);
+                            GM.popularity += Random.Range(2, 8);
 
                             browserManager.accidentActive.SetActive(false);
                             browserManager.accidentGreyed.SetActive(true);
                         }
                         else
                         {
-                            GM.happiness += Random.Range(5f, 15f);
-                            GM.popularity += Random.Range(5f, 17f);
+                            GM.happiness += Random.Range(5, 15);
+                            GM.popularity += Random.Range(5, 15);
                         }
                         break;
                     }
@@ -209,18 +209,18 @@ public class Accident : MonoBehaviour
                         if (browserManager.accidentInsurance != true)
                         {
                             Debug.Log("4 Yes Accident");
-                            GM.money -= Random.Range(5f, 15f);
+                            GM.money -= Random.Range(5, 15);
 
-                            GM.happiness += Random.Range(2.5f, 7.5f);
-                            GM.popularity += Random.Range(2.5f, 8.5f);
+                            GM.happiness += Random.Range(2, 7);
+                            GM.popularity += Random.Range(2, 8);
 
                             browserManager.accidentActive.SetActive(false);
                             browserManager.accidentGreyed.SetActive(true);
                         }
                         else
                         {
-                            GM.happiness += Random.Range(5f, 15f);
-                            GM.popularity += Random.Range(5f, 17f);
+                            GM.happiness += Random.Range(5, 15);
+                            GM.popularity += Random.Range(5, 17);
                         }
                         break;
                     }
@@ -247,6 +247,7 @@ public class Accident : MonoBehaviour
             DestroyObject();
         }
 
+        GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
         GM.FunctionUpdates();
     }
@@ -266,8 +267,8 @@ public class Accident : MonoBehaviour
                     {
                         Debug.Log("1 No Accident");
 
-                        GM.happiness -= Random.Range(5f, 15f);
-                        GM.popularity -= Random.Range(2.5f, 5f);
+                        GM.happiness -= Random.Range(5, 15);
+                        GM.popularity -= Random.Range(2, 5);
 
                         break;
                     }
@@ -275,8 +276,8 @@ public class Accident : MonoBehaviour
                     {
                         Debug.Log("2 No Accident");
 
-                        GM.happiness -= Random.Range(5f, 15f);
-                        GM.popularity -= Random.Range(2.5f, 5f);
+                        GM.happiness -= Random.Range(5, 15);
+                        GM.popularity -= Random.Range(2, 5);
 
                         break;
                     }
@@ -284,15 +285,15 @@ public class Accident : MonoBehaviour
                     {
                         Debug.Log("3 No Accident");
 
-                        GM.happiness -= Random.Range(5f, 15f);
-                        GM.popularity -= Random.Range(2.5f, 5f);
+                        GM.happiness -= Random.Range(5, 15);
+                        GM.popularity -= Random.Range(2, 5);
 
                         break;
                     }
                 case "Hi Sir, I have submitted an accident bill for reimbursement, can I have an approval to proceed with the payment?":
                     {
-                        GM.happiness -= Random.Range(5f, 15f);
-                        GM.popularity -= Random.Range(5f, 17f);
+                        GM.happiness -= Random.Range(5, 15);
+                        GM.popularity -= Random.Range(5, 17);
                         break;
                     }
                 default:
@@ -311,6 +312,7 @@ public class Accident : MonoBehaviour
             DestroyObject();
         }
 
+        GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
         GM.FunctionUpdates();
     }

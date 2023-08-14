@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    //Reference script to tipManager
+    public Tips tipManagerMoney;
+    public Tips tipManagerHappiness;
+    public Tips tipManagerPopularity;
+
     //Reference script to holidayManager
     public Holiday holidayManager;
 
@@ -88,10 +93,13 @@ public class GameManager : MonoBehaviour
     public Slider moneySlider;
     public Slider popularitySlider;
 
+    //AudioSource for btnClick
+    public AudioSource btnClick;
+
     //Float for maxHappiness, money and popularity
-    public float maxHappiness = 90f;
-    public float maxMoney = 90f;
-    public float maxPopularity = 90f;
+    public int maxHappiness = 90;
+    public int maxMoney = 90;
+    public int maxPopularity = 90;
 
     //Float for happiness, money and popularity
     public float happiness;
@@ -111,8 +119,6 @@ public class GameManager : MonoBehaviour
 
     //Bool for isRunning
     public bool isRunning;
-
-    public AudioSource btnClick;
 
     //Bool for activating lose tips
     private bool hasActivatedLoseHappinessTip = false;
@@ -288,6 +294,16 @@ public class GameManager : MonoBehaviour
         LoseMoneyCondition();
         LoseHappinessCondition();
         LosePopularityCondition();
+
+        WinGame();
+    }
+
+    public void WinGame()
+    {
+        if(popularity >= maxPopularity && money >= maxMoney && happiness >= maxHappiness)
+        {
+            SceneManager.LoadScene("WinGame");
+        }
     }
 
     public void PlayBtnSound()
@@ -541,6 +557,8 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(loseTimeTipDuration);
 
+        tipManagerMoney.CallTipMoney();
+
         loseMoneyTipPanel.SetActive(true);
     }
 
@@ -562,6 +580,8 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(loseTimeTipDuration);
 
+        tipManagerPopularity.CallTipPopularity();
+
         losePopularityTipPanel.SetActive(true);
     }
 
@@ -582,6 +602,8 @@ public class GameManager : MonoBehaviour
     private IEnumerator ActivateLoseHappinessTipWithDelay()
     {
         yield return new WaitForSeconds(loseTimeTipDuration);
+
+        tipManagerHappiness.CallTipHappiness();
 
         loseHappinessTipPanel.SetActive(true);
     }

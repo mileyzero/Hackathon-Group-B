@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 90
-  m_WholeNumbers: 0
+  m_WholeNumbers: 1
   m_Value: 90
   m_OnValueChanged:
     m_PersistentCalls:
@@ -437,6 +437,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b6603a96bc934f4f8638ea7eaede388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipManagerMoney: {fileID: 1900397440}
+  tipManagerHappiness: {fileID: 2026705205}
+  tipManagerPopularity: {fileID: 1162965152}
   holidayManager: {fileID: 1176322977}
   investManager: {fileID: 1914481760}
   insuranceManager: {fileID: 1201412525}
@@ -482,6 +485,7 @@ MonoBehaviour:
   happinessSlider: {fileID: 7192855}
   moneySlider: {fileID: 1335645973}
   popularitySlider: {fileID: 1636039691}
+  btnClick: {fileID: 38225541}
   maxHappiness: 90
   maxMoney: 90
   maxPopularity: 90
@@ -494,7 +498,6 @@ MonoBehaviour:
   loseTimeTipDuration: 0
   randomInitialize: 0
   isRunning: 0
-  btnClick: {fileID: 38225541}
 --- !u!4 &38225540
 Transform:
   m_ObjectHideFlags: 0
@@ -3172,15 +3175,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -8559,7 +8562,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -850, y: -787}
+  m_AnchoredPosition: {x: -850, y: -856}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &737654664
@@ -9735,6 +9738,27 @@ MonoBehaviour:
   - {fileID: 7485057406703294042, guid: 75f8b0e63c2f275439bf9b4a00d9641b, type: 3}
   - {fileID: 5865776316665124432, guid: 6772f3e2f3c9a554982fe682c7d7cb7e, type: 3}
   - {fileID: 6525893378689485967, guid: 973c5069d16760d4c98968c7288a887b, type: 3}
+  - {fileID: 2792652533773730160, guid: 32d05f7ce03a7cc4e9fe0c5003d5865a, type: 3}
+  - {fileID: 2069337430295213901, guid: 9811fc22a53eac540ad830389177e003, type: 3}
+  - {fileID: 7374087309359591912, guid: 42ab859aeebed8b45bc8dd1710697b97, type: 3}
+  - {fileID: 9107676056229818004, guid: b3ef03100a66a9045bc8389333cc4e0e, type: 3}
+  - {fileID: 6176380364619650169, guid: 7ed2da23c6c2c6b4d92eaef35d24c3f7, type: 3}
+  - {fileID: 8742841599677582571, guid: e6c3c436752c52541bb3ef9518d45462, type: 3}
+  - {fileID: 2129160693266965810, guid: 537659994322b0d4783124a580d1f164, type: 3}
+  - {fileID: 7068970669090815706, guid: d8f170fa96f26da48919ee616bde2e94, type: 3}
+  - {fileID: 1099394883882208258, guid: 8efdb42c7a7fde642a91b5d99deda993, type: 3}
+  - {fileID: 8734026591275147721, guid: b577a107598f7a94ebb550b27f98832d, type: 3}
+  - {fileID: 7932415299786284498, guid: 92e9669a29adf8345a98ed6081a38aac, type: 3}
+  - {fileID: 2987886249028014637, guid: c836fea815ee86249ab319d3430f1daf, type: 3}
+  - {fileID: 6014631670371092091, guid: 569d9270465985147aadc2072af2ca81, type: 3}
+  - {fileID: 4696783196214947105, guid: 2439a0ddfff5e9f41b063bb1948ab464, type: 3}
+  - {fileID: 5672059630787673408, guid: d3a04ddafb3389d4eba4d8819bb8780a, type: 3}
+  - {fileID: 3805210930055133218, guid: 46084aa34b05d3a44b13f1a050d1199f, type: 3}
+  - {fileID: 4853221991832709533, guid: c8b9993e8066c524e894d5b488645ac8, type: 3}
+  - {fileID: 7528535201485325363, guid: a115db03188df304b8253576564a4de4, type: 3}
+  - {fileID: 4432864837178058573, guid: bcfc772cd60984244af81d7182a2e9ed, type: 3}
+  - {fileID: 2301200638068531088, guid: 7086253605c8cd441ac749b281c8b57d, type: 3}
+  - {fileID: 7833365490366844202, guid: 86b4a427242215f499db4c3e90af692c, type: 3}
   spawnArea: {fileID: 2146882194}
   miniGameScenario: {fileID: 1636636627}
   scenarioButton: {fileID: 2109908915}
@@ -9928,7 +9952,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 894, y: -786.99994}
+  m_AnchoredPosition: {x: 894, y: -855.99994}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &885340829
@@ -10386,6 +10410,27 @@ MonoBehaviour:
   - {fileID: 7485057406703294042, guid: 75f8b0e63c2f275439bf9b4a00d9641b, type: 3}
   - {fileID: 5865776316665124432, guid: 6772f3e2f3c9a554982fe682c7d7cb7e, type: 3}
   - {fileID: 6525893378689485967, guid: 973c5069d16760d4c98968c7288a887b, type: 3}
+  - {fileID: 2792652533773730160, guid: 32d05f7ce03a7cc4e9fe0c5003d5865a, type: 3}
+  - {fileID: 2069337430295213901, guid: 9811fc22a53eac540ad830389177e003, type: 3}
+  - {fileID: 7374087309359591912, guid: 42ab859aeebed8b45bc8dd1710697b97, type: 3}
+  - {fileID: 9107676056229818004, guid: b3ef03100a66a9045bc8389333cc4e0e, type: 3}
+  - {fileID: 6176380364619650169, guid: 7ed2da23c6c2c6b4d92eaef35d24c3f7, type: 3}
+  - {fileID: 8742841599677582571, guid: e6c3c436752c52541bb3ef9518d45462, type: 3}
+  - {fileID: 2129160693266965810, guid: 537659994322b0d4783124a580d1f164, type: 3}
+  - {fileID: 7068970669090815706, guid: d8f170fa96f26da48919ee616bde2e94, type: 3}
+  - {fileID: 1099394883882208258, guid: 8efdb42c7a7fde642a91b5d99deda993, type: 3}
+  - {fileID: 8734026591275147721, guid: b577a107598f7a94ebb550b27f98832d, type: 3}
+  - {fileID: 7932415299786284498, guid: 92e9669a29adf8345a98ed6081a38aac, type: 3}
+  - {fileID: 2987886249028014637, guid: c836fea815ee86249ab319d3430f1daf, type: 3}
+  - {fileID: 6014631670371092091, guid: 569d9270465985147aadc2072af2ca81, type: 3}
+  - {fileID: 4696783196214947105, guid: 2439a0ddfff5e9f41b063bb1948ab464, type: 3}
+  - {fileID: 5672059630787673408, guid: d3a04ddafb3389d4eba4d8819bb8780a, type: 3}
+  - {fileID: 3805210930055133218, guid: 46084aa34b05d3a44b13f1a050d1199f, type: 3}
+  - {fileID: 4853221991832709533, guid: c8b9993e8066c524e894d5b488645ac8, type: 3}
+  - {fileID: 7528535201485325363, guid: a115db03188df304b8253576564a4de4, type: 3}
+  - {fileID: 4432864837178058573, guid: bcfc772cd60984244af81d7182a2e9ed, type: 3}
+  - {fileID: 2301200638068531088, guid: 7086253605c8cd441ac749b281c8b57d, type: 3}
+  - {fileID: 7833365490366844202, guid: 86b4a427242215f499db4c3e90af692c, type: 3}
   spawnArea: {fileID: 2146882194}
   miniGameScenario: {fileID: 1786223734}
   scenarioButton: {fileID: 451123024}
@@ -12738,7 +12783,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -850, y: -787}
+  m_AnchoredPosition: {x: -850, y: -855.9999}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1062359967
@@ -13047,6 +13092,27 @@ MonoBehaviour:
   - {fileID: 7485057406703294042, guid: d7ece275846cfec44a575401779e9e03, type: 3}
   - {fileID: 5865776316665124432, guid: 6e8e90ecc95945649ba1d96f1ccec896, type: 3}
   - {fileID: 6525893378689485967, guid: 6eb54e4813fc98740bf8c058525f66f5, type: 3}
+  - {fileID: 3865612972728615552, guid: d2009ae45a42e6f4f8fcf72fceaf25e5, type: 3}
+  - {fileID: 2163084050938532713, guid: 0bc3ae26349f99847a6abaf65a719438, type: 3}
+  - {fileID: 8089567805262161886, guid: fd4c141ad8a41024f9f273ec8fa52a29, type: 3}
+  - {fileID: 7524544776490880660, guid: d837d310aa10d0d489f806d4d57374b2, type: 3}
+  - {fileID: 9038226529805699617, guid: a1d4d8ba8fdb4cd45b9bf1bae6f30061, type: 3}
+  - {fileID: 6423758204974789411, guid: e02c72f755ab13248809920fc3d5891a, type: 3}
+  - {fileID: 3245169702324382783, guid: 379051ce7afb37d408be35fc912337d7, type: 3}
+  - {fileID: 1850419215692512919, guid: 0307efac5268ff04f9173f078a1aab18, type: 3}
+  - {fileID: 5524440401883173062, guid: 7435cb10c6c84d8418e06a26546ecee0, type: 3}
+  - {fileID: 5501854451869868368, guid: b38dcc82e9113e342b275e7681196f64, type: 3}
+  - {fileID: 5091064524820304686, guid: 79e35516e0de6204c966a6d66c0a369c, type: 3}
+  - {fileID: 8168850868806695338, guid: ca490bfb02b76634997f2d674eca48f7, type: 3}
+  - {fileID: 7809564876591274499, guid: b27c57ca99ab19f458db0b3a946d3b67, type: 3}
+  - {fileID: 7870230330571146406, guid: 5cb483f26385e874ca079ed69a3ab8aa, type: 3}
+  - {fileID: 7655978534919269798, guid: 98c62b431fbabeb44b546947cc93d9bc, type: 3}
+  - {fileID: 6168241663360493740, guid: 5fff591fe05ba984f8416f809573afbe, type: 3}
+  - {fileID: 4095896185179690248, guid: c76cab8a9ac74a741835022ef35d927f, type: 3}
+  - {fileID: 1777600958326801531, guid: 9604a5a6aa58a964bba119e3f4d03c91, type: 3}
+  - {fileID: 84073570834858214, guid: b736992e848e3654db3d32eb45234e00, type: 3}
+  - {fileID: 4730072235608030574, guid: cd8bc31c0bb0f594d929f6f89d58fa38, type: 3}
+  - {fileID: 5417320516344142760, guid: f6e07151f66a101448517cc2c54b04d0, type: 3}
   spawnArea: {fileID: 2146882194}
   healthScenario: {fileID: 1408571378}
   scenarioButton: {fileID: 1198671195}
@@ -14158,8 +14224,9 @@ GameObject:
   - component: {fileID: 1162965149}
   - component: {fileID: 1162965151}
   - component: {fileID: 1162965150}
+  - component: {fileID: 1162965152}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Lose Popularity Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14224,6 +14291,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1162965148}
   m_CullTransparentMesh: 1
+--- !u!114 &1162965152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162965148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba295f1a59f808a44ab542d79bbf6302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipsMoneyDialogue:
+  - 
+  - 
+  - 
+  - 
+  - 
+  tipsPopularityDialogue:
+  - Remember to decide on something that doesn't ruin the business' image.
+  - In this game, insurance acts as a buff to help you manage your losses. In real
+    life, it will also help you manage your losses, though it does not act as a buff.
+  - Remember to weigh the Pros and Cons before deciding on something.
+  - 
+  - 
+  tipsHappinessDialogue:
+  - 
+  - 
+  - 
+  - 
+  - 
+  tipText: {fileID: 1393338110}
+  isTip: 0
+  tipPlayed: 0
 --- !u!1 &1176322975
 GameObject:
   m_ObjectHideFlags: 0
@@ -14281,6 +14382,27 @@ MonoBehaviour:
   - {fileID: 7485057406703294042, guid: d7ece275846cfec44a575401779e9e03, type: 3}
   - {fileID: 5865776316665124432, guid: 6e8e90ecc95945649ba1d96f1ccec896, type: 3}
   - {fileID: 6525893378689485967, guid: 6eb54e4813fc98740bf8c058525f66f5, type: 3}
+  - {fileID: 3865612972728615552, guid: d2009ae45a42e6f4f8fcf72fceaf25e5, type: 3}
+  - {fileID: 2163084050938532713, guid: 0bc3ae26349f99847a6abaf65a719438, type: 3}
+  - {fileID: 8089567805262161886, guid: fd4c141ad8a41024f9f273ec8fa52a29, type: 3}
+  - {fileID: 7524544776490880660, guid: d837d310aa10d0d489f806d4d57374b2, type: 3}
+  - {fileID: 9038226529805699617, guid: a1d4d8ba8fdb4cd45b9bf1bae6f30061, type: 3}
+  - {fileID: 6423758204974789411, guid: e02c72f755ab13248809920fc3d5891a, type: 3}
+  - {fileID: 3245169702324382783, guid: 379051ce7afb37d408be35fc912337d7, type: 3}
+  - {fileID: 1850419215692512919, guid: 0307efac5268ff04f9173f078a1aab18, type: 3}
+  - {fileID: 5524440401883173062, guid: 7435cb10c6c84d8418e06a26546ecee0, type: 3}
+  - {fileID: 5501854451869868368, guid: b38dcc82e9113e342b275e7681196f64, type: 3}
+  - {fileID: 5091064524820304686, guid: 79e35516e0de6204c966a6d66c0a369c, type: 3}
+  - {fileID: 8168850868806695338, guid: ca490bfb02b76634997f2d674eca48f7, type: 3}
+  - {fileID: 7809564876591274499, guid: b27c57ca99ab19f458db0b3a946d3b67, type: 3}
+  - {fileID: 7870230330571146406, guid: 5cb483f26385e874ca079ed69a3ab8aa, type: 3}
+  - {fileID: 7655978534919269798, guid: 98c62b431fbabeb44b546947cc93d9bc, type: 3}
+  - {fileID: 6168241663360493740, guid: 5fff591fe05ba984f8416f809573afbe, type: 3}
+  - {fileID: 4095896185179690248, guid: c76cab8a9ac74a741835022ef35d927f, type: 3}
+  - {fileID: 1777600958326801531, guid: 9604a5a6aa58a964bba119e3f4d03c91, type: 3}
+  - {fileID: 84073570834858214, guid: b736992e848e3654db3d32eb45234e00, type: 3}
+  - {fileID: 4730072235608030574, guid: cd8bc31c0bb0f594d929f6f89d58fa38, type: 3}
+  - {fileID: 5417320516344142760, guid: f6e07151f66a101448517cc2c54b04d0, type: 3}
   spawnArea: {fileID: 2146882194}
   holidayScenario: {fileID: 269790876}
   scenarioButton: {fileID: 1537857565}
@@ -14325,7 +14447,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 894, y: -786.99994}
+  m_AnchoredPosition: {x: 894, y: -855.9999}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1195671036
@@ -14594,7 +14716,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -850, y: -787}
+  m_AnchoredPosition: {x: -850, y: -855.9999}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1198589050
@@ -14930,6 +15052,27 @@ MonoBehaviour:
   - {fileID: 7485057406703294042, guid: c043f7fb2b4dcbf44823607a6bb5a121, type: 3}
   - {fileID: 5865776316665124432, guid: 32e84e8913b4ac34eafe01effd9badf6, type: 3}
   - {fileID: 6525893378689485967, guid: f203033c798efa04ab3492d630fd99c6, type: 3}
+  - {fileID: 2170719214529409653, guid: f64f6d6f5659ee54bafa13cb0fb1d61f, type: 3}
+  - {fileID: 4955239963829632483, guid: a641b055057ba8e4ba41d16ac419e07a, type: 3}
+  - {fileID: 5240537258265990765, guid: 54e422aa08cfc18428380bb7853feac9, type: 3}
+  - {fileID: 10384128581043481, guid: 8b3e2151a1fbb7b4a9b48e065845772d, type: 3}
+  - {fileID: 3993755597180573165, guid: 9cc6d79c66cf3e742a3c47357a214fb6, type: 3}
+  - {fileID: 1243079321439169824, guid: eb844b7449f31174f81af40ff9fb4858, type: 3}
+  - {fileID: 4019586860391992319, guid: 030338f09ff283c468424a1e22b12caf, type: 3}
+  - {fileID: 5558979940557669910, guid: b929631af908af044b0fad18f00c9b56, type: 3}
+  - {fileID: 3538067128728187000, guid: 4ffadc5107e431a49b812feab5bbd9ca, type: 3}
+  - {fileID: 2375169880278978262, guid: faa153f984c2dca4bbff4b13d372e81e, type: 3}
+  - {fileID: 13024062994957056, guid: d4340835277f8dc47b855e3f04c17ffa, type: 3}
+  - {fileID: 8534551281434145221, guid: bcb6f6117b732a04da3b076015d745c9, type: 3}
+  - {fileID: 4660433886642975886, guid: afad3267c0ef13b43af7df2851866785, type: 3}
+  - {fileID: 5452809842124111018, guid: 6645f5e3b2125694292bcab2cb6bfbc8, type: 3}
+  - {fileID: 4693623886232585423, guid: c8fba52aa8db73d42a9fa663face833c, type: 3}
+  - {fileID: 3777117366360600295, guid: 5041a4a6f8d12fd448961c7f57a262c5, type: 3}
+  - {fileID: 606539607411968982, guid: 4b2501b23c4ed4a42822cc9ddd5edf9c, type: 3}
+  - {fileID: 1836636556004129683, guid: 3052496e5fcca6b4cbcb6ecdccb1a589, type: 3}
+  - {fileID: 8670094741437307800, guid: 4acebb836ad383a4da5a38600c0ae280, type: 3}
+  - {fileID: 180564753987539275, guid: 2baedd40fb24b9448b7bdf109c71d29c, type: 3}
+  - {fileID: 7188150678388857761, guid: 096a9308b820ce843a969a0a6ed50d1a, type: 3}
   spawnArea: {fileID: 2146882194}
   insuranceScenario: {fileID: 15887511}
   scenarioButton: {fileID: 949985894}
@@ -16203,6 +16346,27 @@ MonoBehaviour:
   - {fileID: 7485057406703294042, guid: c043f7fb2b4dcbf44823607a6bb5a121, type: 3}
   - {fileID: 5865776316665124432, guid: 32e84e8913b4ac34eafe01effd9badf6, type: 3}
   - {fileID: 6525893378689485967, guid: f203033c798efa04ab3492d630fd99c6, type: 3}
+  - {fileID: 2170719214529409653, guid: f64f6d6f5659ee54bafa13cb0fb1d61f, type: 3}
+  - {fileID: 4955239963829632483, guid: a641b055057ba8e4ba41d16ac419e07a, type: 3}
+  - {fileID: 5240537258265990765, guid: 54e422aa08cfc18428380bb7853feac9, type: 3}
+  - {fileID: 10384128581043481, guid: 8b3e2151a1fbb7b4a9b48e065845772d, type: 3}
+  - {fileID: 3993755597180573165, guid: 9cc6d79c66cf3e742a3c47357a214fb6, type: 3}
+  - {fileID: 1243079321439169824, guid: eb844b7449f31174f81af40ff9fb4858, type: 3}
+  - {fileID: 4019586860391992319, guid: 030338f09ff283c468424a1e22b12caf, type: 3}
+  - {fileID: 5558979940557669910, guid: b929631af908af044b0fad18f00c9b56, type: 3}
+  - {fileID: 3538067128728187000, guid: 4ffadc5107e431a49b812feab5bbd9ca, type: 3}
+  - {fileID: 2375169880278978262, guid: faa153f984c2dca4bbff4b13d372e81e, type: 3}
+  - {fileID: 13024062994957056, guid: d4340835277f8dc47b855e3f04c17ffa, type: 3}
+  - {fileID: 8534551281434145221, guid: bcb6f6117b732a04da3b076015d745c9, type: 3}
+  - {fileID: 4660433886642975886, guid: afad3267c0ef13b43af7df2851866785, type: 3}
+  - {fileID: 5452809842124111018, guid: 6645f5e3b2125694292bcab2cb6bfbc8, type: 3}
+  - {fileID: 4693623886232585423, guid: c8fba52aa8db73d42a9fa663face833c, type: 3}
+  - {fileID: 3777117366360600295, guid: 5041a4a6f8d12fd448961c7f57a262c5, type: 3}
+  - {fileID: 606539607411968982, guid: 4b2501b23c4ed4a42822cc9ddd5edf9c, type: 3}
+  - {fileID: 1836636556004129683, guid: 3052496e5fcca6b4cbcb6ecdccb1a589, type: 3}
+  - {fileID: 8670094741437307800, guid: 4acebb836ad383a4da5a38600c0ae280, type: 3}
+  - {fileID: 180564753987539275, guid: 2baedd40fb24b9448b7bdf109c71d29c, type: 3}
+  - {fileID: 7188150678388857761, guid: 096a9308b820ce843a969a0a6ed50d1a, type: 3}
   spawnArea: {fileID: 2146882194}
   insuranceInvestmentScenario: {fileID: 530960502}
   scenarioButton: {fileID: 1040345909}
@@ -16842,7 +17006,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 90
-  m_WholeNumbers: 0
+  m_WholeNumbers: 1
   m_Value: 90
   m_OnValueChanged:
     m_PersistentCalls:
@@ -16927,6 +17091,27 @@ MonoBehaviour:
   - {fileID: 7485057406703294042, guid: d7ece275846cfec44a575401779e9e03, type: 3}
   - {fileID: 5865776316665124432, guid: 6e8e90ecc95945649ba1d96f1ccec896, type: 3}
   - {fileID: 6525893378689485967, guid: 6eb54e4813fc98740bf8c058525f66f5, type: 3}
+  - {fileID: 3865612972728615552, guid: d2009ae45a42e6f4f8fcf72fceaf25e5, type: 3}
+  - {fileID: 2163084050938532713, guid: 0bc3ae26349f99847a6abaf65a719438, type: 3}
+  - {fileID: 8089567805262161886, guid: fd4c141ad8a41024f9f273ec8fa52a29, type: 3}
+  - {fileID: 7524544776490880660, guid: d837d310aa10d0d489f806d4d57374b2, type: 3}
+  - {fileID: 9038226529805699617, guid: a1d4d8ba8fdb4cd45b9bf1bae6f30061, type: 3}
+  - {fileID: 6423758204974789411, guid: e02c72f755ab13248809920fc3d5891a, type: 3}
+  - {fileID: 3245169702324382783, guid: 379051ce7afb37d408be35fc912337d7, type: 3}
+  - {fileID: 1850419215692512919, guid: 0307efac5268ff04f9173f078a1aab18, type: 3}
+  - {fileID: 5524440401883173062, guid: 7435cb10c6c84d8418e06a26546ecee0, type: 3}
+  - {fileID: 5501854451869868368, guid: b38dcc82e9113e342b275e7681196f64, type: 3}
+  - {fileID: 5091064524820304686, guid: 79e35516e0de6204c966a6d66c0a369c, type: 3}
+  - {fileID: 8168850868806695338, guid: ca490bfb02b76634997f2d674eca48f7, type: 3}
+  - {fileID: 7809564876591274499, guid: b27c57ca99ab19f458db0b3a946d3b67, type: 3}
+  - {fileID: 7870230330571146406, guid: 5cb483f26385e874ca079ed69a3ab8aa, type: 3}
+  - {fileID: 7655978534919269798, guid: 98c62b431fbabeb44b546947cc93d9bc, type: 3}
+  - {fileID: 6168241663360493740, guid: 5fff591fe05ba984f8416f809573afbe, type: 3}
+  - {fileID: 4095896185179690248, guid: c76cab8a9ac74a741835022ef35d927f, type: 3}
+  - {fileID: 1777600958326801531, guid: 9604a5a6aa58a964bba119e3f4d03c91, type: 3}
+  - {fileID: 84073570834858214, guid: b736992e848e3654db3d32eb45234e00, type: 3}
+  - {fileID: 4730072235608030574, guid: cd8bc31c0bb0f594d929f6f89d58fa38, type: 3}
+  - {fileID: 5417320516344142760, guid: f6e07151f66a101448517cc2c54b04d0, type: 3}
   spawnArea: {fileID: 2146882194}
   accidentScenario: {fileID: 1614595757}
   scenarioButton: {fileID: 1262786487}
@@ -17034,15 +17219,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -17926,7 +18111,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 894, y: -786.99994}
+  m_AnchoredPosition: {x: 894, y: -855.9999}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1527075014
@@ -19127,7 +19312,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 90
-  m_WholeNumbers: 0
+  m_WholeNumbers: 1
   m_Value: 90
   m_OnValueChanged:
     m_PersistentCalls:
@@ -19611,6 +19796,27 @@ MonoBehaviour:
   - {fileID: 7485057406703294042, guid: c043f7fb2b4dcbf44823607a6bb5a121, type: 3}
   - {fileID: 5865776316665124432, guid: 32e84e8913b4ac34eafe01effd9badf6, type: 3}
   - {fileID: 6525893378689485967, guid: f203033c798efa04ab3492d630fd99c6, type: 3}
+  - {fileID: 2170719214529409653, guid: f64f6d6f5659ee54bafa13cb0fb1d61f, type: 3}
+  - {fileID: 4955239963829632483, guid: a641b055057ba8e4ba41d16ac419e07a, type: 3}
+  - {fileID: 5240537258265990765, guid: 54e422aa08cfc18428380bb7853feac9, type: 3}
+  - {fileID: 10384128581043481, guid: 8b3e2151a1fbb7b4a9b48e065845772d, type: 3}
+  - {fileID: 3993755597180573165, guid: 9cc6d79c66cf3e742a3c47357a214fb6, type: 3}
+  - {fileID: 1243079321439169824, guid: eb844b7449f31174f81af40ff9fb4858, type: 3}
+  - {fileID: 4019586860391992319, guid: 030338f09ff283c468424a1e22b12caf, type: 3}
+  - {fileID: 5558979940557669910, guid: b929631af908af044b0fad18f00c9b56, type: 3}
+  - {fileID: 3538067128728187000, guid: 4ffadc5107e431a49b812feab5bbd9ca, type: 3}
+  - {fileID: 2375169880278978262, guid: faa153f984c2dca4bbff4b13d372e81e, type: 3}
+  - {fileID: 13024062994957056, guid: d4340835277f8dc47b855e3f04c17ffa, type: 3}
+  - {fileID: 8534551281434145221, guid: bcb6f6117b732a04da3b076015d745c9, type: 3}
+  - {fileID: 4660433886642975886, guid: afad3267c0ef13b43af7df2851866785, type: 3}
+  - {fileID: 5452809842124111018, guid: 6645f5e3b2125694292bcab2cb6bfbc8, type: 3}
+  - {fileID: 4693623886232585423, guid: c8fba52aa8db73d42a9fa663face833c, type: 3}
+  - {fileID: 3777117366360600295, guid: 5041a4a6f8d12fd448961c7f57a262c5, type: 3}
+  - {fileID: 606539607411968982, guid: 4b2501b23c4ed4a42822cc9ddd5edf9c, type: 3}
+  - {fileID: 1836636556004129683, guid: 3052496e5fcca6b4cbcb6ecdccb1a589, type: 3}
+  - {fileID: 8670094741437307800, guid: 4acebb836ad383a4da5a38600c0ae280, type: 3}
+  - {fileID: 180564753987539275, guid: 2baedd40fb24b9448b7bdf109c71d29c, type: 3}
+  - {fileID: 7188150678388857761, guid: 096a9308b820ce843a969a0a6ed50d1a, type: 3}
   spawnArea: {fileID: 2146882194}
   insuranceAccidentScenario: {fileID: 560514518}
   scenarioButton: {fileID: 2016904224}
@@ -21690,7 +21896,7 @@ RectTransform:
   m_GameObject: {fileID: 1852383827}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8.7432, y: 8.7432, z: 8.7432}
+  m_LocalScale: {x: 7.8158092, y: 7.8158092, z: 7.8158092}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 944634739}
@@ -22328,8 +22534,9 @@ GameObject:
   - component: {fileID: 1900397437}
   - component: {fileID: 1900397439}
   - component: {fileID: 1900397438}
+  - component: {fileID: 1900397440}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Lose Money Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22394,6 +22601,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1900397436}
   m_CullTransparentMesh: 1
+--- !u!114 &1900397440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900397436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba295f1a59f808a44ab542d79bbf6302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipsMoneyDialogue:
+  - Did you know that having insurance can protect you from unforeseen risks and
+    provide you with peace of mind?
+  - Have you considered buying insurance?
+  - Remember to keep a look out for suspicious offers so you don't risk losing money!
+  - Do your research before investing!!
+  - Remember to weigh the Pros and Cons before deciding on something
+  tipsPopularityDialogue:
+  - 
+  - 
+  - 
+  - 
+  - 
+  tipsHappinessDialogue:
+  - 
+  - 
+  - 
+  - 
+  - 
+  tipText: {fileID: 361420700}
+  isTip: 0
+  tipPlayed: 0
 --- !u!1 &1903830170
 GameObject:
   m_ObjectHideFlags: 0
@@ -22589,6 +22830,47 @@ MonoBehaviour:
   - {fileID: 7485057406703294042, guid: 75f8b0e63c2f275439bf9b4a00d9641b, type: 3}
   - {fileID: 5865776316665124432, guid: 6772f3e2f3c9a554982fe682c7d7cb7e, type: 3}
   - {fileID: 6525893378689485967, guid: 973c5069d16760d4c98968c7288a887b, type: 3}
+  - {fileID: 5550727419451715531, guid: 764935f07b479dd4da0686a8674cc2e1, type: 3}
+  - {fileID: 5648282960665160506, guid: bbea48f33e1c5c4419c9b43ff813339c, type: 3}
+  - {fileID: 2785597642261620868, guid: 8c0af6606f96d5048abc3b2b17838944, type: 3}
+  - {fileID: 1118400519238016958, guid: 7e21d93bb4bbec545998656309d24ac9, type: 3}
+  - {fileID: 8851332193172611877, guid: 70b5ba46c0080224e9104874a2373c89, type: 3}
+  - {fileID: 2130498605368374998, guid: 360029506f634f94fbce5e47312ba3ae, type: 3}
+  - {fileID: 6741207658687331685, guid: 2458b8c75f311e944b2d3ed51872416c, type: 3}
+  - {fileID: 5479969078047733609, guid: 36c270cb0d758724fba5ff67ae991899, type: 3}
+  - {fileID: 9194750392001826682, guid: b7d11e4b9e4dbd7438beffe59693a363, type: 3}
+  - {fileID: 4360916121558668470, guid: b387deee3af166f49b78c15c437663db, type: 3}
+  - {fileID: 6229765569771955572, guid: 9b78825153eed084e8d54cb2f66975cd, type: 3}
+  - {fileID: 7849036041507330822, guid: 4d9b57ff74b1d634ba21252ff63abb20, type: 3}
+  - {fileID: 3781322377548450367, guid: 044734d052d8e924c9c01b40081bbd58, type: 3}
+  - {fileID: 4951329608984987970, guid: 4b0b201b55c2f8743b55bbd977f498aa, type: 3}
+  - {fileID: 2663944359486903557, guid: 8c452580a7ba03d40b61bae800e615d3, type: 3}
+  - {fileID: 2234526671232128455, guid: 0f48dfea30b8225429951e26ecb27765, type: 3}
+  - {fileID: 56150997213002263, guid: d28d99562e386e840b8ebc84e9d30375, type: 3}
+  - {fileID: 7598324901049253230, guid: ddb5f0edb97a2864ea616b47271aba64, type: 3}
+  - {fileID: 7855827778494045906, guid: a462a753ccaaf1a4ca971c2f8f570602, type: 3}
+  - {fileID: 4606495706242624839, guid: f33d58b685b97564fb8dbb70a853eaec, type: 3}
+  - {fileID: 2792652533773730160, guid: 32d05f7ce03a7cc4e9fe0c5003d5865a, type: 3}
+  - {fileID: 2069337430295213901, guid: 9811fc22a53eac540ad830389177e003, type: 3}
+  - {fileID: 7374087309359591912, guid: 42ab859aeebed8b45bc8dd1710697b97, type: 3}
+  - {fileID: 9107676056229818004, guid: b3ef03100a66a9045bc8389333cc4e0e, type: 3}
+  - {fileID: 6176380364619650169, guid: 7ed2da23c6c2c6b4d92eaef35d24c3f7, type: 3}
+  - {fileID: 8742841599677582571, guid: e6c3c436752c52541bb3ef9518d45462, type: 3}
+  - {fileID: 2129160693266965810, guid: 537659994322b0d4783124a580d1f164, type: 3}
+  - {fileID: 7068970669090815706, guid: d8f170fa96f26da48919ee616bde2e94, type: 3}
+  - {fileID: 1099394883882208258, guid: 8efdb42c7a7fde642a91b5d99deda993, type: 3}
+  - {fileID: 8734026591275147721, guid: b577a107598f7a94ebb550b27f98832d, type: 3}
+  - {fileID: 7932415299786284498, guid: 92e9669a29adf8345a98ed6081a38aac, type: 3}
+  - {fileID: 2987886249028014637, guid: c836fea815ee86249ab319d3430f1daf, type: 3}
+  - {fileID: 6014631670371092091, guid: 569d9270465985147aadc2072af2ca81, type: 3}
+  - {fileID: 4696783196214947105, guid: 2439a0ddfff5e9f41b063bb1948ab464, type: 3}
+  - {fileID: 5672059630787673408, guid: d3a04ddafb3389d4eba4d8819bb8780a, type: 3}
+  - {fileID: 3805210930055133218, guid: 46084aa34b05d3a44b13f1a050d1199f, type: 3}
+  - {fileID: 4853221991832709533, guid: c8b9993e8066c524e894d5b488645ac8, type: 3}
+  - {fileID: 7528535201485325363, guid: a115db03188df304b8253576564a4de4, type: 3}
+  - {fileID: 4432864837178058573, guid: bcfc772cd60984244af81d7182a2e9ed, type: 3}
+  - {fileID: 2301200638068531088, guid: 7086253605c8cd441ac749b281c8b57d, type: 3}
+  - {fileID: 7833365490366844202, guid: 86b4a427242215f499db4c3e90af692c, type: 3}
   spawnArea: {fileID: 2146882194}
   investmentScenario: {fileID: 858773661}
   scenarioButton: {fileID: 400405370}
@@ -23896,8 +24178,9 @@ GameObject:
   - component: {fileID: 2026705202}
   - component: {fileID: 2026705204}
   - component: {fileID: 2026705203}
+  - component: {fileID: 2026705205}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Lose Happiness Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23962,6 +24245,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026705201}
   m_CullTransparentMesh: 1
+--- !u!114 &2026705205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026705201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba295f1a59f808a44ab542d79bbf6302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipsMoneyDialogue:
+  - 
+  - 
+  - 
+  - 
+  - 
+  tipsPopularityDialogue:
+  - 
+  - 
+  - 
+  - 
+  - 
+  tipsHappinessDialogue:
+  - Sometimes, losing a bit of cash to make your workers happy is worth it!
+  - Treat your workers right to keep them happy.
+  - In this game, insurance acts as a buff to help you manage your losses. In real
+    life, it will also help you manage your losses, though it does not act as a buff.
+  - Remember to weigh the Pros and Cons before deciding on something.
+  - 
+  tipText: {fileID: 2121150707}
+  isTip: 0
+  tipPlayed: 0
 --- !u!1 &2031639210
 GameObject:
   m_ObjectHideFlags: 0
@@ -24948,15 +25265,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -25520,6 +25837,27 @@ MonoBehaviour:
   - {fileID: 7485057406703294042, guid: 75f8b0e63c2f275439bf9b4a00d9641b, type: 3}
   - {fileID: 5865776316665124432, guid: 6772f3e2f3c9a554982fe682c7d7cb7e, type: 3}
   - {fileID: 6525893378689485967, guid: 973c5069d16760d4c98968c7288a887b, type: 3}
+  - {fileID: 2792652533773730160, guid: 32d05f7ce03a7cc4e9fe0c5003d5865a, type: 3}
+  - {fileID: 2069337430295213901, guid: 9811fc22a53eac540ad830389177e003, type: 3}
+  - {fileID: 7374087309359591912, guid: 42ab859aeebed8b45bc8dd1710697b97, type: 3}
+  - {fileID: 9107676056229818004, guid: b3ef03100a66a9045bc8389333cc4e0e, type: 3}
+  - {fileID: 6176380364619650169, guid: 7ed2da23c6c2c6b4d92eaef35d24c3f7, type: 3}
+  - {fileID: 8742841599677582571, guid: e6c3c436752c52541bb3ef9518d45462, type: 3}
+  - {fileID: 2129160693266965810, guid: 537659994322b0d4783124a580d1f164, type: 3}
+  - {fileID: 7068970669090815706, guid: d8f170fa96f26da48919ee616bde2e94, type: 3}
+  - {fileID: 1099394883882208258, guid: 8efdb42c7a7fde642a91b5d99deda993, type: 3}
+  - {fileID: 8734026591275147721, guid: b577a107598f7a94ebb550b27f98832d, type: 3}
+  - {fileID: 7932415299786284498, guid: 92e9669a29adf8345a98ed6081a38aac, type: 3}
+  - {fileID: 2987886249028014637, guid: c836fea815ee86249ab319d3430f1daf, type: 3}
+  - {fileID: 6014631670371092091, guid: 569d9270465985147aadc2072af2ca81, type: 3}
+  - {fileID: 4696783196214947105, guid: 2439a0ddfff5e9f41b063bb1948ab464, type: 3}
+  - {fileID: 5672059630787673408, guid: d3a04ddafb3389d4eba4d8819bb8780a, type: 3}
+  - {fileID: 3805210930055133218, guid: 46084aa34b05d3a44b13f1a050d1199f, type: 3}
+  - {fileID: 4853221991832709533, guid: c8b9993e8066c524e894d5b488645ac8, type: 3}
+  - {fileID: 7528535201485325363, guid: a115db03188df304b8253576564a4de4, type: 3}
+  - {fileID: 4432864837178058573, guid: bcfc772cd60984244af81d7182a2e9ed, type: 3}
+  - {fileID: 2301200638068531088, guid: 7086253605c8cd441ac749b281c8b57d, type: 3}
+  - {fileID: 7833365490366844202, guid: 86b4a427242215f499db4c3e90af692c, type: 3}
   spawnArea: {fileID: 2146882194}
   miniGameScenario: {fileID: 284665668}
   scenarioButton: {fileID: 555911053}
