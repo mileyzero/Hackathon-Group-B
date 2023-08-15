@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class MG_Golf_Dialogue : MonoBehaviour
 {
+    //Reference script to mgTimer
+    public MiniGameTimer mgTimer;
+
     //Reference script to GM
     public GameManager GM;
 
@@ -141,12 +144,19 @@ public class MG_Golf_Dialogue : MonoBehaviour
 
             switch (DM.miniGameGolfLines[index])
             {
-                case "Hello Boss, I have a proposition for you but let's see if your swings in golf is as impressive as you think!":
+                case "Hello Boss,\nI have a proposition for you but let's see if your swings in golf is as impressive as you think!":
                     {
-                        if (isGolfGame == true)
+                        if(mgTimer.IsCooldownActive != true)
                         {
-                            Debug.Log(isGolfGame);
-                            GolfGameScenario();
+                            if (isGolfGame == true)
+                            {
+                                Debug.Log(isGolfGame);
+                                GolfGameScenario();
+                            }
+                        }
+                        else
+                        {
+                            StartCoroutine(Cooldown(3));
                         }
 
                         break;
@@ -181,7 +191,7 @@ public class MG_Golf_Dialogue : MonoBehaviour
 
             switch (DM.miniGameGolfLines[index])
             {
-                case "Hello Boss, I have a proposition for you but let's see if your swings in golf is as impressive as you think!":
+                case "Hello Boss,\nI have a proposition for you but let's see if your swings in golf is as impressive as you think!":
                     {
                         if (isGolfGame == true)
                         {
@@ -205,5 +215,16 @@ public class MG_Golf_Dialogue : MonoBehaviour
         GM.FunctionUpdates();
 
         isGolfGame = false;
+    }
+
+    IEnumerator Cooldown(float timer)
+    {
+        GM.cooldownBrowser.SetActive(true);
+        GM.cooldownNoti.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.cooldownNoti.SetActive(false);
+        GM.cooldownBrowser.SetActive(false);
     }
 }

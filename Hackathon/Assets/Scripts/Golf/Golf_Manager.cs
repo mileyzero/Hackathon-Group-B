@@ -34,7 +34,8 @@ public class Golf_Manager : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
-        SceneManager.LoadScene(0);
+        GameObject.FindGameObjectWithTag("cooldown").GetComponent<MiniGameTimer>().StartCooldown();
 
+        SceneManager.LoadScene(0);
     }
 }

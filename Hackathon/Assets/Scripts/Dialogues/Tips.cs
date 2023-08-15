@@ -33,14 +33,14 @@ public class Tips : MonoBehaviour
         tipsPopularityDialogue[0] = "Remember to decide on something that doesn't ruin the business' image.";
         tipsPopularityDialogue[1] = "In this game, insurance acts as a buff to help you manage your losses. In real life, it will also help you manage your losses, though it does not act as a buff.";
         tipsPopularityDialogue[2] = "Remember to weigh the Pros and Cons before deciding on something.";
-        tipsPopularityDialogue[3] = "";
-        tipsPopularityDialogue[4] = "";
+        tipsPopularityDialogue[3] = "You can increase popularity by networking - i.e Investing in other businesses.";
+        tipsPopularityDialogue[4] = "Don't rush into things that may tarnish the business' reputation.";
 
         tipsHappinessDialogue[0] = "Sometimes, losing a bit of cash to make your workers happy is worth it!";
         tipsHappinessDialogue[1] = "Treat your workers right to keep them happy.";
         tipsHappinessDialogue[2] = "In this game, insurance acts as a buff to help you manage your losses. In real life, it will also help you manage your losses, though it does not act as a buff.";
         tipsHappinessDialogue[3] = "Remember to weigh the Pros and Cons before deciding on something.";
-        tipsHappinessDialogue[4] = "";
+        tipsHappinessDialogue[4] = "Remember to think about your workers' happiness!";
     }
 
     // Update is called once per frame

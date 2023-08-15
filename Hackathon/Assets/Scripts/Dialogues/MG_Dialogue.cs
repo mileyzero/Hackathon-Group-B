@@ -7,6 +7,9 @@ using TMPro;
 
 public class MG_Dialogue : MonoBehaviour
 {
+    //Reference script to mgTimer
+    public MiniGameTimer mgTimer;
+
     //Reference script to GM
     public GameManager GM;
 
@@ -137,12 +140,19 @@ public class MG_Dialogue : MonoBehaviour
 
             switch (DM.miniGameLines[index])
             {
-                case "Hello Boss, I highly recommend taking a break to try out the new mini game - it's a great opportunity to relax and boost team morale.":
+                case "Hello Boss,\nI highly recommend taking a break to try out the new mini game - it's a great opportunity to relax and boost team morale.":
                     {
-                        if (isDoodleGame == true)
+                        if(mgTimer.IsCooldownActive != true)
                         {
-                            Debug.Log(isDoodleGame);
-                            DoodleJumpScenario();
+                            if (isDoodleGame == true)
+                            {
+                                Debug.Log(isDoodleGame);
+                                DoodleJumpScenario();
+                            }
+                        }
+                        else
+                        {
+                            StartCoroutine(Cooldown(3));
                         }
 
                         break;
@@ -177,7 +187,7 @@ public class MG_Dialogue : MonoBehaviour
 
             switch (DM.miniGameLines[index])
             {
-                case "Hello Boss, I highly recommend taking a break to try out the new mini game - it's a great opportunity to relax and boost team morale.":
+                case "Hello Boss,\nI highly recommend taking a break to try out the new mini game - it's a great opportunity to relax and boost team morale.":
                     {
                         Debug.Log("No Doodle Game");
 
@@ -198,5 +208,16 @@ public class MG_Dialogue : MonoBehaviour
         GM.FunctionUpdates();
 
         isDoodleGame = false;
+    }
+
+    IEnumerator Cooldown(float timer)
+    {
+        GM.cooldownNoti.SetActive(true);
+        GM.cooldownBrowser.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.cooldownNoti.SetActive(false);
+        GM.cooldownBrowser.SetActive(false);
     }
 }

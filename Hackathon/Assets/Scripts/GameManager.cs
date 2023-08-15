@@ -58,6 +58,9 @@ public class GameManager : MonoBehaviour
     public GameObject insuranceInvestmentNotiIcon;
     public GameObject insuranceAccidentNotiIcon;
 
+    public GameObject cooldownBrowser;
+    public GameObject cooldownNoti;
+
     //GameObject for investment and employee envelope icon
     public GameObject investmentButton;
     public GameObject employeeButton;
@@ -83,6 +86,16 @@ public class GameManager : MonoBehaviour
     public GameObject loseMoneyTipPanel;
     public GameObject losePopularityTipPanel;
     public GameObject loseHappinessTipPanel;
+
+    public GameObject plusMoney;
+    public GameObject plusPopularity;
+    public GameObject plusHappiness;
+
+    public GameObject minusMoney;
+    public GameObject minusPopularity;
+    public GameObject minusHappiness;
+
+    public GameObject pauseMenu;
 
     //Button for snekGame
     public Button snekGameButton;
@@ -128,6 +141,19 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        pauseMenu.SetActive(false);
+
+        plusMoney.SetActive(false);
+        plusHappiness.SetActive(false);
+        plusPopularity.SetActive(false);
+
+        minusMoney.SetActive(false);
+        minusHappiness.SetActive(false);
+        minusPopularity.SetActive(false);
+
+        cooldownNoti.SetActive(false);
+        cooldownBrowser.SetActive(false);
+
         btnClick = GetComponent<AudioSource>();
 
         //Enable Snek button for players to play
@@ -196,85 +222,89 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log(isRunning);
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseMenu();
+            Time.timeScale = 0;
+        }
+
         //if isRunning equals to false, the randomInitialize will set a random.range to it, then the timer will countdown
         //if the timer hits less or equals to 0, isRunning will set to true to prevent the timer from continuing
         //the randomInitalize number will then choose between 0 to 2, if its on 0, it will enable the email button for investment.
         //and if it lands on 1, it will enable the email button for employees.
         if (isRunning == false)
         {
-            randomInitialize = Random.Range(0, 10);
+            randomInitialize = Random.Range(1, 52);
             timer -= Time.deltaTime;
 
             if (timer <= 0)
             {
                 isRunning = true;
 
-                if (randomInitialize == 0)
+                if (randomInitialize >= 1 && randomInitialize <= 7 )
                 {
                     investManager.scenarioButton.enabled = true;
 
                     investmentNotiIcon.SetActive(true);
                     investmentButton.SetActive(true);
                 }
-
-                else if (randomInitialize == 1)
+                else if (randomInitialize >= 7 && randomInitialize <= 14)
                 {
                     holidayManager.scenarioButton.enabled = true;
 
                     employeeButton.SetActive(true);
                     employeeNotiIcon.SetActive(true);
                 }
-
-                else if (randomInitialize == 2)
-                {
-                    insuranceManager.scenarioButton.enabled = true;
-
-                    insuranceHealthButton.SetActive(true);
-                    insuranceNotiIcon.SetActive(true);
-                }
-                else if(randomInitialize == 3)
+                else if(randomInitialize >= 14 && randomInitialize <= 25)
                 {
                     healthManager.scenarioButton.enabled = true;
 
                     healthButton.SetActive(true);
                     healthNotiIcon.SetActive(true);
                 }
-                else if(randomInitialize == 4)
+                else if(randomInitialize >= 25 && randomInitialize <= 32)
                 {
                     accidentManager.scenarioButton.enabled = true;
 
                     accidentButton.SetActive(true);
                     accidentNotiIcon.SetActive(true);
                 }
-                else if(randomInitialize == 5)
+                else if(randomInitialize >= 32 && randomInitialize <= 35)
                 {
                     MGManager.scenarioButton.enabled = true;
 
                     miniGameButton.SetActive(true);
                     miniGameNotiIcon.SetActive(true);
                 }
-                else if(randomInitialize == 6)
+                else if(randomInitialize >= 35 && randomInitialize <= 37)
                 {
                     MGCar.scenarioButton.enabled = true;
 
                     miniGameCarButton.SetActive(true);
                     miniGameCarNotiIcon.SetActive(true);
                 }
-                else if(randomInitialize == 7)
+                else if(randomInitialize >= 37 && randomInitialize <= 40)
                 {
                     MGGolf.scenarioButton.enabled = true;
 
                     miniGameGolfButton.SetActive(true);
                     miniGameGolfNotiIcon.SetActive(true);
                 }
-                else if(randomInitialize == 8)
+                else if (randomInitialize >= 40 && randomInitialize <= 44)
+                {
+                    insuranceManager.scenarioButton.enabled = true;
+
+                    insuranceHealthButton.SetActive(true);
+                    insuranceNotiIcon.SetActive(true);
+                }
+                else if(randomInitialize >= 44 && randomInitialize <= 48)
                 {
                     AccidentManager.scenarioButton.enabled = true;
 
                     insuranceAccidentButton.SetActive(true);
                     insuranceAccidentNotiIcon.SetActive(true);
                 }
-                else if(randomInitialize == 9)
+                else if(randomInitialize >= 48 && randomInitialize <= 52)
                 {
                     InvestmentManager.scenarioButton.enabled = true;
 
@@ -606,5 +636,16 @@ public class GameManager : MonoBehaviour
         tipManagerHappiness.CallTipHappiness();
 
         loseHappinessTipPanel.SetActive(true);
+    }
+
+    public void PauseMenu()
+    {
+        pauseMenu.SetActive(true);
+    }
+
+    public void Resume()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
     }
 }

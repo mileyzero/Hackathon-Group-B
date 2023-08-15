@@ -33,6 +33,7 @@ TagManager:
   - GameManager
   - Persistent
   - ice
+  - cooldown
   layers:
   - Default
   - TransparentFX
