@@ -26,8 +26,9 @@ public class MiniGameTimer : MonoBehaviour
         {
             cooldownTimer -= Time.deltaTime;
             Debug.Log("Cooldown is Active");
+            Debug.Log(cooldownTimer);
 
-            if(cooldownTimer <= 0f)
+            if (cooldownTimer <= 0f)
             {
                 Debug.Log("Cooldown is Disabled");
                 isCooldownActive = false;

@@ -123,7 +123,7 @@ public class Health : MonoBehaviour
 
             switch (DM.healthLines[index])
             {
-                case "Hi Boss, One of our employees has reported sick, would you like to help out with his/her medical fees?":
+                case "Hi Boss,\nOne of our employees has reported sick, would you like to help out with his/her medical fees?":
                     {
                         if (browserManager.healthInsurance != true)
                         {
@@ -133,6 +133,11 @@ public class Health : MonoBehaviour
                             GM.happiness += Random.Range(2, 7);
                             GM.popularity += Random.Range(3, 7);
 
+                            StartCoroutine(MinusMoneyTransition(3));
+
+                            StartCoroutine(PlusHappinessTransition(3));
+                            StartCoroutine(PlusPopularityTransition(3));
+
                             browserManager.healthActive.SetActive(false);
                             browserManager.healthGreyed.SetActive(true);
                         }
@@ -140,11 +145,14 @@ public class Health : MonoBehaviour
                         {
                             GM.popularity += Random.Range(7, 15);
                             GM.happiness += Random.Range(5, 15);
+
+                            StartCoroutine(PlusHappinessTransition(3));
+                            StartCoroutine(PlusPopularityTransition(3));
                         }
                         break;
                     }
 
-                case "Good Morning Boss, One of our departments has recently got in contact with COVID, would you like to help out by paying for the medical fees?":
+                case "Good Morning Boss,\nOne of our departments has recently got in contact with COVID, would you like to help out by paying for the medical fees?":
                     {
                         if (browserManager.healthInsurance != true)
                         {
@@ -154,6 +162,11 @@ public class Health : MonoBehaviour
                             GM.popularity += Random.Range(2, 5);
                             GM.happiness += Random.Range(2, 5);
 
+                            StartCoroutine(MinusMoneyTransition(3));
+
+                            StartCoroutine(PlusHappinessTransition(3));
+                            StartCoroutine(PlusPopularityTransition(3));
+
                             browserManager.healthActive.SetActive(false);
                             browserManager.healthGreyed.SetActive(true);
                         }
@@ -161,11 +174,14 @@ public class Health : MonoBehaviour
                         {
                             GM.popularity += Random.Range(5, 10);
                             GM.happiness += Random.Range(5, 15);
+
+                            StartCoroutine(PlusHappinessTransition(3));
+                            StartCoroutine(PlusPopularityTransition(3));
                         }
                         break;
                     }
 
-                case "Hi Sir, I have submitted a medical bill for reimbursement, can I have an approval to proceed with the payment?":
+                case "Hi Sir,\nI have submitted a medical bill for reimbursement, can I have an approval to proceed with the payment?":
                     {
                         if (browserManager.healthInsurance != true)
                         {
@@ -175,6 +191,11 @@ public class Health : MonoBehaviour
                             GM.popularity += Random.Range(2, 5);
                             GM.happiness += Random.Range(2, 5);
 
+                            StartCoroutine(MinusMoneyTransition(3));
+
+                            StartCoroutine(PlusHappinessTransition(3));
+                            StartCoroutine(PlusPopularityTransition(3));
+
                             browserManager.healthActive.SetActive(false);
                             browserManager.healthGreyed.SetActive(true);
                         }
@@ -182,11 +203,14 @@ public class Health : MonoBehaviour
                         {
                             GM.popularity += Random.Range(5, 10);
                             GM.happiness += Random.Range(5, 15);
+
+                            StartCoroutine(PlusHappinessTransition(3));
+                            StartCoroutine(PlusPopularityTransition(3));
                         }
                         break;
                     }
 
-                case "Hi Boss, this is urgent! I need your help with some financial help as I can't pay for my medical bills. Please help me!":
+                case "Hi Boss,\nthis is urgent! I need your help with some financial help as I can't pay for my medical bills. Please help me!":
                     {
                         if (browserManager.healthInsurance != true)
                         {
@@ -196,6 +220,11 @@ public class Health : MonoBehaviour
                             GM.popularity += Random.Range(2, 5);
                             GM.happiness += Random.Range(2, 5);
 
+                            StartCoroutine(MinusMoneyTransition(2));
+
+                            StartCoroutine(PlusHappinessTransition(3));
+                            StartCoroutine(PlusPopularityTransition(3));
+
                             browserManager.healthActive.SetActive(false);
                             browserManager.healthGreyed.SetActive(true);
                         }
@@ -203,11 +232,14 @@ public class Health : MonoBehaviour
                         {
                             GM.popularity += Random.Range(5, 10);
                             GM.happiness += Random.Range(5, 15);
+
+                            StartCoroutine(PlusHappinessTransition(3));
+                            StartCoroutine(PlusPopularityTransition(3));
                         }
                         break;
                     }
 
-                case "Hello Sir,  I believe it would be in the best interest of the company, as well as my own well-being, for you to consider covering the medical fees as it is directly related to my work.":
+                case "Hello Sir,\nI believe it would be in the best interest of the company, as well as my own well-being, for you to consider covering the medical fees as it is directly related to my work.":
                     {
                         if (browserManager.healthInsurance != true)
                         {
@@ -217,6 +249,11 @@ public class Health : MonoBehaviour
                             GM.popularity += Random.Range(2, 5);
                             GM.happiness += Random.Range(2, 5);
 
+                            StartCoroutine(MinusMoneyTransition(3));
+
+                            StartCoroutine(PlusHappinessTransition(3));
+                            StartCoroutine(PlusPopularityTransition(3));
+
                             browserManager.healthActive.SetActive(false);
                             browserManager.healthGreyed.SetActive(true);
                         }
@@ -224,6 +261,9 @@ public class Health : MonoBehaviour
                         {
                             GM.popularity += Random.Range(5, 10);
                             GM.happiness += Random.Range(5, 15);
+
+                            StartCoroutine(PlusHappinessTransition(3));
+                            StartCoroutine(PlusPopularityTransition(3));
                         }
                         break;
                     }
@@ -265,46 +305,64 @@ public class Health : MonoBehaviour
 
             switch (DM.healthLines[index])
             {
-                case "Hi Boss, One of our employees has reported sick, would you like to help out with his/her medical fees?":
+                case "Hi Boss,\nOne of our employees has reported sick, would you like to help out with his/her medical fees?":
                     {
                         Debug.Log(" No Health");
 
                         GM.popularity -= Random.Range(5, 10);
                         GM.happiness -= Random.Range(5, 15);
 
+                        StartCoroutine(MinusPopularityTransition(3));
+                        StartCoroutine(MinusHappinessTransition(3));
+
                         break;
                     }
-                case "Good Morning Boss, One of our departments has recently got in contact with COVID, would you like to help out by paying for the medical fees?":
+                case "Good Morning Boss,\nOne of our departments has recently got in contact with COVID, would you like to help out by paying for the medical fees?":
                     {
                         Debug.Log("2 No Health");
 
                         GM.popularity -= Random.Range(5, 10);
                         GM.happiness -= Random.Range(5, 15);
+
+                        StartCoroutine(MinusPopularityTransition(3));
+                        StartCoroutine(MinusHappinessTransition(3));
+
                         break;
                     }
-                case "Hi Sir, I have submitted a medical bill for reimbursement, can I have an approval to proceed with the payment?":
+                case "Hi Sir,\nI have submitted a medical bill for reimbursement, can I have an approval to proceed with the payment?":
                     {
                         Debug.Log("3 No Health");
 
                         GM.popularity -= Random.Range(5, 10);
                         GM.happiness -= Random.Range(5, 15);
+
+                        StartCoroutine(MinusPopularityTransition(3));
+                        StartCoroutine(MinusHappinessTransition(3));
+
                         break;
                     }
-                case "Hi Boss, this is urgent! I need your help with some financial help as I can't pay for my medical bills. Please help me!":
+                case "Hi Boss,\nthis is urgent! I need your help with some financial help as I can't pay for my medical bills. Please help me!":
                     {
                         Debug.Log("4 No Health");
 
                         GM.popularity -= Random.Range(5, 10);
                         GM.happiness -= Random.Range(5, 15);
+
+                        StartCoroutine(MinusPopularityTransition(3));
+                        StartCoroutine(MinusHappinessTransition(3));
+
                         break;
                     }
-                case "Hello Sir,  I believe it would be in the best interest of the company, as well as my own well-being, for you " +
-            "to consider covering the medical fees as it is directly related to my work.":
+                case "Hello Sir,\nI believe it would be in the best interest of the company, as well as my own well-being, for you to consider covering the medical fees as it is directly related to my work.":
                     {
                         Debug.Log("5 No Health");
 
                         GM.popularity -= Random.Range(5, 10);
                         GM.happiness -= Random.Range(5, 15);
+
+                        StartCoroutine(MinusPopularityTransition(3));
+                        StartCoroutine(MinusHappinessTransition(3));
+
                         break;
                     }
                 default:
@@ -314,9 +372,7 @@ public class Health : MonoBehaviour
                     }
             }
 
-            GM.happinessSlider.value = GM.happiness;
-            GM.moneySlider.value = GM.money;
-            GM.popularitySlider.value = GM.popularity;
+            StartCoroutine(Resources(3));
 
             index++;
 
@@ -327,4 +383,59 @@ public class Health : MonoBehaviour
         GM.snekGameButton.enabled = true;
         GM.FunctionUpdates();
     }
+
+    IEnumerator PlusHappinessTransition(float timer)
+    {
+        GM.plusHappiness.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.plusHappiness.SetActive(false);
+    }
+
+    IEnumerator PlusPopularityTransition(float timer)
+    {
+        GM.plusPopularity.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.plusPopularity.SetActive(false);
+    }
+
+    IEnumerator MinusMoneyTransition(float timer)
+    {
+        GM.minusMoney.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.minusMoney.SetActive(false);
+    }
+
+    IEnumerator MinusHappinessTransition(float timer)
+    {
+        GM.minusHappiness.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.minusHappiness.SetActive(false);
+    }
+
+    IEnumerator MinusPopularityTransition(float timer)
+    {
+        GM.minusPopularity.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.minusPopularity.SetActive(false);
+    }
+
+    IEnumerator Resources(float timer)
+    {
+        yield return new WaitForSeconds(3);
+
+        GM.happinessSlider.value = GM.happiness;
+        GM.moneySlider.value = GM.money;
+        GM.popularitySlider.value = GM.popularity;
+    }
+
 }

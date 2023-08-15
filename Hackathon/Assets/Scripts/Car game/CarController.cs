@@ -71,8 +71,6 @@ public class CarController : MonoBehaviour
                     Win = true;
                     win.SetActive(true);
                     Debug.Log("Win");
-
-                    gmTime.StartCooldown();
                 }
             }
         }
@@ -82,8 +80,6 @@ public class CarController : MonoBehaviour
             lose_scn.SetActive(true);
 
             StartCoroutine(TransitionToMain(1.5f));
-
-            gmTime.StartCooldown();
         }
     }
 
@@ -102,6 +98,7 @@ public class CarController : MonoBehaviour
         }
 
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
+        GameObject.FindGameObjectWithTag("cooldown").GetComponent<MiniGameTimer>().StartCooldown();
         SceneManager.LoadScene(0);
     }
 }

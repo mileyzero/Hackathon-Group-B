@@ -122,13 +122,15 @@ public class InsuranceInvestmentManager : MonoBehaviour
 
             switch (DM.insuranceInvestmentLines[index])
             {
-                case "Good Morning Boss! Would you like to buy an investment insurance at a lower rate to keep yourself safe from scams?":
+                case "Good Morning Boss!\nWould you like to buy an investment insurance at a lower rate to keep yourself safe from scams?":
                     {
                         if (browserManager.investmentInsurance != true)
                         {
                             Debug.Log("Bought Investment Insurance");
                             GM.money -= 2;
                             browserManager.investmentInsurance = true;
+
+                            StartCoroutine(MinusMoneyTransition(3));
 
                             browserManager.insuranceGreyed.SetActive(false);
                             browserManager.insuranceActive.SetActive(true);
@@ -175,5 +177,14 @@ public class InsuranceInvestmentManager : MonoBehaviour
         GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
         GM.FunctionUpdates();
+    }
+
+    IEnumerator MinusMoneyTransition(float timer)
+    {
+        GM.minusMoney.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.minusMoney.SetActive(false);
     }
 }
