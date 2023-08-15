@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +10,7 @@ public class Manager : MonoBehaviour
     public GameObject platform;
     public GameObject bounceplatform;
     public GameObject breakplatform;
+    public GameObject player;
 
     public BoxCollider2D capsule;
     public CircleCollider2D circle;
@@ -114,9 +115,53 @@ public class Manager : MonoBehaviour
 
     IEnumerator showstats()
     {
-        _money.text = "+ " + moneyCount.ToString();
-        _popularity.text = "+ " + popularityCount.ToString();
-        _happiness.text = "+ " + happinessCount.ToString();
+        //player.SetActive(false);
+        //_money.text = "+ " + moneyCount.ToString();
+        //_popularity.text = "+ " + popularityCount.ToString();
+        //_happiness.text = "+ " + happinessCount.ToString();
+
+        
+        for(int money = 0;  money <= moneyCount; money++)
+        {
+            if(_money.text == "+" + moneyCount.ToString())
+            {
+                break;
+            }
+            else
+            {
+                _money.text = "+" + money.ToString();
+                yield return new WaitForSeconds(0.2f);
+            }
+            
+        }
+
+        for (int popularity = 0; popularity <= popularityCount; popularity++)
+        {
+            if (_popularity.text == "+" + popularityCount.ToString())
+            {
+                break;
+            }
+            else
+            {
+                _popularity.text = "+" + popularity.ToString();
+                yield return new WaitForSeconds(0.2f);
+            }
+
+        }
+
+        for (int happy = 0; happy <= happinessCount ; happy++)
+        {
+            if (_happiness.text == "+" + happinessCount.ToString())
+            {
+                break;
+            }
+            else
+            {
+                _happiness.text = "+" + happy.ToString();
+                yield return new WaitForSeconds(0.2f);
+            }
+
+        }
 
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money += moneyCount;
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity += popularityCount;
