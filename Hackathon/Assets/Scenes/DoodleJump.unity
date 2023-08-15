@@ -1354,7 +1354,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6cf71a6a29f2664388679d4d6993cd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mgTimer: {fileID: 1791408070}
   losescreen: {fileID: 473155978}
 --- !u!1 &1060443534
 GameObject:
@@ -1962,6 +1961,7 @@ MonoBehaviour:
   platform: {fileID: 511883014553080111, guid: 2c52c62ad87117c4791f41ae56ac79c8, type: 3}
   bounceplatform: {fileID: 511883014553080111, guid: dfb06d92d13aa324bb7961a376b29a2a, type: 3}
   breakplatform: {fileID: 511883014553080111, guid: 0efc1b0d09e59de4ea9a778fa94a1a17, type: 3}
+  player: {fileID: 431517611}
   capsule: {fileID: 431517618}
   circle: {fileID: 431517619}
   popularityCount: 0
