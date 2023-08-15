@@ -138,6 +138,8 @@ public class Accident : MonoBehaviour
                             StartCoroutine(PlusHappinessTransition(3));
                             StartCoroutine(PlusPopularityTransition(3));
 
+                            StartCoroutine(MoneyMinusBarAnimation(Random.Range(10, 20)));
+
                             StartCoroutine(HappinessPlusBarAnimation(Random.Range(2, 5)));
                             StartCoroutine(PopularityPlusBarAnimation(Random.Range(2, 7)));
 
@@ -171,6 +173,8 @@ public class Accident : MonoBehaviour
 
                             StartCoroutine(PlusHappinessTransition(3));
                             StartCoroutine(PlusPopularityTransition(3));
+
+                            StartCoroutine(MoneyMinusBarAnimation(Random.Range(5, 15)));
 
                             StartCoroutine(HappinessPlusBarAnimation(Random.Range(2, 7)));
                             StartCoroutine(PopularityPlusBarAnimation(Random.Range(2, 8)));
@@ -206,6 +210,8 @@ public class Accident : MonoBehaviour
                             StartCoroutine(PlusHappinessTransition(3));
                             StartCoroutine(PlusPopularityTransition(3));
 
+                            StartCoroutine(MoneyMinusBarAnimation(Random.Range(5, 15)));
+
                             StartCoroutine(HappinessPlusBarAnimation(Random.Range(2, 7)));
                             StartCoroutine(PopularityPlusBarAnimation(Random.Range(2, 8)));
 
@@ -240,6 +246,8 @@ public class Accident : MonoBehaviour
                             StartCoroutine(PlusHappinessTransition(3));
                             StartCoroutine(PlusPopularityTransition(3));
 
+                            StartCoroutine(MoneyMinusBarAnimation(Random.Range(5, 15)));
+
                             StartCoroutine(HappinessPlusBarAnimation(Random.Range(2, 7)));
                             StartCoroutine(PopularityPlusBarAnimation(Random.Range(2, 8)));
 
@@ -273,6 +281,8 @@ public class Accident : MonoBehaviour
 
                             StartCoroutine(PlusHappinessTransition(3));
                             StartCoroutine(PlusPopularityTransition(3));
+
+                            StartCoroutine(MoneyMinusBarAnimation(Random.Range(5, 15)));
 
                             StartCoroutine(HappinessPlusBarAnimation(Random.Range(2, 7)));
                             StartCoroutine(PopularityPlusBarAnimation(Random.Range(2, 8)));
@@ -488,6 +498,15 @@ public class Accident : MonoBehaviour
         for (int i = 0; i <= increaseAmount; i++)
         {
             GM.popularitySlider.value += i;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    IEnumerator MoneyMinusBarAnimation(int increaseAmount)
+    {
+        for (int i = 0; i >= increaseAmount; i++)
+        {
+            GM.moneySlider.value += i;
             yield return new WaitForSeconds(0.1f);
         }
     }

@@ -157,6 +157,9 @@ public class Investment : MonoBehaviour
                             StartCoroutine(MinusMoneyTransition(3));
                             StartCoroutine(MinusPopularityTransition(3));
 
+                            StartCoroutine(MoneyMinusBarAnimation(Random.Range(3, 8)));
+                            StartCoroutine(PopularityMinusBarAnimation(Random.Range(5, 7)));
+
                             browserManager.insuranceActive.SetActive(false);
                             browserManager.insuranceGreyed.SetActive(true);
                         }
@@ -172,6 +175,9 @@ public class Investment : MonoBehaviour
 
                             StartCoroutine(MinusMoneyTransition(2));
                             StartCoroutine(MinusPopularityTransition(3));
+
+                            StartCoroutine(MoneyMinusBarAnimation(Random.Range(5, 9)));
+                            StartCoroutine(PopularityMinusBarAnimation(Random.Range(4, 10)));
 
                             browserManager.insuranceActive.SetActive(false);
                             browserManager.insuranceGreyed.SetActive(true);
@@ -190,6 +196,9 @@ public class Investment : MonoBehaviour
                             StartCoroutine(MinusMoneyTransition(3));
                             StartCoroutine(MinusPopularityTransition(3));
 
+                            StartCoroutine(MoneyMinusBarAnimation(Random.Range(5, 10)));
+                            StartCoroutine(PopularityMinusBarAnimation(Random.Range(3, 7)));
+
                             browserManager.insuranceActive.SetActive(false);
                             browserManager.insuranceGreyed.SetActive(true);
                         }
@@ -205,6 +214,9 @@ public class Investment : MonoBehaviour
 
                             StartCoroutine(MinusMoneyTransition(3));
                             StartCoroutine(MinusPopularityTransition(3));
+
+                            StartCoroutine(MoneyMinusBarAnimation(Random.Range(7, 15)));
+                            StartCoroutine(PopularityMinusBarAnimation(Random.Range(4, 8)));
 
                             browserManager.insuranceActive.SetActive(false);
                             browserManager.insuranceGreyed.SetActive(true);
@@ -222,6 +234,9 @@ public class Investment : MonoBehaviour
                             StartCoroutine(MinusMoneyTransition(3));
                             StartCoroutine(MinusPopularityTransition(3));
 
+                            StartCoroutine(MoneyMinusBarAnimation(Random.Range(5, 9)));
+                            StartCoroutine(PopularityMinusBarAnimation(Random.Range(3, 6)));
+
                             browserManager.insuranceActive.SetActive(false);
                             browserManager.insuranceGreyed.SetActive(true);
                         }
@@ -237,6 +252,9 @@ public class Investment : MonoBehaviour
 
                             StartCoroutine(MinusMoneyTransition(3));
                             StartCoroutine(MinusPopularityTransition(3));
+
+                            StartCoroutine(MoneyMinusBarAnimation(Random.Range(5, 15)));
+                            StartCoroutine(PopularityMinusBarAnimation(Random.Range(4, 9)));
 
                             browserManager.insuranceActive.SetActive(false);
                             browserManager.insuranceGreyed.SetActive(true);
@@ -254,6 +272,9 @@ public class Investment : MonoBehaviour
                             StartCoroutine(MinusMoneyTransition(3));
                             StartCoroutine(MinusPopularityTransition(3));
 
+                            StartCoroutine(MoneyMinusBarAnimation(Random.Range(5, 15)));
+                            StartCoroutine(PopularityMinusBarAnimation(Random.Range(4, 9)));
+
                             browserManager.insuranceActive.SetActive(false);
                             browserManager.insuranceGreyed.SetActive(true);
                         }
@@ -269,6 +290,9 @@ public class Investment : MonoBehaviour
 
                             StartCoroutine(MinusMoneyTransition(3));
                             StartCoroutine(MinusPopularityTransition(3));
+
+                            StartCoroutine(MoneyMinusBarAnimation(Random.Range(5, 10)));
+                            StartCoroutine(PopularityMinusBarAnimation(Random.Range(3, 9)));
 
                             browserManager.insuranceActive.SetActive(false);
                             browserManager.insuranceGreyed.SetActive(true);
@@ -286,6 +310,9 @@ public class Investment : MonoBehaviour
                             StartCoroutine(MinusMoneyTransition(3));
                             StartCoroutine(MinusPopularityTransition(3));
 
+                            StartCoroutine(MoneyMinusBarAnimation(Random.Range(5, 15)));
+                            StartCoroutine(PopularityMinusBarAnimation(Random.Range(5, 10)));
+
                             browserManager.insuranceActive.SetActive(false);
                             browserManager.insuranceGreyed.SetActive(true);
                         }
@@ -301,6 +328,9 @@ public class Investment : MonoBehaviour
 
                             StartCoroutine(MinusMoneyTransition(3));
                             StartCoroutine(MinusPopularityTransition(3));
+
+                            StartCoroutine(MoneyMinusBarAnimation(Random.Range(5, 15)));
+                            StartCoroutine(PopularityMinusBarAnimation(Random.Range(4, 10)));
 
                             browserManager.insuranceActive.SetActive(false);
                             browserManager.insuranceGreyed.SetActive(true);
@@ -350,6 +380,9 @@ public class Investment : MonoBehaviour
                         StartCoroutine(PlusMoneyTransition(3));
                         StartCoroutine(PlusPopularityTransition(3));
 
+                        StartCoroutine(MoneyPlusBarAnimation(Random.Range(3, 8)));
+                        StartCoroutine(PopularityPlusBarAnimation(Random.Range(5, 7)));
+
                         break;
                     }
                 case "Hey Pal!\nHeard your business has been thriving. I'm writing to ask you whether you would like to invest in one business project. You will receive a good margin of the profits!":
@@ -360,6 +393,9 @@ public class Investment : MonoBehaviour
 
                         StartCoroutine(PlusMoneyTransition(3));
                         StartCoroutine(PlusPopularityTransition(3));
+
+                        StartCoroutine(MoneyPlusBarAnimation(Random.Range(5, 9)));
+                        StartCoroutine(PopularityPlusBarAnimation(Random.Range(4, 10)));
 
                         break;
                     }
@@ -372,6 +408,9 @@ public class Investment : MonoBehaviour
                         StartCoroutine(PlusMoneyTransition(3));
                         StartCoroutine(PlusPopularityTransition(3));
 
+                        StartCoroutine(MoneyPlusBarAnimation(Random.Range(5, 10)));
+                        StartCoroutine(PopularityPlusBarAnimation(Random.Range(3, 7)));
+
                         break;
                     }
                 case "Hi,\nI am a representative of an Energy Company called Operate Clean Energy. We believe our proposal for a mutually beneficial partnership will revolutionize the way we harness and distribute energy. Would you like to invest in our company?":
@@ -382,6 +421,9 @@ public class Investment : MonoBehaviour
 
                         StartCoroutine(PlusMoneyTransition(3));
                         StartCoroutine(PlusPopularityTransition(3));
+
+                        StartCoroutine(MoneyPlusBarAnimation(Random.Range(7, 15)));
+                        StartCoroutine(PopularityPlusBarAnimation(Random.Range(4, 8)));
 
                         break;
                     }
@@ -394,6 +436,9 @@ public class Investment : MonoBehaviour
                         StartCoroutine(PlusMoneyTransition(3));
                         StartCoroutine(PlusPopularityTransition(3));
 
+                        StartCoroutine(MoneyPlusBarAnimation(Random.Range(5, 9)));
+                        StartCoroutine(PopularityPlusBarAnimation(Random.Range(3, 6)));
+
                         break;
                     }
                 case "Hi!\nI would like to provide an upgrade of ads to your company! Do you want some traction for your ads?":
@@ -404,6 +449,9 @@ public class Investment : MonoBehaviour
 
                         StartCoroutine(PlusMoneyTransition(3));
                         StartCoroutine(PlusPopularityTransition(3));
+
+                        StartCoroutine(MoneyPlusBarAnimation(Random.Range(4, 10)));
+                        StartCoroutine(PopularityPlusBarAnimation(Random.Range(5, 15)));
 
                         break;
                     }
@@ -416,6 +464,9 @@ public class Investment : MonoBehaviour
                         StartCoroutine(PlusMoneyTransition(3));
                         StartCoroutine(PlusPopularityTransition(3));
 
+                        StartCoroutine(MoneyPlusBarAnimation(Random.Range(5, 10)));
+                        StartCoroutine(PopularityPlusBarAnimation(Random.Range(4, 9)));
+
                         break;
                     }
                 case "Hi!\nI am a representative of a clothing brand called Doo Nut, we would be thrilled to offer you a deal with our clothing brand - are you interested?":
@@ -426,6 +477,9 @@ public class Investment : MonoBehaviour
 
                         StartCoroutine(MinusMoneyTransition(3));
                         StartCoroutine(PlusPopularityTransition(3));
+
+                        StartCoroutine(MoneyPlusBarAnimation(Random.Range(5, 10)));
+                        StartCoroutine(PopularityPlusBarAnimation(Random.Range(3, 9)));
 
                         break;
                     }
@@ -438,6 +492,9 @@ public class Investment : MonoBehaviour
                         StartCoroutine(PlusMoneyTransition(3));
                         StartCoroutine(PlusPopularityTransition(3));
 
+                        StartCoroutine(MoneyPlusBarAnimation(Random.Range(5, 10)));
+                        StartCoroutine(PopularityPlusBarAnimation(Random.Range(5, 10)));
+
                         break;
                     }
                 case "Hi,\nI would like to provide services to upgrade your company's office area, are you interested?":
@@ -448,6 +505,9 @@ public class Investment : MonoBehaviour
 
                         StartCoroutine(PlusMoneyTransition(3));
                         StartCoroutine(PlusPopularityTransition(3));
+
+                        StartCoroutine(MoneyPlusBarAnimation(Random.Range(5, 15)));
+                        StartCoroutine(PopularityPlusBarAnimation(Random.Range(4, 10)));
 
                         break;
                     }
@@ -508,6 +568,9 @@ public class Investment : MonoBehaviour
                         StartCoroutine(MinusMoneyTransition(2));
                         StartCoroutine(MinusPopularityTransition(2));
 
+                        StartCoroutine(MoneyMinusBarAnimation(Random.Range(3, 8)));
+                        StartCoroutine(PopularityMinusBarAnimation(Random.Range(5, 7)));
+
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
 
@@ -521,6 +584,9 @@ public class Investment : MonoBehaviour
 
                         StartCoroutine(MinusMoneyTransition(2));
                         StartCoroutine(MinusPopularityTransition(2));
+
+                        StartCoroutine(MoneyMinusBarAnimation(Random.Range(5, 9)));
+                        StartCoroutine(PopularityMinusBarAnimation(Random.Range(4, 10)));
 
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
@@ -536,6 +602,9 @@ public class Investment : MonoBehaviour
                         StartCoroutine(MinusMoneyTransition(2));
                         StartCoroutine(MinusPopularityTransition(2));
 
+                        StartCoroutine(MoneyMinusBarAnimation(Random.Range(5, 10)));
+                        StartCoroutine(PopularityMinusBarAnimation(Random.Range(3, 7)));
+
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
 
@@ -549,6 +618,9 @@ public class Investment : MonoBehaviour
 
                         StartCoroutine(MinusMoneyTransition(2));
                         StartCoroutine(MinusPopularityTransition(2));
+
+                        StartCoroutine(MoneyMinusBarAnimation(Random.Range(7, 15)));
+                        StartCoroutine(PopularityMinusBarAnimation(Random.Range(4, 8)));
 
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
@@ -564,6 +636,9 @@ public class Investment : MonoBehaviour
                         StartCoroutine(MinusMoneyTransition(2));
                         StartCoroutine(MinusPopularityTransition(2));
 
+                        StartCoroutine(MoneyMinusBarAnimation(Random.Range(3, 9)));
+                        StartCoroutine(PopularityMinusBarAnimation(Random.Range(5, 9)));
+
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
 
@@ -577,6 +652,9 @@ public class Investment : MonoBehaviour
 
                         StartCoroutine(MinusMoneyTransition(2));
                         StartCoroutine(MinusPopularityTransition(2));
+
+                        StartCoroutine(MoneyMinusBarAnimation(Random.Range(4, 10)));
+                        StartCoroutine(PopularityMinusBarAnimation(Random.Range(5, 15)));
 
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
@@ -592,6 +670,9 @@ public class Investment : MonoBehaviour
                         StartCoroutine(MinusMoneyTransition(2));
                         StartCoroutine(MinusPopularityTransition(2));
 
+                        StartCoroutine(MoneyMinusBarAnimation(Random.Range(5, 10)));
+                        StartCoroutine(PopularityMinusBarAnimation(Random.Range(4, 9)));
+
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
 
@@ -605,6 +686,9 @@ public class Investment : MonoBehaviour
 
                         StartCoroutine(MinusMoneyTransition(2));
                         StartCoroutine(MinusPopularityTransition(2));
+
+                        StartCoroutine(MoneyMinusBarAnimation(Random.Range(5, 15)));
+                        StartCoroutine(PopularityMinusBarAnimation(Random.Range(3, 9)));
 
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
@@ -620,6 +704,9 @@ public class Investment : MonoBehaviour
                         StartCoroutine(MinusMoneyTransition(2));
                         StartCoroutine(MinusPopularityTransition(2));
 
+                        StartCoroutine(MoneyMinusBarAnimation(Random.Range(5, 15)));
+                        StartCoroutine(PopularityMinusBarAnimation(Random.Range(5, 10)));
+
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
 
@@ -633,6 +720,9 @@ public class Investment : MonoBehaviour
 
                         StartCoroutine(MinusMoneyTransition(2));
                         StartCoroutine(MinusPopularityTransition(2));
+
+                        StartCoroutine(MoneyMinusBarAnimation(Random.Range(5, 15)));
+                        StartCoroutine(PopularityMinusBarAnimation(Random.Range(4, 10)));
 
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
@@ -663,15 +753,6 @@ public class Investment : MonoBehaviour
         GM.FunctionUpdates();
     }
 
-    IEnumerator PlusHappinessTransition(float timer)
-    {
-        GM.plusHappiness.SetActive(true);
-
-        yield return new WaitForSeconds(3);
-
-        GM.plusHappiness.SetActive(false);
-    }
-
     IEnumerator PlusPopularityTransition(float timer)
     {
         GM.plusPopularity.SetActive(true);
@@ -690,15 +771,6 @@ public class Investment : MonoBehaviour
         GM.minusMoney.SetActive(false);
     }
 
-    IEnumerator MinusHappinessTransition(float timer)
-    {
-        GM.minusHappiness.SetActive(true);
-
-        yield return new WaitForSeconds(3);
-
-        GM.minusHappiness.SetActive(false);
-    }
-
     IEnumerator MinusPopularityTransition(float timer)
     {
         GM.minusPopularity.SetActive(true);
@@ -715,5 +787,41 @@ public class Investment : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         GM.plusMoney.SetActive(false);
+    }
+
+    IEnumerator PopularityMinusBarAnimation(int increaseAmount)
+    {
+        for (int i = 0; i >= increaseAmount; i++)
+        {
+            GM.popularitySlider.value += i;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    IEnumerator PopularityPlusBarAnimation(int increaseAmount)
+    {
+        for (int i = 0; i <= increaseAmount; i++)
+        {
+            GM.popularitySlider.value += i;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    IEnumerator MoneyMinusBarAnimation(int increaseAmount)
+    {
+        for (int i = 0; i >= increaseAmount; i++)
+        {
+            GM.moneySlider.value += i;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    IEnumerator MoneyPlusBarAnimation(int increaseAmount)
+    {
+        for (int i = 0; i <= increaseAmount; i++)
+        {
+            GM.moneySlider.value += i;
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 }

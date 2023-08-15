@@ -143,6 +143,10 @@ public class Health : MonoBehaviour
                             StartCoroutine(PlusHappinessTransition(3));
                             StartCoroutine(PlusPopularityTransition(3));
 
+                            StartCoroutine(MoneyMinusBarAnimation(Random.Range(5, 10)));
+                            StartCoroutine(PopularityPlusBarAnimation(Random.Range(2, 7)));
+                            StartCoroutine(HappinessPlusBarAnimation(Random.Range(3, 7)));
+
                             browserManager.healthActive.SetActive(false);
                             browserManager.healthGreyed.SetActive(true);
                         }
@@ -153,6 +157,9 @@ public class Health : MonoBehaviour
 
                             StartCoroutine(PlusHappinessTransition(3));
                             StartCoroutine(PlusPopularityTransition(3));
+
+                            StartCoroutine(PopularityPlusBarAnimation(Random.Range(7, 15)));
+                            StartCoroutine(HappinessPlusBarAnimation(Random.Range(5, 15)));
                         }
                         break;
                     }
@@ -172,6 +179,10 @@ public class Health : MonoBehaviour
                             StartCoroutine(PlusHappinessTransition(3));
                             StartCoroutine(PlusPopularityTransition(3));
 
+                            StartCoroutine(MoneyMinusBarAnimation(Random.Range(5, 10)));
+                            StartCoroutine(PopularityPlusBarAnimation(Random.Range(2, 5)));
+                            StartCoroutine(HappinessPlusBarAnimation(Random.Range(2, 5)));
+
                             browserManager.healthActive.SetActive(false);
                             browserManager.healthGreyed.SetActive(true);
                         }
@@ -182,6 +193,9 @@ public class Health : MonoBehaviour
 
                             StartCoroutine(PlusHappinessTransition(3));
                             StartCoroutine(PlusPopularityTransition(3));
+
+                            StartCoroutine(PopularityPlusBarAnimation(Random.Range(5, 10)));
+                            StartCoroutine(HappinessPlusBarAnimation(Random.Range(5, 15)));
                         }
                         break;
                     }
@@ -201,6 +215,10 @@ public class Health : MonoBehaviour
                             StartCoroutine(PlusHappinessTransition(3));
                             StartCoroutine(PlusPopularityTransition(3));
 
+                            StartCoroutine(MoneyMinusBarAnimation(Random.Range(5, 10)));
+                            StartCoroutine(PopularityPlusBarAnimation(Random.Range(2, 5)));
+                            StartCoroutine(HappinessPlusBarAnimation(Random.Range(2, 5)));
+
                             browserManager.healthActive.SetActive(false);
                             browserManager.healthGreyed.SetActive(true);
                         }
@@ -211,6 +229,9 @@ public class Health : MonoBehaviour
 
                             StartCoroutine(PlusHappinessTransition(3));
                             StartCoroutine(PlusPopularityTransition(3));
+
+                            StartCoroutine(PopularityPlusBarAnimation(Random.Range(5, 10)));
+                            StartCoroutine(HappinessPlusBarAnimation(Random.Range(5, 15)));
                         }
                         break;
                     }
@@ -230,6 +251,10 @@ public class Health : MonoBehaviour
                             StartCoroutine(PlusHappinessTransition(3));
                             StartCoroutine(PlusPopularityTransition(3));
 
+                            StartCoroutine(MoneyMinusBarAnimation(Random.Range(5, 10)));
+                            StartCoroutine(PopularityPlusBarAnimation(Random.Range(2, 5)));
+                            StartCoroutine(HappinessPlusBarAnimation(Random.Range(2, 5)));
+
                             browserManager.healthActive.SetActive(false);
                             browserManager.healthGreyed.SetActive(true);
                         }
@@ -240,6 +265,9 @@ public class Health : MonoBehaviour
 
                             StartCoroutine(PlusHappinessTransition(3));
                             StartCoroutine(PlusPopularityTransition(3));
+
+                            StartCoroutine(PopularityPlusBarAnimation(Random.Range(5, 10)));
+                            StartCoroutine(HappinessPlusBarAnimation(Random.Range(5, 15)));
                         }
                         break;
                     }
@@ -259,6 +287,10 @@ public class Health : MonoBehaviour
                             StartCoroutine(PlusHappinessTransition(3));
                             StartCoroutine(PlusPopularityTransition(3));
 
+                            StartCoroutine(MoneyMinusBarAnimation(Random.Range(5, 10)));
+                            StartCoroutine(PopularityPlusBarAnimation(Random.Range(2, 5)));
+                            StartCoroutine(HappinessPlusBarAnimation(Random.Range(2, 5)));
+
                             browserManager.healthActive.SetActive(false);
                             browserManager.healthGreyed.SetActive(true);
                         }
@@ -269,6 +301,9 @@ public class Health : MonoBehaviour
 
                             StartCoroutine(PlusHappinessTransition(3));
                             StartCoroutine(PlusPopularityTransition(3));
+
+                            StartCoroutine(PopularityPlusBarAnimation(Random.Range(5, 10)));
+                            StartCoroutine(HappinessPlusBarAnimation(Random.Range(5, 15)));
                         }
                         break;
                     }
@@ -320,6 +355,9 @@ public class Health : MonoBehaviour
                         StartCoroutine(MinusPopularityTransition(3));
                         StartCoroutine(MinusHappinessTransition(3));
 
+                        StartCoroutine(PopularityMinusBarAnimation(Random.Range(5, 10)));
+                        StartCoroutine(HappinessMinusBarAnimation(Random.Range(5, 15)));
+
                         break;
                     }
                 case "Good Morning Boss,\nOne of our departments has recently got in contact with COVID, would you like to help out by paying for the medical fees?":
@@ -331,6 +369,9 @@ public class Health : MonoBehaviour
 
                         StartCoroutine(MinusPopularityTransition(3));
                         StartCoroutine(MinusHappinessTransition(3));
+
+                        StartCoroutine(PopularityMinusBarAnimation(Random.Range(5, 10)));
+                        StartCoroutine(HappinessMinusBarAnimation(Random.Range(5, 15)));
 
                         break;
                     }
@@ -344,6 +385,9 @@ public class Health : MonoBehaviour
                         StartCoroutine(MinusPopularityTransition(3));
                         StartCoroutine(MinusHappinessTransition(3));
 
+                        StartCoroutine(PopularityMinusBarAnimation(Random.Range(5, 10)));
+                        StartCoroutine(HappinessMinusBarAnimation(Random.Range(5, 15)));
+
                         break;
                     }
                 case "Hi Boss,\nthis is urgent! I need your help with some financial help as I can't pay for my medical bills. Please help me!":
@@ -356,6 +400,9 @@ public class Health : MonoBehaviour
                         StartCoroutine(MinusPopularityTransition(3));
                         StartCoroutine(MinusHappinessTransition(3));
 
+                        StartCoroutine(PopularityMinusBarAnimation(Random.Range(5, 10)));
+                        StartCoroutine(HappinessMinusBarAnimation(Random.Range(5, 15)));
+
                         break;
                     }
                 case "Hello Sir,\nI believe it would be in the best interest of the company, as well as my own well-being, for you to consider covering the medical fees as it is directly related to my work.":
@@ -367,6 +414,9 @@ public class Health : MonoBehaviour
 
                         StartCoroutine(MinusPopularityTransition(3));
                         StartCoroutine(MinusHappinessTransition(3));
+
+                        StartCoroutine(PopularityMinusBarAnimation(Random.Range(5, 10)));
+                        StartCoroutine(HappinessMinusBarAnimation(Random.Range(5, 15)));
 
                         break;
                     }
@@ -434,6 +484,51 @@ public class Health : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         GM.minusPopularity.SetActive(false);
+    }
+
+    IEnumerator HappinessPlusBarAnimation(int increaseAmount)
+    {
+        for (int i = 0; i <= increaseAmount; i++)
+        {
+            GM.happinessSlider.value += i;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    IEnumerator HappinessMinusBarAnimation(int increaseAmount)
+    {
+        for (int i = 0; i >= increaseAmount; i++)
+        {
+            GM.happinessSlider.value += i;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    IEnumerator PopularityMinusBarAnimation(int increaseAmount)
+    {
+        for (int i = 0; i >= increaseAmount; i++)
+        {
+            GM.popularitySlider.value += i;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    IEnumerator PopularityPlusBarAnimation(int increaseAmount)
+    {
+        for (int i = 0; i <= increaseAmount; i++)
+        {
+            GM.popularitySlider.value += i;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    IEnumerator MoneyMinusBarAnimation(int increaseAmount)
+    {
+        for (int i = 0; i >= increaseAmount; i++)
+        {
+            GM.moneySlider.value += i;
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
 }
