@@ -132,6 +132,8 @@ public class InsuranceInvestmentManager : MonoBehaviour
 
                             StartCoroutine(MinusMoneyTransition(3));
 
+                            StartCoroutine(MoneyMinusBarAnimation(2));
+
                             browserManager.insuranceGreyed.SetActive(false);
                             browserManager.insuranceActive.SetActive(true);
                         }
@@ -186,5 +188,14 @@ public class InsuranceInvestmentManager : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         GM.minusMoney.SetActive(false);
+    }
+
+    IEnumerator MoneyMinusBarAnimation(int increaseAmount)
+    {
+        for (int i = 0; i >= increaseAmount; i++)
+        {
+            GM.moneySlider.value += i;
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 }
