@@ -69,37 +69,44 @@ public class CarController : MonoBehaviour
                 {
                     timerrunning = false;
                     Win = true;
-                    win.SetActive(true);
-                    Debug.Log("Win");
-
                     gmTime.StartCooldown();
+                    StartCoroutine(TransitionToMain(1.5f));
                 }
             }
         }
 
         if(lose == true && Win ==false) //setting the lose screen
         {
-            lose_scn.SetActive(true);
-
-            StartCoroutine(TransitionToMain(1.5f));
 
             gmTime.StartCooldown();
+            StartCoroutine(TransitionToMain(1.5f));
         }
     }
 
     IEnumerator TransitionToMain(float timer)
     {
         
-        yield return new WaitForSeconds(1.5f);
+        
 
-        if (GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().accidentinsurance.accidentInsurance != true)
+        if(lose)
         {
-            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money -= 15f;
+            lose_scn.SetActive(true);
+            yield return new WaitForSeconds(timer);
+            if (GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().accidentinsurance.accidentInsurance != true)
+            {
+                GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money -= 15f;
+            }
+            else
+            {
+                GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().accidentinsurance.accidentInsurance = false;
+            }
         }
-        else
+        else if(Win)
         {
-            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().accidentinsurance.accidentInsurance = false;
+            win.SetActive(true);
+            yield return new WaitForSeconds(3f);
         }
+
 
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
         SceneManager.LoadScene(0);
