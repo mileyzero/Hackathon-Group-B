@@ -114,6 +114,9 @@ public class GameManager : MonoBehaviour
     public int maxMoney = 90;
     public int maxPopularity = 90;
 
+    //Int for randomInitialize
+    public int randomInitialize;
+
     //Float for happiness, money and popularity
     public float happiness;
     public float money;
@@ -126,9 +129,6 @@ public class GameManager : MonoBehaviour
     //Float for timer, loseTimeTipDuration
     public float timer;
     public float loseTimeTipDuration;
-
-    //Int for randomInitialize
-    public int randomInitialize;
 
     //Bool for isRunning
     public bool isRunning;
@@ -228,6 +228,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
         }
 
+
         //if isRunning equals to false, the randomInitialize will set a random.range to it, then the timer will countdown
         //if the timer hits less or equals to 0, isRunning will set to true to prevent the timer from continuing
         //the randomInitalize number will then choose between 0 to 2, if its on 0, it will enable the email button for investment.
@@ -248,63 +249,63 @@ public class GameManager : MonoBehaviour
                     investmentNotiIcon.SetActive(true);
                     investmentButton.SetActive(true);
                 }
-                else if (randomInitialize >= 7 && randomInitialize <= 14)
+                else if (randomInitialize > 7 && randomInitialize <= 14)
                 {
                     holidayManager.scenarioButton.enabled = true;
 
                     employeeButton.SetActive(true);
                     employeeNotiIcon.SetActive(true);
                 }
-                else if(randomInitialize >= 14 && randomInitialize <= 25)
+                else if(randomInitialize > 14 && randomInitialize <= 25)
                 {
                     healthManager.scenarioButton.enabled = true;
 
                     healthButton.SetActive(true);
                     healthNotiIcon.SetActive(true);
                 }
-                else if(randomInitialize >= 25 && randomInitialize <= 32)
+                else if(randomInitialize > 25 && randomInitialize <= 32)
                 {
                     accidentManager.scenarioButton.enabled = true;
 
                     accidentButton.SetActive(true);
                     accidentNotiIcon.SetActive(true);
                 }
-                else if(randomInitialize >= 32 && randomInitialize <= 35)
+                else if(randomInitialize > 32 && randomInitialize <= 35)
                 {
                     MGManager.scenarioButton.enabled = true;
 
                     miniGameButton.SetActive(true);
                     miniGameNotiIcon.SetActive(true);
                 }
-                else if(randomInitialize >= 35 && randomInitialize <= 37)
+                else if(randomInitialize > 35 && randomInitialize <= 37)
                 {
                     MGCar.scenarioButton.enabled = true;
 
                     miniGameCarButton.SetActive(true);
                     miniGameCarNotiIcon.SetActive(true);
                 }
-                else if(randomInitialize >= 37 && randomInitialize <= 40)
+                else if(randomInitialize > 37 && randomInitialize <= 40)
                 {
                     MGGolf.scenarioButton.enabled = true;
 
                     miniGameGolfButton.SetActive(true);
                     miniGameGolfNotiIcon.SetActive(true);
                 }
-                else if (randomInitialize >= 40 && randomInitialize <= 44)
+                else if (randomInitialize > 40 && randomInitialize <= 44)
                 {
                     insuranceManager.scenarioButton.enabled = true;
 
                     insuranceHealthButton.SetActive(true);
                     insuranceNotiIcon.SetActive(true);
                 }
-                else if(randomInitialize >= 44 && randomInitialize <= 48)
+                else if(randomInitialize > 44 && randomInitialize <= 48)
                 {
                     AccidentManager.scenarioButton.enabled = true;
 
                     insuranceAccidentButton.SetActive(true);
                     insuranceAccidentNotiIcon.SetActive(true);
                 }
-                else if(randomInitialize >= 48 && randomInitialize <= 52)
+                else if(randomInitialize > 48 && randomInitialize <= 52)
                 {
                     InvestmentManager.scenarioButton.enabled = true;
 
