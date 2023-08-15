@@ -55,6 +55,11 @@ public class Health : MonoBehaviour
         nameBox.SetActive(false);
     }
 
+    void Update()
+    {
+        
+    }
+
     //in SpawnObject, there will be an randomRange that detects how many objects are in the array spawnObjects
     //then, a new vector3 spawnPosition equals to spawnArea's position
     //a randomObject will take the current index of spawnObjects' array
@@ -372,7 +377,9 @@ public class Health : MonoBehaviour
                     }
             }
 
-            StartCoroutine(Resources(3));
+            GM.happinessSlider.value = GM.happiness;
+            GM.moneySlider.value = GM.money;
+            GM.popularitySlider.value = GM.popularity;
 
             index++;
 
@@ -427,15 +434,6 @@ public class Health : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         GM.minusPopularity.SetActive(false);
-    }
-
-    IEnumerator Resources(float timer)
-    {
-        yield return new WaitForSeconds(3);
-
-        GM.happinessSlider.value = GM.happiness;
-        GM.moneySlider.value = GM.money;
-        GM.popularitySlider.value = GM.popularity;
     }
 
 }
