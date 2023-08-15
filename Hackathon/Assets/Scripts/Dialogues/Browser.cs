@@ -25,6 +25,10 @@ public class Browser : MonoBehaviour
     public GameObject healthActive;
     public GameObject insuranceActive;
 
+    public GameObject accidentInsuranceCfm;
+    public GameObject healthInsuranceCfm;
+    public GameObject investmentInsuranceCfm;
+
     public bool accidentInsurance;
     public bool healthInsurance;
     public bool investmentInsurance;
@@ -44,6 +48,10 @@ public class Browser : MonoBehaviour
         accidentActive.SetActive(false);
         healthActive.SetActive(false);
         insuranceActive.SetActive(false);
+
+        accidentInsuranceCfm.SetActive(false);
+        healthInsuranceCfm.SetActive(false);
+        investmentInsuranceCfm.SetActive(false);
 
         doNutBrowser.SetActive(false);
         crossButton.SetActive(false);
@@ -136,6 +144,10 @@ public class Browser : MonoBehaviour
 
             GM.money -= 5f;
 
+            StartCoroutine(MoneyTrueToFalse(2));
+
+            accidentInsuranceCfm.SetActive(false);
+
             Debug.Log(GM.moneySlider.value);
             accidentBtn.enabled = false;
         }
@@ -167,6 +179,10 @@ public class Browser : MonoBehaviour
 
             GM.money -= 5f;
 
+            StartCoroutine(MoneyTrueToFalse(2));
+
+            healthInsuranceCfm.SetActive(false);
+
             Debug.Log(GM.moneySlider.value);
             healthBtn.enabled = false;
         }
@@ -181,6 +197,39 @@ public class Browser : MonoBehaviour
         }
 
         GM.moneySlider.value = GM.money;
+    }
+
+    public void OpenAccidentConfirmation()
+    {
+        if(accidentInsurance != true)
+        {
+            accidentInsuranceCfm.SetActive(true);
+        }
+    }
+
+    public void OpenHealthConfirmation()
+    {
+        healthInsuranceCfm.SetActive(true);
+    }
+
+    public void OpenInvestmentConfirmation()
+    {
+        investmentInsuranceCfm.SetActive(true);
+    }
+
+    public void CloseInvestmentConfirmation()
+    {
+        investmentInsuranceCfm.SetActive(false);
+    }
+
+    public void CloseAccidentConfirmation()
+    {
+        accidentInsuranceCfm.SetActive(false);
+    }
+
+    public void CloseHealthConfirmation()
+    {
+        healthInsuranceCfm.SetActive(false);
     }
 
     public void BuyInvestmentInsurance()
@@ -198,6 +247,10 @@ public class Browser : MonoBehaviour
 
             GM.money -= 5f;
 
+            investmentInsuranceCfm.SetActive(false);
+
+            StartCoroutine(MoneyTrueToFalse(2));
+
             Debug.Log(GM.moneySlider.value);
             investmentBtn.enabled = false;
         }
@@ -212,5 +265,14 @@ public class Browser : MonoBehaviour
         }
 
         GM.moneySlider.value = GM.money;
+    }
+
+    IEnumerator MoneyTrueToFalse(float timer)
+    {
+        GM.minusMoney.SetActive(true);
+
+        yield return new WaitForSeconds(2);
+
+        GM.minusMoney.SetActive(false);
     }
 }

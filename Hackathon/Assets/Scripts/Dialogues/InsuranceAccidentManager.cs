@@ -122,13 +122,16 @@ public class InsuranceAccidentManager : MonoBehaviour
 
             switch (DM.insuranceAccidentLines[index])
             {
-                case "Good Morning Boss! Would you like to buy accident insurance at a lower rate to keep your family and loved ones from unexpected accident expenses?":
+                case "Good Morning Boss!\nWould you like to buy accident insurance at a lower rate to keep your family and loved ones from unexpected accident expenses?":
                     {
                         if (browserManager.accidentInsurance != true)
                         {
                             Debug.Log("Bought Accident Insurance");
                             GM.money -= 2;
                             browserManager.accidentInsurance = true;
+                            Debug.Log(browserManager.accidentInsurance);
+
+                            StartCoroutine(MinusMoneyTransition(3));
 
                             browserManager.accidentGreyed.SetActive(false);
                             browserManager.accidentActive.SetActive(true);
@@ -168,12 +171,20 @@ public class InsuranceAccidentManager : MonoBehaviour
         {
             insuranceAccidentScenario.SetActive(false);
 
-
             DestroyObject();
         }
 
         GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
         GM.FunctionUpdates();
+    }
+
+    IEnumerator MinusMoneyTransition(float timer)
+    {
+        GM.minusMoney.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.minusMoney.SetActive(false);
     }
 }

@@ -146,7 +146,7 @@ public class Investment : MonoBehaviour
 
             switch (DM.investmentLines[index])
             {
-                case "Hi Boss! Our accountants have noticed that we have a surplus in capital. They suggested that you expand the business and offices. Would you like to follow through?":
+                case "Hi Boss!\nOur accountants have noticed that we have a surplus in capital. They suggested that you expand the business and offices. Would you like to follow through?":
                     {
                         if (browserManager.investmentInsurance != true)
                         {
@@ -154,12 +154,15 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(3, 8);
                             GM.popularity -= Random.Range(5, 7);
 
+                            StartCoroutine(MinusMoneyTransition(3));
+                            StartCoroutine(MinusPopularityTransition(3));
+
                             browserManager.insuranceActive.SetActive(false);
                             browserManager.insuranceGreyed.SetActive(true);
                         }
                         break;
                     }
-                case "Hey Pal! Heard your business has been thriving. I'm writing to ask you whether you would like to invest in one business project. You will receive a good margin of the profits!":
+                case "Hey Pal!\nHeard your business has been thriving. I'm writing to ask you whether you would like to invest in one business project. You will receive a good margin of the profits!":
                     {
                         if(browserManager.investmentInsurance != true)
                         {
@@ -167,13 +170,16 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(5, 9);
                             GM.popularity -= Random.Range(4, 10);
 
+                            StartCoroutine(MinusMoneyTransition(2));
+                            StartCoroutine(MinusPopularityTransition(3));
+
                             browserManager.insuranceActive.SetActive(false);
                             browserManager.insuranceGreyed.SetActive(true);
 
                         }
                         break;
                     }
-                case "Hi. Would you like to provide some funds for my start-up business? We will pay you handsomely once things start to pick up.":
+                case "Hi.\nWould you like to provide some funds for my start-up business? We will pay you handsomely once things start to pick up.":
                     {
                         if(browserManager.investmentInsurance != true)
                         {
@@ -181,12 +187,15 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(5, 10);
                             GM.popularity -= Random.Range(3, 7);
 
+                            StartCoroutine(MinusMoneyTransition(3));
+                            StartCoroutine(MinusPopularityTransition(3));
+
                             browserManager.insuranceActive.SetActive(false);
                             browserManager.insuranceGreyed.SetActive(true);
                         }
                         break;
                     }
-                case "Hi, I am a representative of an Energy Company called Operate Energy. Our partnership will help us harness and distribute energy. Would you like to invest?":
+                case "Hi,\nI am a representative of an Energy Company called Operate Energy. Our partnership will help us harness and distribute energy. Would you like to invest?":
                     {
                         if (browserManager.investmentInsurance != true)
                         {
@@ -194,12 +203,15 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(7, 15);
                             GM.popularity -= Random.Range(4, 8);
 
+                            StartCoroutine(MinusMoneyTransition(3));
+                            StartCoroutine(MinusPopularityTransition(3));
+
                             browserManager.insuranceActive.SetActive(false);
                             browserManager.insuranceGreyed.SetActive(true);
                         }
                         break;
                     }
-                case "Hey there! I'm the developer of Among Us, and I could really use some financial support to help me develop this game! Would you help me?":
+                case "Hey there!\nI'm the developer of Among Us, and I could really use some financial support to help me develop this game! Would you help me?":
                     {
                         if(browserManager.investmentInsurance != true)
                         {
@@ -207,12 +219,15 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(5, 9);
                             GM.popularity -= Random.Range(3, 6);
 
+                            StartCoroutine(MinusMoneyTransition(3));
+                            StartCoroutine(MinusPopularityTransition(3));
+
                             browserManager.insuranceActive.SetActive(false);
                             browserManager.insuranceGreyed.SetActive(true);
                         }
                         break;
                     }
-                case "Hi! I would like to provide an upgrade of ads to your company! Do you want some traction for your ads?":
+                case "Hi!\nI would like to provide an upgrade of ads to your company! Do you want some traction for your ads?":
                     {
                         if(browserManager.investmentInsurance != true)
                         {
@@ -220,12 +235,15 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(5, 15);
                             GM.popularity -= Random.Range(4, 9);
 
+                            StartCoroutine(MinusMoneyTransition(3));
+                            StartCoroutine(MinusPopularityTransition(3));
+
                             browserManager.insuranceActive.SetActive(false);
                             browserManager.insuranceGreyed.SetActive(true);
                         }
                         break;
                     }
-                case "Hey there! Want to be the face of our awesome brand? We're hiring models to help us advertise - interested?":
+                case "Hey there!\nWant to be the face of our awesome brand? We're hiring models to help us advertise - interested?":
                     {
                         if(browserManager.investmentInsurance != true)
                         {
@@ -233,12 +251,15 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(5, 15);
                             GM.popularity -= Random.Range(4, 9);
 
+                            StartCoroutine(MinusMoneyTransition(3));
+                            StartCoroutine(MinusPopularityTransition(3));
+
                             browserManager.insuranceActive.SetActive(false);
                             browserManager.insuranceGreyed.SetActive(true);
                         }
                         break;
                     }
-                case "Hi! I am a representative of a clothing brand called Doo Nut, we would be thrilled to offer you a deal with our clothing brand - are you interested?":
+                case "Hi!\nI am a representative of a clothing brand called Doo Nut, we would be thrilled to offer you a deal with our clothing brand - are you interested?":
                     {
                         if(browserManager.investmentInsurance != true)
                         {
@@ -246,12 +267,15 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(5, 10);
                             GM.popularity -= Random.Range(3, 9);
 
+                            StartCoroutine(MinusMoneyTransition(3));
+                            StartCoroutine(MinusPopularityTransition(3));
+
                             browserManager.insuranceActive.SetActive(false);
                             browserManager.insuranceGreyed.SetActive(true);
                         }
                         break;
                     }
-                case "Hi, I would like to catch everyone's attention and spread your company's name by advertising it on a billboard! Are you interested?":
+                case "Hi,\nI would like to catch everyone's attention and spread your company's name by advertising it on a billboard! Are you interested?":
                     {
                         if(browserManager.investmentInsurance != true)
                         {
@@ -259,18 +283,24 @@ public class Investment : MonoBehaviour
                             GM.money -= Random.Range(5, 15);
                             GM.popularity -= Random.Range(5, 10);
 
+                            StartCoroutine(MinusMoneyTransition(3));
+                            StartCoroutine(MinusPopularityTransition(3));
+
                             browserManager.insuranceActive.SetActive(false);
                             browserManager.insuranceGreyed.SetActive(true);
                         }
                         break;
                     }
-                case "Hi, I would like to provide services to upgrade your company's office area, are you interested?":
+                case "Hi,\nI would like to provide services to upgrade your company's office area, are you interested?":
                     {
                         if(browserManager.investmentInsurance != true)
                         {
                             Debug.Log("10 Scam");
                             GM.money -= Random.Range(5, 15);
                             GM.popularity -= Random.Range(4, 10);
+
+                            StartCoroutine(MinusMoneyTransition(3));
+                            StartCoroutine(MinusPopularityTransition(3));
 
                             browserManager.insuranceActive.SetActive(false);
                             browserManager.insuranceGreyed.SetActive(true);
@@ -311,83 +341,113 @@ public class Investment : MonoBehaviour
             //in each of the case, each dialogue will give a different value for different stats
             switch (DM.investmentLines[index])
             {
-                case "Hi Boss! Our accountants have noticed that we have a surplus in capital. They suggested that you expand the business and offices. Would you like to follow through?":
+                case "Hi Boss!\nOur accountants have noticed that we have a surplus in capital. They suggested that you expand the business and offices. Would you like to follow through?":
                     {
                         Debug.Log("1 Investment");
                         GM.money += Random.Range(3, 8);
                         GM.popularity += Random.Range(5, 7);
 
+                        StartCoroutine(PlusMoneyTransition(3));
+                        StartCoroutine(PlusPopularityTransition(3));
+
                         break;
                     }
-                case "Hey Pal! Heard your business has been thriving. I'm writing to ask you whether you would like to invest in one business project. You will receive a good margin of the profits!":
+                case "Hey Pal!\nHeard your business has been thriving. I'm writing to ask you whether you would like to invest in one business project. You will receive a good margin of the profits!":
                     {
                         Debug.Log("2 Investment");
                         GM.money += Random.Range(5, 9);
                         GM.popularity += Random.Range(4, 10);
 
+                        StartCoroutine(PlusMoneyTransition(3));
+                        StartCoroutine(PlusPopularityTransition(3));
+
                         break;
                     }
-                case "Hi. Would you like to provide some funds for my start-up business? We will pay you handsomely once things start to pick up.":
+                case "Hi.\nWould you like to provide some funds for my start-up business? We will pay you handsomely once things start to pick up.":
                     {
                         Debug.Log("3 Investment");
                         GM.money += Random.Range(5, 10);
                         GM.popularity += Random.Range(3, 7);
 
+                        StartCoroutine(PlusMoneyTransition(3));
+                        StartCoroutine(PlusPopularityTransition(3));
+
                         break;
                     }
-                case "Hi, I am a representative of an Energy Company called Operate Clean Energy. We believe our proposal for a mutually beneficial partnership will revolutionize the way we harness and distribute energy. Would you like to invest in our company?":
+                case "Hi,\nI am a representative of an Energy Company called Operate Clean Energy. We believe our proposal for a mutually beneficial partnership will revolutionize the way we harness and distribute energy. Would you like to invest in our company?":
                     {
                         Debug.Log("4 Investment");
                         GM.money += Random.Range(7, 15);
                         GM.popularity += Random.Range(4, 8);
 
+                        StartCoroutine(PlusMoneyTransition(3));
+                        StartCoroutine(PlusPopularityTransition(3));
+
                         break;
                     }
-                case "Hey there! I'm the developer of Among Us, and I could really use some financial support to help me develop this game! Would you help me?":
+                case "Hey there!\nI'm the developer of Among Us, and I could really use some financial support to help me develop this game! Would you help me?":
                     {
                         Debug.Log("5 Investment");
-                        GM.money -= Random.Range(5, 9);
+                        GM.money += Random.Range(5, 9);
                         GM.popularity += Random.Range(3, 6);
 
+                        StartCoroutine(PlusMoneyTransition(3));
+                        StartCoroutine(PlusPopularityTransition(3));
+
                         break;
                     }
-                case "Hi! I would like to provide an upgrade of ads to your company! Do you want some traction for your ads?":
+                case "Hi!\nI would like to provide an upgrade of ads to your company! Do you want some traction for your ads?":
                     {
                         Debug.Log("6 Investment");
-                        GM.money -= Random.Range(4, 10);
+                        GM.money += Random.Range(4, 10);
                         GM.popularity += Random.Range(5, 15);
 
+                        StartCoroutine(PlusMoneyTransition(3));
+                        StartCoroutine(PlusPopularityTransition(3));
+
                         break;
                     }
-                case "Hey there! Want to be the face of our awesome brand? We're hiring models to help us advertise - interested?":
+                case "Hey there!\nWant to be the face of our awesome brand? We're hiring models to help us advertise - interested?":
                     {
                         Debug.Log("7 Investment");
-                        GM.money -= Random.Range(5, 10);
+                        GM.money += Random.Range(5, 10);
                         GM.popularity += Random.Range(4, 9);
 
+                        StartCoroutine(PlusMoneyTransition(3));
+                        StartCoroutine(PlusPopularityTransition(3));
+
                         break;
                     }
-                case "Hi! I am a representative of a clothing brand called Doo Nut, we would be thrilled to offer you a deal with our clothing brand - are you interested?":
+                case "Hi!\nI am a representative of a clothing brand called Doo Nut, we would be thrilled to offer you a deal with our clothing brand - are you interested?":
                     {
                         Debug.Log("8 Investment");
-                        GM.money -= Random.Range(5, 10);
+                        GM.money += Random.Range(5, 10);
                         GM.popularity += Random.Range(3, 9);
 
-                        break;
-                    }
-                case "Hi, I would like to catch everyone's attention and spread your company's name by advertising it on a billboard! Are you interested?":
-                    {
-                        Debug.Log("9 Investment");
-                        GM.money -= Random.Range(5, 10);
-                        GM.popularity += Random.Range(5, 10);
+                        StartCoroutine(MinusMoneyTransition(3));
+                        StartCoroutine(PlusPopularityTransition(3));
 
                         break;
                     }
-                case "Hi, I would like to provide services to upgrade your company's office area, are you interested?":
+                case "Hi,\nI would like to catch everyone's attention and spread your company's name by advertising it on a billboard! Are you interested?":
+                    {
+                        Debug.Log("9 Investment");
+                        GM.money += Random.Range(5, 10);
+                        GM.popularity += Random.Range(5, 10);
+
+                        StartCoroutine(PlusMoneyTransition(3));
+                        StartCoroutine(PlusPopularityTransition(3));
+
+                        break;
+                    }
+                case "Hi,\nI would like to provide services to upgrade your company's office area, are you interested?":
                     {
                         Debug.Log("10 Investment");
-                        GM.money -= Random.Range(5, 15);
+                        GM.money += Random.Range(5, 15);
                         GM.popularity += Random.Range(4, 10);
+
+                        StartCoroutine(PlusMoneyTransition(3));
+                        StartCoroutine(PlusPopularityTransition(3));
 
                         break;
                     }
@@ -439,104 +499,144 @@ public class Investment : MonoBehaviour
 
             switch (DM.investmentLines[index])
             {
-                case "Hi Boss! Our accountants have noticed that we have a surplus in capital. They suggested that you expand the business and offices. Would you like to follow through?":
+                case "Hi Boss!\nOur accountants have noticed that we have a surplus in capital. They suggested that you expand the business and offices. Would you like to follow through?":
                     {
                         Debug.Log("1 No Investment");
                         GM.money -= Random.Range(3, 8);
                         GM.popularity -= Random.Range(5, 7);
 
+                        StartCoroutine(MinusMoneyTransition(2));
+                        StartCoroutine(MinusPopularityTransition(2));
+
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
+
                         break;
                     }
-                case "Hey Pal! Heard your business has been thriving. I'm writing to ask you whether you would like to invest in one business project. You will receive a good margin of the profits!":
+                case "Hey Pal!\nHeard your business has been thriving. I'm writing to ask you whether you would like to invest in one business project. You will receive a good margin of the profits!":
                     {
                         Debug.Log("2 No Investment");
                         GM.money -= Random.Range(5, 9);
                         GM.popularity -= Random.Range(4, 10);
 
+                        StartCoroutine(MinusMoneyTransition(2));
+                        StartCoroutine(MinusPopularityTransition(2));
+
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
+
                         break;
                     }
-                case "Hi. Would you like to provide some funds for my start-up business? We will pay you handsomely once things start to pick up.":
+                case "Hi.\nWould you like to provide some funds for my start-up business? We will pay you handsomely once things start to pick up.":
                     {
                         Debug.Log("3 No Investment");
                         GM.money -= Random.Range(5, 10);
                         GM.popularity -= Random.Range(3, 7);
 
+                        StartCoroutine(MinusMoneyTransition(2));
+                        StartCoroutine(MinusPopularityTransition(2));
+
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
+
                         break;
                     }
-                case "Hi, I am a representative of an Energy Company called Operate Clean Energy. We believe our proposal for a mutually beneficial partnership will revolutionize the way we harness and distribute energy. Would you like to invest in our company?":
+                case "Hi,\nI am a representative of an Energy Company called Operate Clean Energy. We believe our proposal for a mutually beneficial partnership will revolutionize the way we harness and distribute energy. Would you like to invest in our company?":
                     {
                         Debug.Log("4 No Investment");
                         GM.money -= Random.Range(7, 15);
                         GM.popularity -= Random.Range(4, 8);
 
+                        StartCoroutine(MinusMoneyTransition(2));
+                        StartCoroutine(MinusPopularityTransition(2));
+
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
+
                         break;
                     }
-                case "Hey there! I'm the developer of Among Us, and I could really use some financial support to help me develop this game! Would you help me?":
+                case "Hey there!\nI'm the developer of Among Us, and I could really use some financial support to help me develop this game! Would you help me?":
                     {
                         Debug.Log("5 No Investment");
                         GM.popularity -= Random.Range(3, 9);
                         GM.money -= Random.Range(5, 9);
 
+                        StartCoroutine(MinusMoneyTransition(2));
+                        StartCoroutine(MinusPopularityTransition(2));
+
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
+
                         break;
                     }
-                case "Hi! I would like to provide an upgrade of ads to your company! Do you want some traction for your ads?":
+                case "Hi!\nI would like to provide an upgrade of ads to your company! Do you want some traction for your ads?":
                     {
                         Debug.Log("6 No Investment");
                         GM.money -= Random.Range(4, 10);
                         GM.popularity -= Random.Range(5, 15);
 
+                        StartCoroutine(MinusMoneyTransition(2));
+                        StartCoroutine(MinusPopularityTransition(2));
+
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
+
                         break;
                     }
-                case "Hey there! Want to be the face of our awesome brand? We're hiring models to help us advertise - interested?":
+                case "Hey there!\nWant to be the face of our awesome brand? We're hiring models to help us advertise - interested?":
                     {
                         Debug.Log("7 No Investment");
                         GM.money -= Random.Range(5, 10);
                         GM.popularity -= Random.Range(4, 9);
 
+                        StartCoroutine(MinusMoneyTransition(2));
+                        StartCoroutine(MinusPopularityTransition(2));
+
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
+
                         break;
                     }
-                case "Hi! I am a representative of a clothing brand called Doo Nut, we would be thrilled to offer you a deal with our clothing brand - are you interested?":
+                case "Hi!\nI am a representative of a clothing brand called Doo Nut, we would be thrilled to offer you a deal with our clothing brand - are you interested?":
                     {
                         Debug.Log("8 No Investment");
                         GM.money -= Random.Range(5, 10);
                         GM.popularity -= Random.Range(3, 9);
 
+                        StartCoroutine(MinusMoneyTransition(2));
+                        StartCoroutine(MinusPopularityTransition(2));
+
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
+
                         break;
                     }
-                case "Hi, I would like to catch everyone's attention and spread your company's name by advertising it on a billboard! Are you interested?":
+                case "Hi,\nI would like to catch everyone's attention and spread your company's name by advertising it on a billboard! Are you interested?":
                     {
                         Debug.Log("9 No Investment");
                         GM.money -= Random.Range(5, 15);
                         GM.popularity -= Random.Range(5, 10);
 
+                        StartCoroutine(MinusMoneyTransition(2));
+                        StartCoroutine(MinusPopularityTransition(2));
+
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
+
                         break;
                     }
-                case "Hi, I would like to provide services to upgrade your company's office area, are you interested?":
+                case "Hi,\nI would like to provide services to upgrade your company's office area, are you interested?":
                     {
                         Debug.Log("10 No Investment");
                         GM.money -= Random.Range(5, 15);
                         GM.popularity -= Random.Range(4, 10);
 
+                        StartCoroutine(MinusMoneyTransition(2));
+                        StartCoroutine(MinusPopularityTransition(2));
+
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
+
                         break;
                     }
                 default:
@@ -561,5 +661,59 @@ public class Investment : MonoBehaviour
         GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
         GM.FunctionUpdates();
+    }
+
+    IEnumerator PlusHappinessTransition(float timer)
+    {
+        GM.plusHappiness.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.plusHappiness.SetActive(false);
+    }
+
+    IEnumerator PlusPopularityTransition(float timer)
+    {
+        GM.plusPopularity.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.plusPopularity.SetActive(false);
+    }
+
+    IEnumerator MinusMoneyTransition(float timer)
+    {
+        GM.minusMoney.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.minusMoney.SetActive(false);
+    }
+
+    IEnumerator MinusHappinessTransition(float timer)
+    {
+        GM.minusHappiness.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.minusHappiness.SetActive(false);
+    }
+
+    IEnumerator MinusPopularityTransition(float timer)
+    {
+        GM.minusPopularity.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.minusPopularity.SetActive(false);
+    }
+
+    IEnumerator PlusMoneyTransition(float timer)
+    {
+        GM.plusMoney.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.plusMoney.SetActive(false);
     }
 }

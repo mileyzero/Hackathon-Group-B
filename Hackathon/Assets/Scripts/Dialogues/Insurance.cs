@@ -124,13 +124,15 @@ public class Insurance : MonoBehaviour
 
             switch (DM.insuranceHealthLines[index])
             {
-                case "Good Morning Boss! Would you like to buy health insurance at a lower rate to keep your family and loved ones from unexpected medical expenses?":
+                case "Good Morning Boss!\nWould you like to buy health insurance at a lower rate to keep your family and loved ones from unexpected medical expenses?":
                     {
                         if(browserManager.healthInsurance != true)
                         {
                             Debug.Log("Bought Health Insurance");
                             GM.money -= 2;
                             browserManager.healthInsurance = true;
+
+                            StartCoroutine(MinusMoneyTransition(3));
 
                             browserManager.healthGreyed.SetActive(false);
                             browserManager.healthActive.SetActive(true);
@@ -177,5 +179,14 @@ public class Insurance : MonoBehaviour
         GM.snekGameButton.enabled = true;
         GM.slotGameButton.enabled = true;
         GM.FunctionUpdates();
+    }
+
+    IEnumerator MinusMoneyTransition(float timer)
+    {
+        GM.minusMoney.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.minusMoney.SetActive(false);
     }
 }

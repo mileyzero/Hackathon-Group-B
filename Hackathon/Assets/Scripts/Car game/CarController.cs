@@ -69,6 +69,7 @@ public class CarController : MonoBehaviour
                 {
                     timerrunning = false;
                     Win = true;
+
                     gmTime.StartCooldown();
                     StartCoroutine(TransitionToMain(1.5f));
                 }
@@ -76,8 +77,7 @@ public class CarController : MonoBehaviour
         }
 
         if(lose == true && Win ==false) //setting the lose screen
-        {
-
+        {    
             gmTime.StartCooldown();
             StartCoroutine(TransitionToMain(1.5f));
         }
@@ -109,6 +109,7 @@ public class CarController : MonoBehaviour
 
 
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
+        GameObject.FindGameObjectWithTag("cooldown").GetComponent<MiniGameTimer>().StartCooldown();
         SceneManager.LoadScene(0);
     }
 }

@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class MG_Car_Dialogue : MonoBehaviour
 {
+    //Reference script to mgTimer
+    public MiniGameTimer mgTimer;
+
     //Reference script to GM
     public GameManager GM;
 
@@ -141,12 +144,20 @@ public class MG_Car_Dialogue : MonoBehaviour
 
             switch (DM.miniGameCarLines[index])
             {
-                case "Hello Boss, there's a celebration at 7:30pm at a nearby hotel, it would be an honor for you to join us!":
+
+                case "Hello Boss,\nthere's a celebration at 7:30pm at a nearby hotel, it would be an honor for you to join us!":
                     {
-                        if (isCarGame == true)
+                        if(mgTimer.IsCooldownActive != true)
                         {
-                            Debug.Log(isCarGame);
-                            CarGameScenario();
+                            if (isCarGame == true)
+                            {
+                                Debug.Log(isCarGame);
+                                CarGameScenario();
+                            }
+                        }
+                        else
+                        {
+                            StartCoroutine(Cooldown(3));
                         }
 
                         break;
@@ -179,12 +190,11 @@ public class MG_Car_Dialogue : MonoBehaviour
 
             switch (DM.miniGameCarLines[index])
             {
-                case "Hello Boss, there's a celebration at 7:30pm at a nearby hotel, it would be an honor for you to join us!":
+                case "Hello Boss,\nthere's a celebration at 7:30pm at a nearby hotel, it would be an honor for you to join us!":
                     {
                         if(isCarGame == true)
                         {
                             Debug.Log("No Car Game");
-
                         }
 
                         break;
@@ -206,5 +216,16 @@ public class MG_Car_Dialogue : MonoBehaviour
         GM.FunctionUpdates();
 
         isCarGame = false;
+    }
+
+    IEnumerator Cooldown(float timer)
+    {
+        GM.cooldownBrowser.SetActive(true);
+        GM.cooldownNoti.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.cooldownNoti.SetActive(false);
+        GM.cooldownBrowser.SetActive(false);
     }
 }

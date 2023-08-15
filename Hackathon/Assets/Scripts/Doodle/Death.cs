@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Death : MonoBehaviour
 {
-    public MiniGameTimer mgTimer;
-
     public GameObject losescreen;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,6 +28,8 @@ public class Death : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
+        GameObject.FindGameObjectWithTag("cooldown").GetComponent<MiniGameTimer>().StartCooldown();
+
         SceneManager.LoadScene(0);
     }
 }

@@ -196,6 +196,8 @@ public class Golf_Ball : MonoBehaviour
         {
             lose_screen.SetActive(true);
 
+            GameObject.FindGameObjectWithTag("cooldown").GetComponent<MiniGameTimer>().StartCooldown();
+
             StartCoroutine(TransitionToMainGame(1.5f));
 
             Debug.Log("Lose");

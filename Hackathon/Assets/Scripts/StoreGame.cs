@@ -7,6 +7,7 @@ public class StoreGame : MonoBehaviour
     public GameObject _maingame;
     public GameManager gameManager;
     public Browser accidentinsurance;
+    public MiniGameTimer mgTimer;
 
     public float money;
     private void Update()

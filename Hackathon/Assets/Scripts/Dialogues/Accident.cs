@@ -123,7 +123,7 @@ public class Accident : MonoBehaviour
 
             switch (DM.accidentLines[index])
             {
-                case "Hi Boss, Bad news, one of our employees has gotten into an accident, would you like to provide them with financial assistance to cover their medical bills?":
+                case "Hi Boss,\nBad news, one of our employees has gotten into an accident, would you like to provide them with financial assistance to cover their medical bills?":
                     {
                         if(browserManager.accidentInsurance != true)
                         {
@@ -133,6 +133,10 @@ public class Accident : MonoBehaviour
                             GM.happiness += Random.Range(2, 5);
                             GM.popularity += Random.Range(2, 7);
 
+                            StartCoroutine(MinusMoneyTransition(3));
+
+                            StartCoroutine(PlusHappinessTransition(3));
+                            StartCoroutine(PlusPopularityTransition(3));
 
                             browserManager.accidentActive.SetActive(false);
                             browserManager.accidentGreyed.SetActive(true);
@@ -141,10 +145,13 @@ public class Accident : MonoBehaviour
                         {
                             GM.happiness += Random.Range(5, 10);
                             GM.popularity += Random.Range(5, 15);
+
+                            StartCoroutine(PlusHappinessTransition(3));
+                            StartCoroutine(PlusPopularityTransition(3));
                         }
                         break;
                     }
-                case "Good Morning Boss, One of our department head has recently got into an accident, would you please help out with the medical fees?":
+                case "Good Morning Boss,\nOne of our department head has recently got into an accident, would you please help out with the medical fees?":
                     {
                         if (browserManager.accidentInsurance != true)
                         {
@@ -154,6 +161,11 @@ public class Accident : MonoBehaviour
                             GM.happiness += Random.Range(2, 7);
                             GM.popularity += Random.Range(2, 8);
 
+                            StartCoroutine(MinusMoneyTransition(3));
+
+                            StartCoroutine(PlusHappinessTransition(3));
+                            StartCoroutine(PlusPopularityTransition(3));
+
                             browserManager.accidentActive.SetActive(false);
                             browserManager.accidentGreyed.SetActive(true);
                         }
@@ -161,10 +173,13 @@ public class Accident : MonoBehaviour
                         {
                             GM.happiness += Random.Range(5, 15);
                             GM.popularity += Random.Range(5, 17);
+
+                            StartCoroutine(PlusHappinessTransition(3));
+                            StartCoroutine(PlusPopularityTransition(3));
                         }
                         break;
                     }
-                case "Hi Boss, this is one of your employees from one of the departements, my family have been struggling with some financial stuff, can you help us?":
+                case "Hi Boss,\nthis is one of your employees from one of the departements, my family have been struggling with some financial stuff, can you help us?":
                     {
                         if (browserManager.accidentInsurance != true)
                         {
@@ -174,6 +189,11 @@ public class Accident : MonoBehaviour
                             GM.happiness += Random.Range(2, 7);
                             GM.popularity += Random.Range(2, 8);
 
+                            StartCoroutine(MinusMoneyTransition(3));
+
+                            StartCoroutine(PlusHappinessTransition(3));
+                            StartCoroutine(PlusPopularityTransition(3));
+
                             browserManager.accidentActive.SetActive(false);
                             browserManager.accidentGreyed.SetActive(true);
                         }
@@ -181,10 +201,13 @@ public class Accident : MonoBehaviour
                         {
                             GM.happiness += Random.Range(5, 15);
                             GM.popularity += Random.Range(5, 17);
+
+                            StartCoroutine(PlusHappinessTransition(3));
+                            StartCoroutine(PlusPopularityTransition(3));
                         }
                         break;
                     }
-                case "Hi Sir, I have submitted an accident bill for reimbursement, can I have an approval to proceed with the payment?":
+                case "Hi Sir,\nI have submitted an accident bill for reimbursement, can I have an approval to proceed with the payment?":
                     {
                         if (browserManager.accidentInsurance != true)
                         {
@@ -193,6 +216,11 @@ public class Accident : MonoBehaviour
 
                             GM.happiness += Random.Range(2, 7);
                             GM.popularity += Random.Range(2, 8);
+
+                            StartCoroutine(MinusMoneyTransition(3));
+
+                            StartCoroutine(PlusHappinessTransition(3));
+                            StartCoroutine(PlusPopularityTransition(3));
 
                             browserManager.accidentActive.SetActive(false);
                             browserManager.accidentGreyed.SetActive(true);
@@ -201,10 +229,13 @@ public class Accident : MonoBehaviour
                         {
                             GM.happiness += Random.Range(5, 15);
                             GM.popularity += Random.Range(5, 15);
+
+                            StartCoroutine(PlusHappinessTransition(3));
+                            StartCoroutine(PlusPopularityTransition(3));
                         }
                         break;
                     }
-                case "Boss, I appreciate your understanding in the matter, but I was wondering if the company could possibly cover the accident fees?":
+                case "Boss,\nI appreciate your understanding in the matter, but I was wondering if the company could possibly cover the accident fees?":
                     {
                         if (browserManager.accidentInsurance != true)
                         {
@@ -214,6 +245,11 @@ public class Accident : MonoBehaviour
                             GM.happiness += Random.Range(2, 7);
                             GM.popularity += Random.Range(2, 8);
 
+                            StartCoroutine(MinusMoneyTransition(3));
+
+                            StartCoroutine(PlusHappinessTransition(3));
+                            StartCoroutine(PlusPopularityTransition(3));
+
                             browserManager.accidentActive.SetActive(false);
                             browserManager.accidentGreyed.SetActive(true);
                         }
@@ -221,6 +257,9 @@ public class Accident : MonoBehaviour
                         {
                             GM.happiness += Random.Range(5, 15);
                             GM.popularity += Random.Range(5, 17);
+
+                            StartCoroutine(PlusHappinessTransition(3));
+                            StartCoroutine(PlusPopularityTransition(3));
                         }
                         break;
                     }
@@ -263,37 +302,50 @@ public class Accident : MonoBehaviour
 
             switch (DM.accidentLines[index])
             {
-                case "Hi Boss, Bad news, one of our employees has gotten into an accident, would you like to provide them with financial assistance to cover their medical bills?":
+                case "Hi Boss,\nBad news, one of our employees has gotten into an accident, would you like to provide them with financial assistance to cover their medical bills?":
                     {
                         Debug.Log("1 No Accident");
 
                         GM.happiness -= Random.Range(5, 15);
                         GM.popularity -= Random.Range(2, 5);
 
+                        StartCoroutine(MinusHappinessTransition(3));
+                        StartCoroutine(MinusPopularityTransition(3));
+
                         break;
                     }
-                case "Good Morning Boss, One of our department head has recently got into an accident, would you please help out with the medical fees?":
+                case "Good Morning Boss,\nOne of our department head has recently got into an accident, would you please help out with the medical fees?":
                     {
                         Debug.Log("2 No Accident");
 
                         GM.happiness -= Random.Range(5, 15);
                         GM.popularity -= Random.Range(2, 5);
 
+                        StartCoroutine(MinusHappinessTransition(3));
+                        StartCoroutine(MinusPopularityTransition(3));
+
                         break;
                     }
-                case "Hi Boss, this is one of your employees from one of the departements, my family have been struggling with some financial stuff, can you help us?":
+                case "Hi Boss,\nthis is one of your employees from one of the departements, my family have been struggling with some financial stuff, can you help us?":
                     {
                         Debug.Log("3 No Accident");
 
                         GM.happiness -= Random.Range(5, 15);
                         GM.popularity -= Random.Range(2, 5);
 
+                        StartCoroutine(MinusHappinessTransition(3));
+                        StartCoroutine(MinusPopularityTransition(3));
+
                         break;
                     }
-                case "Hi Sir, I have submitted an accident bill for reimbursement, can I have an approval to proceed with the payment?":
+                case "Hi Sir,\nI have submitted an accident bill for reimbursement, can I have an approval to proceed with the payment?":
                     {
                         GM.happiness -= Random.Range(5, 15);
                         GM.popularity -= Random.Range(5, 17);
+
+                        StartCoroutine(MinusHappinessTransition(3));
+                        StartCoroutine(MinusPopularityTransition(3));
+
                         break;
                     }
                 default:
@@ -315,5 +367,50 @@ public class Accident : MonoBehaviour
         GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
         GM.FunctionUpdates();
+    }
+
+    IEnumerator PlusHappinessTransition(float timer)
+    {
+        GM.plusHappiness.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.plusHappiness.SetActive(false);
+    }
+
+    IEnumerator PlusPopularityTransition(float timer)
+    {
+        GM.plusPopularity.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.plusPopularity.SetActive(false);
+    }
+
+    IEnumerator MinusMoneyTransition(float timer)
+    {
+        GM.minusMoney.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.minusMoney.SetActive(false);
+    }
+
+    IEnumerator MinusHappinessTransition(float timer)
+    {
+        GM.minusHappiness.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.minusHappiness.SetActive(false);
+    }
+
+    IEnumerator MinusPopularityTransition(float timer)
+    {
+        GM.minusPopularity.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.minusPopularity.SetActive(false);
     }
 }
