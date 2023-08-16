@@ -115,12 +115,7 @@ public class Manager : MonoBehaviour
 
     IEnumerator showstats()
     {
-        //player.SetActive(false);
-        //_money.text = "+ " + moneyCount.ToString();
-        //_popularity.text = "+ " + popularityCount.ToString();
-        //_happiness.text = "+ " + happinessCount.ToString();
-
-        
+        //animation to change the number after you win   
         for(int money = 0;  money <= moneyCount; money++)
         {
             if(_money.text == "+" + moneyCount.ToString())
@@ -163,9 +158,10 @@ public class Manager : MonoBehaviour
 
         }
 
-        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money += moneyCount;
-        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity += popularityCount;
-        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.happiness += happinessCount;
+        //increase the stats of the resources in the main game
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money += moneyCount * 3;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity += popularityCount * 3 ;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.happiness += happinessCount * 3;
 
         yield return new WaitForSeconds(2f);
 

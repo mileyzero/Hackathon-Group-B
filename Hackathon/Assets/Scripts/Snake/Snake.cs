@@ -68,6 +68,7 @@ public class Snake : MonoBehaviour
                 break;
 
             case State.Dead:
+                Die();
                 break;
         }
     }
