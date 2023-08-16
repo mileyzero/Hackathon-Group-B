@@ -122,6 +122,10 @@ public class Holiday : MonoBehaviour
         {
             int index = 0;
 
+            GM.currentMoney = GM.money;
+            GM.currentPopularity = GM.popularity;
+            GM.currentHappiness = GM.happiness;
+
             holidayScenario.SetActive(false);
 
             switch (DM.employeeLines[index])
@@ -129,74 +133,58 @@ public class Holiday : MonoBehaviour
                 case "Hey Boss!\nOne of your employees is having their birthday TODAY. Would you like to gift a present?":
                     {
                         Debug.Log("1 Yes Holiday");
-                        GM.happiness += Random.Range(3, 9);
-                        GM.money -= Random.Range(5, 10);
+                        GM.happiness += Random.Range(3f, 9f);
+                        GM.money -= Random.Range(5f, 10f);
 
                         StartCoroutine(PlusHappinessTransition(3));
                         StartCoroutine(MinusMoneyTransition(3));
-
-                        StartCoroutine(HappinessPlusBarAnimation(Random.Range(3, 9)));
-                        StartCoroutine(MoneyMinusBarAnimation(Random.Range(5, 10)));
 
                         break;
                     }
                 case "Good Morning Boss!\nOne of your senior employees would like to see you about a promotion. Would you like me to send them in to discuss his possible promotion?":
                     {
                         Debug.Log("2 Yes Holiday");
-                        GM.happiness += Random.Range(5, 7);
-                        GM.money -= Random.Range(2, 8);
+                        GM.happiness += Random.Range(5f, 7f);
+                        GM.money -= Random.Range(2f, 8f);
 
                         StartCoroutine(PlusHappinessTransition(3));
                         StartCoroutine(MinusMoneyTransition(3));
-
-                        StartCoroutine(HappinessPlusBarAnimation(Random.Range(5, 7)));
-                        StartCoroutine(MoneyMinusBarAnimation(Random.Range(2, 8)));
 
                         break;
                     }
                 case "Hi Boss!\nGood news, one of our employees has been working hard lately, as a token of appreciation, would you like to provide them with holiday money this year?":
                     {
                         Debug.Log("3 Yes Holiday");
-                        GM.happiness += Random.Range(4, 9);
-                        GM.money -= Random.Range(2, 6);
-                        GM.popularity += Random.Range(2, 6);
+                        GM.happiness += Random.Range(4f, 9f);
+                        GM.money -= Random.Range(2f, 6f);
+                        GM.popularity += Random.Range(2f, 6f);
 
                         StartCoroutine(PlusHappinessTransition(3));
                         StartCoroutine(PlusPopularityTransition(3));
 
                         StartCoroutine(MinusMoneyTransition(3));
 
-                        StartCoroutine(HappinessPlusBarAnimation(Random.Range(4, 9)));
-                        StartCoroutine(MoneyMinusBarAnimation(Random.Range(2, 6)));
-                        StartCoroutine(PopularityPlusBarAnimation(Random.Range(2, 6)));
-
                         break;
                     }
                 case "Good Morning Boss!\nIn regards for our employees' workspace, would you like to provide them financial assistance to upgrade?":
                     {
                         Debug.Log("4 Yes Holiday");
-                        GM.happiness += Random.Range(5, 15);
-                        GM.money -= Random.Range(3, 6);
+                        GM.happiness += Random.Range(5f, 15f);
+                        GM.money -= Random.Range(3f, 6f);
 
                         StartCoroutine(PlusHappinessTransition(3));
                         StartCoroutine(MinusMoneyTransition(3));
-
-                        StartCoroutine(HappinessPlusBarAnimation(Random.Range(5, 15)));
-                        StartCoroutine(MoneyMinusBarAnimation(Random.Range(3, 6)));
 
                         break;
                     }
                 case "Happy New Year Boss!\nWould you like to host a New Year Party for your employees?":
                     {
                         Debug.Log("5 Yes Holiday");
-                        GM.happiness += Random.Range(5, 10);
-                        GM.money -= Random.Range(4, 8);
+                        GM.happiness += Random.Range(5f, 10f);
+                        GM.money -= Random.Range(4f, 8f);
 
                         StartCoroutine(PlusHappinessTransition(3));
                         StartCoroutine(MinusMoneyTransition(3));
-
-                        StartCoroutine(HappinessPlusBarAnimation(Random.Range(5, 10)));
-                        StartCoroutine(MoneyMinusBarAnimation(Random.Range(4, 8)));
 
                         break;
                     }
@@ -211,7 +199,12 @@ public class Holiday : MonoBehaviour
             GM.moneySlider.value = GM.money;
             GM.popularitySlider.value = GM.popularity;
 
+            GM.StartCoroutine(GM.AnimateMoneySlider());
+            GM.StartCoroutine(GM.AnimatePopularitySlider());
+            GM.StartCoroutine(GM.AnimateHappinessSlider());
+
             index++;
+
 
             DestroyObject();
         }
@@ -228,6 +221,10 @@ public class Holiday : MonoBehaviour
         {
             int index = 0;
 
+            GM.currentMoney = GM.money;
+            GM.currentPopularity = GM.popularity;
+            GM.currentHappiness = GM.happiness;
+
             holidayScenario.SetActive(false);
 
             switch (DM.employeeLines[index])
@@ -235,83 +232,67 @@ public class Holiday : MonoBehaviour
                 case "Hey Boss!\nOne of your employees is having their birthday TODAY. Would you like to gift a present?":
                     {
                         Debug.Log("1 No Holiday");
-                        GM.happiness -= Random.Range(3, 9);
+                        GM.happiness -= Random.Range(3f, 9f);
 
                         StartCoroutine(MinusHappinessTransition(3));
-
-                        StartCoroutine(HappinessMinusBarAnimation(Random.Range(3, 9)));
 
                         break;
                     }
                 case "Good Morning Boss!\nOne of your senior employees would like to see you about a promotion. Would you like me to send them in to discuss his possible promotion?":
                     {
                         Debug.Log("2 No Holiday");
-                        GM.happiness -= Random.Range(5, 7);
+                        GM.happiness -= Random.Range(5f, 7f);
 
                         StartCoroutine(MinusHappinessTransition(3));
-
-                        StartCoroutine(HappinessMinusBarAnimation(Random.Range(5, 7)));
 
                         break;
                     }
                 case "Hi Boss,\nOne of our employees has reported sick, would you like to help out by paying for his/her medical fees?":
                     {
                         Debug.Log("3 No Holiday");
-                        GM.happiness -= Random.Range(5, 15);
+                        GM.happiness -= Random.Range(5f, 15f);
 
                         StartCoroutine(MinusHappinessTransition(3));
-
-                        StartCoroutine(HappinessMinusBarAnimation(Random.Range(5, 15)));
 
                         break;
                     }
                 case "Hi Boss!\nGood news, one of our employees has been working hard lately, as a token of appreciation, would you like to provide them with holiday money this year?":
                     {
                         Debug.Log("4 No Holiday");
-                        GM.happiness -= Random.Range(4, 9);
-                        GM.popularity -= Random.Range(2, 6);
+                        GM.happiness -= Random.Range(4f, 9f);
+                        GM.popularity -= Random.Range(2f, 6f);
 
                         StartCoroutine(MinusHappinessTransition(3));
                         StartCoroutine(MinusPopularityTransition(3));
-
-                        StartCoroutine(HappinessMinusBarAnimation(Random.Range(4, 9)));
-                        StartCoroutine(PopularityMinusBarAnimation(Random.Range(2, 6)));
 
                         break;
                     }
                 case "Hi Boss,\nBad news, one of our employees has gotten into an accident, would you like to provide them with financial assistance to cover their medical bills?":
                     {
                         Debug.Log("5 No Holiday");
-                        GM.happiness -= Random.Range(4, 8);
-                        GM.popularity -= Random.Range(5, 9);
+                        GM.happiness -= Random.Range(4f, 8f);
+                        GM.popularity -= Random.Range(5f, 9f);
 
                         StartCoroutine(MinusHappinessTransition(3));
                         StartCoroutine(MinusPopularityTransition(3));
-
-                        StartCoroutine(HappinessMinusBarAnimation(Random.Range(4, 8)));
-                        StartCoroutine(PopularityMinusBarAnimation(Random.Range(5, 9)));
 
                         break;
                     }
                 case "Good Morning Boss!\nIn regards for our employees' workspace, would you like to provide them financial assistance to upgrade?":
                     {
                         Debug.Log("6 No Holiday");
-                        GM.happiness -= Random.Range(5, 15);
+                        GM.happiness -= Random.Range(5f, 15f);
 
                         StartCoroutine(MinusHappinessTransition(3));
-
-                        StartCoroutine(HappinessMinusBarAnimation(Random.Range(5, 15)));
 
                         break;
                     }
                 case "Happy New Year Boss!\nwould you like to host a New Year Party for your employees?":
                     {
                         Debug.Log("7 No Holiday");
-                        GM.happiness -= Random.Range(5, 10);
+                        GM.happiness -= Random.Range(5f, 10f);
 
                         StartCoroutine(MinusHappinessTransition(3));
-
-                        StartCoroutine(HappinessMinusBarAnimation(Random.Range(5, 10)));
 
                         break;
                     }
@@ -326,6 +307,10 @@ public class Holiday : MonoBehaviour
             GM.moneySlider.value = GM.money;
             GM.popularitySlider.value = GM.popularity;
 
+            GM.StartCoroutine(GM.AnimateMoneySlider());
+            GM.StartCoroutine(GM.AnimatePopularitySlider());
+            GM.StartCoroutine(GM.AnimateHappinessSlider());
+
             index++;
 
             DestroyObject();
@@ -334,15 +319,6 @@ public class Holiday : MonoBehaviour
         GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
         GM.FunctionUpdates();
-    }
-
-    IEnumerator PlusMoneyTransition(float timer)
-    {
-        GM.plusMoney.SetActive(true);
-
-        yield return new WaitForSeconds(3);
-
-        GM.plusMoney.SetActive(false);
     }
 
     IEnumerator PlusHappinessTransition(float timer)
@@ -390,48 +366,4 @@ public class Holiday : MonoBehaviour
         GM.minusPopularity.SetActive(false);
     }
 
-    IEnumerator MoneyMinusBarAnimation(int increaseAmount)
-    {
-        for (int i = 0; i >= increaseAmount; i++)
-        {
-            GM.moneySlider.value += i;
-            yield return new WaitForSeconds(0.1f);
-        }
-    }
-
-    IEnumerator HappinessMinusBarAnimation(int increaseAmount)
-    {
-        for (int i = 0; i >= increaseAmount; i++)
-        {
-            GM.happinessSlider.value += i;
-            yield return new WaitForSeconds(0.1f);
-        }
-    }
-
-    IEnumerator PopularityMinusBarAnimation(int increaseAmount)
-    {
-        for (int i = 0; i >= increaseAmount; i++)
-        {
-            GM.popularitySlider.value += i;
-            yield return new WaitForSeconds(0.1f);
-        }
-    }
-
-    IEnumerator HappinessPlusBarAnimation(int increaseAmount)
-    {
-        for (int i = 0; i <= increaseAmount; i++)
-        {
-            GM.happinessSlider.value += i;
-            yield return new WaitForSeconds(0.1f);
-        }
-    }
-
-    IEnumerator PopularityPlusBarAnimation(int increaseAmount)
-    {
-        for (int i = 0; i <= increaseAmount; i++)
-        {
-            GM.popularitySlider.value += i;
-            yield return new WaitForSeconds(0.1f);
-        }
-    }
 }

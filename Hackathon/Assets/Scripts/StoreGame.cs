@@ -10,6 +10,7 @@ public class StoreGame : MonoBehaviour
     public MiniGameTimer mgTimer;
 
     public float money;
+
     private void Update()
     {
         money = gameManager.money;

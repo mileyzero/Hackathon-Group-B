@@ -118,6 +118,8 @@ public class InsuranceAccidentManager : MonoBehaviour
         {
             int index = 0;
 
+            GM.currentMoney = GM.money;
+
             insuranceAccidentScenario.SetActive(false);
 
             switch (DM.insuranceAccidentLines[index])
@@ -127,13 +129,11 @@ public class InsuranceAccidentManager : MonoBehaviour
                         if (browserManager.accidentInsurance != true)
                         {
                             Debug.Log("Bought Accident Insurance");
-                            GM.money -= 2;
+                            GM.money -= 2f;
                             browserManager.accidentInsurance = true;
                             Debug.Log(browserManager.accidentInsurance);
 
                             StartCoroutine(MinusMoneyTransition(3));
-
-                            StartCoroutine(MoneyMinusBarAnimation(2));
 
                             browserManager.accidentGreyed.SetActive(false);
                             browserManager.accidentActive.SetActive(true);
@@ -155,6 +155,8 @@ public class InsuranceAccidentManager : MonoBehaviour
             GM.happinessSlider.value = GM.happiness;
             GM.moneySlider.value = GM.money;
             GM.popularitySlider.value = GM.popularity;
+
+            GM.StartCoroutine(GM.AnimateMoneySlider());
 
             index++;
 
@@ -190,12 +192,4 @@ public class InsuranceAccidentManager : MonoBehaviour
         GM.minusMoney.SetActive(false);
     }
 
-    IEnumerator MoneyMinusBarAnimation(int increaseAmount)
-    {
-        for (int i = 0; i >= increaseAmount; i++)
-        {
-            GM.moneySlider.value += i;
-            yield return new WaitForSeconds(0.1f);
-        }
-    }
 }

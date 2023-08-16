@@ -498,6 +498,7 @@ MonoBehaviour:
   maxHappiness: 90
   maxMoney: 90
   maxPopularity: 90
+  randomInitialize: 0
   happiness: 0
   money: 0
   popularity: 0
@@ -505,8 +506,11 @@ MonoBehaviour:
   delayTimer: 3
   timer: 0
   loseTimeTipDuration: 0
-  randomInitialize: 0
   isRunning: 0
+  animationDur: 5
+  currentMoney: 0
+  currentHappiness: 0
+  currentPopularity: 0
 --- !u!4 &38225540
 Transform:
   m_ObjectHideFlags: 0

@@ -113,6 +113,8 @@ public class InsuranceInvestmentManager : MonoBehaviour
 
     public void YesClick()
     {
+        GM.currentMoney = GM.money;
+
         //if randomObject tag equals to "insurance"
         if (randomObject.tag == "insurance")
         {
@@ -127,12 +129,10 @@ public class InsuranceInvestmentManager : MonoBehaviour
                         if (browserManager.investmentInsurance != true)
                         {
                             Debug.Log("Bought Investment Insurance");
-                            GM.money -= 2;
+                            GM.money -= 2f;
                             browserManager.investmentInsurance = true;
 
                             StartCoroutine(MinusMoneyTransition(3));
-
-                            StartCoroutine(MoneyMinusBarAnimation(2));
 
                             browserManager.insuranceGreyed.SetActive(false);
                             browserManager.insuranceActive.SetActive(true);
@@ -154,6 +154,8 @@ public class InsuranceInvestmentManager : MonoBehaviour
             GM.happinessSlider.value = GM.happiness;
             GM.moneySlider.value = GM.money;
             GM.popularitySlider.value = GM.popularity;
+
+            GM.StartCoroutine(GM.AnimateMoneySlider());
 
             index++;
 
@@ -188,14 +190,5 @@ public class InsuranceInvestmentManager : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         GM.minusMoney.SetActive(false);
-    }
-
-    IEnumerator MoneyMinusBarAnimation(int increaseAmount)
-    {
-        for (int i = 0; i >= increaseAmount; i++)
-        {
-            GM.moneySlider.value += i;
-            yield return new WaitForSeconds(0.1f);
-        }
     }
 }
