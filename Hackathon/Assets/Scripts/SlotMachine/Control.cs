@@ -109,7 +109,7 @@ public class Control : MonoBehaviour
     public void QuitGame()
     {
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
-
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.moneySlider.value = GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money;
         SceneManager.LoadScene(0);
     }
 }

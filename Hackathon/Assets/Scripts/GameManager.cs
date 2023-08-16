@@ -110,9 +110,9 @@ public class GameManager : MonoBehaviour
     public AudioSource btnClick;
 
     //Float for maxHappiness, money and popularity
-    public int maxHappiness = 90;
-    public int maxMoney = 90;
-    public int maxPopularity = 90;
+    public float maxHappiness = 90;
+    public float maxMoney = 90;
+    public float maxPopularity = 90;
 
     //Int for randomInitialize
     public int randomInitialize;
@@ -132,6 +132,14 @@ public class GameManager : MonoBehaviour
 
     //Bool for isRunning
     public bool isRunning;
+
+    public float animationDur = 5f;
+
+    public float currentMoney;
+    public float currentHappiness;
+    public float currentPopularity;
+
+    private float elapsedTime = 0;
 
     //Bool for activating lose tips
     private bool hasActivatedLoseHappinessTip = false;
@@ -648,5 +656,59 @@ public class GameManager : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
+    }
+
+    public IEnumerator AnimateMoneySlider()
+    {
+        elapsedTime = 0;
+        Debug.Log(elapsedTime);
+
+        while (elapsedTime < animationDur)
+        {
+            elapsedTime += Time.deltaTime;
+            float normTime = Mathf.Clamp01(elapsedTime / animationDur);
+
+            moneySlider.value = Mathf.Lerp(currentMoney, money, normTime);
+
+            yield return null;
+        }
+
+        moneySlider.value = money;
+    }
+
+    public IEnumerator AnimatePopularitySlider()
+    {
+        elapsedTime = 0;
+        Debug.Log(elapsedTime);
+
+        while (elapsedTime < animationDur)
+        {
+            elapsedTime += Time.deltaTime;
+            float normTime = Mathf.Clamp01(elapsedTime / animationDur);
+
+            popularitySlider.value = Mathf.Lerp(currentPopularity, popularity, normTime);
+
+            yield return null;
+        }
+
+        popularitySlider.value = popularity;
+    }
+
+    public IEnumerator AnimateHappinessSlider()
+    {
+        elapsedTime = 0;
+        Debug.Log(elapsedTime);
+
+        while (elapsedTime < animationDur)
+        {
+            elapsedTime += Time.deltaTime;
+            float normTime = Mathf.Clamp01(elapsedTime / animationDur);
+
+            happinessSlider.value = Mathf.Lerp(currentHappiness, happiness, normTime);
+
+            yield return null;
+        }
+
+        happinessSlider.value = happiness;
     }
 }
