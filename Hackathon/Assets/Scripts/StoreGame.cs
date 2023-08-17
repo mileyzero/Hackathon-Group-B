@@ -13,10 +13,23 @@ public class StoreGame : MonoBehaviour
     public float popularity;
     public float happiness;
 
+    public float moneyslider;
+    public float popularityslider;
+    public float happinessslider;
+
     private void Update()
     {
         money = gameManager.money;
         popularity = gameManager.popularity;
         happiness = gameManager.happiness;
+
+        gameManager.moneySlider.value = money;
+        gameManager.popularitySlider.value = popularity;
+        gameManager.happinessSlider.value = happiness;
+
+        moneyslider = gameManager.moneySlider.value;
+        popularityslider = gameManager.popularitySlider.value;
+        happinessslider = gameManager.happinessSlider.value;
+
     }
 }
