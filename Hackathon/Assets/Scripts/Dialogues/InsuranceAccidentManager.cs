@@ -135,12 +135,15 @@ public class InsuranceAccidentManager : MonoBehaviour
 
                             StartCoroutine(MinusMoneyTransition(3));
 
+                            browserManager.accidentBtnDisabled.SetActive(true);
+
                             browserManager.accidentGreyed.SetActive(false);
                             browserManager.accidentActive.SetActive(true);
                         }
                         else
                         {
                             Debug.Log("You are already covered with accident insurance");
+                            browserManager.accidentBtnDisabled.SetActive(false);
                         }
 
                         break;

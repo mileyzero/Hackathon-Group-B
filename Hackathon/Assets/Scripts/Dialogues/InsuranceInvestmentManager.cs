@@ -134,12 +134,15 @@ public class InsuranceInvestmentManager : MonoBehaviour
 
                             StartCoroutine(MinusMoneyTransition(3));
 
+                            browserManager.investmentBtnDisabled.SetActive(true);
+
                             browserManager.insuranceGreyed.SetActive(false);
                             browserManager.insuranceActive.SetActive(true);
                         }
                         else
                         {
                             Debug.Log("You are already covered with Investment insurance");
+                            browserManager.investmentBtnDisabled.SetActive(false);
                         }
 
                         break;

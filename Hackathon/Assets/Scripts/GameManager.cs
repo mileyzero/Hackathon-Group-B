@@ -650,12 +650,18 @@ public class GameManager : MonoBehaviour
     public void PauseMenu()
     {
         pauseMenu.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void Resume()
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
+    }
+
+    public void QuitGame()
+    {
+        SceneManager.LoadScene("Main Menu");
     }
 
     public IEnumerator AnimateMoneySlider()
