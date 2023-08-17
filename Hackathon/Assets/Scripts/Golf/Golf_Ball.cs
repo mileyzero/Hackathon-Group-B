@@ -165,28 +165,55 @@ public class Golf_Ball : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) //check for collsion with hole
     {
-        if (collision.tag == "goal") CheckWinState();
-        else if (collision.tag == "golf_sand")
+        
+        if (collision.tag == "goal")
+        { CheckWinState(); }
+
+        else if (collision.CompareTag("golf_sand"))
         {
-            rb.drag += 2f;
+            rb.drag = 10f;
         }
-        else if (collision.tag == "ice")
+        else if (collision.CompareTag("ice"))
         {
-            rb.drag -= 2f;
+            rb.drag = 0.02f;
+        }
+
+        CheckCollectStats(collision);
+    }
+
+    public void CheckCollectStats(Collider2D collision)
+    {
+        if (collision.tag == "doodleHappy")
+        {
+            golf_manager.happycollected += 1;
+            Destroy(collision.gameObject);
+        }
+        else if (collision.tag == "doodleMoney")
+        {
+            golf_manager.moneycollected += 1;
+            Destroy(collision.gameObject);
+        }
+        else if (collision.tag == "doodlePopular")
+        {
+            golf_manager.popularitycollected += 1;
+            Destroy(collision.gameObject);
         }
     }
 
 
     private void OnTriggerStay2D(Collider2D collision) //checks when the ball is staying in the hole
     {
-        if (collision.tag == "goal") CheckWinState();
+        Debug.Log(collision.tag);
+        if (collision.tag == "goal")
+        { CheckWinState(); }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.tag == "ice" || collision.tag == "golf_sand")
+        //Debug.Log(collision.tag);
+        if(collision.CompareTag("ice")|| collision.CompareTag("golf_sand"))
         {
-            rb.drag = 0.9f;
+            rb.drag = drag;
         }
     }
 
@@ -235,6 +262,7 @@ public class Golf_Ball : MonoBehaviour
         rb.drag += 2.5f;
         yield return new WaitForSeconds(0.2f);
         gameObject.transform.localScale = new Vector2 (0.3f, 0.3f);
+        rb.drag = drag;
     }
 
     IEnumerator ballfly() //Coroutine to make the illusion that the ball is flying
