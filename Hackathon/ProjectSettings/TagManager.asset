@@ -34,6 +34,9 @@ TagManager:
   - Persistent
   - ice
   - cooldown
+  - golf_spawnpoints
+  - golf_ball
+  - golf_grass
   layers:
   - Default
   - TransparentFX

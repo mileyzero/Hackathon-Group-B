@@ -10,9 +10,13 @@ public class StoreGame : MonoBehaviour
     public MiniGameTimer mgTimer;
 
     public float money;
+    public float popularity;
+    public float happiness;
 
     private void Update()
     {
         money = gameManager.money;
+        popularity = gameManager.popularity;
+        happiness = gameManager.happiness;
     }
 }
