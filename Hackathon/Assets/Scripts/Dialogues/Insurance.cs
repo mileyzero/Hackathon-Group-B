@@ -136,12 +136,15 @@ public class Insurance : MonoBehaviour
 
                             StartCoroutine(MinusMoneyTransition(3));
 
+                            browserManager.healthBtnDisabled.SetActive(true);
+
                             browserManager.healthGreyed.SetActive(false);
                             browserManager.healthActive.SetActive(true);
                         }
                         else
                         {
                             Debug.Log("You are already covered with health insurance");
+                            browserManager.healthBtnDisabled.SetActive(false);
                         }
 
                         break;
