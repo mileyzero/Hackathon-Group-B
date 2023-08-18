@@ -9976,6 +9976,9 @@ MonoBehaviour:
   money: 0
   popularity: 0
   happiness: 0
+  moneyslider: 0
+  popularityslider: 0
+  happinessslider: 0
 --- !u!4 &652560842
 Transform:
   m_ObjectHideFlags: 0
