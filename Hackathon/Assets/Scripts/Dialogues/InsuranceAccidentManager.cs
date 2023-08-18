@@ -129,7 +129,7 @@ public class InsuranceAccidentManager : MonoBehaviour
                         if (browserManager.accidentInsurance != true)
                         {
                             Debug.Log("Bought Accident Insurance");
-                            GM.money -= 2f;
+                            GM.money -= 3f;
                             browserManager.accidentInsurance = true;
                             Debug.Log(browserManager.accidentInsurance);
 
@@ -178,8 +178,13 @@ public class InsuranceAccidentManager : MonoBehaviour
         {
             insuranceAccidentScenario.SetActive(false);
 
+            GM.money += 5f;
+
+            StartCoroutine(PlusMoneyTransition(3));
             DestroyObject();
         }
+
+        GM.StartCoroutine(GM.AnimateMoneySlider());
 
         GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
@@ -195,4 +200,12 @@ public class InsuranceAccidentManager : MonoBehaviour
         GM.minusMoney.SetActive(false);
     }
 
+    IEnumerator PlusMoneyTransition(float timer)
+    {
+        GM.plusMoney.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.plusMoney.SetActive(false);
+    }
 }

@@ -155,8 +155,8 @@ public class Investment : MonoBehaviour
                         if (browserManager.investmentInsurance != true)
                         {
                             Debug.Log("1 Scam");
-                            GM.money -= Random.Range(3f, 8f);
-                            GM.popularity -= Random.Range(5f, 7f);
+                            GM.money -= Random.Range(4f, 8f);
+                            GM.popularity -= Random.Range(4f, 8f);
 
                             StartCoroutine(MinusMoneyTransition(3));
                             StartCoroutine(MinusPopularityTransition(3));
@@ -171,10 +171,10 @@ public class Investment : MonoBehaviour
                         if(browserManager.investmentInsurance != true)
                         {
                             Debug.Log("2 Scam");
-                            GM.money -= Random.Range(5f, 9f);
-                            GM.popularity -= Random.Range(4f, 10f);
+                            GM.money -= Random.Range(4f, 8f);
+                            GM.popularity -= Random.Range(4f, 8f);
 
-                            StartCoroutine(MinusMoneyTransition(2));
+                            StartCoroutine(MinusMoneyTransition(3));
                             StartCoroutine(MinusPopularityTransition(3));
 
                             browserManager.insuranceActive.SetActive(false);
@@ -188,8 +188,8 @@ public class Investment : MonoBehaviour
                         if(browserManager.investmentInsurance != true)
                         {
                             Debug.Log("3 Scam");
-                            GM.money -= Random.Range(5f, 10f);
-                            GM.popularity -= Random.Range(3f, 7f);
+                            GM.money -= Random.Range(4f, 8f);
+                            GM.popularity -= Random.Range(4f, 8f);
 
                             StartCoroutine(MinusMoneyTransition(3));
                             StartCoroutine(MinusPopularityTransition(3));
@@ -204,7 +204,7 @@ public class Investment : MonoBehaviour
                         if (browserManager.investmentInsurance != true)
                         {
                             Debug.Log("4 Scam");
-                            GM.money -= Random.Range(7f, 15f);
+                            GM.money -= Random.Range(4f, 8f);
                             GM.popularity -= Random.Range(4f, 8f);
 
                             StartCoroutine(MinusMoneyTransition(3));
@@ -220,8 +220,8 @@ public class Investment : MonoBehaviour
                         if(browserManager.investmentInsurance != true)
                         {
                             Debug.Log("5 Scam");
-                            GM.money -= Random.Range(5f, 9f);
-                            GM.popularity -= Random.Range(3f, 6f);
+                            GM.money -= Random.Range(4f, 8f);
+                            GM.popularity -= Random.Range(4f, 8f);
 
                             StartCoroutine(MinusMoneyTransition(3));
                             StartCoroutine(MinusPopularityTransition(3));
@@ -236,8 +236,8 @@ public class Investment : MonoBehaviour
                         if(browserManager.investmentInsurance != true)
                         {
                             Debug.Log("6 Scam");
-                            GM.money -= Random.Range(5f, 15f);
-                            GM.popularity -= Random.Range(4f, 9f);
+                            GM.money -= Random.Range(4f, 8f);
+                            GM.popularity -= Random.Range(4f, 8f);
 
                             StartCoroutine(MinusMoneyTransition(3));
                             StartCoroutine(MinusPopularityTransition(3));
@@ -252,8 +252,8 @@ public class Investment : MonoBehaviour
                         if(browserManager.investmentInsurance != true)
                         {
                             Debug.Log("7 Scam");
-                            GM.money -= Random.Range(5f, 15f);
-                            GM.popularity -= Random.Range(4f, 9f);
+                            GM.money -= Random.Range(5f, 10f);
+                            GM.popularity -= Random.Range(4f, 8f);
 
                             StartCoroutine(MinusMoneyTransition(3));
                             StartCoroutine(MinusPopularityTransition(3));
@@ -269,7 +269,7 @@ public class Investment : MonoBehaviour
                         {
                             Debug.Log("8 Scam");
                             GM.money -= Random.Range(5f, 10f);
-                            GM.popularity -= Random.Range(3f, 9f);
+                            GM.popularity -= Random.Range(4f, 8f);
 
                             StartCoroutine(MinusMoneyTransition(3));
                             StartCoroutine(MinusPopularityTransition(3));
@@ -284,8 +284,8 @@ public class Investment : MonoBehaviour
                         if(browserManager.investmentInsurance != true)
                         {
                             Debug.Log("9 Scam");
-                            GM.money -= Random.Range(5f, 15f);
-                            GM.popularity -= Random.Range(5f, 10f);
+                            GM.money -= Random.Range(5f, 10f);
+                            GM.popularity -= Random.Range(4f, 8f);
 
                             StartCoroutine(MinusMoneyTransition(3));
                             StartCoroutine(MinusPopularityTransition(3));
@@ -300,8 +300,8 @@ public class Investment : MonoBehaviour
                         if(browserManager.investmentInsurance != true)
                         {
                             Debug.Log("10 Scam");
-                            GM.money -= Random.Range(5f, 15f);
-                            GM.popularity -= Random.Range(4f, 10f);
+                            GM.money -= Random.Range(5f, 10f);
+                            GM.popularity -= Random.Range(5f, 10f);
 
                             StartCoroutine(MinusMoneyTransition(3));
                             StartCoroutine(MinusPopularityTransition(3));
@@ -321,6 +321,10 @@ public class Investment : MonoBehaviour
             GM.happinessSlider.value = GM.happiness;
             GM.moneySlider.value = GM.money;
             GM.popularitySlider.value = GM.popularity;
+
+            GM.StartCoroutine(GM.AnimateMoneySlider());
+            GM.StartCoroutine(GM.AnimatePopularitySlider());
+            GM.StartCoroutine(GM.AnimateHappinessSlider());
 
             index++;
 
@@ -348,8 +352,8 @@ public class Investment : MonoBehaviour
                 case "Hi Boss!\nOur accountants have noticed that we have a surplus in capital. They suggested that you expand the business and offices. Would you like to follow through?":
                     {
                         Debug.Log("1 Investment");
-                        GM.money += Random.Range(3f, 8f);
-                        GM.popularity += Random.Range(5f, 7f);
+                        GM.money += Random.Range(5f, 10f);
+                        GM.popularity += Random.Range(5f, 10f);
 
                         StartCoroutine(PlusMoneyTransition(3));
                         StartCoroutine(PlusPopularityTransition(3));
@@ -359,8 +363,8 @@ public class Investment : MonoBehaviour
                 case "Hey Pal!\nHeard your business has been thriving. I'm writing to ask you whether you would like to invest in one business project. You will receive a good margin of the profits!":
                     {
                         Debug.Log("2 Investment");
-                        GM.money += Random.Range(5f, 9f);
-                        GM.popularity += Random.Range(4f, 10f);
+                        GM.money += Random.Range(5f, 10f);
+                        GM.popularity += Random.Range(5f, 10f);
 
                         StartCoroutine(PlusMoneyTransition(3));
                         StartCoroutine(PlusPopularityTransition(3));
@@ -371,7 +375,7 @@ public class Investment : MonoBehaviour
                     {
                         Debug.Log("3 Investment");
                         GM.money += Random.Range(5f, 10f);
-                        GM.popularity += Random.Range(3f, 7f);
+                        GM.popularity += Random.Range(5f, 10f);
 
                         StartCoroutine(PlusMoneyTransition(3));
                         StartCoroutine(PlusPopularityTransition(3));
@@ -381,8 +385,8 @@ public class Investment : MonoBehaviour
                 case "Hi,\nI am a representative of an Energy Company called Operate Clean Energy. We believe our proposal for a mutually beneficial partnership will revolutionize the way we harness and distribute energy. Would you like to invest in our company?":
                     {
                         Debug.Log("4 Investment");
-                        GM.money += Random.Range(7f, 15f);
-                        GM.popularity += Random.Range(4f, 8f);
+                        GM.money += Random.Range(5f, 15f);
+                        GM.popularity += Random.Range(5f, 10f);
 
                         StartCoroutine(PlusMoneyTransition(3));
                         StartCoroutine(PlusPopularityTransition(3));
@@ -392,8 +396,8 @@ public class Investment : MonoBehaviour
                 case "Hey there!\nI'm the developer of Among Us, and I could really use some financial support to help me develop this game! Would you help me?":
                     {
                         Debug.Log("5 Investment");
-                        GM.money += Random.Range(5f, 9f);
-                        GM.popularity += Random.Range(3f, 6f);
+                        GM.money += Random.Range(5f, 10f);
+                        GM.popularity += Random.Range(5f, 10f);
 
                         StartCoroutine(PlusMoneyTransition(3));
                         StartCoroutine(PlusPopularityTransition(3));
@@ -403,7 +407,7 @@ public class Investment : MonoBehaviour
                 case "Hi!\nI would like to provide an upgrade of ads to your company! Do you want some traction for your ads?":
                     {
                         Debug.Log("6 Investment");
-                        GM.money += Random.Range(4f, 10f);
+                        GM.money += Random.Range(5f, 10f);
                         GM.popularity += Random.Range(5f, 15f);
 
                         StartCoroutine(PlusMoneyTransition(3));
@@ -415,7 +419,7 @@ public class Investment : MonoBehaviour
                     {
                         Debug.Log("7 Investment");
                         GM.money += Random.Range(5f, 10f);
-                        GM.popularity += Random.Range(4f, 9f);
+                        GM.popularity += Random.Range(5f, 10f);
 
                         StartCoroutine(PlusMoneyTransition(3));
                         StartCoroutine(PlusPopularityTransition(3));
@@ -426,7 +430,7 @@ public class Investment : MonoBehaviour
                     {
                         Debug.Log("8 Investment");
                         GM.money += Random.Range(5f, 10f);
-                        GM.popularity += Random.Range(3f, 9f);
+                        GM.popularity += Random.Range(5f, 10f);
 
                         StartCoroutine(MinusMoneyTransition(3));
                         StartCoroutine(PlusPopularityTransition(3));
@@ -448,7 +452,7 @@ public class Investment : MonoBehaviour
                     {
                         Debug.Log("10 Investment");
                         GM.money += Random.Range(5f, 15f);
-                        GM.popularity += Random.Range(4f, 10f);
+                        GM.popularity += Random.Range(5f, 10f);
 
                         StartCoroutine(PlusMoneyTransition(3));
                         StartCoroutine(PlusPopularityTransition(3));
@@ -514,11 +518,11 @@ public class Investment : MonoBehaviour
                 case "Hi Boss!\nOur accountants have noticed that we have a surplus in capital. They suggested that you expand the business and offices. Would you like to follow through?":
                     {
                         Debug.Log("1 No Investment");
-                        GM.money -= Random.Range(3f, 8f);
-                        GM.popularity -= Random.Range(5f, 7f);
+                        GM.money -= Random.Range(4f, 8f);
+                        GM.popularity -= Random.Range(4f, 8f);
 
-                        StartCoroutine(MinusMoneyTransition(2));
-                        StartCoroutine(MinusPopularityTransition(2));
+                        StartCoroutine(MinusMoneyTransition(3));
+                        StartCoroutine(MinusPopularityTransition(3));
 
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
@@ -528,11 +532,11 @@ public class Investment : MonoBehaviour
                 case "Hey Pal!\nHeard your business has been thriving. I'm writing to ask you whether you would like to invest in one business project. You will receive a good margin of the profits!":
                     {
                         Debug.Log("2 No Investment");
-                        GM.money -= Random.Range(5f, 9f);
-                        GM.popularity -= Random.Range(4f, 10f);
+                        GM.money -= Random.Range(4f, 8f);
+                        GM.popularity -= Random.Range(4f, 8f);
 
-                        StartCoroutine(MinusMoneyTransition(2));
-                        StartCoroutine(MinusPopularityTransition(2));
+                        StartCoroutine(MinusMoneyTransition(3));
+                        StartCoroutine(MinusPopularityTransition(3));
 
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
@@ -542,11 +546,11 @@ public class Investment : MonoBehaviour
                 case "Hi.\nWould you like to provide some funds for my start-up business? We will pay you handsomely once things start to pick up.":
                     {
                         Debug.Log("3 No Investment");
-                        GM.money -= Random.Range(5f, 10f);
-                        GM.popularity -= Random.Range(3f, 7f);
+                        GM.money -= Random.Range(4f, 8f);
+                        GM.popularity -= Random.Range(4f, 8f);
 
-                        StartCoroutine(MinusMoneyTransition(2));
-                        StartCoroutine(MinusPopularityTransition(2));
+                        StartCoroutine(MinusMoneyTransition(3));
+                        StartCoroutine(MinusPopularityTransition(3));
 
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
@@ -556,11 +560,11 @@ public class Investment : MonoBehaviour
                 case "Hi,\nI am a representative of an Energy Company called Operate Clean Energy. We believe our proposal for a mutually beneficial partnership will revolutionize the way we harness and distribute energy. Would you like to invest in our company?":
                     {
                         Debug.Log("4 No Investment");
-                        GM.money -= Random.Range(7f, 15f);
+                        GM.money -= Random.Range(4f, 8f);
                         GM.popularity -= Random.Range(4f, 8f);
 
-                        StartCoroutine(MinusMoneyTransition(2));
-                        StartCoroutine(MinusPopularityTransition(2));
+                        StartCoroutine(MinusMoneyTransition(3));
+                        StartCoroutine(MinusPopularityTransition(3));
 
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
@@ -570,11 +574,11 @@ public class Investment : MonoBehaviour
                 case "Hey there!\nI'm the developer of Among Us, and I could really use some financial support to help me develop this game! Would you help me?":
                     {
                         Debug.Log("5 No Investment");
-                        GM.popularity -= Random.Range(3f, 9f);
-                        GM.money -= Random.Range(5f, 9f);
+                        GM.popularity -= Random.Range(4f, 8f);
+                        GM.money -= Random.Range(4f, 8f);
 
-                        StartCoroutine(MinusMoneyTransition(2));
-                        StartCoroutine(MinusPopularityTransition(2));
+                        StartCoroutine(MinusMoneyTransition(3));
+                        StartCoroutine(MinusPopularityTransition(3));
 
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
@@ -584,11 +588,11 @@ public class Investment : MonoBehaviour
                 case "Hi!\nI would like to provide an upgrade of ads to your company! Do you want some traction for your ads?":
                     {
                         Debug.Log("6 No Investment");
-                        GM.money -= Random.Range(4f, 10f);
-                        GM.popularity -= Random.Range(5f, 15f);
+                        GM.money -= Random.Range(4f, 8f);
+                        GM.popularity -= Random.Range(4f, 8f);
 
-                        StartCoroutine(MinusMoneyTransition(2));
-                        StartCoroutine(MinusPopularityTransition(2));
+                        StartCoroutine(MinusMoneyTransition(3));
+                        StartCoroutine(MinusPopularityTransition(3));
 
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
@@ -598,11 +602,11 @@ public class Investment : MonoBehaviour
                 case "Hey there!\nWant to be the face of our awesome brand? We're hiring models to help us advertise - interested?":
                     {
                         Debug.Log("7 No Investment");
-                        GM.money -= Random.Range(5f, 10f);
-                        GM.popularity -= Random.Range(4f, 9f);
+                        GM.money -= Random.Range(4f, 8f);
+                        GM.popularity -= Random.Range(4f, 8f);
 
-                        StartCoroutine(MinusMoneyTransition(2));
-                        StartCoroutine(MinusPopularityTransition(2));
+                        StartCoroutine(MinusMoneyTransition(3));
+                        StartCoroutine(MinusPopularityTransition(3));
 
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
@@ -612,11 +616,11 @@ public class Investment : MonoBehaviour
                 case "Hi!\nI am a representative of a clothing brand called Doo Nut, we would be thrilled to offer you a deal with our clothing brand - are you interested?":
                     {
                         Debug.Log("8 No Investment");
-                        GM.money -= Random.Range(5f, 10f);
-                        GM.popularity -= Random.Range(3f, 9f);
+                        GM.money -= Random.Range(4f, 8f);
+                        GM.popularity -= Random.Range(4f, 8f);
 
-                        StartCoroutine(MinusMoneyTransition(2));
-                        StartCoroutine(MinusPopularityTransition(2));
+                        StartCoroutine(MinusMoneyTransition(3));
+                        StartCoroutine(MinusPopularityTransition(3));
 
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
@@ -626,11 +630,11 @@ public class Investment : MonoBehaviour
                 case "Hi,\nI would like to catch everyone's attention and spread your company's name by advertising it on a billboard! Are you interested?":
                     {
                         Debug.Log("9 No Investment");
-                        GM.money -= Random.Range(5f, 15f);
-                        GM.popularity -= Random.Range(5f, 10f);
+                        GM.money -= Random.Range(4f, 8f);
+                        GM.popularity -= Random.Range(4f, 8f);
 
-                        StartCoroutine(MinusMoneyTransition(2));
-                        StartCoroutine(MinusPopularityTransition(2));
+                        StartCoroutine(MinusMoneyTransition(3));
+                        StartCoroutine(MinusPopularityTransition(3));
 
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;
@@ -640,11 +644,11 @@ public class Investment : MonoBehaviour
                 case "Hi,\nI would like to provide services to upgrade your company's office area, are you interested?":
                     {
                         Debug.Log("10 No Investment");
-                        GM.money -= Random.Range(5f, 15f);
-                        GM.popularity -= Random.Range(4f, 10f);
+                        GM.money -= Random.Range(4f, 8f);
+                        GM.popularity -= Random.Range(4f, 8f);
 
-                        StartCoroutine(MinusMoneyTransition(2));
-                        StartCoroutine(MinusPopularityTransition(2));
+                        StartCoroutine(MinusMoneyTransition(3));
+                        StartCoroutine(MinusPopularityTransition(3));
 
                         GM.moneySlider.value += GM.money;
                         GM.popularitySlider.value += GM.popularity;

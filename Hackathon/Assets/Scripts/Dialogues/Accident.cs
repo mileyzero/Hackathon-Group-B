@@ -137,7 +137,7 @@ public class Accident : MonoBehaviour
                         if(browserManager.accidentInsurance != true)
                         {
                             Debug.Log("1 Yes Accident");
-                            GM.money -= Random.Range(8f, 15f);
+                            GM.money -= Random.Range(5f, 10f);
                             GM.happiness += Random.Range(5f, 10f);
                             GM.popularity += Random.Range(5f, 10f);
 
@@ -165,7 +165,7 @@ public class Accident : MonoBehaviour
                         if (browserManager.accidentInsurance != true)
                         {
                             Debug.Log("2 Yes Accident");
-                            GM.money -= Random.Range(8f, 15f);
+                            GM.money -= Random.Range(5f, 10f);
 
                             GM.happiness += Random.Range(5f, 10f);
                             GM.popularity += Random.Range(5f, 10f);
@@ -194,7 +194,7 @@ public class Accident : MonoBehaviour
                         if (browserManager.accidentInsurance != true)
                         {
                             Debug.Log("3 Yes Accident");
-                            GM.money -= Random.Range(8f, 15f);
+                            GM.money -= Random.Range(5f, 10f);
 
                             GM.happiness += Random.Range(5f, 10f);
                             GM.popularity += Random.Range(5f, 10f);
@@ -223,7 +223,7 @@ public class Accident : MonoBehaviour
                         if (browserManager.accidentInsurance != true)
                         {
                             Debug.Log("4 Yes Accident");
-                            GM.money -= Random.Range(8f, 15f);
+                            GM.money -= Random.Range(5f, 10f);
 
                             GM.happiness += Random.Range(5f, 10f);
                             GM.popularity += Random.Range(5f, 10f);
@@ -252,7 +252,7 @@ public class Accident : MonoBehaviour
                         if (browserManager.accidentInsurance != true)
                         {
                             Debug.Log("4 Yes Accident");
-                            GM.money -= Random.Range(8f, 15f);
+                            GM.money -= Random.Range(5f, 10f);
 
                             GM.happiness += Random.Range(5f, 10f);
                             GM.popularity += Random.Range(5f, 10f);
@@ -326,8 +326,12 @@ public class Accident : MonoBehaviour
                     {
                         Debug.Log("1 No Accident");
 
-                        GM.happiness -= Random.Range(5f, 15f);
-                        GM.popularity -= Random.Range(5f, 10f);
+                        GM.money += 3f;
+
+                        GM.happiness -= Random.Range(4f, 8f);
+                        GM.popularity -= Random.Range(4f, 8f);
+
+                        StartCoroutine(PlusMoneyTransition(3));
 
                         StartCoroutine(MinusHappinessTransition(3));
                         StartCoroutine(MinusPopularityTransition(3));
@@ -338,8 +342,12 @@ public class Accident : MonoBehaviour
                     {
                         Debug.Log("2 No Accident");
 
-                        GM.happiness -= Random.Range(5f, 15f);
-                        GM.popularity -= Random.Range(5f, 10f);
+                        GM.money += 3f;
+
+                        GM.happiness -= Random.Range(4f, 8f);
+                        GM.popularity -= Random.Range(4f, 8f);
+
+                        StartCoroutine(PlusMoneyTransition(3));
 
                         StartCoroutine(MinusHappinessTransition(3));
                         StartCoroutine(MinusPopularityTransition(3));
@@ -350,8 +358,12 @@ public class Accident : MonoBehaviour
                     {
                         Debug.Log("3 No Accident");
 
-                        GM.happiness -= Random.Range(5f, 15f);
-                        GM.popularity -= Random.Range(5f, 10f);
+                        GM.money += 3f;
+
+                        GM.happiness -= Random.Range(4f, 8f);
+                        GM.popularity -= Random.Range(4f, 8f);
+
+                        StartCoroutine(PlusMoneyTransition(3));
 
                         StartCoroutine(MinusHappinessTransition(3));
                         StartCoroutine(MinusPopularityTransition(3));
@@ -360,8 +372,12 @@ public class Accident : MonoBehaviour
                     }
                 case "Hi Sir,\nI have submitted an accident bill for reimbursement, can I have an approval to proceed with the payment?":
                     {
-                        GM.happiness -= Random.Range(5f, 15f);
-                        GM.popularity -= Random.Range(5f, 17f);
+                        GM.money += 3f;
+
+                        GM.happiness -= Random.Range(4f, 8f);
+                        GM.popularity -= Random.Range(4f, 8f);
+
+                        StartCoroutine(PlusMoneyTransition(3));
 
                         StartCoroutine(MinusHappinessTransition(3));
                         StartCoroutine(MinusPopularityTransition(3));
@@ -418,6 +434,15 @@ public class Accident : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         GM.minusMoney.SetActive(false);
+    }
+
+    IEnumerator PlusMoneyTransition(float timer)
+    {
+        GM.plusMoney.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.plusMoney.SetActive(false);
     }
 
     IEnumerator MinusHappinessTransition(float timer)
