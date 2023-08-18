@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class CarController : MonoBehaviour
 {
+    private Car_Collect stats;
+
     public MiniGameTimer gmTime;
 
     public float carSpeed;
@@ -26,6 +29,10 @@ public class CarController : MonoBehaviour
     public bool lose = false;
     public bool Win = false;
 
+    public TextMeshProUGUI moneytext;
+    public TextMeshProUGUI populartext;
+    public TextMeshProUGUI happytext;
+
     void Start()
     {
         carPosition = transform.position;
@@ -34,6 +41,7 @@ public class CarController : MonoBehaviour
         panel.SetActive(true);
         spawner.SetActive(false);
         timer_bar.SetActive(false);
+        stats = GetComponent<Car_Collect>();
     }
 
     //this function will act as click to start for the game
@@ -69,6 +77,7 @@ public class CarController : MonoBehaviour
                 {
                     timerrunning = false;
                     Win = true;
+                    StartCoroutine(showstats());
 
                     gmTime.StartCooldown();
                     StartCoroutine(TransitionToMain(1.5f));
@@ -83,11 +92,58 @@ public class CarController : MonoBehaviour
         }
     }
 
-    IEnumerator TransitionToMain(float timer)
+    IEnumerator showstats()
     {
-        
-        
+        //animation to change the number after you win   
+        for (int money = 0; money <= stats.moneyCollected; money++)
+        {
+            if (moneytext.text == "+" + stats.moneyCollected.ToString())
+            {
+                break;
+            }
+            else
+            {
+                moneytext.text = "+" + money.ToString();
+                yield return new WaitForSeconds(0.2f);
+            }
 
+        }
+
+        for (int popularity = 0; popularity <= stats.popularCollected; popularity++)
+        {
+            if (populartext.text == "+" + stats.popularCollected.ToString())
+            {
+                break;
+            }
+            else
+            {
+                populartext.text = "+" + popularity.ToString();
+                yield return new WaitForSeconds(0.2f);
+            }
+
+        }
+
+        for (int happy = 0; happy <= stats.happyCollected; happy++)
+        {
+            if (happytext.text == "+" + stats.happyCollected.ToString())
+            {
+                break;
+            }
+            else
+            {
+                happytext.text = "+" + happy.ToString();
+                yield return new WaitForSeconds(0.2f);
+            }
+
+        }
+
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money += stats.moneyCollected;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity += stats.popularCollected;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.happiness += stats.happyCollected;
+    }
+
+        IEnumerator TransitionToMain(float timer)
+         {
         if(lose)
         {
             lose_scn.SetActive(true);

@@ -8,7 +8,7 @@ public class DestroyCone : MonoBehaviour
     //this will destroy the obstacles when they enter the destroyer
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "cone")
+        if(collision.tag == "cone" || collision.gameObject.tag == "doodleMoney" || collision.gameObject.tag == "doodlePopular" || collision.gameObject.tag == "doodleHappy")
         {
             Destroy(collision.gameObject);
         }

@@ -11,6 +11,7 @@ public class Manager : MonoBehaviour
     public GameObject bounceplatform;
     public GameObject breakplatform;
     public GameObject player;
+    public GameObject pauseMenu;
 
     public BoxCollider2D capsule;
     public CircleCollider2D circle;
@@ -36,6 +37,7 @@ public class Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        pauseMenu.SetActive(false);
         spawnposition = new Vector3();
 
         platformCount = Random.Range(platformCount, platformCount+10);
@@ -111,6 +113,18 @@ public class Manager : MonoBehaviour
     public void DisplayStats()
     {
         StartCoroutine(showstats());
+    }
+
+    public void PauseMenu()
+    {
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void Resume()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
     }
 
     IEnumerator showstats()

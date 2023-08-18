@@ -10,6 +10,7 @@ public class Golf_Ball : MonoBehaviour
 {
     // Start is called before the first frame update
     private GameObject hole;
+    public Camera maincamera;
 
     private bool isDragging;
     
@@ -20,6 +21,7 @@ public class Golf_Ball : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private TilemapCollider2D sand;
     [SerializeField] private TilemapCollider2D ice;
+    [SerializeField] private TilemapCollider2D log;
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private float maxPower = 10f;
     [SerializeField] private float power = 2f;
@@ -115,6 +117,19 @@ public class Golf_Ball : MonoBehaviour
         lineRenderer.SetPosition(1, (Vector2)transform.position + Vector2.ClampMagnitude((dir * power) / 2, maxPower / 2));
         transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle + 90f));
         float distance = Vector2.Distance((Vector2)transform.position, pos);
+        if(distance > 3.5 )
+        {
+            if(distance > 7)
+            {
+                maincamera.orthographicSize = 7;
+            }
+            else
+            {
+                maincamera.orthographicSize = distance;
+            }
+
+        }
+
         if(distance > 4.5f)
         {
             lineRenderer.startColor = Color.red;
@@ -127,6 +142,7 @@ public class Golf_Ball : MonoBehaviour
     
     private void DragRelease(Vector2 pos) //calculates distance between mouse and ball then adds velocity to the ball in the opposite direction of the drag
     {
+        maincamera.orthographicSize = 3.5f;
         ball_released = true;
         transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle + 90f));
         animator.SetTrigger("isHit");
@@ -270,6 +286,7 @@ public class Golf_Ball : MonoBehaviour
         //disable the sand the hole's colliders to prevent the ball from interacting with them
         sand.enabled = false;
         ice.enabled = false;
+        log.enabled = false;
         hole.GetComponent<CircleCollider2D>().enabled = false;
         for (int i = 0; i < 15; i++) //for loop to gradually increase size of ball
         {
@@ -286,6 +303,7 @@ public class Golf_Ball : MonoBehaviour
         //the sand and the hole's colliders are enabled again so the ball can interact with them
         sand.enabled = true; 
         ice.enabled = true;
+        
         hole.GetComponent<CircleCollider2D>().enabled = true;
         for (float i = 0.15f; i >= 0.1;i-=0.05f) //last for loop to increase and decrease the ball's size to create the illusion of ball bouncing
         {
@@ -293,6 +311,6 @@ public class Golf_Ball : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
             gameObject.transform.localScale = new Vector2(gameObject.transform.localScale.x - i, gameObject.transform.localScale.y - i);
         }
-        
+        log.enabled = true;
     }
 }
