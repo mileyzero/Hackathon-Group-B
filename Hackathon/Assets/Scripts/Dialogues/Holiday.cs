@@ -133,7 +133,7 @@ public class Holiday : MonoBehaviour
                 case "Hey Boss!\nOne of your employees is having their birthday TODAY. Would you like to gift a present?":
                     {
                         Debug.Log("1 Yes Holiday");
-                        GM.happiness += Random.Range(3f, 9f);
+                        GM.happiness += Random.Range(5f, 10f);
                         GM.money -= Random.Range(5f, 10f);
 
                         StartCoroutine(PlusHappinessTransition(3));
@@ -144,8 +144,8 @@ public class Holiday : MonoBehaviour
                 case "Good Morning Boss!\nOne of your senior employees would like to see you about a promotion. Would you like me to send them in to discuss his possible promotion?":
                     {
                         Debug.Log("2 Yes Holiday");
-                        GM.happiness += Random.Range(5f, 7f);
-                        GM.money -= Random.Range(2f, 8f);
+                        GM.happiness += Random.Range(5f, 10f);
+                        GM.money -= Random.Range(4f, 8f);
 
                         StartCoroutine(PlusHappinessTransition(3));
                         StartCoroutine(MinusMoneyTransition(3));
@@ -155,9 +155,9 @@ public class Holiday : MonoBehaviour
                 case "Hi Boss!\nGood news, one of our employees has been working hard lately, as a token of appreciation, would you like to provide them with holiday money this year?":
                     {
                         Debug.Log("3 Yes Holiday");
-                        GM.happiness += Random.Range(4f, 9f);
-                        GM.money -= Random.Range(2f, 6f);
-                        GM.popularity += Random.Range(2f, 6f);
+                        GM.happiness += Random.Range(5f, 10f);
+                        GM.money -= Random.Range(5f, 10f);
+                        GM.popularity += Random.Range(5f, 10f);
 
                         StartCoroutine(PlusHappinessTransition(3));
                         StartCoroutine(PlusPopularityTransition(3));
@@ -169,8 +169,8 @@ public class Holiday : MonoBehaviour
                 case "Good Morning Boss!\nIn regards for our employees' workspace, would you like to provide them financial assistance to upgrade?":
                     {
                         Debug.Log("4 Yes Holiday");
-                        GM.happiness += Random.Range(5f, 15f);
-                        GM.money -= Random.Range(3f, 6f);
+                        GM.happiness += Random.Range(5f, 10f);
+                        GM.money -= Random.Range(5f, 10f);
 
                         StartCoroutine(PlusHappinessTransition(3));
                         StartCoroutine(MinusMoneyTransition(3));
@@ -181,7 +181,7 @@ public class Holiday : MonoBehaviour
                     {
                         Debug.Log("5 Yes Holiday");
                         GM.happiness += Random.Range(5f, 10f);
-                        GM.money -= Random.Range(4f, 8f);
+                        GM.money -= Random.Range(5f, 10f);
 
                         StartCoroutine(PlusHappinessTransition(3));
                         StartCoroutine(MinusMoneyTransition(3));
@@ -232,7 +232,11 @@ public class Holiday : MonoBehaviour
                 case "Hey Boss!\nOne of your employees is having their birthday TODAY. Would you like to gift a present?":
                     {
                         Debug.Log("1 No Holiday");
-                        GM.happiness -= Random.Range(3f, 9f);
+                        GM.money += 5f;
+
+                        GM.happiness -= Random.Range(5f, 10f);
+
+                        StartCoroutine(PlusMoneyTransition(3));
 
                         StartCoroutine(MinusHappinessTransition(3));
 
@@ -241,7 +245,11 @@ public class Holiday : MonoBehaviour
                 case "Good Morning Boss!\nOne of your senior employees would like to see you about a promotion. Would you like me to send them in to discuss his possible promotion?":
                     {
                         Debug.Log("2 No Holiday");
-                        GM.happiness -= Random.Range(5f, 7f);
+                        GM.money += 5f;
+
+                        GM.happiness -= Random.Range(5f, 10f);
+
+                        StartCoroutine(PlusMoneyTransition(3));
 
                         StartCoroutine(MinusHappinessTransition(3));
 
@@ -250,7 +258,11 @@ public class Holiday : MonoBehaviour
                 case "Hi Boss,\nOne of our employees has reported sick, would you like to help out by paying for his/her medical fees?":
                     {
                         Debug.Log("3 No Holiday");
-                        GM.happiness -= Random.Range(5f, 15f);
+                        GM.money += 5f;
+
+                        GM.happiness -= Random.Range(5f, 10f);
+
+                        StartCoroutine(PlusMoneyTransition(3));
 
                         StartCoroutine(MinusHappinessTransition(3));
 
@@ -259,8 +271,12 @@ public class Holiday : MonoBehaviour
                 case "Hi Boss!\nGood news, one of our employees has been working hard lately, as a token of appreciation, would you like to provide them with holiday money this year?":
                     {
                         Debug.Log("4 No Holiday");
-                        GM.happiness -= Random.Range(4f, 9f);
-                        GM.popularity -= Random.Range(2f, 6f);
+                        GM.money += 5f;
+
+                        GM.happiness -= Random.Range(5f, 10f);
+                        GM.popularity -= Random.Range(4f, 8f);
+
+                        StartCoroutine(PlusMoneyTransition(3));
 
                         StartCoroutine(MinusHappinessTransition(3));
                         StartCoroutine(MinusPopularityTransition(3));
@@ -270,8 +286,12 @@ public class Holiday : MonoBehaviour
                 case "Hi Boss,\nBad news, one of our employees has gotten into an accident, would you like to provide them with financial assistance to cover their medical bills?":
                     {
                         Debug.Log("5 No Holiday");
+                        GM.money += 5f;
+
                         GM.happiness -= Random.Range(4f, 8f);
-                        GM.popularity -= Random.Range(5f, 9f);
+                        GM.popularity -= Random.Range(5f, 10f);
+
+                        StartCoroutine(PlusMoneyTransition(3));
 
                         StartCoroutine(MinusHappinessTransition(3));
                         StartCoroutine(MinusPopularityTransition(3));
@@ -281,7 +301,11 @@ public class Holiday : MonoBehaviour
                 case "Good Morning Boss!\nIn regards for our employees' workspace, would you like to provide them financial assistance to upgrade?":
                     {
                         Debug.Log("6 No Holiday");
-                        GM.happiness -= Random.Range(5f, 15f);
+                        GM.money += 5f;
+
+                        GM.happiness -= Random.Range(5f, 10f);
+
+                        StartCoroutine(PlusMoneyTransition(3));
 
                         StartCoroutine(MinusHappinessTransition(3));
 
@@ -290,7 +314,11 @@ public class Holiday : MonoBehaviour
                 case "Happy New Year Boss!\nwould you like to host a New Year Party for your employees?":
                     {
                         Debug.Log("7 No Holiday");
+                        GM.money += 5f;
+
                         GM.happiness -= Random.Range(5f, 10f);
+
+                        StartCoroutine(PlusMoneyTransition(3));
 
                         StartCoroutine(MinusHappinessTransition(3));
 
@@ -346,6 +374,15 @@ public class Holiday : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         GM.minusMoney.SetActive(false);
+    }
+
+    IEnumerator PlusMoneyTransition(float timer)
+    {
+        GM.plusMoney.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.plusMoney.SetActive(false);
     }
 
     IEnumerator MinusHappinessTransition(float timer)

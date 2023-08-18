@@ -131,7 +131,7 @@ public class Insurance : MonoBehaviour
                         if(browserManager.healthInsurance != true)
                         {
                             Debug.Log("Bought Health Insurance");
-                            GM.money -= 2f;
+                            GM.money -= 3f;
                             browserManager.healthInsurance = true;
 
                             StartCoroutine(MinusMoneyTransition(3));
@@ -161,6 +161,8 @@ public class Insurance : MonoBehaviour
             GM.popularitySlider.value = GM.popularity;
 
             GM.StartCoroutine(GM.AnimateMoneySlider());
+            GM.StartCoroutine(GM.AnimatePopularitySlider());
+            GM.StartCoroutine(GM.AnimateHappinessSlider());
 
             index++;
 
@@ -174,14 +176,24 @@ public class Insurance : MonoBehaviour
 
     public void NoClick()
     {
+        GM.currentMoney = GM.money;
+
         //if randomObject tag equals to "insurance"
         if (randomObject.tag == "insurance")
         {
             insuranceScenario.SetActive(false);
 
-            
+            GM.money += 5f;
+
+            StartCoroutine(PlusMoneyTransition(3));
             DestroyObject();
         }
+
+        GM.moneySlider.value = GM.money;
+
+        GM.StartCoroutine(GM.AnimateMoneySlider());
+        GM.StartCoroutine(GM.AnimatePopularitySlider());
+        GM.StartCoroutine(GM.AnimateHappinessSlider());
 
         GM.snekGameButton.enabled = true;
         GM.slotGameButton.enabled = true;
@@ -195,6 +207,15 @@ public class Insurance : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         GM.minusMoney.SetActive(false);
+    }
+
+    IEnumerator PlusMoneyTransition(float timer)
+    {
+        GM.plusMoney.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.plusMoney.SetActive(false);
     }
 
 }

@@ -139,8 +139,8 @@ public class Health : MonoBehaviour
                             Debug.Log("1 Yes Health");
                             GM.money -= Random.Range(5f, 10f);
 
-                            GM.happiness += Random.Range(2f, 7f);
-                            GM.popularity += Random.Range(3f, 7f);
+                            GM.happiness += Random.Range(4f, 8f);
+                            GM.popularity += Random.Range(4f, 8f);
 
                             StartCoroutine(MinusMoneyTransition(3));
 
@@ -152,8 +152,8 @@ public class Health : MonoBehaviour
                         }
                         else
                         {
-                            GM.popularity += Random.Range(7f, 15f);
-                            GM.happiness += Random.Range(5f, 15f);
+                            GM.popularity += Random.Range(8f, 16f);
+                            GM.happiness += Random.Range(8f, 16f);
 
                             StartCoroutine(PlusHappinessTransition(3));
                             StartCoroutine(PlusPopularityTransition(3));
@@ -168,8 +168,8 @@ public class Health : MonoBehaviour
                             Debug.Log("2 Yes Health");
                             GM.money -= Random.Range(5f, 10f);
 
-                            GM.popularity += Random.Range(2f, 5f);
-                            GM.happiness += Random.Range(2f, 5f);
+                            GM.popularity += Random.Range(4f, 8f);
+                            GM.happiness += Random.Range(4f, 8f);
 
                             StartCoroutine(MinusMoneyTransition(3));
 
@@ -181,8 +181,8 @@ public class Health : MonoBehaviour
                         }
                         else
                         {
-                            GM.popularity += Random.Range(5f, 10f);
-                            GM.happiness += Random.Range(5f, 15f);
+                            GM.popularity += Random.Range(8f, 16f);
+                            GM.happiness += Random.Range(8f, 16f);
 
                             StartCoroutine(PlusHappinessTransition(3));
                             StartCoroutine(PlusPopularityTransition(3));
@@ -198,8 +198,8 @@ public class Health : MonoBehaviour
                             Debug.Log("3 Yes Health");
                             GM.money -= Random.Range(5f, 10f);
 
-                            GM.popularity += Random.Range(2f, 5f);
-                            GM.happiness += Random.Range(2f, 5f);
+                            GM.popularity += Random.Range(4f, 8f);
+                            GM.happiness += Random.Range(4f, 8f);
 
                             StartCoroutine(MinusMoneyTransition(3));
 
@@ -211,8 +211,8 @@ public class Health : MonoBehaviour
                         }
                         else
                         {
-                            GM.popularity += Random.Range(5f, 10f);
-                            GM.happiness += Random.Range(5f, 15f);
+                            GM.popularity += Random.Range(8f, 16f);
+                            GM.happiness += Random.Range(8f, 16f);
 
                             StartCoroutine(PlusHappinessTransition(3));
                             StartCoroutine(PlusPopularityTransition(3));
@@ -228,8 +228,8 @@ public class Health : MonoBehaviour
                             Debug.Log("3 Yes Health");
                             GM.money -= Random.Range(5f, 10f);
 
-                            GM.popularity += Random.Range(2f, 5f);
-                            GM.happiness += Random.Range(2f, 5f);
+                            GM.popularity += Random.Range(4f, 8f);
+                            GM.happiness += Random.Range(4f, 8f);
 
                             StartCoroutine(MinusMoneyTransition(2));
 
@@ -241,8 +241,8 @@ public class Health : MonoBehaviour
                         }
                         else
                         {
-                            GM.popularity += Random.Range(5f, 10f);
-                            GM.happiness += Random.Range(5f, 15f);
+                            GM.popularity += Random.Range(8f, 16f);
+                            GM.happiness += Random.Range(8f, 16f);
 
                             StartCoroutine(PlusHappinessTransition(3));
                             StartCoroutine(PlusPopularityTransition(3));
@@ -258,8 +258,8 @@ public class Health : MonoBehaviour
                             Debug.Log("3 Yes Health");
                             GM.money -= Random.Range(5f, 10f);
 
-                            GM.popularity += Random.Range(2f, 5f);
-                            GM.happiness += Random.Range(2f, 5f);
+                            GM.popularity += Random.Range(4f, 8f);
+                            GM.happiness += Random.Range(4f, 8f);
 
                             StartCoroutine(MinusMoneyTransition(3));
 
@@ -271,8 +271,8 @@ public class Health : MonoBehaviour
                         }
                         else
                         {
-                            GM.popularity += Random.Range(5f, 10f);
-                            GM.happiness += Random.Range(5f, 15f);
+                            GM.popularity += Random.Range(8f, 16f);
+                            GM.happiness += Random.Range(8f, 16f);
 
                             StartCoroutine(PlusHappinessTransition(3));
                             StartCoroutine(PlusPopularityTransition(3));
@@ -330,8 +330,12 @@ public class Health : MonoBehaviour
                     {
                         Debug.Log(" No Health");
 
+                        GM.money += 5f;
+
                         GM.popularity -= Random.Range(5f, 10f);
                         GM.happiness -= Random.Range(5f, 15f);
+
+                        StartCoroutine(PlusMoneyTransition(3));
 
                         StartCoroutine(MinusPopularityTransition(3));
                         StartCoroutine(MinusHappinessTransition(3));
@@ -342,8 +346,12 @@ public class Health : MonoBehaviour
                     {
                         Debug.Log("2 No Health");
 
+                        GM.money += 5f;
+
                         GM.popularity -= Random.Range(5f, 10f);
                         GM.happiness -= Random.Range(5f, 15f);
+
+                        StartCoroutine(PlusMoneyTransition(3));
 
                         StartCoroutine(MinusPopularityTransition(3));
                         StartCoroutine(MinusHappinessTransition(3));
@@ -354,8 +362,12 @@ public class Health : MonoBehaviour
                     {
                         Debug.Log("3 No Health");
 
+                        GM.money += 5f;
+
                         GM.popularity -= Random.Range(5f, 10f);
                         GM.happiness -= Random.Range(5f, 15f);
+
+                        StartCoroutine(PlusMoneyTransition(3));
 
                         StartCoroutine(MinusPopularityTransition(3));
                         StartCoroutine(MinusHappinessTransition(3));
@@ -366,8 +378,12 @@ public class Health : MonoBehaviour
                     {
                         Debug.Log("4 No Health");
 
+                        GM.money += 5f;
+
                         GM.popularity -= Random.Range(5f, 10f);
                         GM.happiness -= Random.Range(5f, 15f);
+
+                        StartCoroutine(PlusMoneyTransition(3));
 
                         StartCoroutine(MinusPopularityTransition(3));
                         StartCoroutine(MinusHappinessTransition(3));
@@ -378,8 +394,12 @@ public class Health : MonoBehaviour
                     {
                         Debug.Log("5 No Health");
 
+                        GM.money += 5f;
+
                         GM.popularity -= Random.Range(5f, 10f);
                         GM.happiness -= Random.Range(5f, 15f);
+
+                        StartCoroutine(PlusMoneyTransition(3));
 
                         StartCoroutine(MinusPopularityTransition(3));
                         StartCoroutine(MinusHappinessTransition(3));
@@ -436,6 +456,15 @@ public class Health : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         GM.minusMoney.SetActive(false);
+    }
+
+    IEnumerator PlusMoneyTransition(float timer)
+    {
+        GM.plusMoney.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        GM.plusMoney.SetActive(false);
     }
 
     IEnumerator MinusHappinessTransition(float timer)
