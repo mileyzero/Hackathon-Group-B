@@ -243,7 +243,6 @@ public class Accident : MonoBehaviour
 
                             StartCoroutine(PlusHappinessTransition(3));
                             StartCoroutine(PlusPopularityTransition(3));
-
                         }
                         break;
                     }
@@ -287,8 +286,8 @@ public class Accident : MonoBehaviour
             GM.popularitySlider.value = GM.popularity;
 
             GM.StartCoroutine(GM.AnimateMoneySlider());
-            StartCoroutine(GM.AnimatePopularitySlider());
-            StartCoroutine(GM.AnimateHappinessSlider());
+            GM.StartCoroutine(GM.AnimatePopularitySlider());
+            GM.StartCoroutine(GM.AnimateHappinessSlider());
             
             index++;
 
@@ -304,6 +303,7 @@ public class Accident : MonoBehaviour
 
         GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
+        GM.doNutButton.enabled = true;
         GM.FunctionUpdates();
     }
 
@@ -406,6 +406,7 @@ public class Accident : MonoBehaviour
 
         GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
+        GM.doNutButton.enabled = true;
         GM.FunctionUpdates();
     }
 

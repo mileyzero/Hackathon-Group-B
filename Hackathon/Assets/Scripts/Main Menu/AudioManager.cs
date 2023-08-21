@@ -9,6 +9,8 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
+    public GameObject storeGameFinder;
+
     public AudioSource mainAudioSource;
 
     public AudioClip mainMenuAudio;
@@ -21,14 +23,15 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
-        {
-            DontDestroyOnLoad(instance);
-        }
-        else
+        if (instance != null && instance != this)
         {
             Destroy(gameObject);
+            return;
         }
+
+        instance = this;
+
+        DontDestroyOnLoad(gameObject);
     }
 
     // Start is called before the first frame update
@@ -43,6 +46,19 @@ public class AudioManager : MonoBehaviour
         }
 
         SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void Update()
+    {
+        try
+        {
+            storeGameFinder = GameObject.FindGameObjectWithTag("store_game");
+            Debug.Log(storeGameFinder);
+        }
+        catch
+        {
+            Debug.Log("no store game found sad");
+        }
     }
 
     public void PlayMusic(AudioClip musicClip)
@@ -63,7 +79,7 @@ public class AudioManager : MonoBehaviour
         PlayMusic(musicClipToPlay);
     }
 
-    private AudioClip GetMusicClipForScene(string sceneName)
+    public AudioClip GetMusicClipForScene(string sceneName)
     {
         switch (sceneName)
         {
@@ -89,5 +105,4 @@ public class AudioManager : MonoBehaviour
                 return mainMenuAudio;
         }
     }
-
 }

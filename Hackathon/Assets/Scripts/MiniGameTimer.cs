@@ -5,7 +5,7 @@ using UnityEngine;
 public class MiniGameTimer : MonoBehaviour
 {
     //cooldown time in seconds
-    public float cooldownDuration = 30f;
+    public float cooldownDuration = 20f;
 
     private bool isCooldownActive = false;
 

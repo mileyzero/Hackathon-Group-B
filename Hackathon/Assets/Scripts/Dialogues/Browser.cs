@@ -131,6 +131,8 @@ public class Browser : MonoBehaviour
 
     public void BuyAccidentInsurance()
     {
+        GM.currentMoney = GM.money;
+
         Debug.Log(accidentInsurance);
 
         accidentInsurance = true;
@@ -147,6 +149,8 @@ public class Browser : MonoBehaviour
             StartCoroutine(MoneyTrueToFalse(2));
 
             accidentInsuranceCfm.SetActive(false);
+
+            GM.StartCoroutine(GM.AnimateMoneySlider());
 
             Debug.Log(GM.moneySlider.value);
             accidentBtn.enabled = false;
@@ -166,6 +170,8 @@ public class Browser : MonoBehaviour
 
     public void BuyHealthInsurance()
     {
+        GM.currentMoney = GM.money;
+
         Debug.Log(healthInsurance);
 
         healthInsurance = true;
@@ -180,6 +186,8 @@ public class Browser : MonoBehaviour
             GM.money -= 5f;
 
             StartCoroutine(MoneyTrueToFalse(2));
+
+            GM.StartCoroutine(GM.AnimateMoneySlider());
 
             healthInsuranceCfm.SetActive(false);
 
@@ -234,6 +242,8 @@ public class Browser : MonoBehaviour
 
     public void BuyInvestmentInsurance()
     {
+        GM.currentMoney = GM.money;
+
         Debug.Log(investmentInsurance);
 
         investmentInsurance = true;
@@ -250,6 +260,8 @@ public class Browser : MonoBehaviour
             investmentInsuranceCfm.SetActive(false);
 
             StartCoroutine(MoneyTrueToFalse(2));
+
+            GM.StartCoroutine(GM.AnimateMoneySlider());
 
             Debug.Log(GM.moneySlider.value);
             investmentBtn.enabled = false;

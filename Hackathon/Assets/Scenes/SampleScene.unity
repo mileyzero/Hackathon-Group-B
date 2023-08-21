@@ -418,6 +418,7 @@ GameObject:
   - component: {fileID: 38225540}
   - component: {fileID: 38225539}
   - component: {fileID: 38225541}
+  - component: {fileID: 38225542}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -491,6 +492,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 354044850}
   snekGameButton: {fileID: 619617895}
   slotGameButton: {fileID: 650856929}
+  doNutButton: {fileID: 998948603}
   happinessSlider: {fileID: 7192855}
   moneySlider: {fileID: 1335645973}
   popularitySlider: {fileID: 1636039691}
@@ -511,6 +513,13 @@ MonoBehaviour:
   currentMoney: 0
   currentHappiness: 0
   currentPopularity: 0
+  hasPlayedLevel1: 0
+  hasPlayedLevel2: 0
+  hasPlayedLevel3: 0
+  level1: {fileID: 8300000, guid: afcdb55f7b8e95448805ed5ec21b4021, type: 3}
+  level2: {fileID: 8300000, guid: 171773407f08b6f41b3c5816213fec4a, type: 3}
+  level3: {fileID: 8300000, guid: 582cf064370f9c546869f95a897d0671, type: 3}
+  levelAudioChange: {fileID: 38225542}
 --- !u!4 &38225540
 Transform:
   m_ObjectHideFlags: 0
@@ -541,6 +550,102 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &38225542
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38225538}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -14524,6 +14629,8 @@ GameObject:
   - component: {fileID: 998948605}
   - component: {fileID: 998948604}
   - component: {fileID: 998948603}
+  - component: {fileID: 998948606}
+  - component: {fileID: 998948607}
   m_Layer: 5
   m_Name: Donut Search
   m_TagString: Untagged
@@ -14571,7 +14678,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -14581,13 +14688,13 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: -1117830164, guid: 661fe7489f5f122459c4d6affdd2be67, type: 3}
+    m_HighlightedSprite: {fileID: -1033369674, guid: df75b612c2f22ee47b0985a5d195cd09, type: 3}
     m_PressedSprite: {fileID: -1117830164, guid: 661fe7489f5f122459c4d6affdd2be67, type: 3}
     m_SelectedSprite: {fileID: -1117830164, guid: 661fe7489f5f122459c4d6affdd2be67, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
+    m_HighlightedTrigger: IsHighlighted
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
@@ -14658,6 +14765,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 998948601}
   m_CullTransparentMesh: 1
+--- !u!95 &998948606
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998948601}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 953177d17b0377340bb11b8fc1dbad01, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &998948607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998948601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46df23b1f414a3d469fe1216ff52ba68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 998948606}
 --- !u!1 &1009854606
 GameObject:
   m_ObjectHideFlags: 0

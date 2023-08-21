@@ -291,11 +291,11 @@ public class Health : MonoBehaviour
             GM.moneySlider.value = GM.money;
             GM.popularitySlider.value = GM.popularity;
 
-            index++;
-
             GM.StartCoroutine(GM.AnimateMoneySlider());
             GM.StartCoroutine(GM.AnimatePopularitySlider());
             GM.StartCoroutine(GM.AnimateHappinessSlider());
+
+            index++;
 
             if (browserManager.healthInsurance == true)
             {
@@ -308,6 +308,7 @@ public class Health : MonoBehaviour
 
         GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
+        GM.doNutButton.enabled = true;
         GM.FunctionUpdates();
     }
 
@@ -417,17 +418,18 @@ public class Health : MonoBehaviour
             GM.moneySlider.value = GM.money;
             GM.popularitySlider.value = GM.popularity;
 
-            index++;
-
             GM.StartCoroutine(GM.AnimateMoneySlider());
             GM.StartCoroutine(GM.AnimatePopularitySlider());
             GM.StartCoroutine(GM.AnimateHappinessSlider());
+
+            index++;
 
             DestroyObject();
         }
 
         GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
+        GM.doNutButton.enabled = true;
         GM.FunctionUpdates();
     }
 
