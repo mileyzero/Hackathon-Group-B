@@ -11,6 +11,8 @@ public class Golf_Manager : MonoBehaviour
     [SerializeField] GameObject golf_game;
     [SerializeField] Golf_Ball golf;
 
+    public GameObject pauseMenu;
+
     public TextMeshProUGUI money;
     public TextMeshProUGUI happy;
     public TextMeshProUGUI popular;
@@ -26,8 +28,20 @@ public class Golf_Manager : MonoBehaviour
     {
        golf_game.SetActive(false);
        Golf_title.SetActive(true);
+       pauseMenu.SetActive(false);
        StartCoroutine(EnableGame());
 
+    }
+    public void PauseMenu()
+    {
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void Resume()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
     }
 
     private void Update()
