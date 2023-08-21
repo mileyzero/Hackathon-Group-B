@@ -9,8 +9,6 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
-    public Slider volumeSliderSet;
-
     public AudioSource mainAudioSource;
 
     public AudioClip mainMenuAudio;
@@ -21,14 +19,11 @@ public class AudioManager : MonoBehaviour
     public AudioClip casinoAudio;
     public AudioClip snakeAudio;
 
-    public AudioMixer mainAudio;
-
     private void Awake()
     {
-        if (instance == null)
+        if(instance == null)
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(instance);
         }
         else
         {
@@ -39,23 +34,15 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        float savedAudioValue = PlayerPrefs.GetFloat("volume");
-        volumeSliderSet.value = savedAudioValue;
-        
         // Get the AudioManager instance and play the music.
         AudioManager audioManager = FindObjectOfType<AudioManager>();
+
         if (audioManager != null)
         {
             audioManager.PlayMusic(mainMenuAudio);
         }
 
         SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        // Handle music for different scenes here.
-        AudioClip musicClipToPlay = GetMusicClipForScene(scene.name);
-        PlayMusic(musicClipToPlay);
     }
 
     public void PlayMusic(AudioClip musicClip)
@@ -69,9 +56,11 @@ public class AudioManager : MonoBehaviour
         mainAudioSource.Stop();
     }
 
-    public void SetVolume(float volume)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        mainAudio.SetFloat("volume", volume);
+        // Handle music for different scenes here.
+        AudioClip musicClipToPlay = GetMusicClipForScene(scene.name);
+        PlayMusic(musicClipToPlay);
     }
 
     private AudioClip GetMusicClipForScene(string sceneName)
@@ -100,4 +89,5 @@ public class AudioManager : MonoBehaviour
                 return mainMenuAudio;
         }
     }
+
 }

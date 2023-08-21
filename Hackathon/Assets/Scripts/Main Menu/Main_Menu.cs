@@ -14,12 +14,10 @@ public class Main_Menu : MonoBehaviour
 
     public GameObject backBtn;
     public GameObject fullscreenBtn;
-    public GameObject volumeSlider;
 
     // Start is called before the first frame update
     void Start()
     {
-        volumeSlider.SetActive(false);
         fullscreenBtn.SetActive(false);
 
         backBtn.SetActive(false);
@@ -27,15 +25,14 @@ public class Main_Menu : MonoBehaviour
 
     public void BackBtnPressed()
     {
-        SceneManager.LoadScene("Main Menu");
-
         playBtn.SetActive(true);
         settingBtn.SetActive(true);
         quitBtn.SetActive(true);
 
-        volumeSlider.SetActive(false);
         backBtn.SetActive(false);
         fullscreenBtn.SetActive(false);
+
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void SetFullScreen(bool isFullscreen)
@@ -49,7 +46,6 @@ public class Main_Menu : MonoBehaviour
         settingBtn.SetActive(false);
         quitBtn.SetActive(false);
 
-        volumeSlider.SetActive(true);
         backBtn.SetActive(true);
         fullscreenBtn.SetActive(true);
     }
