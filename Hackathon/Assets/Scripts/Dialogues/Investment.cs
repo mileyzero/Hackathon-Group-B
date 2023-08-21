@@ -342,6 +342,10 @@ public class Investment : MonoBehaviour
         //if randomObject tag equals to "investment"
         else if (randomObject.tag == "good")
         {
+            GM.currentMoney = GM.money;
+            GM.currentPopularity = GM.popularity;
+            GM.currentHappiness = GM.happiness;
+
             //investmentScenario will set active to false
             investmentScenario.SetActive(false);
 
@@ -484,6 +488,7 @@ public class Investment : MonoBehaviour
 
         GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
+        GM.doNutButton.enabled = true;
         GM.FunctionUpdates();
     }
 
@@ -492,11 +497,21 @@ public class Investment : MonoBehaviour
         //if randomObject tag equals to "scam"
         if (randomObject.tag == "scam")
         {
+            GM.currentMoney = GM.money;
+
+            GM.money += Random.Range(5f, 10f);
+
             //investmentScenario will set active to false
             investmentScenario.SetActive(false);
 
             profileGM.trustValue = 0;
             profileGM.successValue = 0;
+
+            StartCoroutine(PlusMoneyTransition(3));
+
+            GM.happinessSlider.value = GM.happiness;
+
+            GM.StartCoroutine(GM.AnimateMoneySlider());
 
             DestroyObject();
         }
@@ -680,6 +695,7 @@ public class Investment : MonoBehaviour
 
         GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
+        GM.doNutButton.enabled = true;
         GM.FunctionUpdates();
     }
 

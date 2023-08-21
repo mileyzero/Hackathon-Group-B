@@ -154,9 +154,7 @@ public class InsuranceInvestmentManager : MonoBehaviour
                     }
             }
 
-            GM.happinessSlider.value = GM.happiness;
             GM.moneySlider.value = GM.money;
-            GM.popularitySlider.value = GM.popularity;
 
             GM.StartCoroutine(GM.AnimateMoneySlider());
 
@@ -167,11 +165,14 @@ public class InsuranceInvestmentManager : MonoBehaviour
 
         GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
+        GM.doNutButton.enabled = true;
         GM.FunctionUpdates();
     }
 
     public void NoClick()
     {
+        GM.currentMoney = GM.money;
+
         //if randomObject tag equals to "insurance"
         if (randomObject.tag == "insurance")
         {
@@ -180,13 +181,17 @@ public class InsuranceInvestmentManager : MonoBehaviour
             GM.money += 5f;
 
             StartCoroutine(PlusMoneyTransition(3));
+
+            GM.moneySlider.value = GM.money;
+
+            GM.StartCoroutine(GM.AnimateMoneySlider());
+
             DestroyObject();
         }
 
-        GM.StartCoroutine(GM.AnimateMoneySlider());
-
         GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
+        GM.doNutButton.enabled = true;
         GM.FunctionUpdates();
     }
 

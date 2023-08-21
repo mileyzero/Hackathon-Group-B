@@ -31,8 +31,6 @@ public class Main_Menu : MonoBehaviour
 
         backBtn.SetActive(false);
         fullscreenBtn.SetActive(false);
-
-        SceneManager.LoadScene("Main Menu");
     }
 
     public void SetFullScreen(bool isFullscreen)

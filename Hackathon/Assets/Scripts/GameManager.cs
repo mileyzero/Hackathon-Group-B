@@ -97,9 +97,10 @@ public class GameManager : MonoBehaviour
 
     public GameObject pauseMenu;
 
-    //Button for snekGame
+    //Button for snekGame, slotGame and doNut
     public Button snekGameButton;
     public Button slotGameButton;
+    public Button doNutButton;
 
     //Sliders for happiness, money and popularity
     public Slider happinessSlider;
@@ -145,6 +146,16 @@ public class GameManager : MonoBehaviour
     private bool hasActivatedLoseHappinessTip = false;
     private bool hasActivatedLosePopularityTip = false;
     private bool hasActivatedLoseMoneyTip = false;
+
+    public bool hasPlayedLevel1;
+    public bool hasPlayedLevel2;
+    public bool hasPlayedLevel3;
+
+    public AudioClip level1;
+    public AudioClip level2;
+    public AudioClip level3;
+
+    public AudioSource levelAudioChange;
 
     // Start is called before the first frame update
     void Start()
@@ -236,6 +247,44 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
         }
 
+        if (!hasPlayedLevel1)
+        {
+            if (popularity < 30)
+            {
+                levelAudioChange.clip = level1;
+                levelAudioChange.Play();
+
+                hasPlayedLevel1 = true;
+                hasPlayedLevel2 = false;
+                hasPlayedLevel3 = false;
+            }
+        }
+
+        if (!hasPlayedLevel2)
+        {
+            if (popularity > 30 && popularity < 60)
+            {
+                levelAudioChange.clip = level2;
+                levelAudioChange.Play();
+
+                hasPlayedLevel1 = false;
+                hasPlayedLevel2 = true;
+                hasPlayedLevel3 = false;
+            }
+        }
+
+        if (!hasPlayedLevel3)
+        {
+            if (popularity > 60 && popularity < 90)
+            {
+                levelAudioChange.clip = level3;
+                levelAudioChange.Play();
+
+                hasPlayedLevel3 = true;
+                hasPlayedLevel2 = false;
+                hasPlayedLevel1 = false;
+            }
+        }
 
         //if isRunning equals to false, the randomInitialize will set a random.range to it, then the timer will countdown
         //if the timer hits less or equals to 0, isRunning will set to true to prevent the timer from continuing
@@ -326,6 +375,7 @@ public class GameManager : MonoBehaviour
         }
 
         LevelChange();
+
         MaxMoneyEarned();
         MaxHappinessEarned();
         MaxPopularityEarned();
@@ -393,6 +443,7 @@ public class GameManager : MonoBehaviour
 
         snekGameButton.enabled = false;
         slotGameButton.enabled = false;
+        doNutButton.enabled = false;
     }
 
     public void InitializeAccidentInsurance()
@@ -407,6 +458,7 @@ public class GameManager : MonoBehaviour
 
         snekGameButton.enabled = false;
         slotGameButton.enabled = false;
+        doNutButton.enabled = false;
     }
 
     //when InitializeGolfGame is called, it will set the email button and notification icon to false to prevent players from spamming it.
@@ -423,6 +475,7 @@ public class GameManager : MonoBehaviour
 
         snekGameButton.enabled = false;
         slotGameButton.enabled = false;
+        doNutButton.enabled = false;
     }
 
     //when InitializeCarGame is called, it will set the email button and notification icon to false to prevent players from spamming it.
@@ -439,6 +492,7 @@ public class GameManager : MonoBehaviour
 
         snekGameButton.enabled = false;
         slotGameButton.enabled = false;
+        doNutButton.enabled = false;
     }
 
     //when InitializeMiniGame is called, it will set the email button and notification icon to false to prevent players from spamming it.
@@ -455,6 +509,7 @@ public class GameManager : MonoBehaviour
 
         snekGameButton.enabled = false;
         slotGameButton.enabled = false;
+        doNutButton.enabled = false;
     }
 
     //when InitializeHoliday is called, it will set the email button and notification icon to false to prevent players from spamming it.
@@ -471,6 +526,7 @@ public class GameManager : MonoBehaviour
 
         snekGameButton.enabled = false;
         slotGameButton.enabled = false;
+        doNutButton.enabled = false;
     }
 
     //when InitializeInvest is called, it will set the email button and notification icon to false to prevent players from spamming it.
@@ -487,6 +543,7 @@ public class GameManager : MonoBehaviour
 
         snekGameButton.enabled = false;
         slotGameButton.enabled = false;
+        doNutButton.enabled = false;
     }
 
     //when InitializeInsurance is called, it will set the email button and notification icon to false to prevent players from spamming it.
@@ -503,6 +560,7 @@ public class GameManager : MonoBehaviour
 
         snekGameButton.enabled = false;
         slotGameButton.enabled = false;
+        doNutButton.enabled = false;
     }
 
     //when InitalizeAccident is called, it will set the email button and notification icon to false to prevent players from spamming it.
@@ -519,6 +577,7 @@ public class GameManager : MonoBehaviour
 
         snekGameButton.enabled = false;
         slotGameButton.enabled = false;
+        doNutButton.enabled = false;
     }
 
     //when InitalizeHealth is called, it will set the email button and notification icon to false to prevent players from spamming it.
@@ -535,36 +594,37 @@ public class GameManager : MonoBehaviour
 
         snekGameButton.enabled = false;
         slotGameButton.enabled = false;
+        doNutButton.enabled = false;
     }
 
     //LevelChange checks based on the popularity that the player has gathered.
     //if popularity is less than 30 then it stays at level 1 background.
     //else if the popularity is more or equals to 30, it goes to level two and if it's more or equals to 60 then it goes to level 3
+    
     public void LevelChange()
     {
-        if(popularity < 30)
+        if (popularity < 30)
         {
             Debug.Log("Level 1");
             background1.SetActive(true);
+            background2.SetActive(false);
+            background3.SetActive(false);
         }
-
-        else if(popularity >= 30)
+        else if (popularity < 60)
         {
-            if (popularity >= 60)
-            {
-                Debug.Log("Level 3");
-                background2.SetActive(false);
-                background3.SetActive(true);
-            }
-            else
-            {
-                Debug.Log("Level 2");
-                background1.SetActive(false);
-                background2.SetActive(true);
-            }
+            Debug.Log("Level 2");
+            background1.SetActive(false);
+            background2.SetActive(true);
+            background3.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("Level 3");
+            background1.SetActive(false);
+            background2.SetActive(false);
+            background3.SetActive(true);
         }
     }
-
     //SnakeGame loads the snake game and finds the main game by tag and hides it
     public void SnakeGame()
     {
