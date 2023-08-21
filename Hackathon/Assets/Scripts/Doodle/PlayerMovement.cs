@@ -7,9 +7,11 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 10f;
     public Rigidbody2D rb;
     public float moveX;
+    public GameObject manager;
     // Start is called before the first frame update
     void Start()
     {
+        manager = GameObject.FindGameObjectWithTag("doodlemanager");
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -43,5 +45,27 @@ public class PlayerMovement : MonoBehaviour
         {
             this.gameObject.transform.position = new Vector2(this.gameObject.transform.position.x * -1f, this.gameObject.transform.position.y);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+            if (collision.gameObject.tag == "doodleMoney")
+            {
+                manager.GetComponent<Manager>().moneyCount += 1;
+                Destroy(collision.gameObject);
+            }
+
+            else if (collision.gameObject.tag == "doodleHappy")
+            {
+                manager.GetComponent<Manager>().happinessCount += 1;
+                Destroy(collision.gameObject);
+            }
+
+            else if (collision.gameObject.tag == "doodlePopular")
+            {
+                manager.GetComponent<Manager>().popularityCount += 1;
+                Destroy(collision.gameObject);
+            }
+
     }
 }
