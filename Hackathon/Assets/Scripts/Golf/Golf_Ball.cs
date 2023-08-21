@@ -39,7 +39,7 @@ public class Golf_Ball : MonoBehaviour
     {
         hole = GameObject.FindGameObjectWithTag("goal");
         animator = gameObject.GetComponent<Animator>();
-        movesMade = 10;
+        //movesMade = 10;
         movesMade_txt.text = "Moves Left: " + movesMade.ToString();
         ball_released = false;
         cancel = false;
