@@ -12,6 +12,7 @@ public class Manager : MonoBehaviour
     public GameObject breakplatform;
     public GameObject player;
     public GameObject pauseMenu;
+    public GameObject pauseDonut;
 
     public BoxCollider2D capsule;
     public CircleCollider2D circle;
@@ -118,12 +119,15 @@ public class Manager : MonoBehaviour
     public void PauseMenu()
     {
         pauseMenu.SetActive(true);
-        Time.timeScale = 0;
+        player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        //Time.timeScale = 0;
+        pauseDonut.GetComponent<Animator>().speed = 1;
     }
 
     public void Resume()
     {
         pauseMenu.SetActive(false);
+        player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         Time.timeScale = 1;
     }
 
