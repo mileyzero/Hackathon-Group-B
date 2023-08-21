@@ -37,6 +37,7 @@ TagManager:
   - golf_spawnpoints
   - golf_ball
   - golf_grass
+  - volumeSlider
   layers:
   - Default
   - TransparentFX
