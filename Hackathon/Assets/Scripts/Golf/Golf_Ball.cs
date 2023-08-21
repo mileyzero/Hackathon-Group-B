@@ -287,6 +287,7 @@ public class Golf_Ball : MonoBehaviour
         sand.enabled = false;
         ice.enabled = false;
         log.enabled = false;
+        this.GetComponent<CircleCollider2D>().radius = 0.5f/15;
         hole.GetComponent<CircleCollider2D>().enabled = false;
         for (int i = 0; i < 15; i++) //for loop to gradually increase size of ball
         {
@@ -303,7 +304,8 @@ public class Golf_Ball : MonoBehaviour
         //the sand and the hole's colliders are enabled again so the ball can interact with them
         sand.enabled = true; 
         ice.enabled = true;
-        
+        this.GetComponent<CircleCollider2D>().radius = 0.5f;
+
         hole.GetComponent<CircleCollider2D>().enabled = true;
         for (float i = 0.15f; i >= 0.1;i-=0.05f) //last for loop to increase and decrease the ball's size to create the illusion of ball bouncing
         {
