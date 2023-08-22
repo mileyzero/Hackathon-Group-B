@@ -8,9 +8,11 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public float moveX;
     public GameObject manager;
+    public GameObject tutorial;
     // Start is called before the first frame update
     void Start()
     {
+        tutorial.SetActive(true);
         manager = GameObject.FindGameObjectWithTag("doodlemanager");
         rb = GetComponent<Rigidbody2D>();
     }
@@ -21,11 +23,13 @@ public class PlayerMovement : MonoBehaviour
         moveX = Input.GetAxis("Horizontal") * moveSpeed;
         if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
+            tutorial.SetActive(false);
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.flipX = true;
         }
         else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
+            tutorial.SetActive(false);
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.flipX = false;
         }
