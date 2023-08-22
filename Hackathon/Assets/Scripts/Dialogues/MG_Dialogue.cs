@@ -169,6 +169,7 @@ public class MG_Dialogue : MonoBehaviour
 
         GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
+        GM.doNutButton.enabled = true;
         GM.FunctionUpdates();
 
         isDoodleGame = false;
@@ -205,6 +206,7 @@ public class MG_Dialogue : MonoBehaviour
 
         GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
+        GM.doNutButton.enabled = true;
         GM.FunctionUpdates();
 
         isDoodleGame = false;

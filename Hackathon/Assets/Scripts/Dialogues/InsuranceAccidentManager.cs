@@ -33,6 +33,7 @@ public class InsuranceAccidentManager : MonoBehaviour
 
     //GameObjects for scenario
     public GameObject yesButton;
+    public GameObject yesDisabledBtn;
     public GameObject noButton;
     public GameObject insuranceAccidentDialogue;
     public GameObject nameBox;
@@ -49,17 +50,23 @@ public class InsuranceAccidentManager : MonoBehaviour
 
         //set scenario, button and dialogue to false
         insuranceAccidentScenario.SetActive(false);
+        yesDisabledBtn.SetActive(false);
         yesButton.SetActive(false);
         noButton.SetActive(false);
         insuranceAccidentDialogue.SetActive(false);
         nameBox.SetActive(false);
     }
 
+    private void Update()
+    {
+        
+    }
+
     //in SpawnObject, there will be an randomRange that detects how many objects are in the array spawnObjects
     //then, a new vector3 spawnPosition equals to spawnArea's position
     //a randomObject will take the current index of spawnObjects' array
     //which then spawned will instantiate the randomObject chosen on the current spawnPosition
-    //spawned will then be set under a parent object's position=
+    //spawned will then be set under a parent object's position
     public void SpawnObject()
     {
         Debug.Log("Accident Insurance Spawned");
@@ -92,7 +99,17 @@ public class InsuranceAccidentManager : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
 
-        yesButton.SetActive(true);
+        if (browserManager.accidentInsurance != true)
+        {
+            yesButton.SetActive(true);
+            yesDisabledBtn.SetActive(false);
+        }
+        else
+        {
+            yesDisabledBtn.SetActive(true);
+            yesButton.SetActive(false);
+        }
+
         noButton.SetActive(true);
         bool isActive = insuranceAccidentDialogue.activeSelf;
         Debug.Log("Insurance Accident AnimDialogue is " + isActive);
