@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 273c33f71c8e2944b95d94cc3366ed2f
   - enabled: 1
-    path: Assets/Scenes/Loading Scene.unity
-    guid: 6b22f6328939f9845b95de8a1702f7b8
-  - enabled: 1
     path: Assets/Scenes/Car.unity
     guid: e73913bd8fcce5c488d69c4484c8bfb3
   - enabled: 1

@@ -730,7 +730,8 @@ public class GameManager : MonoBehaviour
 
     public void QuitGame()
     {
-        SceneManager.LoadScene("Main Menu");
+        Time.timeScale = 1;
+        SceneManager.LoadScene(1);
     }
 
     public IEnumerator AnimateMoneySlider()
