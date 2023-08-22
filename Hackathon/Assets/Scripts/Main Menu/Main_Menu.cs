@@ -8,12 +8,16 @@ using TMPro;
 
 public class Main_Menu : MonoBehaviour
 {
+    public Animator transitionAnim;
+
     public GameObject playBtn;
     public GameObject settingBtn;
     public GameObject quitBtn;
 
     public GameObject backBtn;
     public GameObject fullscreenBtn;
+
+    public float transitionTime = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +66,15 @@ public class Main_Menu : MonoBehaviour
 
     public void NextScene()
     {
-        SceneManager.LoadScene(0);
+        StartCoroutine(TransitionNextLevel());
     }
+
+    IEnumerator TransitionNextLevel()
+    {
+        transitionAnim.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadScene(0);
+    } 
 }
