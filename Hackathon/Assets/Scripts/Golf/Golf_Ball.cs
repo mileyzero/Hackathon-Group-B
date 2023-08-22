@@ -222,10 +222,19 @@ public class Golf_Ball : MonoBehaviour
         Debug.Log(collision.tag);
         if (collision.tag == "goal")
         { CheckWinState(); }
+        else if (collision.CompareTag("golf_sand"))
+        {
+            rb.drag = 10f;
+        }
+        else if (collision.CompareTag("ice"))
+        {
+            rb.drag = 0.02f;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        
         //Debug.Log(collision.tag);
         if(collision.CompareTag("ice")|| collision.CompareTag("golf_sand"))
         {
