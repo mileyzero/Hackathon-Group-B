@@ -33,6 +33,7 @@ public class InsuranceInvestmentManager : MonoBehaviour
 
     //GameObjects for scenario
     public GameObject yesButton;
+    public GameObject yesDisabledBtn;
     public GameObject noButton;
     public GameObject insuranceInvestmentDialogue;
     public GameObject nameBox;
@@ -50,9 +51,15 @@ public class InsuranceInvestmentManager : MonoBehaviour
         //set scenario, button and dialogue to false
         insuranceInvestmentScenario.SetActive(false);
         yesButton.SetActive(false);
+        yesDisabledBtn.SetActive(false);
         noButton.SetActive(false);
         insuranceInvestmentDialogue.SetActive(false);
         nameBox.SetActive(false);
+    }
+
+    void Update()
+    {
+
     }
 
     //in SpawnObject, there will be an randomRange that detects how many objects are in the array spawnObjects
@@ -92,7 +99,17 @@ public class InsuranceInvestmentManager : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
 
-        yesButton.SetActive(true);
+        if (browserManager.investmentInsurance != true)
+        {
+            yesButton.SetActive(true);
+            yesDisabledBtn.SetActive(false);
+        }
+        else
+        {
+            yesDisabledBtn.SetActive(true);
+            yesButton.SetActive(false);
+        }
+
         noButton.SetActive(true);
         bool isActive = insuranceInvestmentDialogue.activeSelf;
         Debug.Log("Insurance Accident AnimDialogue is " + isActive);

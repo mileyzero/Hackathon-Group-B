@@ -40,6 +40,7 @@ public class MG_Golf_Dialogue : MonoBehaviour
 
     public bool isGolfGame;
 
+    public int checkInitialize;
 
     // Start is called before the first frame update
     void Start()
@@ -115,8 +116,31 @@ public class MG_Golf_Dialogue : MonoBehaviour
     //If randomVal1 is more than 15 and less than 20, randomVal2 is more than 15 and less than 20, it hides the main game and load the 'Golf' mini game
     public void GolfGameScenario()
     {
-        GameObject.FindGameObjectWithTag("main_game").SetActive(false);
-        SceneManager.LoadScene("Golf");
+        checkInitialize = Random.Range(0, 2);
+
+        if(checkInitialize == 0)
+        {
+            Debug.Log(checkInitialize);
+
+            GameObject.FindGameObjectWithTag("main_game").SetActive(false);
+            SceneManager.LoadScene("Golf");
+        }
+
+        else if(checkInitialize == 1)
+        {
+            Debug.Log(checkInitialize);
+
+            GameObject.FindGameObjectWithTag("main_game").SetActive(false);
+            SceneManager.LoadScene("Golf Level 1");
+        }
+
+        else if(checkInitialize == 2)
+        {
+            Debug.Log(checkInitialize);
+
+            GameObject.FindGameObjectWithTag("main_game").SetActive(false);
+            SceneManager.LoadScene("Golf Level 2");
+        }
     }
 
     //In DestroyObject, holidayObject GameObject will find tag of any GameObject tagged "holiday"
@@ -173,6 +197,7 @@ public class MG_Golf_Dialogue : MonoBehaviour
 
         GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
+        GM.doNutButton.enabled = true;
         GM.FunctionUpdates();
 
         isGolfGame = false;
@@ -212,6 +237,7 @@ public class MG_Golf_Dialogue : MonoBehaviour
 
         GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
+        GM.doNutButton.enabled = true;
         GM.FunctionUpdates();
 
         isGolfGame = false;

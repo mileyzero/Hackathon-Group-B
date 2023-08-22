@@ -69,11 +69,11 @@ public class CarController : MonoBehaviour
         //if timer is still running then the slider bar will increase
         if (timerrunning)
         {
-            carslider.value = 1f - (timer/currentTime);
+            carslider.value = 1f - (timer / currentTime);
             timer -= Time.deltaTime;
             if (timer <= 0f) //if timer is finished and the player did not lose then they win
             {
-                if(lose == false)
+                if (lose == false)
                 {
                     timerrunning = false;
                     Win = true;
@@ -85,8 +85,8 @@ public class CarController : MonoBehaviour
             }
         }
 
-        if(lose == true && Win ==false) //setting the lose screen
-        {    
+        if (lose == true && Win == false) //setting the lose screen
+        {
             gmTime.StartCooldown();
             StartCoroutine(TransitionToMain(1.5f));
         }
@@ -142,9 +142,9 @@ public class CarController : MonoBehaviour
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.happiness += stats.happyCollected;
     }
 
-        IEnumerator TransitionToMain(float timer)
-         {
-        if(lose)
+    IEnumerator TransitionToMain(float timer)
+    {
+        if (lose)
         {
             lose_scn.SetActive(true);
             yield return new WaitForSeconds(timer);
@@ -157,7 +157,7 @@ public class CarController : MonoBehaviour
                 GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().accidentinsurance.accidentInsurance = false;
             }
         }
-        else if(Win)
+        else if (Win)
         {
             win.SetActive(true);
             yield return new WaitForSeconds(3f);
@@ -166,6 +166,11 @@ public class CarController : MonoBehaviour
 
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
         GameObject.FindGameObjectWithTag("cooldown").GetComponent<MiniGameTimer>().StartCooldown();
+
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel1 = false;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel2 = false;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel3 = false;
+
         SceneManager.LoadScene(0);
     }
 }

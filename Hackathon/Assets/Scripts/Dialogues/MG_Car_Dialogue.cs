@@ -174,6 +174,7 @@ public class MG_Car_Dialogue : MonoBehaviour
 
         GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
+        GM.doNutButton.enabled = true;
         GM.FunctionUpdates();
 
         isCarGame = false;
@@ -213,6 +214,7 @@ public class MG_Car_Dialogue : MonoBehaviour
 
         GM.slotGameButton.enabled = true;
         GM.snekGameButton.enabled = true;
+        GM.doNutButton.enabled = true;
         GM.FunctionUpdates();
 
         isCarGame = false;

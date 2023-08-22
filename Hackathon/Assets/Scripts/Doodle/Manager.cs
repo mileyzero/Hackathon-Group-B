@@ -181,10 +181,13 @@ public class Manager : MonoBehaviour
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity += popularityCount;
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.happiness += happinessCount;
 
-
         yield return new WaitForSeconds(2f);
 
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
+
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel1 = false;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel2 = false;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel3 = false;
 
         this.gameObject.SetActive(false);
 

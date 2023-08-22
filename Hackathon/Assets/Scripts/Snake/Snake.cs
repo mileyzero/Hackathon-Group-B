@@ -85,6 +85,11 @@ public class Snake : MonoBehaviour
         yield return new WaitForSeconds(timer);
 
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
+
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel1 = false;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel2 = false;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel3 = false;
+
         snakeGame.SetActive(false);
     }
 
@@ -174,13 +179,8 @@ public class Snake : MonoBehaviour
                 }
             }
 
-
             transform.position = new Vector3(gridposition.x, gridposition.y);
             transform.eulerAngles = new Vector3(0, 0, GetAngleFromVector(girdMoveDirectionVector) - 90);
-
-            
-
-
         }
     }
 
@@ -306,7 +306,6 @@ public class Snake : MonoBehaviour
                     }
                     break;
 
-
             }
             transform.eulerAngles = new Vector3(0, 0, angle);
         }
@@ -314,7 +313,6 @@ public class Snake : MonoBehaviour
         {
             return snakeMovePosition.GetGridPosition();
         }
-
     }
 
     //this class handles the snake after moving 1 time
