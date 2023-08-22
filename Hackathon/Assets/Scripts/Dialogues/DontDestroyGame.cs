@@ -33,4 +33,9 @@ public class DontDestroyGame : MonoBehaviour
         // Reload the current scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void DestroyGame()
+    {
+        Destroy(gameObject);
+    }
 }

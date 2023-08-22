@@ -10,6 +10,8 @@ public class Main_Menu : MonoBehaviour
 {
     public Animator transitionAnim;
 
+    public AudioSource mainAudio;
+
     public GameObject playBtn;
     public GameObject settingBtn;
     public GameObject quitBtn;
@@ -25,6 +27,7 @@ public class Main_Menu : MonoBehaviour
         fullscreenBtn.SetActive(false);
 
         backBtn.SetActive(false);
+        mainAudio.Play();
     }
 
     public void BackBtnPressed()
@@ -76,5 +79,5 @@ public class Main_Menu : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
 
         SceneManager.LoadScene(0);
-    } 
+    }
 }
