@@ -26,6 +26,10 @@ public class Manager : MonoBehaviour
     public TextMeshProUGUI _popularity;
     public TextMeshProUGUI _happiness;
 
+    public TextMeshProUGUI _moneypause;
+    public TextMeshProUGUI _popularitypause;
+    public TextMeshProUGUI _happinesspause;
+
     public int platformCount;
     public int numberofstats;
     public GameObject finalplatform;
@@ -119,6 +123,10 @@ public class Manager : MonoBehaviour
     public void PauseMenu()
     {
         pauseMenu.SetActive(true);
+
+        _moneypause.text = moneyCount.ToString();
+        _popularitypause.text = popularityCount.ToString();
+        _happinesspause.text = happinessCount.ToString();
         player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         //Time.timeScale = 0;
         pauseDonut.GetComponent<Animator>().speed = 1;
