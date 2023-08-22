@@ -736,18 +736,23 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator AnimateMoneySlider()
     {
-        moneyBarOutline.GetComponent<Outline>().enabled = true;
-        if (currentMoney > money)
+        if (currentMoney == money)
         {
+            moneyBarOutline.GetComponent<Outline>().enabled = false;
+            moneyIcon.GetComponent<Animator>().enabled = false;
+        }
+        else if (currentMoney> money)
+        {
+            moneyBarOutline.GetComponent<Outline>().enabled = true;
+            moneyIcon.GetComponent<Animator>().enabled = true;
             moneyBarOutline.GetComponent<Outline>().effectColor = Color.red;
         }
         else
         {
+            moneyBarOutline.GetComponent<Outline>().enabled = true;
+            moneyIcon.GetComponent<Animator>().enabled = true;
             moneyBarOutline.GetComponent<Outline>().effectColor = Color.green;
         }
-        
-        
-        moneyIcon.GetComponent<Animator>().enabled = true;
         elapsedTime = 0;
         Debug.Log(elapsedTime);
 
@@ -768,17 +773,23 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator AnimatePopularitySlider()
     {
-        popularBarOutline.GetComponent<Outline>().enabled = true;
-
-        if (currentPopularity > popularity)
+        if (currentPopularity == popularity)
         {
+            popularBarOutline.GetComponent<Outline>().enabled = false;
+            popularIcon.GetComponent<Animator>().enabled = false;
+        }
+        else if (currentPopularity > popularity)
+        {
+            popularBarOutline.GetComponent<Outline>().enabled = true;
+            popularIcon.GetComponent<Animator>().enabled = true;
             popularBarOutline.GetComponent<Outline>().effectColor = Color.red;
         }
         else
         {
+            popularBarOutline.GetComponent<Outline>().enabled = true;
+            popularIcon.GetComponent<Animator>().enabled = true;
             popularBarOutline.GetComponent<Outline>().effectColor = Color.green;
         }
-        popularIcon.GetComponent<Animator>().enabled = true;
         elapsedTime = 0;
         Debug.Log(elapsedTime);
 
@@ -799,16 +810,25 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator AnimateHappinessSlider()
     {
-        happinessBarOutline.GetComponent<Outline>().enabled = true;
-        if (currentHappiness > happiness)
+        
+        if(currentHappiness == happiness)
         {
+            happinessBarOutline.GetComponent<Outline>().enabled = false;
+            happinessIcon.GetComponent<Animator>().enabled = false;
+        }
+        else if (currentHappiness > happiness)
+        {
+            happinessBarOutline.GetComponent<Outline>().enabled = true;
+            happinessIcon.GetComponent<Animator>().enabled = true;
             happinessBarOutline.GetComponent<Outline>().effectColor = Color.red;
         }
         else
         {
+            happinessBarOutline.GetComponent<Outline>().enabled = true;
+            happinessIcon.GetComponent<Animator>().enabled = true;
             happinessBarOutline.GetComponent<Outline>().effectColor = Color.green;
         }
-        happinessIcon.GetComponent<Animator>().enabled = true;
+        
         elapsedTime = 0;
         Debug.Log(elapsedTime);
 
