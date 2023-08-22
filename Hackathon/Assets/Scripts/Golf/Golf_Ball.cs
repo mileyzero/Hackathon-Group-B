@@ -248,7 +248,7 @@ public class Golf_Ball : MonoBehaviour
         {
             lose_screen.SetActive(true);
 
-            GameObject.FindGameObjectWithTag("cooldown").GetComponent<MiniGameTimer>().StartCooldown();
+            
 
             StartCoroutine(TransitionToMainGame(1.5f));
 
@@ -261,6 +261,8 @@ public class Golf_Ball : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
+
+        GameObject.FindGameObjectWithTag("cooldown").GetComponent<MiniGameTimer>().StartCooldown();
 
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel1 = false;
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel2 = false;
