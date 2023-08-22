@@ -246,10 +246,6 @@ public class Golf_Ball : MonoBehaviour
     {
         if (movesMade == 0 && score == false)
         {
-            lose_screen.SetActive(true);
-
-            
-
             StartCoroutine(TransitionToMainGame(1.5f));
 
             Debug.Log("Lose");
@@ -258,6 +254,11 @@ public class Golf_Ball : MonoBehaviour
 
     IEnumerator TransitionToMainGame(float timer)
     {
+
+        lose_screen.SetActive(true);
+
+        this.GetComponent<CircleCollider2D>().enabled = false;
+
         yield return new WaitForSeconds(1.5f);
 
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
