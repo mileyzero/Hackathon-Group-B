@@ -1272,7 +1272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -6
-  maxspeed: 17
+  maxspeed: 15
   swapPosition: 11
   car: {fileID: 656568816}
 --- !u!212 &518224388
@@ -1358,7 +1358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -6
-  maxspeed: 17
+  maxspeed: 15
   swapPosition: 10
   car: {fileID: 656568816}
 --- !u!212 &528764804
@@ -1798,6 +1798,7 @@ GameObject:
   - component: {fileID: 656568819}
   - component: {fileID: 656568818}
   - component: {fileID: 656568820}
+  - component: {fileID: 656568821}
   m_Layer: 0
   m_Name: Car
   m_TagString: car
@@ -1893,6 +1894,9 @@ MonoBehaviour:
   spawner: {fileID: 334309373}
   timer_bar: {fileID: 437865593}
   panel: {fileID: 1822887959}
+  audioPlayer: {fileID: 656568819}
+  lose_sfx: {fileID: 8300000, guid: 6cfe15af0adc68d43b96f240c9107b1f, type: 3}
+  win_sfx: {fileID: 8300000, guid: 555432a5eedb46b4f9eaa2790262d020, type: 3}
   carslider: {fileID: 437865595}
   timer: 23
   currentTime: 0
@@ -1930,7 +1934,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 21f583abd53193a4da6d4dc2e8635225, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.337
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2026,7 +2030,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 68a853777a94cb547bcaafc42203f821, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2122,9 +2126,106 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91231ffb6dc4d6644aecb61b1b15b9ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectsound: {fileID: 656568821}
   moneyCollected: 0
   popularCollected: 0
   happyCollected: 0
+--- !u!82 &656568821
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656568812}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 0e8f61261c89b584b858a7098ca782ec, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.3
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &672231734
 GameObject:
   m_ObjectHideFlags: 0
@@ -2462,7 +2563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -6
-  maxspeed: 17
+  maxspeed: 15
   swapPosition: 10
   car: {fileID: 656568816}
 --- !u!212 &741098243
@@ -2879,7 +2980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -6
-  maxspeed: 17
+  maxspeed: 15
   swapPosition: 11
   car: {fileID: 656568816}
 --- !u!212 &1106300403
@@ -2980,7 +3081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -6
-  maxspeed: 17
+  maxspeed: 15
   swapPosition: 11
   car: {fileID: 656568816}
 --- !u!212 &1173043017
@@ -3911,7 +4012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -6
-  maxspeed: 17
+  maxspeed: 15
   swapPosition: 11
   car: {fileID: 656568816}
 --- !u!212 &1449575192

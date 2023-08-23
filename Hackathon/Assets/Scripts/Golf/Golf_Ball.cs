@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 
+
 public class Golf_Ball : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -158,6 +159,11 @@ public class Golf_Ball : MonoBehaviour
         {
             StartCoroutine(ballfly());
         }
+        else
+        {
+            golf_manager.PlayeLightTap();
+        }
+        
         cancel = false;
         Vector2 dir = (Vector2)transform.position - pos;
         rb.velocity = Vector2.ClampMagnitude(dir * power, maxPower);//calculates velocity to add to ball and limits the velcoity to maxPower
@@ -201,16 +207,19 @@ public class Golf_Ball : MonoBehaviour
     {
         if (collision.tag == "doodleHappy")
         {
+            golf_manager.PlayCollect();
             golf_manager.happycollected += 1;
             Destroy(collision.gameObject);
         }
         else if (collision.tag == "doodleMoney")
         {
+            golf_manager.PlayCollect();
             golf_manager.moneycollected += 1;
             Destroy(collision.gameObject);
         }
         else if (collision.tag == "doodlePopular")
         {
+            golf_manager.PlayCollect();
             golf_manager.popularitycollected += 1;
             Destroy(collision.gameObject);
         }
@@ -276,6 +285,7 @@ public class Golf_Ball : MonoBehaviour
      {
         rb.velocity = Vector2.zero;
         gameObject.transform.position = hole.transform.position;
+        golf_manager.PlayeInHole();
         //loops 10 times
         for(int i = 0; i < 15; i++) //reduces scale by 0.1f every loop and wait for 0.1 seconds
         {
@@ -301,6 +311,7 @@ public class Golf_Ball : MonoBehaviour
     IEnumerator ballfly() //Coroutine to make the illusion that the ball is flying
     {
         //disable the sand the hole's colliders to prevent the ball from interacting with them
+        golf_manager.PlayeSwing();
         sand.enabled = false;
         ice.enabled = false;
         log.enabled = false;

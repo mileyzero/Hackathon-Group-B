@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(AudioSource))]
 public class Golf_Manager : MonoBehaviour
 {
     [SerializeField] GameObject Golf_title;
@@ -12,6 +13,12 @@ public class Golf_Manager : MonoBehaviour
     [SerializeField] Golf_Ball golf;
 
     public GameObject pauseMenu;
+
+    public AudioSource audioPlayer;
+    public AudioClip[] swing_audioClips;
+    public AudioClip inhole;
+    public AudioClip lightap;
+    public AudioClip collect_sfx;
 
     public TextMeshProUGUI money;
     public TextMeshProUGUI happy;
@@ -30,8 +37,37 @@ public class Golf_Manager : MonoBehaviour
        Golf_title.SetActive(true);
        pauseMenu.SetActive(false);
        StartCoroutine(EnableGame());
+       audioPlayer = gameObject.GetComponent<AudioSource>();
 
     }
+
+    public void PlayeSwing()
+    {
+        int randomaudio = Random.Range(0, swing_audioClips.Length);
+        AudioClip swing = swing_audioClips[randomaudio];
+
+        audioPlayer.clip = swing;
+        audioPlayer.Play();
+    }
+
+    public void PlayeInHole()
+    {
+        audioPlayer.clip = inhole;
+        audioPlayer.Play();
+    }
+
+    public void PlayeLightTap()
+    {
+        audioPlayer.clip = lightap;
+        audioPlayer.Play();
+    }
+
+    public void PlayCollect()
+    {
+        audioPlayer.clip = collect_sfx;
+        audioPlayer.Play();
+    }
+
     public void PauseMenu()
     {
         pauseMenu.SetActive(true);

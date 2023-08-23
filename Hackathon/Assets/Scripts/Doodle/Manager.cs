@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(AudioSource))]
 public class Manager : MonoBehaviour
 {
     public GameObject platform;
@@ -20,6 +21,12 @@ public class Manager : MonoBehaviour
     public int popularityCount;
     public int moneyCount;
     public int happinessCount;
+
+    public AudioSource audioPlayer;
+    public AudioClip[] bounce_sfx;
+    public AudioClip extraJump_sfx;
+    public AudioClip platformbreak_sfx;
+    public AudioClip collect_sfx;
 
 
     public TextMeshProUGUI _money;
@@ -43,6 +50,7 @@ public class Manager : MonoBehaviour
     void Start()
     {
         pauseMenu.SetActive(false);
+        audioPlayer = gameObject.GetComponent<AudioSource>();
         spawnposition = new Vector3();
 
         platformCount = Random.Range(platformCount, platformCount+10);
@@ -93,6 +101,33 @@ public class Manager : MonoBehaviour
 
             SpawnStats();
         }
+    }
+
+    public void PlayeBounce()
+    {
+        int randomaudio = Random.Range(0, bounce_sfx.Length);
+        AudioClip swing = bounce_sfx[randomaudio];
+
+        audioPlayer.clip = swing;
+        audioPlayer.Play();
+    }
+
+    public void PlayBreakPlatform()
+    {
+        audioPlayer.clip = platformbreak_sfx;
+        audioPlayer.Play();
+    }
+
+    public void PlayCollect()
+    {
+        audioPlayer.clip = collect_sfx;
+        audioPlayer.Play();
+    }
+
+    public void PlayExtraJump()
+    {
+        audioPlayer.clip = extraJump_sfx;
+        audioPlayer.Play();
     }
 
     private void SpawnStats()

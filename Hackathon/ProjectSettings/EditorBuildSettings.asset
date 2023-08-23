@@ -12,24 +12,24 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 273c33f71c8e2944b95d94cc3366ed2f
   - enabled: 1
-    path: Assets/Scenes/Car.unity
+    path: Assets/Scenes/Mini-Games/Car.unity
     guid: e73913bd8fcce5c488d69c4484c8bfb3
   - enabled: 1
-    path: Assets/Scenes/DoodleJump.unity
+    path: Assets/Scenes/Mini-Games/DoodleJump.unity
     guid: 84a9880802a79324885ac3949043cef9
   - enabled: 1
-    path: Assets/Scenes/SlotMachine.unity
+    path: Assets/Scenes/Mini-Games/SlotMachine.unity
     guid: 02a7f09830973b74fbdfebd629428b7e
   - enabled: 1
-    path: Assets/Scenes/Snake.unity
+    path: Assets/Scenes/Mini-Games/Snake.unity
     guid: c6ea2081626abe04ba24a367baa318ea
   - enabled: 1
-    path: Assets/Scenes/Golf.unity
+    path: Assets/Scenes/Mini-Games/Golf/Golf.unity
     guid: 98da1a0877584ea429c591531b9f256c
   - enabled: 1
-    path: Assets/Scenes/Golf Level 1.unity
+    path: Assets/Scenes/Mini-Games/Golf/Golf Level 1.unity
     guid: 26b8d7b2f3bb6134ea6280599db4b2b1
   - enabled: 1
-    path: Assets/Scenes/Golf Level 2.unity
+    path: Assets/Scenes/Mini-Games/Golf/Golf Level 2.unity
     guid: 876b8948c9d71f24f9c45c41bca06817
   m_configObjects: {}

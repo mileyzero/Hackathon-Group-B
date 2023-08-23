@@ -55,18 +55,21 @@ public class PlayerMovement : MonoBehaviour
     {
             if (collision.gameObject.tag == "doodleMoney")
             {
+                manager.GetComponent<Manager>().PlayCollect();
                 manager.GetComponent<Manager>().moneyCount += 1;
                 Destroy(collision.gameObject);
             }
 
             else if (collision.gameObject.tag == "doodleHappy")
             {
+                manager.GetComponent<Manager>().PlayCollect();
                 manager.GetComponent<Manager>().happinessCount += 1;
                 Destroy(collision.gameObject);
             }
 
             else if (collision.gameObject.tag == "doodlePopular")
             {
+                manager.GetComponent<Manager>().PlayCollect();
                 manager.GetComponent<Manager>().popularityCount += 1;
                 Destroy(collision.gameObject);
             }

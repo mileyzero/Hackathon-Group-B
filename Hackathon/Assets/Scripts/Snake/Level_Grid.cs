@@ -43,13 +43,13 @@ public class Level_Grid
         if(snakegridposition == foodGridposition)
         {
             Object.Destroy(foodGameObject);
-            if(snake.gridMoveTimerMax >= 0.15f)
+            if(snake.gridMoveTimerMax >= 0.06f)
             {
-                snake.gridMoveTimerMax -= 0.02f;
+                snake.gridMoveTimerMax -= 0.01f;
             }
             else
             {
-                snake.gridMoveTimerMax = 0.1f;
+                snake.gridMoveTimerMax = 0.05f;
             }
             SpawnFood();
             return true;

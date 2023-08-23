@@ -22,6 +22,10 @@ public class CarController : MonoBehaviour
     public GameObject timer_bar;
     public GameObject panel;
 
+    public AudioSource audioPlayer;
+    public AudioClip lose_sfx;
+    public AudioClip win_sfx;
+
     public Slider carslider;
     public float timer;
     public float currentTime;
@@ -92,6 +96,20 @@ public class CarController : MonoBehaviour
         }
     }
 
+    public void PlayerLose()
+    {
+        audioPlayer.clip = lose_sfx;
+        audioPlayer.loop = false;
+        audioPlayer.Play();
+    }
+
+    public void PlayerWin()
+    {
+        audioPlayer.clip = win_sfx;
+        audioPlayer.loop =false;
+        audioPlayer.Play();
+    }
+
     IEnumerator showstats()
     {
         //animation to change the number after you win   
@@ -159,6 +177,8 @@ public class CarController : MonoBehaviour
         }
         else if (Win)
         {
+            gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+            PlayerWin();
             win.SetActive(true);
             yield return new WaitForSeconds(3f);
         }
