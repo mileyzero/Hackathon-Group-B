@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Death : MonoBehaviour
 {
     public GameObject losescreen;
+    public GameObject doodle_manager;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,6 +26,7 @@ public class Death : MonoBehaviour
 
     IEnumerator TransitionToMainGame(float timer)
     {
+        doodle_manager.GetComponent<AudioSource>().enabled = false;
         yield return new WaitForSeconds(1.5f);
 
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);

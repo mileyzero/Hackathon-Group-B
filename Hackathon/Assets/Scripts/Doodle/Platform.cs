@@ -36,6 +36,7 @@ public class Platform : MonoBehaviour
                 if (this.gameObject.tag == "doodlewin")
                 {
                    manager.GetComponent<Manager>().win.SetActive(true);
+                    manager.GetComponent<AudioSource>().enabled = false;
                     manager.GetComponent <Manager>().DisplayStats();
                 }
                 else if(this.gameObject.tag == "breakplatform")
@@ -49,7 +50,7 @@ public class Platform : MonoBehaviour
 
     IEnumerator breaking()
     {
-        
+        manager.GetComponent<Manager>().PlayBreakPlatform();
         this.edgeCollider.enabled = false;
         yield return new WaitForSeconds(0.9f);
         Destroy(this.gameObject);
@@ -61,12 +62,14 @@ public class Platform : MonoBehaviour
         {
             if (this.gameObject.tag == "bounceplatform")
             {
+                manager.GetComponent<Manager>().PlayExtraJump();
                 this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y - 0.5f);
                 yield return new WaitForSeconds(0.1f);
                 this.transform.position = beforelocation;
             }
             else
             {
+                manager.GetComponent<Manager>().PlayeBounce();
                 this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y - 0.1f);
                 yield return new WaitForSeconds(0.1f);
                 this.transform.position = beforelocation;

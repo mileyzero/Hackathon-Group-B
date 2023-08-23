@@ -15,6 +15,7 @@ public class CarLose : MonoBehaviour
     {
         if (collision.gameObject.tag == "car")
         {
+            car.GetComponent<CarController>().PlayerLose();
             car.GetComponent<CarController>().lose = true;
             car.GetComponent<CapsuleCollider2D>().enabled = false;
             Debug.Log("Lose");

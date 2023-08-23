@@ -123,18 +123,10 @@ public class MG_Golf_Dialogue : MonoBehaviour
             Debug.Log(checkInitialize);
 
             GameObject.FindGameObjectWithTag("main_game").SetActive(false);
-            SceneManager.LoadScene("Golf");
-        }
-
-        else if(checkInitialize == 1)
-        {
-            Debug.Log(checkInitialize);
-
-            GameObject.FindGameObjectWithTag("main_game").SetActive(false);
             SceneManager.LoadScene("Golf Level 1");
         }
 
-        else if(checkInitialize == 2)
+        else if(checkInitialize == 1)
         {
             Debug.Log(checkInitialize);
 
