@@ -238,6 +238,6 @@ public class Manager : MonoBehaviour
 
         this.gameObject.SetActive(false);
 
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("SampleScene");
     }
 }
