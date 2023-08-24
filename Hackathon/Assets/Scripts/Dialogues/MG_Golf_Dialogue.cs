@@ -116,7 +116,7 @@ public class MG_Golf_Dialogue : MonoBehaviour
     //If randomVal1 is more than 15 and less than 20, randomVal2 is more than 15 and less than 20, it hides the main game and load the 'Golf' mini game
     public void GolfGameScenario()
     {
-        checkInitialize = Random.Range(0, 2);
+        checkInitialize = Random.Range(0, 5);
 
         if(checkInitialize == 0)
         {
@@ -132,6 +132,34 @@ public class MG_Golf_Dialogue : MonoBehaviour
 
             GameObject.FindGameObjectWithTag("main_game").SetActive(false);
             SceneManager.LoadScene("Golf Level 2");
+        }
+        else if (checkInitialize == 2)
+        {
+            Debug.Log(checkInitialize);
+
+            GameObject.FindGameObjectWithTag("main_game").SetActive(false);
+            SceneManager.LoadScene("Golf Level 3");
+        }
+        else if (checkInitialize == 3)
+        {
+            Debug.Log(checkInitialize);
+
+            GameObject.FindGameObjectWithTag("main_game").SetActive(false);
+            SceneManager.LoadScene("Golf Level 4");
+        }
+        else if (checkInitialize == 4)
+        {
+            Debug.Log(checkInitialize);
+
+            GameObject.FindGameObjectWithTag("main_game").SetActive(false);
+            SceneManager.LoadScene("Golf Level 5");
+        }
+        else if (checkInitialize == 5)
+        {
+            Debug.Log(checkInitialize);
+
+            GameObject.FindGameObjectWithTag("main_game").SetActive(false);
+            SceneManager.LoadScene("Golf Level 6");
         }
     }
 

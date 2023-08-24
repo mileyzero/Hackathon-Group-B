@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: 273c33f71c8e2944b95d94cc3366ed2f
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Mini-Games/Car.unity
     guid: e73913bd8fcce5c488d69c4484c8bfb3
@@ -32,4 +32,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mini-Games/Golf/Golf Level 2.unity
     guid: 876b8948c9d71f24f9c45c41bca06817
+  - enabled: 1
+    path: Assets/Scenes/Mini-Games/Golf/Golf Level 3.unity
+    guid: eb280f723589adc42b7e871dc4db18b0
+  - enabled: 1
+    path: Assets/Scenes/Mini-Games/Golf/Golf Level 4.unity
+    guid: 2f9f2bea7a4020448a42e9165b7a61f6
+  - enabled: 1
+    path: Assets/Scenes/Mini-Games/Golf/Golf Level 5.unity
+    guid: c2e1efbbd8ac45b4a9fafb60a8b2754d
+  - enabled: 1
+    path: Assets/Scenes/Mini-Games/Golf/Golf Level 6.unity
+    guid: f0419bae8dafb274eb0b023386c1daef
   m_configObjects: {}
