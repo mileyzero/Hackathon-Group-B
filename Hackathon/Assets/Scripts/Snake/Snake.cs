@@ -34,6 +34,9 @@ public class Snake : MonoBehaviour
     private Level_Grid level_Grid;
     private int snakeBodySize;
 
+    private AudioSource audioPlayer;
+    public AudioClip atefood_sfx;
+
     public TextMeshProUGUI score;
     private int scoreint;
 
@@ -50,6 +53,8 @@ public class Snake : MonoBehaviour
         gridMoveTimerMax = 0.2f;
         gridMoveTimer = gridMoveTimerMax;
         gridMoveDirection = Direction.Right;
+
+        audioPlayer = GetComponent<AudioSource>();
 
         snakeMovePositionList = new List<SnakeMovePosition>();
         snakeBodySize = 0;
@@ -78,6 +83,12 @@ public class Snake : MonoBehaviour
         state = State.Dead;
 
         StartCoroutine(DelayToMainGame(1));
+    }
+
+    public void AteFood_SFX()
+    {
+        audioPlayer.clip = atefood_sfx;
+        audioPlayer.Play();
     }
 
     IEnumerator DelayToMainGame(float timer)
@@ -158,6 +169,7 @@ public class Snake : MonoBehaviour
             if (snakeAteFood)
             {
                 //Snake body size increase by 1
+                AteFood_SFX();
                 snakeBodySize++;
                 scoreint += 1;
                 CreateSnakeBody();

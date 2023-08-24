@@ -1068,7 +1068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3304f6da24763814ba578934cbfb9c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 18
+  moveSpeed: 14
   rb: {fileID: 0}
   moveX: 0
   manager: {fileID: 0}
@@ -2709,7 +2709,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cd93788ed03c67740abf7bb7d44d75a3, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4034,7 +4034,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.7
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
