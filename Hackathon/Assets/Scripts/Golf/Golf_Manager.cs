@@ -28,6 +28,8 @@ public class Golf_Manager : MonoBehaviour
     public int happycollected;
     public int popularitycollected;
 
+    public Animator transitionAnim;
+
     public GameObject[] resources;
     public List<GameObject> spawns = new List<GameObject>();
     // Start is called before the first frame update
@@ -105,7 +107,10 @@ public class Golf_Manager : MonoBehaviour
 
     IEnumerator WinCorotine()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
+        transitionAnim.SetTrigger("Start");
+
+        yield return new WaitForSeconds(2f);
 
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money += moneycollected * 3;
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity += popularitycollected * 3;
