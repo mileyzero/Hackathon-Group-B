@@ -212,8 +212,8 @@ public class GameManager : MonoBehaviour
         isRunning = false;
 
         //set a random value on start for happiness, money and a fixed value for popularity
-        happinessSlider.value = Random.Range(20f, 55f);
-        moneySlider.value = Random.Range(30f, 65f);
+        happinessSlider.value = Random.Range(20f, 40f);
+        moneySlider.value = Random.Range(30f, 55f);
         popularitySlider.value = Random.Range(10f, 20f);
 
         happiness = happinessSlider.value;

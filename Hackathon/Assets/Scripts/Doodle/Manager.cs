@@ -46,6 +46,8 @@ public class Manager : MonoBehaviour
     public GameObject happiness;
     Vector3 spawnposition;
 
+    public Animator transitionAnim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -218,6 +220,8 @@ public class Manager : MonoBehaviour
             }
 
         }
+
+        transitionAnim.SetTrigger("Start");
 
         //increase the stats of the resources in the main game
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money += moneyCount;

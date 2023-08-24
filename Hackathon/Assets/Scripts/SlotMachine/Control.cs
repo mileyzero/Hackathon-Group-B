@@ -42,7 +42,6 @@ public class Control : MonoBehaviour
         }
     }
 
-    
     private void OnMouseDown()
     {
         if(GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money >= 10)
@@ -64,7 +63,6 @@ public class Control : MonoBehaviour
 
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.moneySlider.value = GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money;
     }
-
 
     private void CheckResults()
     {
