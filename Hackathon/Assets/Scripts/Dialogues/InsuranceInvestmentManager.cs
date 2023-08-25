@@ -141,7 +141,7 @@ public class InsuranceInvestmentManager : MonoBehaviour
 
             switch (DM.insuranceInvestmentLines[index])
             {
-                case "Good Morning Boss!\nWould you like to buy an investment insurance at a lower rate to keep yourself safe from scams?":
+                case "Investment Insurance Oppurtunity\n \nGood Morning Boss!,\nWould you like to buy an Investment Insurance at a lower rate to keep yourself safe from scams?":
                     {
                         if (browserManager.investmentInsurance != true)
                         {

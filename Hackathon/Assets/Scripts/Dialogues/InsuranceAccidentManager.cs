@@ -141,7 +141,7 @@ public class InsuranceAccidentManager : MonoBehaviour
 
             switch (DM.insuranceAccidentLines[index])
             {
-                case "Good Morning Boss!\nWould you like to buy accident insurance at a lower rate to keep your family and loved ones from unexpected accident expenses?":
+                case "Accident Insurance Oppurtunity\n \nGood Morning Boss!,\nWould you like to buy Accident Insurance at a lower rate to keep your Employees from unexpected accident expenses?":
                     {
                         if (browserManager.accidentInsurance != true)
                         {

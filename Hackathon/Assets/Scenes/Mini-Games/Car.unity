@@ -1272,7 +1272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -6
-  maxspeed: 15
+  maxspeed: 13
   swapPosition: 11
   car: {fileID: 656568816}
 --- !u!212 &518224388
@@ -1358,7 +1358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -6
-  maxspeed: 15
+  maxspeed: 13
   swapPosition: 10
   car: {fileID: 656568816}
 --- !u!212 &528764804
@@ -1582,7 +1582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -2
-  maxspeed: 7
+  maxspeed: 5
   swapPosition: 10
   car: {fileID: 656568816}
 --- !u!95 &596101487
@@ -1935,7 +1935,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 21f583abd53193a4da6d4dc2e8635225, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.6
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2031,7 +2031,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 68a853777a94cb547bcaafc42203f821, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.6
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2564,7 +2564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -6
-  maxspeed: 15
+  maxspeed: 13
   swapPosition: 10
   car: {fileID: 656568816}
 --- !u!212 &741098243
@@ -2755,7 +2755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -2
-  maxspeed: 7
+  maxspeed: 5
   swapPosition: 10
   car: {fileID: 656568816}
 --- !u!95 &897947182
@@ -2981,7 +2981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -6
-  maxspeed: 15
+  maxspeed: 13
   swapPosition: 11
   car: {fileID: 656568816}
 --- !u!212 &1106300403
@@ -3082,7 +3082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -6
-  maxspeed: 15
+  maxspeed: 13
   swapPosition: 11
   car: {fileID: 656568816}
 --- !u!212 &1173043017
@@ -4013,7 +4013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -6
-  maxspeed: 15
+  maxspeed: 13
   swapPosition: 11
   car: {fileID: 656568816}
 --- !u!212 &1449575192
@@ -5037,7 +5037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -2
-  maxspeed: 7
+  maxspeed: 5
   swapPosition: 10
   car: {fileID: 656568816}
 --- !u!95 &1922101408
@@ -5382,7 +5382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -2
-  maxspeed: 7
+  maxspeed: 5
   swapPosition: 10
   car: {fileID: 656568816}
 --- !u!95 &2010929032

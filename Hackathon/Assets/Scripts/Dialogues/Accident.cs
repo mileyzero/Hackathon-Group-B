@@ -132,7 +132,7 @@ public class Accident : MonoBehaviour
 
             switch (DM.accidentLines[index])
             {
-                case "Hi Boss,\nBad news, one of our employees has gotten into an accident, would you like to provide them with financial assistance to cover their medical bills?":
+                case "Accident Incident\n \nHi Boss,\nBad news, one of our employees has gotten into an accident, would you like to provide them with financial assistance to cover their medical bills?":
                     {
                         if(browserManager.accidentInsurance != true)
                         {
@@ -160,7 +160,7 @@ public class Accident : MonoBehaviour
                         }
                         break;
                     }
-                case "Good Morning Boss,\nOne of our department head has recently got into an accident, would you please help out with the medical fees?":
+                case "Accident Incident\n \nGood Morning Boss,\nOne of our department head has recently got into an accident, would you please help out with the medical fees?":
                     {
                         if (browserManager.accidentInsurance != true)
                         {
@@ -189,7 +189,7 @@ public class Accident : MonoBehaviour
                         }
                         break;
                     }
-                case "Hi Boss,\nthis is one of your employees from one of the departements, my family have been struggling with some financial stuff, can you help us?":
+                case "Accident Incident\n \nHi Boss,\nthis is one of your employees from one of the departements, my family have been struggling with some financial stuff, can you help us?":
                     {
                         if (browserManager.accidentInsurance != true)
                         {
@@ -218,7 +218,7 @@ public class Accident : MonoBehaviour
                         }
                         break;
                     }
-                case "Hi Sir,\nI have submitted an accident bill for reimbursement, can I have an approval to proceed with the payment?":
+                case "Accident Incident\n \nHi Sir,\nI have submitted an accident bill for reimbursement, can I have an approval to proceed with the payment?":
                     {
                         if (browserManager.accidentInsurance != true)
                         {
@@ -246,7 +246,7 @@ public class Accident : MonoBehaviour
                         }
                         break;
                     }
-                case "Boss,\nI appreciate your understanding in the matter, but I was wondering if the company could possibly cover the accident fees?":
+                case "Accident Incident\n \nHello Boss,\nI appreciate your understanding in the matter, but I was wondering if the company could possibly cover the accident fees?":
                     {
                         if (browserManager.accidentInsurance != true)
                         {

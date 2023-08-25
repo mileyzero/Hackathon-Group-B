@@ -78,6 +78,6 @@ public class Main_Menu : MonoBehaviour
 
         yield return new WaitForSeconds(transitionTime);
 
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("SampleScene");
     }
 }

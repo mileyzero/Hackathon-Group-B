@@ -140,7 +140,7 @@ public class MG_Dialogue : MonoBehaviour
 
             switch (DM.miniGameLines[index])
             {
-                case "Hello Boss,\nI highly recommend taking a break to try out the new mini game - it's a great opportunity to relax and boost team morale.":
+                case "Mini-Game\n \nHello Boss,\nI highly recommend taking a break to try out the new mini game - it's a great opportunity to relax and boost team morale.":
                     {
                         if(mgTimer.IsCooldownActive != true)
                         {

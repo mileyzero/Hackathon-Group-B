@@ -64,44 +64,44 @@ public class DialogueManager : MonoBehaviour
         isDialogue = false;
         dialoguePlayed = false;
 
-        employeeLines[0] = "Hey Boss!\nOne of your employees is having their birthday TODAY. Would you like to gift a present?";
-        employeeLines[1] = "Good Morning Boss!\nOne of your senior employees would like to see you about a promotion. Would you like me to send them in to discuss his possible promotion?";
-        employeeLines[2] = "Hi Boss! Good news,\none of our employees has been working hard lately, as a token of appreciation, would you like to provide them with holiday money this year?";
-        employeeLines[3] = "Good Morning Boss!\nIn regards for our employees' workspace, would you like to provide them financial assistance to upgrade?";
-        employeeLines[4] = "Happy New Year Boss!\nWould you like to host a New Year Party for your employees?";
+        employeeLines[0] = "Employee Birthday\n \nHello Boss,\nOne of your employees is going to have their birthday TODAY. Would you like to gift a present?";
+        employeeLines[1] = "Employee Promotion\n \nGood Morning Boss,\nOne of your senior employees would like to see you about a promotion. Would you like me to send them in to discuss his possible promotion?";
+        employeeLines[2] = "Employee Motivation\n \nHello Boss, \nGood news,Our employees have been working hard lately, as a token of appreciation, would you like to provide them with holiday money this year?";
+        employeeLines[3] = "Employee Workspace\n \nGood Morning Boss,\nIn regards for our employees' workspace, would you like to provide them with a better workspace?";
+        employeeLines[4] = "Employee New Year Party\n \nHappy New Year Boss!,\nWould you like to host a New Year Party for your employees?";
 
-        insuranceHealthLines[0] = "Good Morning Boss!\nWould you like to buy health insurance at a lower rate to keep your family and loved ones from unexpected medical expenses?";
-        insuranceAccidentLines[0] = "Good Morning Boss!\nWould you like to buy accident insurance at a lower rate to keep your family and loved ones from unexpected accident expenses?";
-        insuranceInvestmentLines[0] = "Good Morning Boss!\nWould you like to buy an investment insurance at a lower rate to keep yourself safe from scams?";
+        insuranceHealthLines[0] = "Health Insurance Oppurtunity\n \nGood Morning Boss!,\nWould you like to buy Health Insurance at a lower rate to keep your Employees from unexpected medical expenses?";
+        insuranceAccidentLines[0] = "Accident Insurance Oppurtunity\n \nGood Morning Boss!,\nWould you like to buy Accident Insurance at a lower rate to keep your Employees from unexpected accident expenses?";
+        insuranceInvestmentLines[0] = "Investment Insurance Oppurtunity\n \nGood Morning Boss!,\nWould you like to buy an Investment Insurance at a lower rate to keep yourself safe from scams?";
 
-        investmentLines[0] = "Hi Boss!\nOur accountants have noticed that we have a surplus in capital. They suggested that you expand the business and offices. Would you like to follow through?";
-        investmentLines[1] = "Hey Pal!\nHeard your business has been thriving. I'm writing to ask you whether you would like to invest in one business project. You will receive a good margin of the profits!";
-        investmentLines[2] = "Hi.\nWould you like to provide some funds for my start-up business? We will pay you handsomely once things start to pick up.";
-        investmentLines[3] = "Hi,\nI am a representative of an Energy Company called Operate Energy. Our partnership will help us harness and distribute energy. Would you like to invest?";
-        investmentLines[4] = "Hey there!\nI'm the developer of Among Us, and I could really use some financial support to help me develop this game! Would you help me?";
-        investmentLines[5] = "Hi!\nI would like to provide an upgrade of ads to your company! Do you want some traction for your ads?";
-        investmentLines[6] = "Hey there!\nWant to be the face of our awesome brand? We're hiring models to help us advertise - interested?";
-        investmentLines[7] = "Hi!\nI am a representative of a clothing brand called Doo Nut, we would be thrilled to offer you a deal with our clothing brand - are you interested?";
-        investmentLines[8] = "Hi,\nI would like to catch everyone's attention and spread your company's name by advertising it on a billboard! Are you interested?";
-        investmentLines[9] = "Hi,\nI would like to provide services to upgrade your company's office area, are you interested?";
+        investmentLines[0] = "Investment Oppurtunity\n \nHi Boss!,\nOur accountants have noticed that we have a surplus in capital. They suggested that you should expand the business and offices. Would you like to follow through?";
+        investmentLines[1] = "Investment Oppurtunity\n \nHello!,\nHeard your business has been thriving. I am writing to ask you whether you would like to invest in one of our business project. You will receive a good margin of the profits!";
+        investmentLines[2] = "Investment Oppurtunity\n \nHi!,\nWould you like to provide some funds for my start-up business? We will pay you handsomely once things start to pick up.";
+        investmentLines[3] = "Investment Oppurtunity\n \nHi!,\nI am a representative of an Energy Company called Operate Energy. Our partnership will help us harness and distribute energy. Would you like to provide us with some finicial assistance?";
+        investmentLines[4] = "Investment Oppurtunity\n \nHi Sir!,\nI am developing a game called Among Them, and I could really use some financial support to help me develop this game! Would you like to provide me with some funds to complete this game of mine?";
+        investmentLines[5] = "Investment Oppurtunity\n \nHi Mr!,\nI would like to provide an upgrade of ADs to your company! Do you want some traction for your ADs?";
+        investmentLines[6] = "Investment Oppurtunity\n \nHey there!,\nWant to be the face of our AWESOME BRAND? We are hiring models to help us advertise - Interested?";
+        investmentLines[7] = "Investment Oppurtunity\n \nHello!,\nI am a representative of a clothing brand called Doo Nut, we would be thrilled to offer you a deal with our clothing brand - Are you Interested?";
+        investmentLines[8] = "Investment Oppurtunity\n \nHi!,\nI would like to catch everyone's attention and spread your company's name by advertising it on a billboard! Are you interested?";
+        investmentLines[9] = "Investment Oppurtunity\n \nHi!,\nI would like to provide services to upgrade your company's office area, are you interested?";
 
-        healthLines[0] = "Hi Boss,\nOne of our employees has reported sick, would you like to help out with his/her medical fees?";
-        healthLines[1] = "Good Morning Boss,\nOne of our departments has recently got in contact with COVID, would you like to help out by paying for the medical fees?";
-        healthLines[2] = "Hi Sir,\nI have submitted a medical bill for reimbursement, can I have an approval to proceed with the payment?";
-        healthLines[3] = "Hi Boss,\nthis is urgent! I need your help with some financial help as I can't pay for my medical bills. Please help me!";
-        healthLines[4] = "Hello Sir,\nI believe it would be in the best interest of the company, as well as my own well-being, for you to consider covering the medical fees as it is directly related to my work.";
+        healthLines[0] = "Medical Incident\n \nHi Boss,\nOne of our employees has reported sick, would you like to help out with his/her medical fees?";
+        healthLines[1] = "Medical Incident\n \nGood Morning Boss,\nOne of our departments has recently got in contact with COVID, would you like to help out by paying for the medical fees?";
+        healthLines[2] = "Medical Incident\n \nHi Sir,\nI have submitted a medical bill for reimbursement, can I have an approval to proceed with the payment?";
+        healthLines[3] = "Medical Incident\n \nHi Boss,\nthis is urgent! I need your help with some financial help as I can't pay for my medical bills. Please help me!";
+        healthLines[4] = "Medical Incident\n \nHello Sir,\nWould you please consider covering the medical fees as it is directly related to my work.";
 
-        accidentLines[0] = "Hi Boss,\nBad news, one of our employees has gotten into an accident, would you like to provide them with financial assistance to cover their medical bills?";
-        accidentLines[1] = "Good Morning Boss,\nOne of our department head has recently got into an accident, would you please help out with the medical fees?";
-        accidentLines[2] = "Hi Boss,\nthis is one of your employees from one of the departements, my family have been struggling with some financial stuff, can you help us?";
-        accidentLines[3] = "Hi Sir,\nI have submitted an accident bill for reimbursement, can I have an approval to proceed with the payment?";
-        accidentLines[4] = "Boss,\nI appreciate your understanding in the matter, but I was wondering if the company could possibly cover the accident fees?";
+        accidentLines[0] = "Accident Incident\n \nHi Boss,\nBad news, one of our employees has gotten into an accident, would you like to provide them with financial assistance to cover their medical bills?";
+        accidentLines[1] = "Accident Incident\n \nGood Morning Boss,\nOne of our department head has recently got into an accident, would you please help out with the medical fees?";
+        accidentLines[2] = "Accident Incident\n \nHi Boss,\nthis is one of your employees from one of the departements, my family have been struggling with some financial stuff, can you help us?";
+        accidentLines[3] = "Accident Incident\n \nHi Sir,\nI have submitted an accident bill for reimbursement, can I have an approval to proceed with the payment?";
+        accidentLines[4] = "Accident Incident\n \nHello Boss,\nI appreciate your understanding in the matter, but I was wondering if the company could possibly cover the accident fees?";
 
-        miniGameLines[0] = "Hello Boss,\nI highly recommend taking a break to try out the new mini game - it's a great opportunity to relax and boost team morale.";
+        miniGameLines[0] = "Mini-Game\n \nHello Boss,\nI highly recommend taking a break to try out the new mini game - it's a great opportunity to relax and boost team morale.";
 
-        miniGameCarLines[0] = "Hello Boss,\nthere's a celebration at 7:30pm at a nearby hotel, it would be an honor for you to join us!";
+        miniGameCarLines[0] = "Mini-Game\n \nHello Boss,\nthere's a celebration at 7:30pm at a nearby hotel, it would be an honor for you to join us!";
 
-        miniGameGolfLines[0] = "Hello Boss,\nI have a proposition for you but let's see if your swings in golf is as impressive as you think!";
+        miniGameGolfLines[0] = "Mini-Game\n \nHello Boss,\nI have a proposition for you but let's see if your swings in golf is as impressive as you think!";
 
         dialogueBox.SetActive(false);
         yesButton.SetActive(false);
