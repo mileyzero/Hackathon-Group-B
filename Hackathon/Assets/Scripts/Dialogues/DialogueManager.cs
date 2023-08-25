@@ -59,7 +59,7 @@ public class DialogueManager : MonoBehaviour
 #endregion
 
     // Start is called before the first frame update
-    private void Start()
+    private void Awake()
     {
         isDialogue = false;
         dialoguePlayed = false;
@@ -85,11 +85,11 @@ public class DialogueManager : MonoBehaviour
         investmentLines[8] = "Investment Oppurtunity\n \nHi!,\nI would like to catch everyone's attention and spread your company's name by advertising it on a billboard! Are you interested?";
         investmentLines[9] = "Investment Oppurtunity\n \nHi!,\nI would like to provide services to upgrade your company's office area, are you interested?";
 
-        healthLines[0] = "Medical Incident\n \nHi Boss,\nOne of our employees has reported sick, would you like to help out with his/her medical fees?";
-        healthLines[1] = "Medical Incident\n \nGood Morning Boss,\nOne of our departments has recently got in contact with COVID, would you like to help out by paying for the medical fees?";
-        healthLines[2] = "Medical Incident\n \nHi Sir,\nI have submitted a medical bill for reimbursement, can I have an approval to proceed with the payment?";
-        healthLines[3] = "Medical Incident\n \nHi Boss,\nthis is urgent! I need your help with some financial help as I can't pay for my medical bills. Please help me!";
-        healthLines[4] = "Medical Incident\n \nHello Sir,\nWould you please consider covering the medical fees as it is directly related to my work.";
+        healthLines[0] = "Employee Medical Incident\n \nHi Boss,\nOne of our employees has reported sick, would you like to help out with his/her medical fees?";
+        healthLines[1] = "Employee Medical Incident\n \nGood Morning Boss,\nOne of our departments has recently got in contact with COVID, would you like to help out by paying for the medical fees?";
+        healthLines[2] = "Employee Medical Incident\n \nHi Sir,\nI have submitted a medical bill for reimbursement, can I have an approval to proceed with the payment?";
+        healthLines[3] = "Employee Medical Incident\n \nHi Boss,\nthis is urgent! I need your help with some financial help as I can't pay for my medical bills. Please help me!";
+        healthLines[4] = "Employee Medical Incident\n \nHello Sir,\nWould you please consider covering the medical fees as it is directly related to my work.";
 
         accidentLines[0] = "Accident Incident\n \nHi Boss,\nBad news, one of our employees has gotten into an accident, would you like to provide them with financial assistance to cover their medical bills?";
         accidentLines[1] = "Accident Incident\n \nGood Morning Boss,\nOne of our department head has recently got into an accident, would you please help out with the medical fees?";

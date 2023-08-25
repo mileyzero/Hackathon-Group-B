@@ -132,7 +132,7 @@ public class Health : MonoBehaviour
 
             switch (DM.healthLines[index])
             {
-                case "Medical Incident\n \nHi Boss,\nOne of our employees has reported sick, would you like to help out with his/her medical fees?":
+                case "Employee Medical Incident\n \nHi Boss,\nOne of our employees has reported sick, would you like to help out with his/her medical fees?":
                     {
                         if (browserManager.healthInsurance != true)
                         {
@@ -161,7 +161,7 @@ public class Health : MonoBehaviour
                         break;
                     }
 
-                case "Medical Incident\n \nGood Morning Boss,\nOne of our departments has recently got in contact with COVID, would you like to help out by paying for the medical fees?":
+                case "Employee Medical Incident\n \nGood Morning Boss,\nOne of our departments has recently got in contact with COVID, would you like to help out by paying for the medical fees?":
                     {
                         if (browserManager.healthInsurance != true)
                         {
@@ -191,7 +191,7 @@ public class Health : MonoBehaviour
                         break;
                     }
 
-                case "Medical Incident\n \nHi Sir,\nI have submitted a medical bill for reimbursement, can I have an approval to proceed with the payment?":
+                case "Employee Medical Incident\n \nHi Sir,\nI have submitted a medical bill for reimbursement, can I have an approval to proceed with the payment?":
                     {
                         if (browserManager.healthInsurance != true)
                         {
@@ -221,7 +221,7 @@ public class Health : MonoBehaviour
                         break;
                     }
 
-                case "Medical Incident\n \nHi Boss,\nthis is urgent! I need your help with some financial help as I can't pay for my medical bills. Please help me!":
+                case "Employee Medical Incident\n \nHi Boss,\nthis is urgent! I need your help with some financial help as I can't pay for my medical bills. Please help me!":
                     {
                         if (browserManager.healthInsurance != true)
                         {
@@ -251,7 +251,7 @@ public class Health : MonoBehaviour
                         break;
                     }
 
-                case "Medical Incident\n \nHello Sir,\nWould you please consider covering the medical fees as it is directly related to my work.":
+                case "Employee Medical Incident\n \nHello Sir,\nWould you please consider covering the medical fees as it is directly related to my work.":
                     {
                         if (browserManager.healthInsurance != true)
                         {
@@ -327,7 +327,7 @@ public class Health : MonoBehaviour
 
             switch (DM.healthLines[index])
             {
-                case "Hi Boss,\nOne of our employees has reported sick, would you like to help out with his/her medical fees?":
+                case "Employee Medical Incident\n \nHi Boss,\nOne of our employees has reported sick, would you like to help out with his/her medical fees?":
                     {
                         Debug.Log(" No Health");
 
@@ -343,7 +343,7 @@ public class Health : MonoBehaviour
 
                         break;
                     }
-                case "Good Morning Boss,\nOne of our departments has recently got in contact with COVID, would you like to help out by paying for the medical fees?":
+                case "Employee Medical Incident\n \nGood Morning Boss,\nOne of our departments has recently got in contact with COVID, would you like to help out by paying for the medical fees?":
                     {
                         Debug.Log("2 No Health");
 
@@ -359,7 +359,7 @@ public class Health : MonoBehaviour
 
                         break;
                     }
-                case "Hi Sir,\nI have submitted a medical bill for reimbursement, can I have an approval to proceed with the payment?":
+                case "Employee Medical Incident\n \nHi Sir,\nI have submitted a medical bill for reimbursement, can I have an approval to proceed with the payment?":
                     {
                         Debug.Log("3 No Health");
 
@@ -375,7 +375,7 @@ public class Health : MonoBehaviour
 
                         break;
                     }
-                case "Hi Boss,\nthis is urgent! I need your help with some financial help as I can't pay for my medical bills. Please help me!":
+                case "Employee Medical Incident\n \nHi Boss,\nthis is urgent! I need your help with some financial help as I can't pay for my medical bills. Please help me!":
                     {
                         Debug.Log("4 No Health");
 
@@ -391,7 +391,7 @@ public class Health : MonoBehaviour
 
                         break;
                     }
-                case "Hello Sir,\nI believe it would be in the best interest of the company, as well as my own well-being, for you to consider covering the medical fees as it is directly related to my work.":
+                case "Employee Medical Incident\n \nHello Sir,\nWould you please consider covering the medical fees as it is directly related to my work.":
                     {
                         Debug.Log("5 No Health");
 

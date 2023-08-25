@@ -230,7 +230,7 @@ public class Holiday : MonoBehaviour
 
             switch (DM.employeeLines[index])
             {
-                case "Hey Boss!\nOne of your employees is having their birthday TODAY. Would you like to gift a present?":
+                case "Employee Birthday\n \nHello Boss,\nOne of your employees is going to have their birthday TODAY. Would you like to gift a present?":
                     {
                         Debug.Log("1 No Holiday");
                         GM.money += 5f;
@@ -243,7 +243,7 @@ public class Holiday : MonoBehaviour
 
                         break;
                     }
-                case "Good Morning Boss!\nOne of your senior employees would like to see you about a promotion. Would you like me to send them in to discuss his possible promotion?":
+                case "Employee Promotion\n \nGood Morning Boss,\nOne of your senior employees would like to see you about a promotion. Would you like me to send them in to discuss his possible promotion?":
                     {
                         Debug.Log("2 No Holiday");
                         GM.money += 5f;
@@ -256,7 +256,7 @@ public class Holiday : MonoBehaviour
 
                         break;
                     }
-                case "Hi Boss,\nOne of our employees has reported sick, would you like to help out by paying for his/her medical fees?":
+                case "Employee Motivation\n \nHello Boss, \nGood news,Our employees have been working hard lately, as a token of appreciation, would you like to provide them with holiday money this year?":
                     {
                         Debug.Log("3 No Holiday");
                         GM.money += 5f;
@@ -269,7 +269,7 @@ public class Holiday : MonoBehaviour
 
                         break;
                     }
-                case "Hi Boss!\nGood news, one of our employees has been working hard lately, as a token of appreciation, would you like to provide them with holiday money this year?":
+                case "Employee Workspace\n \nGood Morning Boss,\nIn regards for our employees' workspace, would you like to provide them with a better workspace?":
                     {
                         Debug.Log("4 No Holiday");
                         GM.money += 5f;
@@ -284,35 +284,7 @@ public class Holiday : MonoBehaviour
 
                         break;
                     }
-                case "Hi Boss,\nBad news, one of our employees has gotten into an accident, would you like to provide them with financial assistance to cover their medical bills?":
-                    {
-                        Debug.Log("5 No Holiday");
-                        GM.money += 5f;
-
-                        GM.happiness -= Random.Range(4f, 8f);
-                        GM.popularity -= Random.Range(5f, 10f);
-
-                        StartCoroutine(PlusMoneyTransition(3));
-
-                        StartCoroutine(MinusHappinessTransition(3));
-                        StartCoroutine(MinusPopularityTransition(3));
-
-                        break;
-                    }
-                case "Good Morning Boss!\nIn regards for our employees' workspace, would you like to provide them financial assistance to upgrade?":
-                    {
-                        Debug.Log("6 No Holiday");
-                        GM.money += 5f;
-
-                        GM.happiness -= Random.Range(5f, 10f);
-
-                        StartCoroutine(PlusMoneyTransition(3));
-
-                        StartCoroutine(MinusHappinessTransition(3));
-
-                        break;
-                    }
-                case "Happy New Year Boss!\nwould you like to host a New Year Party for your employees?":
+                case "Employee New Year Party\n \nHappy New Year Boss!,\nWould you like to host a New Year Party for your employees?":
                     {
                         Debug.Log("7 No Holiday");
                         GM.money += 5f;
