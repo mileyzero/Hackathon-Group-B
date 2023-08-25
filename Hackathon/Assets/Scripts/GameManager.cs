@@ -105,6 +105,9 @@ public class GameManager : MonoBehaviour
     public GameObject minusHappiness;
 
     public GameObject pauseMenu;
+    public GameObject pauseBtn;
+
+    public GameObject tutorialImg;
 
     //Button for snekGame, slotGame and doNut
     public Button snekGameButton;
@@ -199,6 +202,8 @@ public class GameManager : MonoBehaviour
         loseHappinessTipPanel.SetActive(false);
         loseMoneyTipPanel.SetActive(false);
         losePopularityTipPanel.SetActive(false);
+
+        tutorialImg.SetActive(false);
 
         //Randomize timer
         delayTimer = Random.Range(1f, 3f);
@@ -728,10 +733,25 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void Tutorial()
+    {
+        pauseBtn.SetActive(false);
+        Time.timeScale = 1;
+
+        Debug.Log(Time.timeScale);
+
+        tutorialImg.SetActive(true);
+    }
+
+    public void TutorialNextPage1()
+    {
+        
+    }
+
     public void QuitGame()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Main Menu");
     }
 
     public IEnumerator AnimateMoneySlider()
