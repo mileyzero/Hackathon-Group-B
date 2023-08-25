@@ -108,6 +108,15 @@ public class GameManager : MonoBehaviour
     public GameObject pauseBtn;
 
     public GameObject tutorialImg;
+    public GameObject tutorialEmail;
+    public GameObject tutorialSnek;
+    public GameObject tutorialSlot;
+    public GameObject tutorialResource;
+    public GameObject tutorialBrowser;
+    public GameObject tutorialInsurance;
+    public GameObject tutorialConfirmation;
+    public GameObject tutorialAftConfirmation;
+    public GameObject finalTutorial;
 
     //Button for snekGame, slotGame and doNut
     public Button snekGameButton;
@@ -204,6 +213,15 @@ public class GameManager : MonoBehaviour
         losePopularityTipPanel.SetActive(false);
 
         tutorialImg.SetActive(false);
+        tutorialEmail.SetActive(false);
+        tutorialSnek.SetActive(false);
+        tutorialSlot.SetActive(false);
+        tutorialResource.SetActive(false);
+        tutorialBrowser.SetActive(false);
+        tutorialInsurance.SetActive(false);
+        tutorialConfirmation.SetActive(false);
+        tutorialAftConfirmation.SetActive(false);
+        finalTutorial.SetActive(false);
 
         //Randomize timer
         delayTimer = Random.Range(1f, 3f);
@@ -745,7 +763,65 @@ public class GameManager : MonoBehaviour
 
     public void TutorialNextPage1()
     {
-        
+        tutorialImg.SetActive(false);
+
+        tutorialEmail.SetActive(true);
+    }
+
+    public void TutorialNextPage2()
+    {
+        tutorialEmail.SetActive(false);
+
+        tutorialSnek.SetActive(true);
+    }
+
+    public void TutorialNextPage3()
+    {
+        tutorialSnek.SetActive(false);
+
+        tutorialSlot.SetActive(true);
+    }
+
+    public void TutorialNextPage4()
+    {
+        tutorialSlot.SetActive(false);
+
+        tutorialResource.SetActive(true);
+    }
+
+    public void TutorialNextPage5()
+    {
+        tutorialResource.SetActive(false);
+
+        tutorialBrowser.SetActive(true);
+    }
+
+    public void TutorialNextPage6()
+    {
+        tutorialBrowser.SetActive(false);
+
+        tutorialInsurance.SetActive(true);
+    }
+
+    public void TutorialNextPage7()
+    {
+        tutorialInsurance.SetActive(false);
+
+        tutorialConfirmation.SetActive(true);
+    }
+
+    public void TutorialNextPage8()
+    {
+        tutorialConfirmation.SetActive(false);
+
+        tutorialAftConfirmation.SetActive(true);
+    }
+
+    public void TutorialNextPage9()
+    {
+        tutorialAftConfirmation.SetActive(false);
+
+        finalTutorial.SetActive(true);
     }
 
     public void QuitGame()
