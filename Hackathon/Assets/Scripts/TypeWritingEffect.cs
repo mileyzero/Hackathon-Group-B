@@ -8,6 +8,8 @@ public class TypeWritingEffect : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
 
+    public GameObject nextBtn;
+
     public string[] textLines;
     public float textSpeed;
 
@@ -15,8 +17,26 @@ public class TypeWritingEffect : MonoBehaviour
 
     private void Start()
     {
+        nextBtn.SetActive(false);
+
         textComponent.text = string.Empty;
         StartDialogue();
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if(textComponent.text == textLines[index])
+            {
+                NextLine();
+            }
+            else
+            {
+                StopAllCoroutines();
+                textComponent.text = textLines[index];
+            }
+        }
     }
 
     void StartDialogue()
@@ -29,8 +49,26 @@ public class TypeWritingEffect : MonoBehaviour
     {
         foreach(char c in textLines[index].ToCharArray())
         {
+            nextBtn.SetActive(false);
+
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
     }
+
+    void NextLine()
+    {
+        if(index < textLines.Length - 1)
+        {
+            index++;
+            textComponent.text = string.Empty;
+            StartCoroutine(TypeLine());
+        }
+        else
+        {
+            nextBtn.SetActive(true);
+        }
+    }
+
+
 }
