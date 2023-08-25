@@ -19,7 +19,14 @@ public class Main_Menu : MonoBehaviour
     public GameObject backBtn;
     public GameObject fullscreenBtn;
 
+    public Image toggleImage;
+
+    public Sprite fullscreenOn;
+    public Sprite fullscreenOff;
+
     public float transitionTime = 1f;
+
+    public bool isFullscreen = false;
 
     // Start is called before the first frame update
     void Start()
@@ -40,9 +47,36 @@ public class Main_Menu : MonoBehaviour
         fullscreenBtn.SetActive(false);
     }
 
-    public void SetFullScreen(bool isFullscreen)
+    public void SetFullScreen()
     {
-        Screen.fullScreen = isFullscreen;
+        isFullscreen = !isFullscreen;
+
+        if (isFullscreen)
+        {
+            Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, true);
+            Debug.Log(Screen.currentResolution);
+        }
+        else
+        {
+            int windowHeight = 720;
+            int windowWidth = 1280;
+
+            Screen.SetResolution(windowWidth, windowHeight, false);
+        }
+
+        UpdateToggleImage();
+    }
+
+    private void UpdateToggleImage()
+    {
+        if (isFullscreen)
+        {
+            toggleImage.sprite = fullscreenOn;
+        }
+        else
+        {
+            toggleImage.sprite = fullscreenOff;
+        }
     }
 
     public void SettingsBtnPressed()
