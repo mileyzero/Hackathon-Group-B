@@ -145,7 +145,7 @@ public class MG_Car_Dialogue : MonoBehaviour
             switch (DM.miniGameCarLines[index])
             {
 
-                case "Hello Boss,\nthere's a celebration at 7:30pm at a nearby hotel, it would be an honor for you to join us!":
+                case "Mini-Game\n \nHello Boss,\nthere's a celebration at 7:30pm at a nearby hotel, it would be an honor for you to join us!":
                     {
                         if(mgTimer.IsCooldownActive != true)
                         {

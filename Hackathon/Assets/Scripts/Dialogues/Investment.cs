@@ -150,7 +150,7 @@ public class Investment : MonoBehaviour
 
             switch (DM.investmentLines[index])
             {
-                case "Hi Boss!\nOur accountants have noticed that we have a surplus in capital. They suggested that you expand the business and offices. Would you like to follow through?":
+                case "Investment Oppurtunity\n \nHi Boss!,\nOur accountants have noticed that we have a surplus in capital. They suggested that you should expand the business and offices. Would you like to follow through?":
                     {
                         if (browserManager.investmentInsurance != true)
                         {
@@ -166,7 +166,7 @@ public class Investment : MonoBehaviour
                         }
                         break;
                     }
-                case "Hey Pal!\nHeard your business has been thriving. I'm writing to ask you whether you would like to invest in one business project. You will receive a good margin of the profits!":
+                case "Investment Oppurtunity\n \nHello!,\nHeard your business has been thriving. I am writing to ask you whether you would like to invest in one of our business project. You will receive a good margin of the profits!":
                     {
                         if(browserManager.investmentInsurance != true)
                         {
@@ -183,7 +183,7 @@ public class Investment : MonoBehaviour
                         }
                         break;
                     }
-                case "Hi.\nWould you like to provide some funds for my start-up business? We will pay you handsomely once things start to pick up.":
+                case "Investment Oppurtunity\n \nHi!,\nWould you like to provide some funds for my start-up business? We will pay you handsomely once things start to pick up.":
                     {
                         if(browserManager.investmentInsurance != true)
                         {
@@ -199,7 +199,7 @@ public class Investment : MonoBehaviour
                         }
                         break;
                     }
-                case "Hi,\nI am a representative of an Energy Company called Operate Energy. Our partnership will help us harness and distribute energy. Would you like to invest?":
+                case "Investment Oppurtunity\n \nHi!,\nI am a representative of an Energy Company called Operate Energy. Our partnership will help us harness and distribute energy. Would you like to provide us with some finicial assistance?":
                     {
                         if (browserManager.investmentInsurance != true)
                         {
@@ -215,7 +215,7 @@ public class Investment : MonoBehaviour
                         }
                         break;
                     }
-                case "Hey there!\nI'm the developer of Among Us, and I could really use some financial support to help me develop this game! Would you help me?":
+                case "Investment Oppurtunity\n \nHi Sir!,\nI am developing a game called Among Them, and I could really use some financial support to help me develop this game! Would you like to provide me with some funds to complete this game of mine?":
                     {
                         if(browserManager.investmentInsurance != true)
                         {
@@ -231,7 +231,7 @@ public class Investment : MonoBehaviour
                         }
                         break;
                     }
-                case "Hi!\nI would like to provide an upgrade of ads to your company! Do you want some traction for your ads?":
+                case "Investment Oppurtunity\n \nHi Mr!,\nI would like to provide an upgrade of ADs to your company! Do you want some traction for your ADs?":
                     {
                         if(browserManager.investmentInsurance != true)
                         {
@@ -247,7 +247,7 @@ public class Investment : MonoBehaviour
                         }
                         break;
                     }
-                case "Hey there!\nWant to be the face of our awesome brand? We're hiring models to help us advertise - interested?":
+                case "Investment Oppurtunity\n \nHey there!,\nWant to be the face of our AWESOME BRAND? We are hiring models to help us advertise - Interested?":
                     {
                         if(browserManager.investmentInsurance != true)
                         {
@@ -263,7 +263,7 @@ public class Investment : MonoBehaviour
                         }
                         break;
                     }
-                case "Hi!\nI am a representative of a clothing brand called Doo Nut, we would be thrilled to offer you a deal with our clothing brand - are you interested?":
+                case "Investment Oppurtunity\n \nHello!,\nI am a representative of a clothing brand called Doo Nut, we would be thrilled to offer you a deal with our clothing brand - Are you Interested?":
                     {
                         if(browserManager.investmentInsurance != true)
                         {
@@ -279,7 +279,7 @@ public class Investment : MonoBehaviour
                         }
                         break;
                     }
-                case "Hi,\nI would like to catch everyone's attention and spread your company's name by advertising it on a billboard! Are you interested?":
+                case "Investment Oppurtunity\n \nHi!,\nI would like to catch everyone's attention and spread your company's name by advertising it on a billboard! Are you interested?":
                     {
                         if(browserManager.investmentInsurance != true)
                         {
@@ -295,7 +295,7 @@ public class Investment : MonoBehaviour
                         }
                         break;
                     }
-                case "Hi,\nI would like to provide services to upgrade your company's office area, are you interested?":
+                case "Investment Oppurtunity\n \nHi!,\nI would like to provide services to upgrade your company's office area, are you interested?":
                     {
                         if(browserManager.investmentInsurance != true)
                         {

@@ -188,7 +188,7 @@ public class MG_Golf_Dialogue : MonoBehaviour
 
             switch (DM.miniGameGolfLines[index])
             {
-                case "Hello Boss,\nI have a proposition for you but let's see if your swings in golf is as impressive as you think!":
+                case "Mini-Game\n \nHello Boss,\nI have a proposition for you but let's see if your swings in golf is as impressive as you think!":
                     {
                         if(mgTimer.IsCooldownActive != true)
                         {

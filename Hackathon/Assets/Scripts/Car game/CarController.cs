@@ -100,6 +100,7 @@ public class CarController : MonoBehaviour
     {
         audioPlayer.clip = lose_sfx;
         audioPlayer.loop = false;
+        audioPlayer.pitch = 0.4f;
         audioPlayer.Play();
     }
 

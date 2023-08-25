@@ -130,7 +130,7 @@ public class Holiday : MonoBehaviour
 
             switch (DM.employeeLines[index])
             {
-                case "Hey Boss!\nOne of your employees is having their birthday TODAY. Would you like to gift a present?":
+                case "Employee Birthday\n \nHello Boss,\nOne of your employees is going to have their birthday TODAY. Would you like to gift a present?":
                     {
                         Debug.Log("1 Yes Holiday");
                         GM.happiness += Random.Range(5f, 10f);
@@ -141,7 +141,7 @@ public class Holiday : MonoBehaviour
 
                         break;
                     }
-                case "Good Morning Boss!\nOne of your senior employees would like to see you about a promotion. Would you like me to send them in to discuss his possible promotion?":
+                case "Employee Promotion\n \nGood Morning Boss,\nOne of your senior employees would like to see you about a promotion. Would you like me to send them in to discuss his possible promotion?":
                     {
                         Debug.Log("2 Yes Holiday");
                         GM.happiness += Random.Range(5f, 10f);
@@ -152,7 +152,7 @@ public class Holiday : MonoBehaviour
 
                         break;
                     }
-                case "Hi Boss!\nGood news, one of our employees has been working hard lately, as a token of appreciation, would you like to provide them with holiday money this year?":
+                case "Employee Motivation\n \nHello Boss, \nGood news,Our employees have been working hard lately, as a token of appreciation, would you like to provide them with holiday money this year?":
                     {
                         Debug.Log("3 Yes Holiday");
                         GM.happiness += Random.Range(5f, 10f);
@@ -166,7 +166,7 @@ public class Holiday : MonoBehaviour
 
                         break;
                     }
-                case "Good Morning Boss!\nIn regards for our employees' workspace, would you like to provide them financial assistance to upgrade?":
+                case "Employee Workspace\n \nGood Morning Boss,\nIn regards for our employees' workspace, would you like to provide them with a better workspace?":
                     {
                         Debug.Log("4 Yes Holiday");
                         GM.happiness += Random.Range(5f, 10f);
@@ -177,7 +177,7 @@ public class Holiday : MonoBehaviour
 
                         break;
                     }
-                case "Happy New Year Boss!\nWould you like to host a New Year Party for your employees?":
+                case "Employee New Year Party\n \nHappy New Year Boss!,\nWould you like to host a New Year Party for your employees?":
                     {
                         Debug.Log("5 Yes Holiday");
                         GM.happiness += Random.Range(5f, 10f);

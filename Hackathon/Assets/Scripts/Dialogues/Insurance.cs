@@ -143,7 +143,7 @@ public class Insurance : MonoBehaviour
 
             switch (DM.insuranceHealthLines[index])
             {
-                case "Good Morning Boss!\nWould you like to buy health insurance at a lower rate to keep your family and loved ones from unexpected medical expenses?":
+                case "Health Insurance Oppurtunity\n \nGood Morning Boss!,\nWould you like to buy Health Insurance at a lower rate to keep your Employees from unexpected medical expenses?":
                     {
                         if(browserManager.healthInsurance != true)
                         {
