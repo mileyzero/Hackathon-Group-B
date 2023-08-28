@@ -7,6 +7,9 @@ using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
+    //Reference script to DontDestroyGame
+    public DontDestroyGame DDG;
+
     //Reference script to tipManager
     public Tips tipManagerMoney;
     public Tips tipManagerHappiness;
@@ -44,6 +47,8 @@ public class GameManager : MonoBehaviour
 
     //Variable for NameGenerator
     public NameGenerator nameManager;
+
+    public Animator transitionAnim;
 
     //GameObject for investment and employee notification
     public GameObject investmentNotiIcon;
@@ -87,6 +92,8 @@ public class GameManager : MonoBehaviour
     public GameObject background1;
     public GameObject background2;
     public GameObject background3;
+
+    public GameObject winGameBG;
 
     public GameObject loseMoney;
     public GameObject losePopularity;
@@ -136,6 +143,8 @@ public class GameManager : MonoBehaviour
     public float maxMoney = 90;
     public float maxPopularity = 90;
 
+    public float transitionTime = 1f;
+
     //Int for randomInitialize
     public int randomInitialize;
 
@@ -152,8 +161,12 @@ public class GameManager : MonoBehaviour
     public float timer;
     public float loseTimeTipDuration;
 
+    public float winTime;
+
     //Bool for isRunning
     public bool isRunning;
+
+    public bool isDialogue;
 
     public float animationDur = 5f;
 
@@ -181,6 +194,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isDialogue = false;
+
         pauseMenu.SetActive(false);
 
         plusMoney.SetActive(false);
@@ -207,6 +222,7 @@ public class GameManager : MonoBehaviour
         loseHappiness.SetActive(false);
         loseMoney.SetActive(false);
         losePopularity.SetActive(false);
+        winGameBG.SetActive(false);
 
         loseHappinessTipPanel.SetActive(false);
         loseMoneyTipPanel.SetActive(false);
@@ -230,6 +246,8 @@ public class GameManager : MonoBehaviour
         //set timer to delayTimer
         timer = delayTimer;
         loseTimeTipDuration = 2f;
+
+        winTime = 2f;
 
         //set isRunning to false on start
         isRunning = false;
@@ -272,6 +290,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         Debug.Log(isRunning);
+        Debug.Log(isDialogue);
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -423,8 +442,26 @@ public class GameManager : MonoBehaviour
     {
         if(popularity >= maxPopularity && money >= maxMoney && happiness >= maxHappiness)
         {
-            SceneManager.LoadScene("WinGame");
+            winGameBG.SetActive(true);
+
+            background1.SetActive(false);
+            background2.SetActive(false);
+            background3.SetActive(false);
+
+            StartCoroutine(ActivateWinGame());
         }
+    }
+
+    private IEnumerator ActivateWinGame()
+    {
+        yield return new WaitForSeconds(winTime);
+
+        transitionAnim.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        DDG.DestroyGame();
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void PlayBtnSound()
@@ -632,7 +669,6 @@ public class GameManager : MonoBehaviour
     //LevelChange checks based on the popularity that the player has gathered.
     //if popularity is less than 30 then it stays at level 1 background.
     //else if the popularity is more or equals to 30, it goes to level two and if it's more or equals to 60 then it goes to level 3
-    
     public void LevelChange()
     {
         if (popularity < 30)
@@ -657,19 +693,39 @@ public class GameManager : MonoBehaviour
             background3.SetActive(true);
         }
     }
+
     //SnakeGame loads the snake game and finds the main game by tag and hides it
     public void SnakeGame()
     {
+        StartCoroutine(TransitionSnakeLevel());
+    }
+
+    //SlotMachine loads the snake game and finds the main game by tag and hides it
+    public void SlotMachine()
+    {
+        StartCoroutine(TransitionSlotLevel());
+    }
+
+    IEnumerator TransitionSnakeLevel()
+    {
+        transitionAnim.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene("Snake");
         GameObject.FindGameObjectWithTag("main_game").SetActive(false);
     }
 
-    public void SlotMachine()
+    IEnumerator TransitionSlotLevel()
     {
+        transitionAnim.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene("SlotMachine");
         GameObject.FindGameObjectWithTag("main_game").SetActive(false);
     }
 
+    //if money is less or equals to 0, it will set an active scene to true. if the boolean is not active yet, it will then start a coroutine
+    //after the coroutine, it will then set to true which then the Restart and Quit button will appear
     public void LoseMoneyCondition()
     {
         if(money <= 0)
@@ -693,6 +749,8 @@ public class GameManager : MonoBehaviour
         loseMoneyTipPanel.SetActive(true);
     }
 
+    //if popularity is less or equals to 0, it will set an active scene to true. if the boolean is not active yet, it will then start a coroutine
+    //after the coroutine, it will then set to true which then the Restart and Quit button will appear
     public void LosePopularityCondition()
     {
         if(popularity <= 0)
@@ -716,6 +774,8 @@ public class GameManager : MonoBehaviour
         losePopularityTipPanel.SetActive(true);
     }
 
+    //if happiness is less or equals to 0, it will set an active scene to true. if the boolean is not active yet, it will then start a coroutine
+    //after the coroutine, it will then set to true which then the Restart and Quit button will appear
     public void LoseHappinessCondition()
     {
         if(happiness <= 0)
@@ -739,18 +799,22 @@ public class GameManager : MonoBehaviour
         loseHappinessTipPanel.SetActive(true);
     }
 
+    //when player presses the Pause button, it sets the timeScale to 0 and sets pauseMenu active to true
     public void PauseMenu()
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0;
     }
 
+    //when player presses the Resume button, it sets the timeScale to 1 and sets pauseMenu active to true
     public void Resume()
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
     }
 
+    //when player presses the Tutorial button, it sets the timeScale to 1 and pauseMenu to set active false
+    //then it sets the tutorial image to true
     public void Tutorial()
     {
         pauseBtn.SetActive(false);
@@ -761,6 +825,7 @@ public class GameManager : MonoBehaviour
         tutorialImg.SetActive(true);
     }
 
+    //then it sets the tutorial image to false and tutorial email image to true
     public void TutorialNextPage1()
     {
         tutorialImg.SetActive(false);
@@ -824,12 +889,21 @@ public class GameManager : MonoBehaviour
         finalTutorial.SetActive(true);
     }
 
+    public void TutorialResumeGame()
+    {
+        finalTutorial.SetActive(false);
+    }
+
+    //when player presses Quit button, it goes to Main Menu and sets the timeScale to 1
     public void QuitGame()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("Main Menu");
     }
 
+    //if currentMoney equals to money, the outline and moneyIcon will set its animator to false
+    //else if currentMoney is greater than money, it sets the outline and moneyIcon animator to true which it will flash red
+    //else it will flash green
     public IEnumerator AnimateMoneySlider()
     {
         if (currentMoney == money)
@@ -867,6 +941,9 @@ public class GameManager : MonoBehaviour
         moneyIcon.GetComponent<Animator>().enabled = false;
     }
 
+    //if currentPopularity equals to popularity, the outline and popularityIcon will set its animator to false
+    //else if currentPopularity is greater than popularity, it sets the outline and popularityIcon animator to true which it will flash red
+    //else it will flash green
     public IEnumerator AnimatePopularitySlider()
     {
         if (currentPopularity == popularity)
@@ -904,6 +981,9 @@ public class GameManager : MonoBehaviour
         popularIcon.GetComponent<Animator>().enabled = false;
     }
 
+    //if currentHappiness equals to happiness, the outline and happinessIcon will set its animator to false
+    //else if currentHappiness is greater than happiness, it sets the outline and happinessIcon animator to true which it will flash red
+    //else it will flash green
     public IEnumerator AnimateHappinessSlider()
     {
         

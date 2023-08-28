@@ -23,6 +23,8 @@ public class MG_Dialogue : MonoBehaviour
     public List<GameObject> spawnObjects;
     public GameObject spawnArea;
 
+    public Animator transitionAnim;
+
     //spawnArea for player model
     private GameObject randomObject;
     private GameObject spawned;
@@ -41,6 +43,7 @@ public class MG_Dialogue : MonoBehaviour
 
     public bool isDoodleGame;
 
+    public float transitionTime = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -111,6 +114,15 @@ public class MG_Dialogue : MonoBehaviour
 
     public void DoodleJumpScenario()
     {
+        StartCoroutine(TransitionDoodleLevel());
+    }
+
+    IEnumerator TransitionDoodleLevel()
+    {
+        transitionAnim.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
         GameObject.FindGameObjectWithTag("main_game").SetActive(false);
         SceneManager.LoadScene("DoodleJump");
     }
@@ -188,7 +200,7 @@ public class MG_Dialogue : MonoBehaviour
 
             switch (DM.miniGameLines[index])
             {
-                case "Hello Boss,\nI highly recommend taking a break to try out the new mini game - it's a great opportunity to relax and boost team morale.":
+                case "Mini-Game\n \nHello Boss,\nI highly recommend taking a break to try out the new mini game - it's a great opportunity to relax and boost team morale.":
                     {
                         Debug.Log("No Doodle Game");
 

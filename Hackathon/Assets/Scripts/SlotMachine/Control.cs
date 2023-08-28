@@ -13,12 +13,15 @@ public class Control : MonoBehaviour
     public TextMeshProUGUI result;
 
     public Animator animator;
+    public Animator transitionAnim;
 
     public Row[] rows;
 
     private string prizeValue;
 
     private bool resultsChecked = false;
+
+    public float transitionTime = 1f;
 
     public Button quitBtn;
 
@@ -106,6 +109,15 @@ public class Control : MonoBehaviour
 
     public void QuitGame()
     {
+        StartCoroutine(TransitionQuitLevel());
+    }
+
+    IEnumerator TransitionQuitLevel()
+    {
+        transitionAnim.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.moneySlider.value = GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money;
 

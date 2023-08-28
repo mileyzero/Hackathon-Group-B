@@ -19,7 +19,7 @@ public class Tips : MonoBehaviour
     public bool tipPlayed;
 
     // Start is called before the first frame update
-    void Start()
+    public void Awake()
     {
         isTip = false;
         tipPlayed = false;
@@ -43,25 +43,22 @@ public class Tips : MonoBehaviour
         tipsHappinessDialogue[4] = "Remember to think about your workers' happiness!";
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void CallTipMoney()
     {
         tipText.text = GetRandomTipMoney();
+        Debug.Log(GetRandomTipMoney());
     }
 
     public void CallTipHappiness()
     {
         tipText.text = GetRandomTipHappiness();
+        Debug.Log(GetRandomTipHappiness());
     }
 
     public void CallTipPopularity()
     {
         tipText.text = GetRandomTipPopularity();
+        Debug.Log(GetRandomTipPopularity());
     }
 
     string GetRandomTipMoney()
@@ -85,7 +82,7 @@ public class Tips : MonoBehaviour
         {
             int randomTipsHappiness = Random.Range(0, tipsHappinessDialogue.Length);
             Debug.Log(randomTipsHappiness);
-            return tipsMoneyDialogue[randomTipsHappiness];
+            return tipsHappinessDialogue[randomTipsHappiness];
         }
         return null;
     }
@@ -98,7 +95,7 @@ public class Tips : MonoBehaviour
         {
             int randomTipsPopularity = Random.Range(0, tipsPopularityDialogue.Length);
             Debug.Log(randomTipsPopularity);
-            return tipsMoneyDialogue[randomTipsPopularity];
+            return tipsPopularityDialogue[randomTipsPopularity];
         }
         return null;
     }
