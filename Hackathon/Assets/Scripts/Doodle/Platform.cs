@@ -19,7 +19,7 @@ public class Platform : MonoBehaviour
         beforelocation = this.GetComponent<Transform>().transform.position;
         edgeCollider = this.GetComponent<EdgeCollider2D>();
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision) //handles collsion between player and the different platforms
     {
         if(collision.relativeVelocity.y <= 0f)
         {
@@ -30,16 +30,16 @@ public class Platform : MonoBehaviour
                 
                 animator.SetTrigger("Jump");
                 Vector2 velocity = rb.velocity;
-                velocity.y = jumpPower;
+                velocity.y = jumpPower; //changes player's rigibody upward velocity to jump power
                 rb.velocity = velocity;
                 StartCoroutine(bounce());
-                if (this.gameObject.tag == "doodlewin")
+                if (this.gameObject.tag == "doodlewin") //when the player collides with the winning platform / last platform
                 {
                    manager.GetComponent<Manager>().win.SetActive(true);
                     manager.GetComponent<AudioSource>().enabled = false;
                     manager.GetComponent <Manager>().DisplayStats();
                 }
-                else if(this.gameObject.tag == "breakplatform")
+                else if(this.gameObject.tag == "breakplatform") //if player collides with breakable platform
                 {
                     platformanimation.SetTrigger("break");
                     StartCoroutine(breaking());
@@ -48,26 +48,26 @@ public class Platform : MonoBehaviour
         }
     }
 
-    IEnumerator breaking()
+    IEnumerator breaking()//coroutine for breakable platform
     {
         manager.GetComponent<Manager>().PlayBreakPlatform();
-        this.edgeCollider.enabled = false;
+        this.edgeCollider.enabled = false; //disables collider
         yield return new WaitForSeconds(0.9f);
         Destroy(this.gameObject);
     }
 
-    IEnumerator bounce()
+    IEnumerator bounce() //coroutine for normal platform and jump boost platform
     {
         if (this.gameObject.tag != "breakplatform")
         {
-            if (this.gameObject.tag == "bounceplatform")
+            if (this.gameObject.tag == "bounceplatform") //when player collides with jump boost platform
             {
                 manager.GetComponent<Manager>().PlayExtraJump();
-                this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y - 0.5f);
+                this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y - 0.5f); //move the platform down to create an illusion of platform reaction to the player's bounce
                 yield return new WaitForSeconds(0.1f);
-                this.transform.position = beforelocation;
+                this.transform.position = beforelocation; //return to original position
             }
-            else
+            else //collision with normal platform
             {
                 manager.GetComponent<Manager>().PlayeBounce();
                 this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y - 0.1f);

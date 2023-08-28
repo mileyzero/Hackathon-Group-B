@@ -96,7 +96,7 @@ public class CarController : MonoBehaviour
         }
     }
 
-    public void PlayerLose()
+    public void PlayerLose() //sfx when the player lose
     {
         audioPlayer.clip = lose_sfx;
         audioPlayer.loop = false;
@@ -104,17 +104,17 @@ public class CarController : MonoBehaviour
         audioPlayer.Play();
     }
 
-    public void PlayerWin()
+    public void PlayerWin() //sfx when the player wins
     {
         audioPlayer.clip = win_sfx;
         audioPlayer.loop =false;
         audioPlayer.Play();
     }
 
-    IEnumerator showstats()
+    IEnumerator showstats() //coroutine to show the number for the stats after player wins
     {
         //animation to change the number after you win   
-        for (int money = 0; money <= stats.moneyCollected; money++)
+        for (int money = 0; money <= stats.moneyCollected; money++) //for loop will loop through money collected and show from 0 to the actual amount
         {
             if (moneytext.text == "+" + stats.moneyCollected.ToString())
             {
@@ -123,7 +123,7 @@ public class CarController : MonoBehaviour
             else
             {
                 moneytext.text = "+" + money.ToString();
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(0.2f); //delay between number change
             }
 
         }
@@ -156,6 +156,7 @@ public class CarController : MonoBehaviour
 
         }
 
+        //store the values into store game so it can be added to the main game
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money += stats.moneyCollected;
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity += stats.popularCollected;
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.happiness += stats.happyCollected;
@@ -163,10 +164,12 @@ public class CarController : MonoBehaviour
 
     IEnumerator TransitionToMain(float timer)
     {
+        //transition to main game
         if (lose)
         {
             lose_scn.SetActive(true);
             yield return new WaitForSeconds(timer);
+            //if player has accident insurance, it will set it to false. If user does not have insurance then reduce money
             if (GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().accidentinsurance.accidentInsurance != true)
             {
                 GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money -= 15f;
