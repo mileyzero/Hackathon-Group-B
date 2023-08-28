@@ -250,7 +250,7 @@ public class Accident : MonoBehaviour
                     {
                         if (browserManager.accidentInsurance != true)
                         {
-                            Debug.Log("4 Yes Accident");
+                            Debug.Log("5 Yes Accident");
                             GM.money -= Random.Range(5f, 10f);
 
                             GM.happiness += Random.Range(5f, 10f);
@@ -322,7 +322,7 @@ public class Accident : MonoBehaviour
 
             switch (DM.accidentLines[index])
             {
-                case "Hi Boss,\nBad news, one of our employees has gotten into an accident, would you like to provide them with financial assistance to cover their medical bills?":
+                case "Accident Incident\n \nHi Boss,\nBad news, one of our employees has gotten into an accident, would you like to provide them with financial assistance to cover their medical bills?":
                     {
                         Debug.Log("1 No Accident");
 
@@ -338,7 +338,7 @@ public class Accident : MonoBehaviour
 
                         break;
                     }
-                case "Good Morning Boss,\nOne of our department head has recently got into an accident, would you please help out with the medical fees?":
+                case "Accident Incident\n \nGood Morning Boss,\nOne of our department head has recently got into an accident, would you please help out with the medical fees?":
                     {
                         Debug.Log("2 No Accident");
 
@@ -354,7 +354,7 @@ public class Accident : MonoBehaviour
 
                         break;
                     }
-                case "Hi Boss,\nthis is one of your employees from one of the departements, my family have been struggling with some financial stuff, can you help us?":
+                case "Accident Incident\n \nHi Boss,\nthis is one of your employees from one of the departements, my family have been struggling with some financial stuff, can you help us?":
                     {
                         Debug.Log("3 No Accident");
 
@@ -370,8 +370,24 @@ public class Accident : MonoBehaviour
 
                         break;
                     }
-                case "Hi Sir,\nI have submitted an accident bill for reimbursement, can I have an approval to proceed with the payment?":
+                case "Accident Incident\n \nHi Sir,\nI have submitted an accident bill for reimbursement, can I have an approval to proceed with the payment?":
                     {
+                        Debug.Log("4 No Accident");
+                        GM.money += 3f;
+
+                        GM.happiness -= Random.Range(4f, 8f);
+                        GM.popularity -= Random.Range(4f, 8f);
+
+                        StartCoroutine(PlusMoneyTransition(3));
+
+                        StartCoroutine(MinusHappinessTransition(3));
+                        StartCoroutine(MinusPopularityTransition(3));
+
+                        break;
+                    }
+                case "Accident Incident\n \nHello Boss,\nI appreciate your understanding in the matter, but I was wondering if the company could possibly cover the accident fees?":
+                    {
+                        Debug.Log("5 No Accident");
                         GM.money += 3f;
 
                         GM.happiness -= Random.Range(4f, 8f);

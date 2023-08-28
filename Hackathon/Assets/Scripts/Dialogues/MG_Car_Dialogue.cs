@@ -18,6 +18,8 @@ public class MG_Car_Dialogue : MonoBehaviour
     //private GameObject for miniGameObject
     private GameObject miniGameObject;
 
+    public Animator transitionAnim;
+
     //a List to set how many personas to randomize
     public List<GameObject> spawnObjects;
     public GameObject spawnArea;
@@ -40,6 +42,7 @@ public class MG_Car_Dialogue : MonoBehaviour
 
     public bool isCarGame;
 
+    public float transitionTime = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -115,6 +118,15 @@ public class MG_Car_Dialogue : MonoBehaviour
     //If randomVal1 is more than 15 and less than 20, randomVal2 is more than 15 and less than 20, it hides the main game and load the 'Golf' mini game
     public void CarGameScenario()
     {
+        StartCoroutine(TransitionCarLevel());
+    }
+
+    IEnumerator TransitionCarLevel()
+    {
+        transitionAnim.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
         GameObject.FindGameObjectWithTag("main_game").SetActive(false);
         SceneManager.LoadScene("Car");
     }
@@ -191,7 +203,7 @@ public class MG_Car_Dialogue : MonoBehaviour
 
             switch (DM.miniGameCarLines[index])
             {
-                case "Hello Boss,\nthere's a celebration at 7:30pm at a nearby hotel, it would be an honor for you to join us!":
+                case "Mini-Game\n \nHello Boss,\nthere's a celebration at 7:30pm at a nearby hotel, it would be an honor for you to join us!":
                     {
                         if(isCarGame == true)
                         {

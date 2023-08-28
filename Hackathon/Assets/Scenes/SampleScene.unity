@@ -555,9 +555,8 @@ MonoBehaviour:
   textComponent: {fileID: 24298825}
   nextBtn: {fileID: 47166455}
   textLines:
-  - This is the "Donut Mail".
-  - This is where business decisions are made
-  - Some scenarios contain "surprises"
+  - This is the "Donut Mail". This is where business decisions are made, Some scenarios
+    contain "surprises".
   textSpeed: 0.1
 --- !u!114 &24298825
 MonoBehaviour:
@@ -606,8 +605,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -726,6 +725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b6603a96bc934f4f8638ea7eaede388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DDG: {fileID: 254365669}
   tipManagerMoney: {fileID: 1900397440}
   tipManagerHappiness: {fileID: 2026705205}
   tipManagerPopularity: {fileID: 1162965152}
@@ -740,6 +740,7 @@ MonoBehaviour:
   AccidentManager: {fileID: 1656629841}
   InvestmentManager: {fileID: 1297226905}
   nameManager: {fileID: 1402993964}
+  transitionAnim: {fileID: 130480003}
   investmentNotiIcon: {fileID: 1262342650}
   employeeNotiIcon: {fileID: 973103465}
   insuranceNotiIcon: {fileID: 1962098005}
@@ -771,6 +772,7 @@ MonoBehaviour:
   background1: {fileID: 726585597}
   background2: {fileID: 1404393172}
   background3: {fileID: 1943291794}
+  winGameBG: {fileID: 765249006}
   loseMoney: {fileID: 2123990639}
   losePopularity: {fileID: 1009854606}
   loseHappiness: {fileID: 1697498408}
@@ -805,6 +807,7 @@ MonoBehaviour:
   maxHappiness: 90
   maxMoney: 90
   maxPopularity: 90
+  transitionTime: 1
   randomInitialize: 0
   happiness: 0
   money: 0
@@ -813,7 +816,9 @@ MonoBehaviour:
   delayTimer: 3
   timer: 0
   loseTimeTipDuration: 0
+  winTime: 0
   isRunning: 0
+  isDialogue: 0
   animationDur: 5
   currentMoney: 0
   currentHappiness: 0
@@ -1645,8 +1650,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23
-  m_fontSizeBase: 23
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2738,8 +2743,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23
-  m_fontSizeBase: 23
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3192,8 +3197,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3257,8 +3262,7 @@ MonoBehaviour:
   textComponent: {fileID: 195881531}
   nextBtn: {fileID: 47166455}
   textLines:
-  - Welcome to the tutorial boss!
-  - Here's a rundown of what to take note of
+  - Welcome to the tutorial boss! Here's a rundown of what to take note of
   textSpeed: 0.1
 --- !u!1 &224963308
 GameObject:
@@ -3859,8 +3863,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23
-  m_fontSizeBase: 23
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5700,8 +5704,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19
-  m_fontSizeBase: 19
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8168,8 +8172,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23
-  m_fontSizeBase: 23
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10098,8 +10102,6 @@ MonoBehaviour:
   nextBtn: {fileID: 47166455}
   textLines:
   - Lastly, this is how it looks like after insurance is bought
-  - Thank you for reading through this tutorial boss!
-  - Please like, subscribe and comment down below whose the rapist
   textSpeed: 0.1
 --- !u!114 &582243360
 MonoBehaviour:
@@ -10148,8 +10150,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10375,8 +10377,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23
-  m_fontSizeBase: 23
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -11458,8 +11460,7 @@ MonoBehaviour:
   textComponent: {fileID: 627929243}
   nextBtn: {fileID: 47166455}
   textLines:
-  - This is the "Donut Search".
-  - This is where you buy insurance
+  - This is the "Donut Search". This is where you buy insurance
   textSpeed: 0.1
 --- !u!114 &627929243
 MonoBehaviour:
@@ -11508,8 +11509,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -12845,8 +12846,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -13262,6 +13263,103 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 759150419}
+  m_CullTransparentMesh: 1
+--- !u!1 &765249006
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 765249007}
+  - component: {fileID: 765249010}
+  - component: {fileID: 765249009}
+  - component: {fileID: 765249008}
+  m_Layer: 5
+  m_Name: WinGame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &765249007
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765249006}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.42962566, y: 0.42962566, z: 0.42962566}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2014829170}
+  m_RootOrder: 33
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 5120, y: 2560}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &765249008
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765249006}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f9294bbffd118ca43a3e11ccf9f73d8c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &765249009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765249006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -1371209877, guid: 2a9eec6ab832aaa4887f797ac4d2dc5f, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &765249010
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765249006}
   m_CullTransparentMesh: 1
 --- !u!1 &770778755
 GameObject:
@@ -14606,7 +14704,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 832334196}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 38225539}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: TutorialResumeGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &832334196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15122,8 +15232,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -326, y: 314}
-  m_SizeDelta: {x: 339.558, y: 74.3169}
+  m_AnchoredPosition: {x: -613.9842, y: 87.18765}
+  m_SizeDelta: {x: 261.9331, y: 105.3668}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &863413580
 MonoBehaviour:
@@ -15140,9 +15250,8 @@ MonoBehaviour:
   textComponent: {fileID: 863413581}
   nextBtn: {fileID: 47166455}
   textLines:
-  - Upon confirmation, the buy button will be disabled,
-  - and icons to indicate what insurance is bought
-  - and money bar goes red indicating loss on money
+  - Upon confirmation, the buy button will be disabled, and icons to indicate what
+    insurance is bought, and money bar goes red indicating loss on money.
   textSpeed: 0.1
 --- !u!114 &863413581
 MonoBehaviour:
@@ -15191,8 +15300,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -15288,6 +15397,7 @@ MonoBehaviour:
   mgTimer: {fileID: 701997107}
   GM: {fileID: 38225539}
   DM: {fileID: 1774505428}
+  transitionAnim: {fileID: 130480003}
   spawnObjects:
   - {fileID: 7167436607141125798, guid: 2fa8e0b130fbc2f48a464751c69b41a9, type: 3}
   - {fileID: 1889846432336657138, guid: 091f0592ec8d0044a98ccef3c2d66332, type: 3}
@@ -15327,6 +15437,7 @@ MonoBehaviour:
   miniGameDialogue: {fileID: 1774505425}
   nameBox: {fileID: 1983328001}
   isCarGame: 0
+  transitionTime: 1
 --- !u!1 &881790922
 GameObject:
   m_ObjectHideFlags: 0
@@ -15583,6 +15694,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 254365669}
+        m_TargetAssemblyTypeName: DontDestroyGame, Assembly-CSharp
+        m_MethodName: DestroyGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &885340830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15706,8 +15829,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23
-  m_fontSizeBase: 23
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -15961,6 +16084,7 @@ MonoBehaviour:
   mgTimer: {fileID: 701997107}
   GM: {fileID: 38225539}
   DM: {fileID: 910972319}
+  transitionAnim: {fileID: 130480003}
   spawnObjects:
   - {fileID: 7167436607141125798, guid: 2fa8e0b130fbc2f48a464751c69b41a9, type: 3}
   - {fileID: 1889846432336657138, guid: 091f0592ec8d0044a98ccef3c2d66332, type: 3}
@@ -16000,6 +16124,7 @@ MonoBehaviour:
   miniGameDialogue: {fileID: 910972316}
   nameBox: {fileID: 1229357890}
   isGolfGame: 0
+  transitionTime: 1
   checkInitialize: 0
 --- !u!1 &910972316
 GameObject:
@@ -16611,8 +16736,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -18176,7 +18301,7 @@ RectTransform:
   m_GameObject: {fileID: 1009854606}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4220895, y: 0.4220895, z: 0.4220895}
+  m_LocalScale: {x: 0.43327487, y: 0.43327487, z: 0.43327487}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 111428719}
@@ -18185,7 +18310,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1}
+  m_AnchoredPosition: {x: 0, y: -4}
   m_SizeDelta: {x: 5120, y: 2560.4998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1009854608
@@ -20950,8 +21075,8 @@ MonoBehaviour:
   - In this game, insurance acts as a buff to help you manage your losses. In real
     life, it will also help you manage your losses, though it does not act as a buff.
   - Remember to weigh the Pros and Cons before deciding on something.
-  - 
-  - 
+  - You can increase popularity by networking - i.e Investing in other businesses.
+  - Don't rush into things that may tarnish the business' reputation.
   tipsHappinessDialogue:
   - 
   - 
@@ -21359,6 +21484,18 @@ MonoBehaviour:
       - m_Target: {fileID: 38225539}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 254365669}
+        m_TargetAssemblyTypeName: DontDestroyGame, Assembly-CSharp
+        m_MethodName: DestroyGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22242,8 +22379,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23
-  m_fontSizeBase: 23
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -26441,6 +26578,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 254365669}
+        m_TargetAssemblyTypeName: DontDestroyGame, Assembly-CSharp
+        m_MethodName: DestroyGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1527075015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26848,8 +26997,7 @@ MonoBehaviour:
   textComponent: {fileID: 1554466348}
   nextBtn: {fileID: 47166455}
   textLines:
-  - In the browser, there is three insurances
-  - Accident, Health and Investment
+  - In the browser, there is three insurances. Accident, Health and Investment.
   textSpeed: 0.1
 --- !u!114 &1554466348
 MonoBehaviour:
@@ -26898,8 +27046,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -27835,9 +27983,8 @@ MonoBehaviour:
   textComponent: {fileID: 1624168073}
   nextBtn: {fileID: 47166455}
   textLines:
-  - This is your main resource.
-  - It consist money, popularity and happiness
-  - So manage it wisely!
+  - This is your main resource. It consist money, popularity and happiness. So manage
+    it wisely!
   textSpeed: 0.1
 --- !u!114 &1624168073
 MonoBehaviour:
@@ -27886,8 +28033,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -28449,7 +28596,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1642541356
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29744,8 +29891,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23
-  m_fontSizeBase: 23
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -30218,8 +30365,7 @@ MonoBehaviour:
   textComponent: {fileID: 1744618419}
   nextBtn: {fileID: 47166455}
   textLines:
-  - After clicking buy on any insurance
-  - This prompt will appear
+  - After clicking buy on any insurance, This prompt will appear
   textSpeed: 0.1
 --- !u!114 &1744618419
 MonoBehaviour:
@@ -30268,8 +30414,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -34338,6 +34484,7 @@ RectTransform:
   - {fileID: 1705431920}
   - {fileID: 805388734}
   - {fileID: 130480002}
+  - {fileID: 765249007}
   m_Father: {fileID: 1649164782}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -34722,7 +34869,7 @@ MonoBehaviour:
   - In this game, insurance acts as a buff to help you manage your losses. In real
     life, it will also help you manage your losses, though it does not act as a buff.
   - Remember to weigh the Pros and Cons before deciding on something.
-  - 
+  - Remember to think about your workers' happiness!
   tipText: {fileID: 2121150707}
   isTip: 0
   tipPlayed: 0
@@ -35198,8 +35345,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23
-  m_fontSizeBase: 23
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -36454,6 +36601,7 @@ MonoBehaviour:
   - {fileID: 2301200638068531088, guid: 7086253605c8cd441ac749b281c8b57d, type: 3}
   - {fileID: 7833365490366844202, guid: 86b4a427242215f499db4c3e90af692c, type: 3}
   spawnArea: {fileID: 2146882194}
+  transitionAnim: {fileID: 130480003}
   miniGameScenario: {fileID: 284665668}
   scenarioButton: {fileID: 555911053}
   yesButton: {fileID: 2126104100}
@@ -36461,6 +36609,7 @@ MonoBehaviour:
   miniGameDialogue: {fileID: 825497136}
   nameBox: {fileID: 990528635}
   isDoodleGame: 0
+  transitionTime: 1
 --- !u!1 &2146882194
 GameObject:
   m_ObjectHideFlags: 0

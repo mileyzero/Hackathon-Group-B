@@ -225,7 +225,7 @@ public class Health : MonoBehaviour
                     {
                         if (browserManager.healthInsurance != true)
                         {
-                            Debug.Log("3 Yes Health");
+                            Debug.Log("4 Yes Health");
                             GM.money -= Random.Range(5f, 10f);
 
                             GM.popularity += Random.Range(4f, 8f);
@@ -255,7 +255,7 @@ public class Health : MonoBehaviour
                     {
                         if (browserManager.healthInsurance != true)
                         {
-                            Debug.Log("3 Yes Health");
+                            Debug.Log("5 Yes Health");
                             GM.money -= Random.Range(5f, 10f);
 
                             GM.popularity += Random.Range(4f, 8f);
@@ -329,7 +329,7 @@ public class Health : MonoBehaviour
             {
                 case "Employee Medical Incident\n \nHi Boss,\nOne of our employees has reported sick, would you like to help out with his/her medical fees?":
                     {
-                        Debug.Log(" No Health");
+                        Debug.Log("1 No Health");
 
                         GM.money += 5f;
 

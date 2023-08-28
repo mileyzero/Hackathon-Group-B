@@ -18,6 +18,8 @@ public class MG_Golf_Dialogue : MonoBehaviour
     //private GameObject for miniGameObject
     private GameObject miniGameObject;
 
+    public Animator transitionAnim;
+
     //a List to set how many personas to randomize
     public List<GameObject> spawnObjects;
     public GameObject spawnArea;
@@ -39,6 +41,8 @@ public class MG_Golf_Dialogue : MonoBehaviour
     public GameObject nameBox;
 
     public bool isGolfGame;
+
+    public float transitionTime = 1f;
 
     public int checkInitialize;
 
@@ -122,44 +126,38 @@ public class MG_Golf_Dialogue : MonoBehaviour
         {
             Debug.Log(checkInitialize);
 
-            GameObject.FindGameObjectWithTag("main_game").SetActive(false);
-            SceneManager.LoadScene("Golf Level 1");
+            StartCoroutine(TransitionGolfLevel1());
         }
 
         else if(checkInitialize == 1)
         {
             Debug.Log(checkInitialize);
 
-            GameObject.FindGameObjectWithTag("main_game").SetActive(false);
-            SceneManager.LoadScene("Golf Level 2");
+            StartCoroutine(TransitionGolfLevel2());
         }
         else if (checkInitialize == 2)
         {
             Debug.Log(checkInitialize);
 
-            GameObject.FindGameObjectWithTag("main_game").SetActive(false);
-            SceneManager.LoadScene("Golf Level 3");
+            StartCoroutine(TransitionGolfLevel3());
         }
         else if (checkInitialize == 3)
         {
             Debug.Log(checkInitialize);
 
-            GameObject.FindGameObjectWithTag("main_game").SetActive(false);
-            SceneManager.LoadScene("Golf Level 4");
+            StartCoroutine(TransitionGolfLevel4());
         }
         else if (checkInitialize == 4)
         {
             Debug.Log(checkInitialize);
 
-            GameObject.FindGameObjectWithTag("main_game").SetActive(false);
-            SceneManager.LoadScene("Golf Level 5");
+            StartCoroutine(TransitionGolfLevel5());
         }
         else if (checkInitialize == 5)
         {
             Debug.Log(checkInitialize);
 
-            GameObject.FindGameObjectWithTag("main_game").SetActive(false);
-            SceneManager.LoadScene("Golf Level 6");
+            StartCoroutine(TransitionGolfLevel6());
         }
     }
 
@@ -173,6 +171,66 @@ public class MG_Golf_Dialogue : MonoBehaviour
         {
             Destroy(miniGameObject);
         }
+    }
+
+    IEnumerator TransitionGolfLevel1()
+    {
+        transitionAnim.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        GameObject.FindGameObjectWithTag("main_game").SetActive(false);
+        SceneManager.LoadScene("Golf Level 1");
+    }
+
+    IEnumerator TransitionGolfLevel2()
+    {
+        transitionAnim.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        GameObject.FindGameObjectWithTag("main_game").SetActive(false);
+        SceneManager.LoadScene("Golf Level 2");
+    }
+
+    IEnumerator TransitionGolfLevel3()
+    {
+        transitionAnim.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        GameObject.FindGameObjectWithTag("main_game").SetActive(false);
+        SceneManager.LoadScene("Golf Level 3");
+    }
+
+    IEnumerator TransitionGolfLevel4()
+    {
+        transitionAnim.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        GameObject.FindGameObjectWithTag("main_game").SetActive(false);
+        SceneManager.LoadScene("Golf Level 4");
+    }
+
+    IEnumerator TransitionGolfLevel5()
+    {
+        transitionAnim.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        GameObject.FindGameObjectWithTag("main_game").SetActive(false);
+        SceneManager.LoadScene("Golf Level 5");
+    }
+
+    IEnumerator TransitionGolfLevel6()
+    {
+        transitionAnim.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        GameObject.FindGameObjectWithTag("main_game").SetActive(false);
+        SceneManager.LoadScene("Golf Level 6");
     }
 
     public void YesClick()
@@ -236,7 +294,7 @@ public class MG_Golf_Dialogue : MonoBehaviour
 
             switch (DM.miniGameGolfLines[index])
             {
-                case "Hello Boss,\nI have a proposition for you but let's see if your swings in golf is as impressive as you think!":
+                case "Mini-Game\n \nHello Boss,\nI have a proposition for you but let's see if your swings in golf is as impressive as you think!":
                     {
                         if (isGolfGame == true)
                         {

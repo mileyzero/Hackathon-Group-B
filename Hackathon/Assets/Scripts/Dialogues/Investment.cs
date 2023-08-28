@@ -530,7 +530,7 @@ public class Investment : MonoBehaviour
 
             switch (DM.investmentLines[index])
             {
-                case "Hi Boss!\nOur accountants have noticed that we have a surplus in capital. They suggested that you expand the business and offices. Would you like to follow through?":
+                case "Investment Oppurtunity\n \nHi Boss!,\nOur accountants have noticed that we have a surplus in capital. They suggested that you should expand the business and offices. Would you like to follow through?":
                     {
                         Debug.Log("1 No Investment");
                         GM.money -= Random.Range(4f, 8f);
@@ -544,7 +544,7 @@ public class Investment : MonoBehaviour
 
                         break;
                     }
-                case "Hey Pal!\nHeard your business has been thriving. I'm writing to ask you whether you would like to invest in one business project. You will receive a good margin of the profits!":
+                case "Investment Oppurtunity\n \nHello!,\nHeard your business has been thriving. I am writing to ask you whether you would like to invest in one of our business project. You will receive a good margin of the profits!":
                     {
                         Debug.Log("2 No Investment");
                         GM.money -= Random.Range(4f, 8f);
@@ -558,7 +558,7 @@ public class Investment : MonoBehaviour
 
                         break;
                     }
-                case "Hi.\nWould you like to provide some funds for my start-up business? We will pay you handsomely once things start to pick up.":
+                case "Investment Oppurtunity\n \nHi!,\nWould you like to provide some funds for my start-up business? We will pay you handsomely once things start to pick up.":
                     {
                         Debug.Log("3 No Investment");
                         GM.money -= Random.Range(4f, 8f);
@@ -572,7 +572,7 @@ public class Investment : MonoBehaviour
 
                         break;
                     }
-                case "Hi,\nI am a representative of an Energy Company called Operate Clean Energy. We believe our proposal for a mutually beneficial partnership will revolutionize the way we harness and distribute energy. Would you like to invest in our company?":
+                case "Investment Oppurtunity\n \nHi!,\nI am a representative of an Energy Company called Operate Energy. Our partnership will help us harness and distribute energy. Would you like to provide us with some finicial assistance?":
                     {
                         Debug.Log("4 No Investment");
                         GM.money -= Random.Range(4f, 8f);
@@ -586,7 +586,7 @@ public class Investment : MonoBehaviour
 
                         break;
                     }
-                case "Hey there!\nI'm the developer of Among Us, and I could really use some financial support to help me develop this game! Would you help me?":
+                case "Investment Oppurtunity\n \nHi Sir!,\nI am developing a game called Among Them, and I could really use some financial support to help me develop this game! Would you like to provide me with some funds to complete this game of mine?":
                     {
                         Debug.Log("5 No Investment");
                         GM.popularity -= Random.Range(4f, 8f);
@@ -600,7 +600,7 @@ public class Investment : MonoBehaviour
 
                         break;
                     }
-                case "Hi!\nI would like to provide an upgrade of ads to your company! Do you want some traction for your ads?":
+                case "Investment Oppurtunity\n \nHi Mr!,\nI would like to provide an upgrade of ADs to your company! Do you want some traction for your ADs?":
                     {
                         Debug.Log("6 No Investment");
                         GM.money -= Random.Range(4f, 8f);
@@ -614,7 +614,7 @@ public class Investment : MonoBehaviour
 
                         break;
                     }
-                case "Hey there!\nWant to be the face of our awesome brand? We're hiring models to help us advertise - interested?":
+                case "Investment Oppurtunity\n \nHey there!,\nWant to be the face of our AWESOME BRAND? We are hiring models to help us advertise - Interested?":
                     {
                         Debug.Log("7 No Investment");
                         GM.money -= Random.Range(4f, 8f);
@@ -628,7 +628,7 @@ public class Investment : MonoBehaviour
 
                         break;
                     }
-                case "Hi!\nI am a representative of a clothing brand called Doo Nut, we would be thrilled to offer you a deal with our clothing brand - are you interested?":
+                case "Investment Oppurtunity\n \nHello!,\nI am a representative of a clothing brand called Doo Nut, we would be thrilled to offer you a deal with our clothing brand - Are you Interested?":
                     {
                         Debug.Log("8 No Investment");
                         GM.money -= Random.Range(4f, 8f);
@@ -642,7 +642,7 @@ public class Investment : MonoBehaviour
 
                         break;
                     }
-                case "Hi,\nI would like to catch everyone's attention and spread your company's name by advertising it on a billboard! Are you interested?":
+                case "Investment Oppurtunity\n \nHi!,\nI would like to catch everyone's attention and spread your company's name by advertising it on a billboard! Are you interested?":
                     {
                         Debug.Log("9 No Investment");
                         GM.money -= Random.Range(4f, 8f);
@@ -656,7 +656,7 @@ public class Investment : MonoBehaviour
 
                         break;
                     }
-                case "Hi,\nI would like to provide services to upgrade your company's office area, are you interested?":
+                case "Investment Oppurtunity\n \nHi!,\nI would like to provide services to upgrade your company's office area, are you interested?":
                     {
                         Debug.Log("10 No Investment");
                         GM.money -= Random.Range(4f, 8f);
