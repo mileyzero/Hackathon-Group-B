@@ -18,16 +18,16 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() //handles the player input to move the player
     {
         moveX = Input.GetAxis("Horizontal") * moveSpeed;
-        if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) //move left
         {
             tutorial.SetActive(false);
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-            spriteRenderer.flipX = true;
+            spriteRenderer.flipX = true; //flip sprite
         }
-        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) //move right
         {
             tutorial.SetActive(false);
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision) //collison with resources
     {
             if (collision.gameObject.tag == "doodleMoney")
             {

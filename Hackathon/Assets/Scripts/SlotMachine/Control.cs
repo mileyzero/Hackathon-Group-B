@@ -24,6 +24,16 @@ public class Control : MonoBehaviour
 
     public GameObject arrow;
 
+    public AudioSource audioplayer;
+
+    public AudioSource spin_audioplayer;
+
+    public AudioClip spin_sfx;
+
+    public AudioClip win;
+
+    public AudioClip buttonpress_sfx;
+
     // Update is called once per frame
     void Update()
     {
@@ -36,6 +46,7 @@ public class Control : MonoBehaviour
 
         if (rows[0].rowStopped && rows[1].rowStopped && rows[2].rowStopped && !resultsChecked)
         {
+            spin_audioplayer.Stop();
             CheckResults();
             result.enabled = true;
             result.text = prizeValue;
@@ -48,6 +59,10 @@ public class Control : MonoBehaviour
         {
             if (rows[0].rowStopped && rows[1].rowStopped && rows[2].rowStopped)
             {
+                audioplayer.clip = buttonpress_sfx;
+                spin_audioplayer.clip = spin_sfx;
+                audioplayer.Play();
+                spin_audioplayer.Play();
                 GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money -= 10;
 
                 quitBtn.enabled = false;
@@ -68,6 +83,8 @@ public class Control : MonoBehaviour
     {
         if (rows[0].stoppedslot == "Happy" && rows[1].stoppedslot == "Happy" && rows[2].stoppedslot == "Happy")
         {
+            audioplayer.clip = win;
+            audioplayer.Play();
             prizeValue = "+ Employee Happiness";
             GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.happiness += 30;
             Debug.Log(GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.happiness);
@@ -75,6 +92,8 @@ public class Control : MonoBehaviour
 
         else if (rows[0].stoppedslot == "Popularity" && rows[1].stoppedslot == "Popularity" && rows[2].stoppedslot == "Popularity")
         {
+            audioplayer.clip = win;
+            audioplayer.Play();
             prizeValue = "+ Popularity";
             GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity += 30;
             Debug.Log(GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity);
@@ -82,6 +101,8 @@ public class Control : MonoBehaviour
 
         else if (rows[0].stoppedslot == "Money" && rows[1].stoppedslot == "Money" && rows[2].stoppedslot == "Money")
         {
+            audioplayer.clip = win;
+            audioplayer.Play();
             prizeValue = "+ Money";
             GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money += 30;
             Debug.Log(GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money);
@@ -89,6 +110,8 @@ public class Control : MonoBehaviour
 
         else if (rows[0].stoppedslot == "7" && rows[1].stoppedslot == "7" && rows[2].stoppedslot == "7")
         {
+            audioplayer.clip = win;
+            audioplayer.Play();
             prizeValue = "+ All Resources";
             GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money += 30;
             GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity += 30;

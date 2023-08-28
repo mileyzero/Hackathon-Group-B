@@ -55,12 +55,13 @@ public class Manager : MonoBehaviour
         audioPlayer = gameObject.GetComponent<AudioSource>();
         spawnposition = new Vector3();
 
+        //Randomly spawns the different type of platforms
         platformCount = Random.Range(platformCount, platformCount+10);
         
         for (int i = 0; i <= platformCount; i++)
         {
-            spawnposition.y += Random.Range(2f, 3f);
-            spawnposition.x = Random.Range(-7f, 7f);
+            spawnposition.y += Random.Range(2f, 3f);//Randoms the y positon that the platform will spawn
+            spawnposition.x = Random.Range(-7f, 7f);//Randoms the x position that the platform will spawn
             if(i == platformCount)
             {
                 Instantiate(finalplatform, new Vector3(0, spawnposition.y + 1.2f), Quaternion.identity);
@@ -105,7 +106,7 @@ public class Manager : MonoBehaviour
         }
     }
 
-    public void PlayeBounce()
+    public void PlayeBounce() //bounce sfx
     {
         int randomaudio = Random.Range(0, bounce_sfx.Length);
         AudioClip swing = bounce_sfx[randomaudio];
@@ -114,25 +115,25 @@ public class Manager : MonoBehaviour
         audioPlayer.Play();
     }
 
-    public void PlayBreakPlatform()
+    public void PlayBreakPlatform() //break sfx
     {
         audioPlayer.clip = platformbreak_sfx;
         audioPlayer.Play();
     }
 
-    public void PlayCollect()
+    public void PlayCollect() //collect sfx
     {
         audioPlayer.clip = collect_sfx;
         audioPlayer.Play();
     }
 
-    public void PlayExtraJump()
+    public void PlayExtraJump() //extra jump sfx
     {
         audioPlayer.clip = extraJump_sfx;
         audioPlayer.Play();
     }
 
-    private void SpawnStats()
+    private void SpawnStats() //Randomly spawns different resouces
     {
         int randompopularity = Random.Range(-15, 2);
         int randommoney = Random.Range(-13, 4);
@@ -157,22 +158,22 @@ public class Manager : MonoBehaviour
         StartCoroutine(showstats());
     }
 
-    public void PauseMenu()
+    public void PauseMenu() //when player pauses the game
     {
         pauseMenu.SetActive(true);
 
         _moneypause.text = moneyCount.ToString();
         _popularitypause.text = popularityCount.ToString();
         _happinesspause.text = happinessCount.ToString();
-        player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static; //changed player's rigidbody to static to stop it from moving
         //Time.timeScale = 0;
         pauseDonut.GetComponent<Animator>().speed = 1;
     }
 
-    public void Resume()
+    public void Resume() //when the player resumes the game
     {
         pauseMenu.SetActive(false);
-        player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic; //changed back to dynamic so player object can move
         Time.timeScale = 1;
     }
 
