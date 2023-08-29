@@ -118,9 +118,9 @@ public class Golf_Manager : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money += moneycollected * 3;
-        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity += popularitycollected * 3;
-        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.happiness += happycollected * 3;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money += moneycollected + 6;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity += popularitycollected + 6;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.happiness += happycollected + 6;
 
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
 
