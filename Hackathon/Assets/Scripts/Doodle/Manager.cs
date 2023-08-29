@@ -237,9 +237,9 @@ public class Manager : MonoBehaviour
         transitionAnim.SetTrigger("Start");
 
         //increase the stats of the resources in the main game
-        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money += moneyCount * 3;
-        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity += popularityCount * 3;
-        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.happiness += happinessCount * 3;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money += moneyCount + 4;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity += popularityCount + 4;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.happiness += happinessCount + 4;
 
         yield return new WaitForSeconds(2f);
 
