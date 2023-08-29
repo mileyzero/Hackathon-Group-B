@@ -10,6 +10,8 @@ public class Tips : MonoBehaviour
     public string[] tipsPopularityDialogue = new string[5];
     public string[] tipsHappinessDialogue = new string[5];
 
+    public string[] winDialogue = new string[3];
+
     public TextMeshProUGUI tipText;
 
     //isTip bool to check if dialogue is active
@@ -41,6 +43,10 @@ public class Tips : MonoBehaviour
         tipsHappinessDialogue[2] = "In this game, insurance acts as a buff to help you manage your losses. In real life, it will also help you manage your losses, though it does not act as a buff.";
         tipsHappinessDialogue[3] = "Remember to weigh the Pros and Cons before deciding on something.";
         tipsHappinessDialogue[4] = "Remember to think about your workers' happiness!";
+
+        winDialogue[0] = "YOU WIN!!!";
+        winDialogue[1] = "GOOD JOB BOSS, YOU WIN!";
+        winDialogue[2] = "LETS GOOOO BOSS, YOU DID IT!!!";
     }
 
     public void CallTipMoney()
@@ -59,6 +65,25 @@ public class Tips : MonoBehaviour
     {
         tipText.text = GetRandomTipPopularity();
         Debug.Log(GetRandomTipPopularity());
+    }
+
+    public void CallWinDialogue()
+    {
+        tipText.text = GetRandomWinDialogue();
+        Debug.Log(GetRandomWinDialogue());
+    }
+
+    string GetRandomWinDialogue()
+    {
+        //chooses random dialogue in winDialogue
+        //then returns which winDialogue was chosen from randomDialogue randomizer
+        if (isTip == false && tipPlayed == false) 
+        {
+            int randomWinDialogue = Random.Range(0, winDialogue.Length);
+            Debug.Log(randomWinDialogue);
+            return winDialogue[randomWinDialogue];
+        }
+        return null;
     }
 
     string GetRandomTipMoney()

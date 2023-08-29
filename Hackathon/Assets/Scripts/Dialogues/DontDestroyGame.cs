@@ -7,6 +7,10 @@ public class DontDestroyGame : MonoBehaviour
 {
     public static DontDestroyGame instance;
 
+    public Animator transitionAnim;
+
+    public float transitionTime = 1f;
+
     void Awake()
     {
         if(instance == null)
@@ -23,6 +27,15 @@ public class DontDestroyGame : MonoBehaviour
 
     public void RestartCurrentScene()
     {
+        StartCoroutine(TransitionNextLevel());
+    }
+
+    IEnumerator TransitionNextLevel()
+    {
+        transitionAnim.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
         // Clean up objects marked with DontDestroyOnLoad
         GameObject[] persistentObjects = GameObject.FindGameObjectsWithTag("Persistent");
         foreach (GameObject obj in persistentObjects)

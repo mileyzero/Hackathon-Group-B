@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public Tips tipManagerHappiness;
     public Tips tipManagerPopularity;
 
+    public Tips tipManagerWin;
+
     //Reference script to holidayManager
     public Holiday holidayManager;
 
@@ -103,6 +105,8 @@ public class GameManager : MonoBehaviour
     public GameObject losePopularityTipPanel;
     public GameObject loseHappinessTipPanel;
 
+    public GameObject winGamePanel;
+
     public GameObject plusMoney;
     public GameObject plusPopularity;
     public GameObject plusHappiness;
@@ -180,6 +184,7 @@ public class GameManager : MonoBehaviour
     private bool hasActivatedLoseHappinessTip = false;
     private bool hasActivatedLosePopularityTip = false;
     private bool hasActivatedLoseMoneyTip = false;
+    private bool hasActivatedWin = false;
 
     public bool hasPlayedLevel1;
     public bool hasPlayedLevel2;
@@ -222,7 +227,9 @@ public class GameManager : MonoBehaviour
         loseHappiness.SetActive(false);
         loseMoney.SetActive(false);
         losePopularity.SetActive(false);
+
         winGameBG.SetActive(false);
+        winGamePanel.SetActive(false);
 
         loseHappinessTipPanel.SetActive(false);
         loseMoneyTipPanel.SetActive(false);
@@ -246,7 +253,6 @@ public class GameManager : MonoBehaviour
         //set timer to delayTimer
         timer = delayTimer;
         loseTimeTipDuration = 2f;
-
         winTime = 2f;
 
         //set isRunning to false on start
@@ -443,12 +449,17 @@ public class GameManager : MonoBehaviour
         if(popularity >= maxPopularity && money >= maxMoney && happiness >= maxHappiness)
         {
             winGameBG.SetActive(true);
+            pauseBtn.SetActive(false);
 
             background1.SetActive(false);
             background2.SetActive(false);
             background3.SetActive(false);
 
-            StartCoroutine(ActivateWinGame());
+            if (!hasActivatedWin)
+            {
+                StartCoroutine(ActivateWinGame());
+                hasActivatedWin = true;
+            }
         }
     }
 
@@ -456,12 +467,9 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(winTime);
 
-        transitionAnim.SetTrigger("Start");
+        tipManagerWin.CallWinDialogue();
 
-        yield return new WaitForSeconds(transitionTime);
-
-        DDG.DestroyGame();
-        SceneManager.LoadScene("Main Menu");
+        winGamePanel.SetActive(true);
     }
 
     public void PlayBtnSound()
@@ -731,6 +739,7 @@ public class GameManager : MonoBehaviour
         if(money <= 0)
         {
             loseMoney.SetActive(true);
+            pauseBtn.SetActive(false);
 
             if (!hasActivatedLoseMoneyTip)
             {
@@ -756,6 +765,7 @@ public class GameManager : MonoBehaviour
         if(popularity <= 0)
         {
             losePopularity.SetActive(true);
+            pauseBtn.SetActive(false);
 
             if (!hasActivatedLosePopularityTip)
             {
@@ -781,6 +791,7 @@ public class GameManager : MonoBehaviour
         if(happiness <= 0)
         {
             loseHappiness.SetActive(true);
+            pauseBtn.SetActive(false);
 
             if (!hasActivatedLoseHappinessTip)
             {

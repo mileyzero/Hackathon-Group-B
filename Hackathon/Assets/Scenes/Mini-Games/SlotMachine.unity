@@ -799,10 +799,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   result: {fileID: 1869767171}
   animator: {fileID: 625964586}
+  transitionAnim: {fileID: 412770586}
   rows:
   - {fileID: 996518946}
   - {fileID: 487686324}
   - {fileID: 689594284}
+  transitionTime: 1
   quitBtn: {fileID: 253418722}
   arrow: {fileID: 1769912732}
   audioplayer: {fileID: 569682774}
