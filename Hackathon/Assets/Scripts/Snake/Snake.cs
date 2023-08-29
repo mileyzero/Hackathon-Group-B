@@ -34,11 +34,18 @@ public class Snake : MonoBehaviour
     private Level_Grid level_Grid;
     private int snakeBodySize;
 
+    public GameObject blackscreen;
+
     public TextMeshProUGUI score;
     private int scoreint;
 
     private AudioSource audioPlayer;
+    public AudioSource grass_player;
+    public AudioClip[] grass;
     public AudioClip atefood_sfx;
+    public AudioClip defeat_sfx;
+
+    public GameObject background_music;
 
     private List<SnakeMovePosition> snakeMovePositionList;
     private List<SnakeBodyPart> snakeBodyList;
@@ -49,6 +56,7 @@ public class Snake : MonoBehaviour
     }
     private void Awake()
     {
+        blackscreen.SetActive(false);
         audioPlayer = GetComponent<AudioSource>();
         gridposition = new Vector2Int(10, 10);
         gridMoveTimerMax = 0.2f;
@@ -59,6 +67,15 @@ public class Snake : MonoBehaviour
         snakeBodySize = 0;
         snakeBodyList = new List<SnakeBodyPart>();
         state = State.Alive;
+    }
+
+    public void PlayGrass_Sfx()
+    {
+        int randomaudio = Random.Range(0, grass.Length);
+        AudioClip grass_effect = grass[randomaudio];
+
+        grass_player.clip = grass_effect;
+        grass_player.Play();
     }
 
     private void Update()
@@ -79,14 +96,22 @@ public class Snake : MonoBehaviour
 
     public void Die()
     {
+        blackscreen.SetActive(true);
+        background_music.SetActive(false);
         state = State.Dead;
-        StartCoroutine(DelayToMainGame(1));
+        StartCoroutine(DelayToMainGame(3.2f));
     }
 
     public void AteFood_SFX()
     {
         audioPlayer.clip = atefood_sfx; 
         audioPlayer.Play();
+    }
+
+    public void Defeat_SFX()
+    {
+        grass_player.clip = defeat_sfx;
+        grass_player.Play();
     }
 
     IEnumerator DelayToMainGame(float timer)
@@ -108,6 +133,7 @@ public class Snake : MonoBehaviour
         {
             if (gridMoveDirection != Direction.Down)
             {
+                PlayGrass_Sfx();
                 gridMoveDirection = Direction.Up;
             }
         }
@@ -116,6 +142,7 @@ public class Snake : MonoBehaviour
         {
             if (gridMoveDirection != Direction.Up)
             {
+                PlayGrass_Sfx();
                 gridMoveDirection = Direction.Down;
             }
         }
@@ -123,6 +150,7 @@ public class Snake : MonoBehaviour
         {
             if (gridMoveDirection != Direction.Right)
             {
+                PlayGrass_Sfx();
                 gridMoveDirection = Direction.Left;
             }
         }
@@ -130,6 +158,7 @@ public class Snake : MonoBehaviour
         {
             if (gridMoveDirection != Direction.Left)
             {
+                PlayGrass_Sfx();
                 gridMoveDirection = Direction.Right;
             }
         }
@@ -160,7 +189,7 @@ public class Snake : MonoBehaviour
                 case Direction.Up: girdMoveDirectionVector = new Vector2Int(0, +1); break;
                 case Direction.Down: girdMoveDirectionVector = new Vector2Int(0, -1); break;
             }
-
+            
             gridposition += girdMoveDirectionVector;
 
             bool snakeAteFood = level_Grid.SnakeMoved(gridposition);
@@ -185,6 +214,8 @@ public class Snake : MonoBehaviour
                 if(gridposition ==  snakebodyPartGridPosition)
                 {
                     Debug.Log("Death");
+                    AteFood_SFX();
+                    Defeat_SFX();
                     state = State.Dead;
                 }
             }
