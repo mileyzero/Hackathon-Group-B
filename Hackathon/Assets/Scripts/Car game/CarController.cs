@@ -157,9 +157,9 @@ public class CarController : MonoBehaviour
         }
 
         //store the values into store game so it can be added to the main game
-        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money += stats.moneyCollected;
-        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity += stats.popularCollected;
-        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.happiness += stats.happyCollected;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money += stats.moneyCollected * 3;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity += stats.popularCollected * 3;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.happiness += stats.happyCollected * 3;
     }
 
     IEnumerator TransitionToMain(float timer)
