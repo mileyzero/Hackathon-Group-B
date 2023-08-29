@@ -23,10 +23,12 @@ public class Manager : MonoBehaviour
     public int happinessCount;
 
     public AudioSource audioPlayer;
+    public AudioSource background_music;
     public AudioClip[] bounce_sfx;
     public AudioClip extraJump_sfx;
     public AudioClip platformbreak_sfx;
     public AudioClip collect_sfx;
+    public AudioClip win_sfx;
 
 
     public TextMeshProUGUI _money;
@@ -106,6 +108,14 @@ public class Manager : MonoBehaviour
         }
     }
 
+    public void PlayWin_Sfx()
+    {
+        background_music.loop = false;
+        background_music.volume = 1;
+        background_music.clip = win_sfx; 
+        background_music.Play();
+    }
+
     public void PlayeBounce() //bounce sfx
     {
         int randomaudio = Random.Range(0, bounce_sfx.Length);
@@ -155,6 +165,7 @@ public class Manager : MonoBehaviour
 
     public void DisplayStats()
     {
+        PlayWin_Sfx();
         StartCoroutine(showstats());
     }
 
@@ -179,6 +190,7 @@ public class Manager : MonoBehaviour
 
     IEnumerator showstats()
     {
+        
         //animation to change the number after you win   
         for(int money = 0;  money <= moneyCount; money++)
         {
