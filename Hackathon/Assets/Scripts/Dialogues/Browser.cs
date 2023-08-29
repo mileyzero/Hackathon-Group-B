@@ -279,6 +279,11 @@ public class Browser : MonoBehaviour
         GM.moneySlider.value = GM.money;
     }
 
+    public void OpenWebsite()
+    {
+        Application.OpenURL("https://www.prudential.com.sg/");
+    }
+
     IEnumerator MoneyTrueToFalse(float timer)
     {
         GM.minusMoney.SetActive(true);
