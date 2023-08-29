@@ -2807,7 +2807,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cd93788ed03c67740abf7bb7d44d75a3, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4099,6 +4099,7 @@ MonoBehaviour:
   moneyCount: 0
   happinessCount: 0
   audioPlayer: {fileID: 0}
+  background_music: {fileID: 1396995349}
   bounce_sfx:
   - {fileID: 8300000, guid: 30ea6f3929e1b6b478036c2e0c105b05, type: 3}
   - {fileID: 8300000, guid: 0353d995c3e05c9478585f9b43cae07a, type: 3}
@@ -4107,6 +4108,7 @@ MonoBehaviour:
   extraJump_sfx: {fileID: 8300000, guid: 854711021c255c04faaef6921a1fd9f3, type: 3}
   platformbreak_sfx: {fileID: 8300000, guid: 03665de01412b874aa4aa81537090e94, type: 3}
   collect_sfx: {fileID: 8300000, guid: 0e8f61261c89b584b858a7098ca782ec, type: 3}
+  win_sfx: {fileID: 8300000, guid: 555432a5eedb46b4f9eaa2790262d020, type: 3}
   _money: {fileID: 475832111}
   _popularity: {fileID: 35599134}
   _happiness: {fileID: 647104039}

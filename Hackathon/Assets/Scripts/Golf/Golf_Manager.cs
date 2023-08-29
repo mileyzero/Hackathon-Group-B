@@ -15,10 +15,12 @@ public class Golf_Manager : MonoBehaviour
     public GameObject pauseMenu;
 
     public AudioSource audioPlayer;
+    public AudioSource background_music;
     public AudioClip[] swing_audioClips;
     public AudioClip inhole;
     public AudioClip lightap;
     public AudioClip collect_sfx;
+    public AudioClip win_sfx;
 
     public TextMeshProUGUI money;
     public TextMeshProUGUI happy;
@@ -107,6 +109,10 @@ public class Golf_Manager : MonoBehaviour
 
     IEnumerator WinCorotine()
     {
+        background_music.loop = false;
+        background_music.volume = 1;
+        background_music.clip = win_sfx;
+        background_music.Play();
         yield return new WaitForSeconds(2f);
         transitionAnim.SetTrigger("Start");
 

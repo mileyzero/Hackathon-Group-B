@@ -35,8 +35,9 @@ public class Platform : MonoBehaviour
                 StartCoroutine(bounce());
                 if (this.gameObject.tag == "doodlewin") //when the player collides with the winning platform / last platform
                 {
-                   manager.GetComponent<Manager>().win.SetActive(true);
-                    manager.GetComponent<AudioSource>().enabled = false;
+                    manager.GetComponent<Manager>().player.SetActive(false);
+                    manager.GetComponent<Manager>().win.SetActive(true);
+                    manager.GetComponent<AudioSource>().Stop();
                     manager.GetComponent <Manager>().DisplayStats();
                 }
                 else if(this.gameObject.tag == "breakplatform") //if player collides with breakable platform
