@@ -10,6 +10,7 @@ public class Deadzone: MonoBehaviour
         if (collision.gameObject.tag == "snake")
         {
             Debug.Log("Die");
+            snake.Defeat_SFX();
             snake.Die();
         }
     }
