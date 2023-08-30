@@ -127,6 +127,7 @@ public class MG_Car_Dialogue : MonoBehaviour
 
         yield return new WaitForSeconds(transitionTime);
 
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().levelAudioChange.Stop();
         GameObject.FindGameObjectWithTag("main_game").SetActive(false);
         SceneManager.LoadScene("Car");
     }

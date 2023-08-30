@@ -186,21 +186,12 @@ public class GameManager : MonoBehaviour
     private bool hasActivatedLoseMoneyTip = false;
     private bool hasActivatedWin = false;
 
-    public bool hasPlayedLevel1;
-    public bool hasPlayedLevel2;
-    public bool hasPlayedLevel3;
-
-    public AudioClip level1;
-    public AudioClip level2;
-    public AudioClip level3;
-
-    public AudioSource levelAudioChange;
-
     // Start is called before the first frame update
     void Start()
     {
         isDialogue = false;
 
+        pauseBtn.SetActive(true);
         pauseMenu.SetActive(false);
 
         plusMoney.SetActive(false);
@@ -304,52 +295,13 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
         }
 
-        if (!hasPlayedLevel1)
-        {
-            if (popularity < 30)
-            {
-                levelAudioChange.clip = level1;
-                levelAudioChange.Play();
-
-                hasPlayedLevel1 = true;
-                hasPlayedLevel2 = false;
-                hasPlayedLevel3 = false;
-            }
-        }
-
-        if (!hasPlayedLevel2)
-        {
-            if (popularity > 30 && popularity < 60)
-            {
-                levelAudioChange.clip = level2;
-                levelAudioChange.Play();
-
-                hasPlayedLevel1 = false;
-                hasPlayedLevel2 = true;
-                hasPlayedLevel3 = false;
-            }
-        }
-
-        if (!hasPlayedLevel3)
-        {
-            if (popularity > 60 && popularity < 90)
-            {
-                levelAudioChange.clip = level3;
-                levelAudioChange.Play();
-
-                hasPlayedLevel3 = true;
-                hasPlayedLevel2 = false;
-                hasPlayedLevel1 = false;
-            }
-        }
-
         //if isRunning equals to false, the randomInitialize will set a random.range to it, then the timer will countdown
         //if the timer hits less or equals to 0, isRunning will set to true to prevent the timer from continuing
         //the randomInitalize number will then choose between 0 to 2, if its on 0, it will enable the email button for investment.
         //and if it lands on 1, it will enable the email button for employees.
         if (isRunning == false)
         {
-            randomInitialize = Random.Range(1, 52);
+            randomInitialize = Random.Range(1, 56);
             timer -= Time.deltaTime;
 
             if (timer <= 0)
@@ -377,49 +329,49 @@ public class GameManager : MonoBehaviour
                     healthButton.SetActive(true);
                     healthNotiIcon.SetActive(true);
                 }
-                else if(randomInitialize > 25 && randomInitialize <= 32)
+                else if(randomInitialize > 25 && randomInitialize <= 29)
                 {
                     accidentManager.scenarioButton.enabled = true;
 
                     accidentButton.SetActive(true);
                     accidentNotiIcon.SetActive(true);
                 }
-                else if(randomInitialize > 32 && randomInitialize <= 35)
+                else if(randomInitialize > 29 && randomInitialize <= 34)
                 {
                     MGManager.scenarioButton.enabled = true;
 
                     miniGameButton.SetActive(true);
                     miniGameNotiIcon.SetActive(true);
                 }
-                else if(randomInitialize > 35 && randomInitialize <= 37)
+                else if(randomInitialize > 34 && randomInitialize <= 39)
                 {
                     MGCar.scenarioButton.enabled = true;
 
                     miniGameCarButton.SetActive(true);
                     miniGameCarNotiIcon.SetActive(true);
                 }
-                else if(randomInitialize > 37 && randomInitialize <= 40)
+                else if(randomInitialize > 39 && randomInitialize <= 44)
                 {
                     MGGolf.scenarioButton.enabled = true;
 
                     miniGameGolfButton.SetActive(true);
                     miniGameGolfNotiIcon.SetActive(true);
                 }
-                else if (randomInitialize > 40 && randomInitialize <= 44)
+                else if (randomInitialize > 44 && randomInitialize <= 48)
                 {
                     insuranceManager.scenarioButton.enabled = true;
 
                     insuranceHealthButton.SetActive(true);
                     insuranceNotiIcon.SetActive(true);
                 }
-                else if(randomInitialize > 44 && randomInitialize <= 48)
+                else if(randomInitialize > 48 && randomInitialize <= 52)
                 {
                     AccidentManager.scenarioButton.enabled = true;
 
                     insuranceAccidentButton.SetActive(true);
                     insuranceAccidentNotiIcon.SetActive(true);
                 }
-                else if(randomInitialize > 48 && randomInitialize <= 52)
+                else if(randomInitialize > 52 && randomInitialize <= 56)
                 {
                     InvestmentManager.scenarioButton.enabled = true;
 
@@ -718,18 +670,32 @@ public class GameManager : MonoBehaviour
     {
         transitionAnim.SetTrigger("Start");
 
+        currentHappiness = happiness;
+        currentMoney = money;
+        currentPopularity = popularity;
+
+        elapsedTime = animationDur;
+
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene("Snake");
         GameObject.FindGameObjectWithTag("main_game").SetActive(false);
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().levelAudioChange.Stop();
     }
 
     IEnumerator TransitionSlotLevel()
     {
         transitionAnim.SetTrigger("Start");
 
+        currentHappiness = happiness;
+        currentMoney = money;
+        currentPopularity = popularity;
+
+        elapsedTime = animationDur;
+
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene("SlotMachine");
         GameObject.FindGameObjectWithTag("main_game").SetActive(false);
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().levelAudioChange.Stop();
     }
 
     //if money is less or equals to 0, it will set an active scene to true. if the boolean is not active yet, it will then start a coroutine
