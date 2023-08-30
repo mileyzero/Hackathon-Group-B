@@ -13,6 +13,7 @@ public class Golf_Manager : MonoBehaviour
     [SerializeField] Golf_Ball golf;
 
     public GameObject pauseMenu;
+    public GameObject pauseBtn;
 
     public AudioSource audioPlayer;
     public AudioSource background_music;
@@ -109,6 +110,8 @@ public class Golf_Manager : MonoBehaviour
 
     IEnumerator WinCorotine()
     {
+        pauseBtn.SetActive(false);
+
         background_music.loop = false;
         background_music.volume = 1;
         background_music.clip = win_sfx;

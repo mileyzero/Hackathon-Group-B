@@ -438,7 +438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &113540024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4093,6 +4093,7 @@ MonoBehaviour:
   player: {fileID: 431517611}
   pauseMenu: {fileID: 984540334}
   pauseDonut: {fileID: 2032687841}
+  pauseBtn: {fileID: 1660707131}
   capsule: {fileID: 431517618}
   circle: {fileID: 431517619}
   popularityCount: 0

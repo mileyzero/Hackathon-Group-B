@@ -33,6 +33,9 @@ public class Golf_Ball : MonoBehaviour
 
     private bool ball_released;
     private bool cancel;
+
+    public GameObject pauseBtn;
+
     public GameObject win_screen;
     public GameObject lose_screen;
 
@@ -263,8 +266,8 @@ public class Golf_Ball : MonoBehaviour
 
     IEnumerator TransitionToMainGame(float timer)
     {
-
         lose_screen.SetActive(true);
+        pauseBtn.SetActive(false);
 
         this.GetComponent<CircleCollider2D>().enabled = false;
 

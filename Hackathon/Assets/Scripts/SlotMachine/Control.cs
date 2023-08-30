@@ -26,6 +26,9 @@ public class Control : MonoBehaviour
     public Button quitBtn;
 
     public GameObject arrow;
+    public GameObject coinSpawner;
+    public GameObject casinoCoin;
+    public GameObject[] spawnedCoins;
 
     public AudioSource audioplayer;
 
@@ -36,6 +39,11 @@ public class Control : MonoBehaviour
     public AudioClip win;
 
     public AudioClip buttonpress_sfx;
+
+    private void Start()
+    {
+        SpawnCoin();
+    }
 
     // Update is called once per frame
     void Update()
@@ -58,10 +66,12 @@ public class Control : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money >= 10)
+        if(GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money > 10)
         {
+            
             if (rows[0].rowStopped && rows[1].rowStopped && rows[2].rowStopped)
             {
+                DestroyCoin();
                 audioplayer.clip = buttonpress_sfx;
                 spin_audioplayer.clip = spin_sfx;
                 audioplayer.Play();
@@ -80,6 +90,37 @@ public class Control : MonoBehaviour
         }
 
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.moneySlider.value = GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money;
+    }
+
+    public void SpawnCoin()
+    {
+        GameObject instantiated;
+        Vector2 prev_vec = coinSpawner.transform.position;
+        int moneyBalance = Mathf.CeilToInt((GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money - 10) / 10);
+
+        spawnedCoins = new GameObject[moneyBalance];
+        Debug.Log("before for loop" + moneyBalance);
+            for (int i = 1; i <= moneyBalance; i++)
+            {
+                Debug.Log(moneyBalance);
+                Debug.Log("work plz");
+
+                instantiated = Instantiate(casinoCoin, new Vector2(coinSpawner.transform.position.x, prev_vec.y + 0.15f), Quaternion.identity);
+                instantiated.GetComponent<Renderer>().sortingOrder = i;
+
+                prev_vec = instantiated.transform.position;
+                spawnedCoins[i-1] = instantiated;
+            }
+    }
+
+    public void DestroyCoin()
+    {
+        if(spawnedCoins.Length > 0)
+        {
+            Destroy(spawnedCoins[spawnedCoins.Length - 1]);
+            spawnedCoins[spawnedCoins.Length - 1] = null;
+            Array.Resize(ref spawnedCoins, spawnedCoins.Length - 1);
+        }
     }
 
     private void CheckResults()
@@ -108,6 +149,7 @@ public class Control : MonoBehaviour
             audioplayer.Play();
             prizeValue = "+ Money";
             GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money += 30;
+            SpawnCoin();
             Debug.Log(GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money);
         }
 
@@ -119,7 +161,7 @@ public class Control : MonoBehaviour
             GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money += 30;
             GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity += 30;
             GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.happiness += 30;
-
+            SpawnCoin();
             Debug.Log(GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money);
             Debug.Log(GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity);
             Debug.Log(GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.happiness);
