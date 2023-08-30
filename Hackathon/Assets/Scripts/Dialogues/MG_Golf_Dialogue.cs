@@ -121,8 +121,9 @@ public class MG_Golf_Dialogue : MonoBehaviour
     public void GolfGameScenario()
     {
         checkInitialize = Random.Range(0, 5);
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().levelAudioChange.Stop();
 
-        if(checkInitialize == 0)
+        if (checkInitialize == 0)
         {
             Debug.Log(checkInitialize);
 

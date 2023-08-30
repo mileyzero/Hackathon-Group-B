@@ -240,17 +240,17 @@ public class Manager : MonoBehaviour
         transitionAnim.SetTrigger("Start");
 
         //increase the stats of the resources in the main game
-        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money += moneyCount + 4;
-        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity += popularityCount + 4;
-        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.happiness += happinessCount + 4;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().money += moneyCount + 4;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().popularity += popularityCount + 4;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().happiness += happinessCount + 4;
 
         yield return new WaitForSeconds(2f);
 
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
 
-        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel1 = false;
-        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel2 = false;
-        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel3 = false;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().hasPlayedLevel1 = false;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().hasPlayedLevel2 = false;
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().hasPlayedLevel3 = false;
 
         this.gameObject.SetActive(false);
 
