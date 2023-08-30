@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &101574171
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 101574172}
+  m_Layer: 0
+  m_Name: CasinoCoinSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &101574172
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101574171}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.7, y: -6, z: 0}
+  m_LocalScale: {x: 0.09512956, y: 0.09512956, z: 0.09512956}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &253418718
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,6 +838,8 @@ MonoBehaviour:
   transitionTime: 1
   quitBtn: {fileID: 253418722}
   arrow: {fileID: 1769912732}
+  coinSpawner: {fileID: 101574171}
+  casinoCoin: {fileID: 1718623337832533671, guid: 4d17211386810844b8fc39dec26c6e79, type: 3}
   audioplayer: {fileID: 569682774}
   spin_audioplayer: {fileID: 569682775}
   spin_sfx: {fileID: 8300000, guid: dc1b7fafcbc0ad4479c6f097f6ec60c7, type: 3}
@@ -1674,7 +1707,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1690288638
 MonoBehaviour:
   m_ObjectHideFlags: 0

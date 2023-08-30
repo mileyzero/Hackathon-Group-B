@@ -2114,6 +2114,7 @@ MonoBehaviour:
   golf_game: {fileID: 464072447}
   golf: {fileID: 0}
   pauseMenu: {fileID: 1715813219}
+  pauseBtn: {fileID: 1775272755}
   audioPlayer: {fileID: 0}
   background_music: {fileID: 1032088500}
   swing_audioClips:
@@ -6043,7 +6044,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1206681327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6809,6 +6810,7 @@ MonoBehaviour:
   maxGoalSpeed: 3
   movesMade_txt: {fileID: 1291719792}
   movesMade: 12
+  pauseBtn: {fileID: 1775272755}
   win_screen: {fileID: 1144819998}
   lose_screen: {fileID: 343426803}
 --- !u!95 &1630134180

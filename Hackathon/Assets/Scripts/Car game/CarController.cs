@@ -18,6 +18,8 @@ public class CarController : MonoBehaviour
     public GameObject win;
     public GameObject lose_scn;
 
+    public GameObject pauseBtn;
+
     public GameObject spawner;
     public GameObject timer_bar;
     public GameObject panel;
@@ -87,12 +89,12 @@ public class CarController : MonoBehaviour
                     StartCoroutine(TransitionToMain(1.5f));
                 }
             }
-        }
 
-        if (lose == true && Win == false) //setting the lose screen
-        {
-            gmTime.StartCooldown();
-            StartCoroutine(TransitionToMain(1.5f));
+            if (lose == true && Win == false) //setting the lose screen
+            {
+                gmTime.StartCooldown();
+                StartCoroutine(TransitionToMain(1.5f));
+            }
         }
     }
 
@@ -167,6 +169,7 @@ public class CarController : MonoBehaviour
         //transition to main game
         if (lose)
         {
+            pauseBtn.SetActive(false);
             lose_scn.SetActive(true);
             yield return new WaitForSeconds(timer);
             //if player has accident insurance, it will set it to false. If user does not have insurance then reduce money
@@ -178,23 +181,30 @@ public class CarController : MonoBehaviour
             {
                 GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().accidentinsurance.accidentInsurance = false;
             }
+
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
+            GameObject.FindGameObjectWithTag("cooldown").GetComponent<MiniGameTimer>().StartCooldown();
+
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel1 = false;
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel2 = false;
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel3 = false;
         }
         else if (Win)
         {
+            pauseBtn.SetActive(false);
             gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
             PlayerWin();
             win.SetActive(true);
+
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
+            GameObject.FindGameObjectWithTag("cooldown").GetComponent<MiniGameTimer>().StartCooldown();
+
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel1 = false;
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel2 = false;
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel3 = false;
+
             yield return new WaitForSeconds(3f);
         }
-
-
-        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
-        GameObject.FindGameObjectWithTag("cooldown").GetComponent<MiniGameTimer>().StartCooldown();
-
-        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel1 = false;
-        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel2 = false;
-        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel3 = false;
-
         SceneManager.LoadScene("SampleScene");
     }
 }

@@ -15,6 +15,8 @@ public class Manager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject pauseDonut;
 
+    public GameObject pauseBtn;
+
     public BoxCollider2D capsule;
     public CircleCollider2D circle;
 
@@ -29,7 +31,6 @@ public class Manager : MonoBehaviour
     public AudioClip platformbreak_sfx;
     public AudioClip collect_sfx;
     public AudioClip win_sfx;
-
 
     public TextMeshProUGUI _money;
     public TextMeshProUGUI _popularity;
@@ -190,9 +191,11 @@ public class Manager : MonoBehaviour
 
     IEnumerator showstats()
     {
-        
+
+        pauseBtn.SetActive(false);
+
         //animation to change the number after you win   
-        for(int money = 0;  money <= moneyCount; money++)
+        for (int money = 0;  money <= moneyCount; money++)
         {
             if(_money.text == "+" + moneyCount.ToString())
             {

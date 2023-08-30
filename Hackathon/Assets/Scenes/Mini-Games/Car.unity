@@ -1892,6 +1892,7 @@ MonoBehaviour:
   maxPos: 1.15
   win: {fileID: 452283734}
   lose_scn: {fileID: 1632793530}
+  pauseBtn: {fileID: 75621175}
   spawner: {fileID: 334309373}
   timer_bar: {fileID: 437865593}
   panel: {fileID: 1822887959}
@@ -2482,7 +2483,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &703046044
 MonoBehaviour:
   m_ObjectHideFlags: 0
