@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class Snake : MonoBehaviour
@@ -124,7 +125,8 @@ public class Snake : MonoBehaviour
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel2 = false;
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel3 = false;
 
-        snakeGame.SetActive(false);
+        SceneManager.LoadScene("SampleScene");
+        //snakeGame.SetActive(false);
     }
 
     private void HandleInput()

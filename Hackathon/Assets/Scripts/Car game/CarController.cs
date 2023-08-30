@@ -23,6 +23,7 @@ public class CarController : MonoBehaviour
     public GameObject spawner;
     public GameObject timer_bar;
     public GameObject panel;
+    public GameObject guide;
 
     public AudioSource audioPlayer;
     public AudioClip lose_sfx;
@@ -44,7 +45,10 @@ public class CarController : MonoBehaviour
         carPosition = transform.position;
         carslider.value = 0;
         timer = Random.Range(timer - 5f, timer);
+        lose= false;
+        Win = false;
         panel.SetActive(true);
+        guide.SetActive(true);
         spawner.SetActive(false);
         timer_bar.SetActive(false);
         stats = GetComponent<Car_Collect>();
@@ -54,6 +58,7 @@ public class CarController : MonoBehaviour
     public void StartGame()
     {
         panel.SetActive(false);
+        guide.SetActive(false);
         spawner.SetActive(true);
         timer_bar.SetActive(true);
         StartTimer();
@@ -192,10 +197,11 @@ public class CarController : MonoBehaviour
         else if (Win)
         {
             pauseBtn.SetActive(false);
+            spawner.SetActive(false);
             gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
             PlayerWin();
             win.SetActive(true);
-
+            yield return new WaitForSeconds(3.5f);
             GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
             GameObject.FindGameObjectWithTag("cooldown").GetComponent<MiniGameTimer>().StartCooldown();
 
@@ -203,7 +209,7 @@ public class CarController : MonoBehaviour
             GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel2 = false;
             GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.hasPlayedLevel3 = false;
 
-            yield return new WaitForSeconds(3f);
+
         }
         SceneManager.LoadScene("SampleScene");
     }

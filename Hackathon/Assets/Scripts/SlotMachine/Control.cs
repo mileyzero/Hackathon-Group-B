@@ -105,7 +105,7 @@ public class Control : MonoBehaviour
                 Debug.Log(moneyBalance);
                 Debug.Log("work plz");
 
-                instantiated = Instantiate(casinoCoin, new Vector2(coinSpawner.transform.position.x, prev_vec.y + 0.15f), Quaternion.identity);
+                instantiated = Instantiate(casinoCoin, new Vector2(coinSpawner.transform.position.x + UnityEngine.Random.Range(-0.06f,0.06f), prev_vec.y + 0.15f), Quaternion.identity);
                 instantiated.GetComponent<Renderer>().sortingOrder = i;
 
                 prev_vec = instantiated.transform.position;
