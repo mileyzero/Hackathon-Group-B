@@ -4,7 +4,9 @@ using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using static System.TimeZoneInfo;
 
 public class Snake : MonoBehaviour
 {
@@ -119,12 +121,13 @@ public class Snake : MonoBehaviour
         yield return new WaitForSeconds(timer);
 
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
+        this.gameObject.SetActive(false);
 
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().hasPlayedLevel1 = false;
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().hasPlayedLevel2 = false;
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().hasPlayedLevel3 = false;
 
-        snakeGame.SetActive(false);
+        SceneManager.LoadScene("SampleScene");
     }
 
     private void HandleInput()
