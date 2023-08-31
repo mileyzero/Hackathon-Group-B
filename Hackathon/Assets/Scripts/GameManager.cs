@@ -401,6 +401,7 @@ public class GameManager : MonoBehaviour
         if(popularity >= maxPopularity && money >= maxMoney && happiness >= maxHappiness)
         {
             StoreGame.winAchCount += 1;
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<AudioSource>().Stop();
 
             winGameBG.SetActive(true);
             pauseBtn.SetActive(false);
