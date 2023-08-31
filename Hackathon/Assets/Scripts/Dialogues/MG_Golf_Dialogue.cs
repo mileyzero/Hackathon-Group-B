@@ -121,6 +121,13 @@ public class MG_Golf_Dialogue : MonoBehaviour
     public void GolfGameScenario()
     {
         checkInitialize = Random.Range(0, 5);
+
+        GM.currentHappiness = GM.happiness;
+        GM.currentMoney = GM.money;
+        GM.currentPopularity = GM.popularity;
+
+        GM.elapsedTime = GM.animationDur;
+
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().levelAudioChange.Stop();
 
         if (checkInitialize == 0)

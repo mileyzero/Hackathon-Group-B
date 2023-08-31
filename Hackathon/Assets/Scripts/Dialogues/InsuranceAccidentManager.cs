@@ -145,6 +145,9 @@ public class InsuranceAccidentManager : MonoBehaviour
                     {
                         if (browserManager.accidentInsurance != true)
                         {
+                            StoreGame.insuranceAchCount += 1;
+                            Debug.Log(StoreGame.insuranceAchCount);
+
                             Debug.Log("Bought Accident Insurance");
                             GM.money -= 3f;
                             browserManager.accidentInsurance = true;

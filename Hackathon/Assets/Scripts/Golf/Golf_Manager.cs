@@ -110,6 +110,7 @@ public class Golf_Manager : MonoBehaviour
 
     IEnumerator WinCorotine()
     {
+        StoreGame.golfAchCount += 03;
         pauseBtn.SetActive(false);
 
         background_music.loop = false;

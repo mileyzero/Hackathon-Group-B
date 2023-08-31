@@ -48,6 +48,11 @@ public class Control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money < 10)
+        {
+            StoreGame.gambleAchCount += 02;
+        }
+
         if (!rows[0].rowStopped || !rows[1].rowStopped || !rows[2].rowStopped)
         {
             prizeValue = null;
@@ -68,7 +73,6 @@ public class Control : MonoBehaviour
     {
         if(GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money > 10)
         {
-            
             if (rows[0].rowStopped && rows[1].rowStopped && rows[2].rowStopped)
             {
                 DestroyCoin();
@@ -155,6 +159,8 @@ public class Control : MonoBehaviour
 
         else if (rows[0].stoppedslot == "7" && rows[1].stoppedslot == "7" && rows[2].stoppedslot == "7")
         {
+            StoreGame.gambleLucky7AchCount += 06;
+
             audioplayer.clip = win;
             audioplayer.Play();
             prizeValue = "+ All Resources";

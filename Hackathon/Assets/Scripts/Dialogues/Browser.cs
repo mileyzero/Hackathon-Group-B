@@ -139,6 +139,9 @@ public class Browser : MonoBehaviour
 
         if(accidentInsurance == true)
         {
+            StoreGame.insuranceAchCount += 1;
+            Debug.Log(StoreGame.insuranceAchCount);
+
             accidentGreyed.SetActive(false);
             accidentActive.SetActive(true);
 
@@ -178,6 +181,9 @@ public class Browser : MonoBehaviour
 
         if (healthInsurance == true)
         {
+            StoreGame.insuranceAchCount += 1;
+            Debug.Log(StoreGame.insuranceAchCount);
+
             healthGreyed.SetActive(false);
             healthActive.SetActive(true);
 
@@ -250,6 +256,9 @@ public class Browser : MonoBehaviour
 
         if (investmentInsurance == true)
         {
+            StoreGame.insuranceAchCount += 1;
+            Debug.Log(StoreGame.insuranceAchCount);
+
             insuranceGreyed.SetActive(false);
             insuranceActive.SetActive(true);
 
