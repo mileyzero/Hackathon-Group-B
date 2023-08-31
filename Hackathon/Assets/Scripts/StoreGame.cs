@@ -189,13 +189,32 @@ public class StoreGame : MonoBehaviour
     public int loseHappinessAchTrigger = 1;
     public int loseHappinessAchCode;
 
+    public bool wonallgolf;
+    public bool golfwon_Level1 = false;
+    public bool golfwon_Level2 = false;
+    public bool golfwon_Level3 = false;
+    public bool golfwon_Level4 = false;
+    public bool golfwon_Level5 = false;
+    public bool golfwon_Level6 = false;
+
     private void Start()
     {
         Cursor.SetCursor(cursorPixel, Vector2.zero, CursorMode.ForceSoftware);
+        wonallgolf = false;
+        golfwon_Level1 = false;
+        golfwon_Level2 = false;
+        golfwon_Level3 = false;
+        golfwon_Level4 = false;
+        golfwon_Level5 = false;
+        golfwon_Level6 = false;
     }
 
     private void Update()
     {
+        if(golfwon_Level1 == true && golfwon_Level2 == true && golfwon_Level3 == true && golfwon_Level4 == true && golfwon_Level5 == true && golfwon_Level6 == true)
+        {
+            wonallgolf = true;
+        }
         money = gameManager.money;
         popularity = gameManager.popularity;
         happiness = gameManager.happiness;

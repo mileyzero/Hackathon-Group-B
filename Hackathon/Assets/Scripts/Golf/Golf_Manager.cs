@@ -113,6 +113,31 @@ public class Golf_Manager : MonoBehaviour
         StoreGame.golfAchCount += 03;
         pauseBtn.SetActive(false);
 
+        if (SceneManager.GetActiveScene().name == "Golf Level 1")
+        {
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().golfwon_Level1 = true;
+        }
+        else if (SceneManager.GetActiveScene().name == "Golf Level 2")
+        {
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().golfwon_Level2 = true;
+        }
+        else if (SceneManager.GetActiveScene().name == "Golf Level 3")
+        {
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().golfwon_Level3 = true;
+        }
+        else if (SceneManager.GetActiveScene().name == "Golf Level 4")
+        {
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().golfwon_Level4 = true;
+        }
+        else if (SceneManager.GetActiveScene().name == "Golf Level 5")
+        {
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().golfwon_Level5 = true;
+        }
+        else if (SceneManager.GetActiveScene().name == "Golf Level 6")
+        {
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().golfwon_Level6 = true;
+        }
+
         background_music.loop = false;
         background_music.volume = 1;
         background_music.clip = win_sfx;

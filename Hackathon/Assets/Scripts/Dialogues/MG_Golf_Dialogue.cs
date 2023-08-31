@@ -40,6 +40,8 @@ public class MG_Golf_Dialogue : MonoBehaviour
     public GameObject miniGameDialogue;
     public GameObject nameBox;
 
+    public StoreGame storegame;
+
     public bool isGolfGame;
 
     public float transitionTime = 1f;
@@ -120,53 +122,90 @@ public class MG_Golf_Dialogue : MonoBehaviour
     //If randomVal1 is more than 15 and less than 20, randomVal2 is more than 15 and less than 20, it hides the main game and load the 'Golf' mini game
     public void GolfGameScenario()
     {
-        checkInitialize = Random.Range(0, 5);
 
-        GM.currentHappiness = GM.happiness;
-        GM.currentMoney = GM.money;
-        GM.currentPopularity = GM.popularity;
-
-        GM.elapsedTime = GM.animationDur;
-
-        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().levelAudioChange.Stop();
-
-        if (checkInitialize == 0)
+        if(storegame.wonallgolf == true)
         {
-            Debug.Log(checkInitialize);
+            checkInitialize = Random.Range(0, 5);
 
+            GM.currentHappiness = GM.happiness;
+            GM.currentMoney = GM.money;
+            GM.currentPopularity = GM.popularity;
+
+            GM.elapsedTime = GM.animationDur;
+
+            GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().levelAudioChange.Stop();
+
+            if (checkInitialize == 0)
+            {
+                Debug.Log(checkInitialize);
+
+                StartCoroutine(TransitionGolfLevel1());
+            }
+
+            else if (checkInitialize == 1)
+            {
+                Debug.Log(checkInitialize);
+
+                StartCoroutine(TransitionGolfLevel2());
+            }
+            else if (checkInitialize == 2)
+            {
+                Debug.Log(checkInitialize);
+
+                StartCoroutine(TransitionGolfLevel3());
+            }
+            else if (checkInitialize == 3)
+            {
+                Debug.Log(checkInitialize);
+
+                StartCoroutine(TransitionGolfLevel4());
+            }
+            else if (checkInitialize == 4)
+            {
+                Debug.Log(checkInitialize);
+
+                StartCoroutine(TransitionGolfLevel5());
+            }
+            else if (checkInitialize == 5)
+            {
+                Debug.Log(checkInitialize);
+
+                StartCoroutine(TransitionGolfLevel6());
+            }
+        }
+
+        else if(storegame.golfwon_Level1 ==false)
+        {
             StartCoroutine(TransitionGolfLevel1());
+            return;
         }
-
-        else if(checkInitialize == 1)
+        else if (storegame.golfwon_Level2 == false)
         {
-            Debug.Log(checkInitialize);
-
             StartCoroutine(TransitionGolfLevel2());
+            return;
         }
-        else if (checkInitialize == 2)
+        else if (storegame.golfwon_Level3 == false)
         {
-            Debug.Log(checkInitialize);
-
             StartCoroutine(TransitionGolfLevel3());
+            return;
         }
-        else if (checkInitialize == 3)
+        else if (storegame.golfwon_Level4 == false)
         {
-            Debug.Log(checkInitialize);
-
             StartCoroutine(TransitionGolfLevel4());
+            return;
         }
-        else if (checkInitialize == 4)
+        else if (storegame.golfwon_Level5 == false)
         {
-            Debug.Log(checkInitialize);
-
             StartCoroutine(TransitionGolfLevel5());
+            return;
         }
-        else if (checkInitialize == 5)
+        else if (storegame.golfwon_Level6 == false)
         {
-            Debug.Log(checkInitialize);
-
             StartCoroutine(TransitionGolfLevel6());
+            return;
         }
+
+
     }
 
     //In DestroyObject, holidayObject GameObject will find tag of any GameObject tagged "holiday"
