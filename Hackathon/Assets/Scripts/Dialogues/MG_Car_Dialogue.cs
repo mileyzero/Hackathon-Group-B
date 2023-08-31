@@ -125,6 +125,12 @@ public class MG_Car_Dialogue : MonoBehaviour
     {
         transitionAnim.SetTrigger("Start");
 
+        GM.currentHappiness = GM.happiness;
+        GM.currentMoney = GM.money;
+        GM.currentPopularity = GM.popularity;
+
+        GM.elapsedTime = GM.animationDur;
+
         yield return new WaitForSeconds(transitionTime);
 
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().levelAudioChange.Stop();

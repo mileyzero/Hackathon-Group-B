@@ -145,6 +145,9 @@ public class InsuranceInvestmentManager : MonoBehaviour
                     {
                         if (browserManager.investmentInsurance != true)
                         {
+                            StoreGame.insuranceAchCount += 1;
+                            Debug.Log(StoreGame.insuranceAchCount);
+
                             Debug.Log("Bought Investment Insurance");
                             GM.money -= 3f;
                             browserManager.investmentInsurance = true;

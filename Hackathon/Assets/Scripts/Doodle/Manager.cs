@@ -191,7 +191,7 @@ public class Manager : MonoBehaviour
 
     IEnumerator showstats()
     {
-
+        StoreGame.doodleWinAchCount += 07;
         pauseBtn.SetActive(false);
 
         //animation to change the number after you win   

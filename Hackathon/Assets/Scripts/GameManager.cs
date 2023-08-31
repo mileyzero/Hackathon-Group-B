@@ -178,7 +178,7 @@ public class GameManager : MonoBehaviour
     public float currentHappiness;
     public float currentPopularity;
 
-    private float elapsedTime = 0;
+    public float elapsedTime = 0;
 
     //Bool for activating lose tips
     private bool hasActivatedLoseHappinessTip = false;
@@ -400,6 +400,8 @@ public class GameManager : MonoBehaviour
     {
         if(popularity >= maxPopularity && money >= maxMoney && happiness >= maxHappiness)
         {
+            StoreGame.winAchCount += 1;
+
             winGameBG.SetActive(true);
             pauseBtn.SetActive(false);
 
@@ -704,6 +706,8 @@ public class GameManager : MonoBehaviour
     {
         if(money <= 0)
         {
+            StoreGame.loseMoneyAchCount += 01;
+
             loseMoney.SetActive(true);
             pauseBtn.SetActive(false);
 
@@ -730,6 +734,8 @@ public class GameManager : MonoBehaviour
     {
         if(popularity <= 0)
         {
+            StoreGame.popularityAchCount += 09;
+
             losePopularity.SetActive(true);
             pauseBtn.SetActive(false);
 
@@ -756,6 +762,8 @@ public class GameManager : MonoBehaviour
     {
         if(happiness <= 0)
         {
+            StoreGame.loseHappinessAchCount += 1;
+
             loseHappiness.SetActive(true);
             pauseBtn.SetActive(false);
 

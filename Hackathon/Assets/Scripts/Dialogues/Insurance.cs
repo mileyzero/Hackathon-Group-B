@@ -147,6 +147,9 @@ public class Insurance : MonoBehaviour
                     {
                         if(browserManager.healthInsurance != true)
                         {
+                            StoreGame.insuranceAchCount += 1;
+                            Debug.Log(StoreGame.insuranceAchCount);
+
                             Debug.Log("Bought Health Insurance");
                             GM.money -= 3f;
                             browserManager.healthInsurance = true;

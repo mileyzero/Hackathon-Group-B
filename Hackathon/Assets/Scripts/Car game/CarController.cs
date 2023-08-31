@@ -174,6 +174,7 @@ public class CarController : MonoBehaviour
         //transition to main game
         if (lose)
         {
+            StoreGame.carLoseAchCount += 05;
             pauseBtn.SetActive(false);
             lose_scn.SetActive(true);
             yield return new WaitForSeconds(timer);
@@ -196,6 +197,8 @@ public class CarController : MonoBehaviour
         }
         else if (Win)
         {
+            StoreGame.carWinAchCount += 04;
+
             spawner.SetActive(false);
             pauseBtn.SetActive(false);
             gameObject.GetComponent<CapsuleCollider2D>().enabled = false;

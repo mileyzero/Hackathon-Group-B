@@ -101,6 +101,7 @@ public class Snake : MonoBehaviour
         blackscreen.SetActive(true);
         background_music.SetActive(false);
         state = State.Dead;
+        StoreGame.snakeEatAchCount += 11;
         StartCoroutine(DelayToMainGame(3.2f));
     }
 
