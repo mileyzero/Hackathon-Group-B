@@ -372,10 +372,12 @@ public class MG_Golf_Dialogue : MonoBehaviour
     {
         GM.cooldownBrowser.SetActive(true);
         GM.cooldownNoti.SetActive(true);
+        GM.cooldownPanel.SetActive(true);
 
         yield return new WaitForSeconds(3);
 
         GM.cooldownNoti.SetActive(false);
         GM.cooldownBrowser.SetActive(false);
+        GM.cooldownPanel.SetActive(false);
     }
 }

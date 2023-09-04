@@ -11,6 +11,8 @@ public class Car_GameManager : MonoBehaviour
 
     private void Start()
     {
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().levelAudioChange.Stop();
+
         pauseMenu.SetActive(false);
         resumeImage.SetActive(false);
         pauseIcon.SetActive(false);

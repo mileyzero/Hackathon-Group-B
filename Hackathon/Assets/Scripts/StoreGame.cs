@@ -32,6 +32,7 @@ public class StoreGame : MonoBehaviour
     public bool achActive = false;
 
     public Texture2D cursorPixel;
+    public Texture2D pressedCursor;
 
     //Lose Money Achievement
     public GameObject loseMoneyAchPanel;
@@ -153,18 +154,6 @@ public class StoreGame : MonoBehaviour
     public int snakeEatAchTrigger = 11;
     public int snakeEatAchCode;
 
-    //Snake Out of Bounds Achievement
-    public GameObject snakeBoundsAchPanel;
-    public GameObject snakeBoundsAchDesc;
-    public GameObject snakeBoundsAchTitle;
-
-    public GameObject snakeBoundsAchImage;
-
-    public static int snakeBoundsAchCount;
-
-    public int snakeBoundsAchTrigger = 12;
-    public int snakeBoundsAchCode;
-
     //Win Game Achievement
     public GameObject winAchPanel;
     public GameObject winAchDesc;
@@ -197,9 +186,12 @@ public class StoreGame : MonoBehaviour
     public bool golfwon_Level5 = false;
     public bool golfwon_Level6 = false;
 
+    private CursorMode _cursorMode = CursorMode.ForceSoftware;
+
     private void Start()
     {
-        Cursor.SetCursor(cursorPixel, Vector2.zero, CursorMode.ForceSoftware);
+        Cursor.SetCursor(cursorPixel, Vector2.zero, _cursorMode);
+
         wonallgolf = false;
         golfwon_Level1 = false;
         golfwon_Level2 = false;
@@ -211,10 +203,22 @@ public class StoreGame : MonoBehaviour
 
     private void Update()
     {
-        if(golfwon_Level1 == true && golfwon_Level2 == true && golfwon_Level3 == true && golfwon_Level4 == true && golfwon_Level5 == true && golfwon_Level6 == true)
+        if (Input.GetMouseButtonDown(0))
+        {
+            Cursor.SetCursor(pressedCursor, Vector2.zero, _cursorMode);
+            gameManager.btnClick.Play();
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            Cursor.SetCursor(cursorPixel, Vector2.zero, _cursorMode);
+        }
+
+        if (golfwon_Level1 == true && golfwon_Level2 == true && golfwon_Level3 == true && golfwon_Level4 == true && golfwon_Level5 == true && golfwon_Level6 == true)
         {
             wonallgolf = true;
         }
+
         money = gameManager.money;
         popularity = gameManager.popularity;
         happiness = gameManager.happiness;
@@ -350,7 +354,6 @@ public class StoreGame : MonoBehaviour
         {
             StartCoroutine(TriggerLoseHappinessAch());
         }
-
     }
 
     IEnumerator TriggerLoseMoneyAch()
