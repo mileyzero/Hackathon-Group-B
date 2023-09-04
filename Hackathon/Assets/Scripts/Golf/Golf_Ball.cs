@@ -36,6 +36,8 @@ public class Golf_Ball : MonoBehaviour
 
     public GameObject pauseBtn;
 
+    public GameObject guide;
+
     public GameObject win_screen;
     public GameObject lose_screen;
 
@@ -93,7 +95,11 @@ public class Golf_Ball : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && distance <= 0.5f) //when player drags from the ball
         {
-            DragStart();
+            if (SceneManager.GetActiveScene().name == "Golf Level 1")
+            {
+                guide.SetActive(false);
+            }
+                DragStart();
         }
 
         if(Input.GetMouseButton(0) && isDragging) 
