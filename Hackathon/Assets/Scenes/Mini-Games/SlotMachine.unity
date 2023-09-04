@@ -840,6 +840,7 @@ MonoBehaviour:
   arrow: {fileID: 1769912732}
   coinSpawner: {fileID: 101574171}
   casinoCoin: {fileID: 1718623337832533671, guid: 4d17211386810844b8fc39dec26c6e79, type: 3}
+  spawnedCoins: []
   audioplayer: {fileID: 569682774}
   spin_audioplayer: {fileID: 569682775}
   spin_sfx: {fileID: 8300000, guid: dc1b7fafcbc0ad4479c6f097f6ec60c7, type: 3}
@@ -2231,7 +2232,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f9c97dab818266b4ca2d46080c707bc8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0

@@ -21,6 +21,9 @@ public class Main_Menu : MonoBehaviour
 
     public Image toggleImage;
 
+    public Texture2D cursorPixel;
+    public Texture2D pressedCursor;
+
     public Sprite fullscreenOn;
     public Sprite fullscreenOff;
 
@@ -28,13 +31,30 @@ public class Main_Menu : MonoBehaviour
 
     public bool isFullscreen = false;
 
+    private CursorMode _cursorMode = CursorMode.ForceSoftware;
+
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.SetCursor(cursorPixel, Vector2.zero, _cursorMode);
+
         fullscreenBtn.SetActive(false);
 
         backBtn.SetActive(false);
         mainAudio.Play();
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Cursor.SetCursor(pressedCursor, Vector2.zero, _cursorMode);
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            Cursor.SetCursor(cursorPixel, Vector2.zero, _cursorMode);
+        }
     }
 
     public void BackBtnPressed()

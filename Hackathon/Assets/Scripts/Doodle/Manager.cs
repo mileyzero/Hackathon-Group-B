@@ -54,6 +54,8 @@ public class Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().levelAudioChange.Stop();
+
         pauseMenu.SetActive(false);
         audioPlayer = gameObject.GetComponent<AudioSource>();
         spawnposition = new Vector3();

@@ -161,6 +161,8 @@ MonoBehaviour:
   backBtn: {fileID: 2014567621}
   fullscreenBtn: {fileID: 561944151}
   toggleImage: {fileID: 561944154}
+  cursorPixel: {fileID: 2800000, guid: 52970fe8fdc05ee49932882965af2f40, type: 3}
+  pressedCursor: {fileID: 2800000, guid: 8cae0924d388ca840bb4e544c2fd4ac9, type: 3}
   fullscreenOn: {fileID: 21300000, guid: 0615a64aaef2553498023a63a1de1711, type: 3}
   fullscreenOff: {fileID: 21300000, guid: b7a40607b1b98aa4a945d5c94446b0c4, type: 3}
   transitionTime: 1
@@ -192,7 +194,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 15bb837028dff1941ae1f9640216f268, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0

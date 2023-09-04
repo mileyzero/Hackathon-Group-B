@@ -235,10 +235,12 @@ public class MG_Dialogue : MonoBehaviour
     {
         GM.cooldownNoti.SetActive(true);
         GM.cooldownBrowser.SetActive(true);
+        GM.cooldownPanel.SetActive(true);
 
         yield return new WaitForSeconds(3);
 
         GM.cooldownNoti.SetActive(false);
         GM.cooldownBrowser.SetActive(false);
+        GM.cooldownPanel.SetActive(false);
     }
 }

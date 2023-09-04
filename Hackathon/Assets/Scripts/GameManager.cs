@@ -129,6 +129,8 @@ public class GameManager : MonoBehaviour
     public GameObject tutorialAftConfirmation;
     public GameObject finalTutorial;
 
+    public GameObject cooldownPanel;
+
     //Button for snekGame, slotGame and doNut
     public Button snekGameButton;
     public Button slotGameButton;
@@ -191,6 +193,7 @@ public class GameManager : MonoBehaviour
     {
         isDialogue = false;
 
+        cooldownPanel.SetActive(false);
         pauseBtn.SetActive(true);
         pauseMenu.SetActive(false);
 

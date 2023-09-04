@@ -38,12 +38,13 @@ public class Golf_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().levelAudioChange.Stop();
+
        golf_game.SetActive(false);
        Golf_title.SetActive(true);
        pauseMenu.SetActive(false);
        StartCoroutine(EnableGame());
        audioPlayer = gameObject.GetComponent<AudioSource>();
-
     }
 
     public void PlayeSwing()

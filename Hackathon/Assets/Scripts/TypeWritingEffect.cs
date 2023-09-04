@@ -67,6 +67,7 @@ public class TypeWritingEffect : MonoBehaviour
         else
         {
             nextBtn.SetActive(true);
+            Debug.Log("work");
         }
     }
 }
