@@ -128,6 +128,10 @@ public class GameManager : MonoBehaviour
     public GameObject tutorialConfirmation;
     public GameObject tutorialAftConfirmation;
     public GameObject finalTutorial;
+    public GameObject investmentTutorial;
+    public GameObject highProfileInvestment;
+    public GameObject lowProfileInvesment;
+    public GameObject objectiveTutorial;
 
     public GameObject cooldownPanel;
 
@@ -239,6 +243,10 @@ public class GameManager : MonoBehaviour
         tutorialConfirmation.SetActive(false);
         tutorialAftConfirmation.SetActive(false);
         finalTutorial.SetActive(false);
+        investmentTutorial.SetActive(false);
+        highProfileInvestment.SetActive(false);
+        lowProfileInvesment.SetActive(false);
+        objectiveTutorial.SetActive(false);
 
         //Randomize timer
         delayTimer = Random.Range(1f, 3f);
@@ -878,9 +886,37 @@ public class GameManager : MonoBehaviour
         finalTutorial.SetActive(true);
     }
 
-    public void TutorialResumeGame()
+    public void TutorialNextPage10()
     {
         finalTutorial.SetActive(false);
+
+        investmentTutorial.SetActive(true);
+    }
+
+    public void TutorialNextPage11()
+    {
+        investmentTutorial.SetActive(false);
+
+        highProfileInvestment.SetActive(true);
+    }
+    
+    public void TutorialNextPage12()
+    {
+        highProfileInvestment.SetActive(false);
+
+        lowProfileInvesment.SetActive(true);
+    }
+
+    public void TutorialNextPage13()
+    {
+        lowProfileInvesment.SetActive(false);
+
+        objectiveTutorial.SetActive(true);
+    }
+
+    public void TutorialResumeGame()
+    {
+        objectiveTutorial.SetActive(false);
     }
 
     //when player presses Quit button, it goes to Main Menu and sets the timeScale to 1
