@@ -60,7 +60,7 @@ public class Manager : MonoBehaviour
         audioPlayer = gameObject.GetComponent<AudioSource>();
         spawnposition = new Vector3();
 
-        //Randomly spawns the different type of platforms
+        //Randoms the amount of platforms that will be spawned
         platformCount = Random.Range(platformCount, platformCount+10);
         
         for (int i = 0; i <= platformCount; i++)
@@ -69,9 +69,9 @@ public class Manager : MonoBehaviour
             spawnposition.x = Random.Range(-7f, 7f);//Randoms the x position that the platform will spawn
             if(i == platformCount)
             {
-                Instantiate(finalplatform, new Vector3(0, spawnposition.y + 1.2f), Quaternion.identity);
+                Instantiate(finalplatform, new Vector3(0, spawnposition.y + 1.2f), Quaternion.identity); //spawns the final platform if the for loop is equal to the platformCount
             }
-            else
+            else //randomly spawns the different type of platforms
             {
                 int randomnumber = Random.Range(0, 9);
 
@@ -148,6 +148,7 @@ public class Manager : MonoBehaviour
 
     private void SpawnStats() //Randomly spawns different resouces
     {
+        //randoms which resouce will spawn more than other
         int randompopularity = Random.Range(-15, 2);
         int randommoney = Random.Range(-13, 4);
         int randomhappiness = Random.Range(-15, 5);
@@ -166,7 +167,7 @@ public class Manager : MonoBehaviour
         }
     }
 
-    public void DisplayStats()
+    public void DisplayStats() //function to display the amount of resouce collected
     {
         PlayWin_Sfx();
         StartCoroutine(showstats());
@@ -197,6 +198,7 @@ public class Manager : MonoBehaviour
         pauseBtn.SetActive(false);
 
         //animation to change the number after you win   
+        //loop through the amount collected and show all the number when looping and stop the loop when the number shown is same as the amount collected
         for (int money = 0;  money <= moneyCount; money++)
         {
             if(_money.text == "+" + moneyCount.ToString())

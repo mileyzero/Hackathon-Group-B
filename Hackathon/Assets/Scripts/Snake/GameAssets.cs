@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameAssets : MonoBehaviour
 {
+    //used to store all the game assets
     public static GameAssets i;
 
     private void Awake()

@@ -28,7 +28,7 @@ public class Row : MonoBehaviour
         rowStopped = false;
         timeInterval = 0.025f;
 
-        for(int i = 0; i <30; i++)
+        for(int i = 0; i <30; i++) //for loop to make the row spin down the y axis
         {
             if(transform.position.y <= -6.25f)
             {
@@ -72,7 +72,7 @@ public class Row : MonoBehaviour
 
         }
 
-        if(transform.position.y <=-2f)
+        if(transform.position.y <=-2f) //if else statment to make the row snap into a resouces when the row stop between two resouce
         {
             if(transform.position.y <=-2.75f)
             {

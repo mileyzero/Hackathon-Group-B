@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void FixedUpdate() //updates the physics
     {
         Vector2 velocity = rb.velocity;
         velocity.x = moveX;

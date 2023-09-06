@@ -6,7 +6,7 @@ public class Doodle_Camera : MonoBehaviour
 {
     public Transform target;
 
-    private void LateUpdate()
+    private void LateUpdate() //to make the camera follow the player if the player moves above the camera
     {
         if(target.position.y > transform.position.y)
         {
