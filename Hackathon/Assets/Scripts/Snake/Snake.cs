@@ -131,9 +131,9 @@ public class Snake : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
-    private void HandleInput()
+    private void HandleInput() //handles the player input
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) //if player clicks move up
         {
             if (gridMoveDirection != Direction.Down)
             {
@@ -142,7 +142,7 @@ public class Snake : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) //if player clicks move down
         {
             if (gridMoveDirection != Direction.Up)
             {
@@ -150,7 +150,7 @@ public class Snake : MonoBehaviour
                 gridMoveDirection = Direction.Down;
             }
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) //if player clicks move left
         {
             if (gridMoveDirection != Direction.Right)
             {
@@ -158,7 +158,7 @@ public class Snake : MonoBehaviour
                 gridMoveDirection = Direction.Left;
             }
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) //if player clicks move right
         {
             if (gridMoveDirection != Direction.Left)
             {
@@ -168,7 +168,7 @@ public class Snake : MonoBehaviour
         }
     }
 
-    private void HandleGridMovement()
+    private void HandleGridMovement() //this function handle the snake movement on the level grid
     {
         gridMoveTimer += Time.deltaTime;
 
@@ -177,7 +177,7 @@ public class Snake : MonoBehaviour
             gridMoveTimer -= gridMoveTimerMax;
 
             SnakeMovePosition previousSnakeMovePosition = null;
-            if (snakeMovePositionList.Count > 0)
+            if (snakeMovePositionList.Count > 0) //store previous snake positon
             {
                 previousSnakeMovePosition = snakeMovePositionList[0];
             }
@@ -185,7 +185,7 @@ public class Snake : MonoBehaviour
             snakeMovePositionList.Insert(0, snakeMovePosition);
 
             Vector2Int girdMoveDirectionVector;
-            switch (gridMoveDirection)
+            switch (gridMoveDirection) //moves the snake based on player's input
             {
                 default:
                 case Direction.Right: girdMoveDirectionVector = new Vector2Int(1, 0); break;
@@ -197,7 +197,7 @@ public class Snake : MonoBehaviour
             gridposition += girdMoveDirectionVector;
 
             bool snakeAteFood = level_Grid.SnakeMoved(gridposition);
-            if (snakeAteFood)
+            if (snakeAteFood) //if snake ate the food
             {
                 //Snake body size increase by 1
                 AteFood_SFX();
@@ -215,7 +215,7 @@ public class Snake : MonoBehaviour
             foreach (SnakeBodyPart snakeBodyPart in snakeBodyList)
             {
                 Vector2Int snakebodyPartGridPosition = snakeBodyPart.GetGridPosition();
-                if(gridposition ==  snakebodyPartGridPosition)
+                if(gridposition ==  snakebodyPartGridPosition) //if snake ate its own body/ when the snake position is the same as the body part position
                 {
                     Debug.Log("Death");
                     AteFood_SFX();
@@ -231,18 +231,18 @@ public class Snake : MonoBehaviour
 
     private void CreateSnakeBody()
     {
-        snakeBodyList.Add(new SnakeBodyPart(snakeBodyList.Count));
+        snakeBodyList.Add(new SnakeBodyPart(snakeBodyList.Count)); //add the snake body parts into the list
     }
 
     private void UpdateSnakeBodyPart()
     {
         for (int i = 0; i < snakeBodyList.Count; i++)
         {
-            snakeBodyList[i].SetSnakeMovePosition(snakeMovePositionList[i]);
+            snakeBodyList[i].SetSnakeMovePosition(snakeMovePositionList[i]); //update the snake body part positions when the snake moves along the grid
         }
     }
 
-    private float GetAngleFromVector(Vector2Int dir)
+    private float GetAngleFromVector(Vector2Int dir) //this function is used to calculate the angle for the snake's corner body part move the snake moves
     {
         float n = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         if (n < 0) n += 360;

@@ -43,7 +43,7 @@ public class Golf_Ball : MonoBehaviour
 
     void Start()
     {
-        hole = GameObject.FindGameObjectWithTag("goal");
+        hole = GameObject.FindGameObjectWithTag("goal"); //finds and store the goal gameobject in the scene into the variable
         animator = gameObject.GetComponent<Animator>();
         //movesMade = 10;
         movesMade_txt.text = "Moves Left: " + movesMade.ToString();
@@ -122,16 +122,19 @@ public class Golf_Ball : MonoBehaviour
 
     private void DragChange(Vector2 pos) //draws the line between ball and mouse in the opposite direction to act like a guide
     {
-        Vector2 dir = (Vector2)transform.position - pos;
+        Vector2 dir = (Vector2)transform.position - pos; //calculate direction
+        //set the postion for the line renderer
         lineRenderer.SetPosition(0, transform.position);
         lineRenderer.SetPosition(1, (Vector2)transform.position + Vector2.ClampMagnitude((dir * power) / 2, maxPower / 2));
+        //set the rotation of the golf ball to face the direction the ball will move
         transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle + 90f));
         float distance = Vector2.Distance((Vector2)transform.position, pos);
         if(distance > 3.5 )
         {
+            //make the camera zooms out when the distance is greater than certain distance
             if(distance > 7)
             {
-                maincamera.orthographicSize = 7;
+                maincamera.orthographicSize = 7; //set max camera size
             }
             else
             {
@@ -140,7 +143,7 @@ public class Golf_Ball : MonoBehaviour
 
         }
 
-        if(distance > 4.5f)
+        if(distance > 4.5f) //if distance from the mouse and ball is greater than 4.5 then line color will change to red to indicate ball will fly
         {
             lineRenderer.startColor = Color.red;
         }
@@ -152,9 +155,9 @@ public class Golf_Ball : MonoBehaviour
     
     private void DragRelease(Vector2 pos) //calculates distance between mouse and ball then adds velocity to the ball in the opposite direction of the drag
     {
-        maincamera.orthographicSize = 3.5f;
+        maincamera.orthographicSize = 3.5f; //reset the camera size
         ball_released = true;
-        transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle + 90f));
+        transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle + 90f)); //set rotation of the golf ball
         animator.SetTrigger("isHit");
         float distance = Vector2.Distance((Vector2)transform.position, pos);
         isDragging = false;
@@ -194,7 +197,7 @@ public class Golf_Ball : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) //check for collsion with hole
+    private void OnTriggerEnter2D(Collider2D collision) //check for collsion with hole, sand and ice
     {
         
         if (collision.tag == "goal")
@@ -212,7 +215,7 @@ public class Golf_Ball : MonoBehaviour
         CheckCollectStats(collision);
     }
 
-    public void CheckCollectStats(Collider2D collision)
+    public void CheckCollectStats(Collider2D collision) //function to check if there is collision between resouces and the ball, and increase the collected based on the resouce collected
     {
         if (collision.tag == "doodleHappy")
         {
@@ -235,7 +238,7 @@ public class Golf_Ball : MonoBehaviour
     }
 
 
-    private void OnTriggerStay2D(Collider2D collision) //checks when the ball is staying in the hole
+    private void OnTriggerStay2D(Collider2D collision) //checks when the ball is staying in the hole, sand or ice
     {
         Debug.Log(collision.tag);
         if (collision.tag == "goal")
@@ -250,7 +253,7 @@ public class Golf_Ball : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision) //checks when ball exits sand or ice
     {
         
         //Debug.Log(collision.tag);

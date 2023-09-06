@@ -10,7 +10,7 @@ public class Death : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "doodle")
+        if(collision.tag == "doodle") //if the player collides with the death zone then player will die
         {
             losescreen.SetActive(true);
             Debug.Log("Die");
@@ -18,7 +18,7 @@ public class Death : MonoBehaviour
             StartCoroutine(TransitionToMainGame(1.5f));
         }
 
-        if(collision.tag == "platform")
+        if(collision.tag == "platform") //if the platform collides with the death zone then destory the platforms
         {
             Destroy(collision.gameObject);
         }

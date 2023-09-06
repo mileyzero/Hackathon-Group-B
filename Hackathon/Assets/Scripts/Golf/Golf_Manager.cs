@@ -33,8 +33,9 @@ public class Golf_Manager : MonoBehaviour
 
     public Animator transitionAnim;
 
-    public GameObject[] resources;
-    public List<GameObject> spawns = new List<GameObject>();
+    public GameObject[] resources; //store different type of resources
+    public List<GameObject> spawns = new List<GameObject>(); //store all the spawn points
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +48,7 @@ public class Golf_Manager : MonoBehaviour
        audioPlayer = gameObject.GetComponent<AudioSource>();
     }
 
-    public void PlayeSwing()
+    public void PlayeSwing() //sound effect for when player swing golf
     {
         int randomaudio = Random.Range(0, swing_audioClips.Length);
         AudioClip swing = swing_audioClips[randomaudio];
@@ -56,34 +57,34 @@ public class Golf_Manager : MonoBehaviour
         audioPlayer.Play();
     }
 
-    public void PlayeInHole()
+    public void PlayeInHole() //sound effect for ball in hole
     {
         audioPlayer.clip = inhole;
         audioPlayer.Play();
     }
 
-    public void PlayeLightTap()
+    public void PlayeLightTap() //sound effect for light tapping golf ball
     {
         audioPlayer.clip = lightap;
         audioPlayer.Play();
     }
 
-    public void PlayCollect()
+    public void PlayCollect() //sound effect for collecting resources
     {
         audioPlayer.clip = collect_sfx;
         audioPlayer.Play();
     }
 
-    public void PauseMenu()
+    public void PauseMenu() //function for when player clicks pause button
     {
-        pauseMenu.SetActive(true);
-        Time.timeScale = 0;
+        pauseMenu.SetActive(true); //enable pause screen
+        Time.timeScale = 0; //stop time
     }
 
-    public void Resume()
+    public void Resume() //function for when player clicks resume
     {
         pauseMenu.SetActive(false);
-        Time.timeScale = 1;
+        Time.timeScale = 1; //resume time
     }
 
     private void Update()
@@ -98,22 +99,23 @@ public class Golf_Manager : MonoBehaviour
         StartCoroutine(WinCorotine());
     }
 
-    IEnumerator EnableGame()
+    IEnumerator EnableGame() //when game starts
     {
         yield return new WaitForSeconds(2f);
-        golf_game.SetActive(true);
-        Golf_title.SetActive(false);
-        GameObject[] spawnpoints = GameObject.FindGameObjectsWithTag("golf_spawnpoints");
+        golf_game.SetActive(true); //enable golf course
+        Golf_title.SetActive(false); 
+        GameObject[] spawnpoints = GameObject.FindGameObjectsWithTag("golf_spawnpoints"); //find the spawn points in the scene and store all the spawn points into the array
         spawns.AddRange(spawnpoints);
         SpawnRandom_Resources();
 
     }
 
-    IEnumerator WinCorotine()
+    IEnumerator WinCorotine() //coroutine for when ball goes into hole
     {
         StoreGame.golfAchCount += 03;
         pauseBtn.SetActive(false);
 
+        //the if statements are used to figure out which level the player has completed to make the spawning of the golf level more sequence based
         if (SceneManager.GetActiveScene().name == "Golf Level 1")
         {
             GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().golfwon_Level1 = true;
@@ -148,12 +150,15 @@ public class Golf_Manager : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
+        //increase the stats based on the amount the player colleted in the level
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money += moneycollected + 6;
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity += popularitycollected + 6;
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.happiness += happycollected + 6;
 
+        //enable the main game
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>()._maingame.gameObject.SetActive(true);
 
+        //update the slider based on the resouces collected
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.moneySlider.value = GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.money;
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularitySlider.value = GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.popularity;
         GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.happinessSlider.value = GameObject.FindGameObjectWithTag("store_game").GetComponent<StoreGame>().gameManager.happiness;
@@ -167,12 +172,12 @@ public class Golf_Manager : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
-    public void SpawnRandom_Resources()
+    public void SpawnRandom_Resources() //fuction to spawn random resouces into the spawn points in the scene
     {
-        for(int i = 0; i <spawns.Count; i++)
+        for(int i = 0; i <spawns.Count; i++) //loops through the resouces and spawnpoints array
         {
             int number; 
-            GameObject spawned = Instantiate(resources[number = Random.Range(0, resources.Length)], new Vector3(spawns[i].transform.position.x, spawns[i].transform.position.y), Quaternion.identity);
+            GameObject spawned = Instantiate(resources[number = Random.Range(0, resources.Length)], new Vector3(spawns[i].transform.position.x, spawns[i].transform.position.y), Quaternion.identity); //randoms the resouces and spawns it into the spawn points
             spawned.transform.SetParent(spawns[i].transform);
         }
     }
