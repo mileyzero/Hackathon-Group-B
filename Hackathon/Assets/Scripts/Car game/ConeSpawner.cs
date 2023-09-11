@@ -6,12 +6,12 @@ public class ConeSpawner : MonoBehaviour
 {
     public GameObject cone;
     public GameObject truck;
-    public GameObject[] resources;
+    public GameObject[] resources; //used to store the prefab of the 3 resources
     public float maxPos;
     public float delaytimer = 1f;
     public float delaystats = 2.8f;
     public float randomnumber;
-    public Vector3 conePos;
+    public Vector3 conePos; //position the cone will spawn
     float timer;
     float statstimer;
     // Start is called before the first frame update

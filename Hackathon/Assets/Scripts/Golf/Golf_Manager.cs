@@ -27,9 +27,9 @@ public class Golf_Manager : MonoBehaviour
     public TextMeshProUGUI happy;
     public TextMeshProUGUI popular;
 
-    public int moneycollected;
-    public int happycollected;
-    public int popularitycollected;
+    public int moneycollected; //store the amount of money collected
+    public int happycollected; //store the amount of happiness collected
+    public int popularitycollected; //store the amount of popularity collected
 
     public Animator transitionAnim;
 

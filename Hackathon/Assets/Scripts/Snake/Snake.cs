@@ -22,7 +22,7 @@ public class Snake : MonoBehaviour
 
     }
 
-    private enum State
+    private enum State //states the snake can be in
     {
         Alive,
         Dead
@@ -30,7 +30,7 @@ public class Snake : MonoBehaviour
 
     private State state;
     private Direction gridMoveDirection;
-    private Vector2Int gridposition;
+    private Vector2Int gridposition; //level grid
     private float gridMoveTimer;
     public float gridMoveTimerMax;
     private Level_Grid level_Grid;
@@ -49,8 +49,8 @@ public class Snake : MonoBehaviour
 
     public GameObject background_music;
 
-    private List<SnakeMovePosition> snakeMovePositionList;
-    private List<SnakeBodyPart> snakeBodyList;
+    private List<SnakeMovePosition> snakeMovePositionList; //store the position the snake has moved
+    private List<SnakeBodyPart> snakeBodyList; //store the snake's body parts
 
     public void SetUp(Level_Grid level_Grid)
     {

@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 10f;
     public Rigidbody2D rb;
-    public float moveX;
+    public float moveX; //player input on the horizontal axis
     public GameObject manager;
     public GameObject tutorial;
     // Start is called before the first frame update

@@ -8,7 +8,7 @@ using TMPro;
 
 public class Control : MonoBehaviour
 {
-    public static event Action ButtonPressed = delegate { };
+    public static event Action ButtonPressed = delegate { }; //initialize the ButtonPressed event
 
     public TextMeshProUGUI result;
 

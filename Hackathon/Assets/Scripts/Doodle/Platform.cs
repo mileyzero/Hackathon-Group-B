@@ -10,7 +10,7 @@ public class Platform : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject manager;
     public EdgeCollider2D edgeCollider;
-    public Vector2 beforelocation;
+    public Vector2 beforelocation; //original position of the platform
 
     public void Awake()
     {

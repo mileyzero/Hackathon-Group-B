@@ -8,12 +8,12 @@ using TMPro;
 public class CarController : MonoBehaviour
 {
     private Car_Collect stats;
-
+     
     public MiniGameTimer gmTime;
 
     public float carSpeed;
-    Vector3 carPosition;
-    public float maxPos;
+    Vector3 carPosition; //used to store position of the car
+    public float maxPos; //used to store the maximum x position of the road
 
     public GameObject win;
     public GameObject lose_scn;
@@ -29,8 +29,8 @@ public class CarController : MonoBehaviour
     public AudioClip lose_sfx;
     public AudioClip win_sfx;
 
-    public Slider carslider;
-    public float timer;
+    public Slider carslider; //used to show the timer slider
+    public float timer; //timer for the slider
     public float currentTime;
     public bool timerrunning = false;
     public bool lose = false;

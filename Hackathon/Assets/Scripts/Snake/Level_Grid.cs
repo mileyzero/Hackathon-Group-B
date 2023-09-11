@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Level_Grid
 {
-    private Vector2Int foodGridposition;
+    private Vector2Int foodGridposition; //position the food will spawn on the grid
     private GameObject foodGameObject;
     private int width;
     private int height;

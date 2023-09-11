@@ -29,7 +29,7 @@ public class Golf_Ball : MonoBehaviour
     [SerializeField] private float drag = 0.9f;
     [SerializeField] private float maxGoalSpeed = 4f;
     [SerializeField] private TextMeshProUGUI movesMade_txt;
-    [SerializeField] private int movesMade;
+    [SerializeField] private int movesMade; //used to store the amount of moves left for the player
 
     private bool ball_released;
     private bool cancel;
