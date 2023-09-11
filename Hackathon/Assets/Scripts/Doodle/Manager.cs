@@ -40,14 +40,14 @@ public class Manager : MonoBehaviour
     public TextMeshProUGUI _popularitypause;
     public TextMeshProUGUI _happinesspause;
 
-    public int platformCount;
+    public int platformCount; //used to store the amount of platforms that will spawn
     public int numberofstats;
     public GameObject finalplatform;
     public GameObject win;
     public GameObject popularity;
     public GameObject money;
     public GameObject happiness;
-    Vector3 spawnposition;
+    Vector3 spawnposition; //position the platforms will spawn
 
     public Animator transitionAnim;
 

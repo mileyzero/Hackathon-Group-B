@@ -9,7 +9,7 @@ public class Row : MonoBehaviour
     private float timeInterval;
 
     public bool rowStopped;
-    public string stoppedslot;
+    public string stoppedslot; //store the value of the result of each slot after spinning
     // Start is called before the first frame update
     void Start()
     {
